@@ -1,0 +1,110 @@
+{
+	"root": false,
+	"$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": true },
+	"files": {
+		"ignoreUnknown": false,
+		"includes": ["**"]
+	},
+	"formatter": { "enabled": true },
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on",
+				"useSortedKeys": "on",
+				"useSortedAttributes": "on",
+				"useSortedProperties": "on"
+			}
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"domains": {
+			"next": "recommended"
+		},
+		"rules": {
+			"recommended": false,
+			"complexity": {
+				"noUselessTypeConstraint": "error",
+				"noUselessTernary": "error",
+				"noUselessFragments": "error",
+				"noBannedTypes": "error"
+			},
+			"correctness": {
+				"noUnusedVariables": "error",
+				"noConstAssign": "error",
+				"noUndeclaredVariables": "error",
+				"noUnreachable": "error",
+				"noChildrenProp": "error",
+				"useJsxKeyInIterable": "error",
+				"useHookAtTopLevel": "error",
+				"noUnusedImports": "error",
+				"useValidTypeof": "error"
+			},
+			"style": {
+				"noNamespace": "error",
+				"useAsConstAssertion": "error",
+				"useConst": "error",
+				"useArrayLiterals": "off",
+				"noCommonJs": "error"
+			},
+			"suspicious": {
+				"noExplicitAny": "error",
+				"noExtraNonNullAssertion": "error",
+				"noMisleadingInstantiator": "error",
+				"noUnsafeDeclarationMerging": "error",
+				"useNamespaceKeyword": "warn",
+				"noDoubleEquals": "error",
+				"useDefaultSwitchClauseLast": "warn",
+				"noDebugger": "error",
+				"noDuplicateCase": "error",
+				"noDuplicateObjectKeys": "error",
+				"noImportAssign": "error",
+				"useAwait": "error",
+				"noDuplicateJsxProps": "error",
+				"noCommentText": "error",
+				"useGoogleFontDisplay": "error",
+				"noShadowRestrictedNames": "warn"
+			},
+			"a11y": {
+				"useButtonType": "error"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "error"
+			},
+			"performance": {
+				"noImgElement": "off"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": { "quoteStyle": "double" },
+		"globals": ["$", "_", "React"]
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noGlobalObjectCalls": "off",
+						"noInvalidBuiltinInstantiation": "off",
+						"noInvalidConstructorSuper": "off",
+						"noUnreachableSuper": "off"
+					},
+					"style": {
+						"useConst": "error"
+					},
+					"suspicious": {
+						"noClassAssign": "off",
+						"noVar": "error"
+					},
+					"complexity": {
+						"noArguments": "error"
+					}
+				}
+			}
+		}
+	]
+}
