@@ -1,8 +1,12 @@
 import { Scalar } from "@scalar/hono-api-reference";
 import type { AppOpenAPI } from "./types";
 
+const defaultUrl = process.env.VERCEL_URL
+	? `https://${process.env.VERCEL_URL}`
+	: "http://localhost:3000";
+
 export default function configureOpenAPI(app: AppOpenAPI) {
-	app.doc("/api/doc", {
+	app.doc("api/doc", {
 		openapi: "3.0.0",
 		info: {
 			version: "1.0.0",
@@ -11,7 +15,7 @@ export default function configureOpenAPI(app: AppOpenAPI) {
 	});
 
 	app.get(
-		"/api/reference",
+		"api/reference",
 		Scalar({
 			url: "http://localhost:3000/api/doc",
 			theme: "fastify",
@@ -35,6 +39,12 @@ export default function configureOpenAPI(app: AppOpenAPI) {
 					},
 				},
 			},
+			servers: [
+				{
+					url: `${defaultUrl}`,
+					description: "Local server",
+				},
+			],
 			persistAuth: true,
 		}),
 	);

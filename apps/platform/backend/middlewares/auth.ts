@@ -30,14 +30,20 @@ export const authMiddleware = createMiddleware<AppBindings>(async (c, next) => {
 			error,
 		} = await supabase.auth.getUser(jwt);
 
-		if (error || !user) {
-			throw new HTTPException(401, { message: "Invalid or expired token" });
+		if (error) {
+			throw new HTTPException(401, { message: error.message });
+		}
+
+		if (!user) {
+			throw new HTTPException(401, { message: "User not found" });
 		}
 
 		// Set user data in context for use in routes
 		c.set("user", user);
 		c.set("supabase", supabase);
 		c.set("userId", user.id);
+
+		console.log("user", user);
 
 		await next();
 	} catch (error) {

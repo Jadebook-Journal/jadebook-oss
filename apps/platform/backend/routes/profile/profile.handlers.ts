@@ -28,7 +28,7 @@ export const getUserProfile: AppRouteHandler<GetUserProfileRoute> = async (
 			.single();
 
 		if (error) {
-			throw new Error("Profile fetch failed");
+			throw new Error(error.message);
 		}
 
 		return data;
@@ -38,7 +38,9 @@ export const getUserProfile: AppRouteHandler<GetUserProfileRoute> = async (
 		const profile = await fetchProfile();
 
 		return c.json(profile, HttpStatusCodes.OK);
-	} catch {
+	} catch (error) {
+		console.error(error);
+
 		return c.json(
 			{
 				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR,
@@ -59,7 +61,10 @@ export const updateUserProfile: AppRouteHandler<
 		// Update the profile
 		const { error } = await supabase
 			.from("user")
-			.update(updateData)
+			.update({
+				...updateData,
+				updated_at: new Date().toISOString(),
+			})
 			.eq("id", userId);
 
 		if (error) {

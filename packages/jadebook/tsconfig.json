@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"composite": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"declarationMap": false,
+		"outDir": "dist/types-temp",
+		"rootDir": "src",
+		"strict": true,
+		"module": "ESNext",
+		"target": "ESNext",
+		"moduleResolution": "bundler",
+		"skipLibCheck": true
+	},
+	"include": ["src"]
+}

@@ -29,12 +29,18 @@ export default async function ProtectedLayout({
 		return redirect("/sign-in");
 	}
 
+	console.log(session.access_token);
+
 	const _defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
 	return (
 		<main className="min-h-screen flex flex-col items-center">
 			<div className="flex-1 w-full flex flex-col gap-20 items-center">
 				{children}
+
+				<div className="p-5 bg-gray-50 border">
+					<p className="text-sm font-semibold">{session.access_token}</p>
+				</div>
 			</div>
 		</main>
 	);

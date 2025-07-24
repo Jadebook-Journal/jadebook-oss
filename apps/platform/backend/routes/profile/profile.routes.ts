@@ -3,6 +3,7 @@ import * as HttpStatusCodes from "stoker/http-status-codes";
 import * as HttpStatusPhrases from "stoker/http-status-phrases";
 import { jsonContent } from "stoker/openapi/helpers";
 import { createMessageObjectSchema } from "stoker/openapi/schemas";
+import { selectProfileResponse, updateProfileBody } from "./profile.validation";
 
 const tags = ["Profile"];
 
@@ -11,27 +12,16 @@ const internalServerErrorSchema = createMessageObjectSchema(
 );
 
 export const getUserProfile = createRoute({
-	path: "/profile",
+	path: "/api/profile",
 	summary: "Get profile",
 	description: "Gets the user's profile",
 	method: "get",
 	tags,
 	responses: {
 		[HttpStatusCodes.OK]: jsonContent(
-			z.object({
-				created_at: z.string(),
-				current_streak: z.number(),
-				id: z.string(),
-				last_entry_date: z.string().nullable(),
-				longest_streak: z.number(),
-				profile_image: z.string().nullable(),
-				theme: z.string().nullable(),
-				updated_at: z.string(),
-				username: z.string().nullable(),
-			}),
+			selectProfileResponse,
 			"The requested profile",
 		),
-
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
@@ -48,21 +38,12 @@ export const getUserProfile = createRoute({
 });
 
 export const updateUserProfile = createRoute({
-	path: "/profile",
+	path: "/api/profile",
 	summary: "Update profile",
 	description: "Updates the user's profile",
 	method: "put",
 	request: {
-		body: jsonContent(
-			z.object({
-				user_id: z.string(),
-				username: z.string(),
-				email: z.string(),
-				profile_image: z.string(),
-				created_at: z.string(),
-			}),
-			"Profile update data",
-		),
+		body: jsonContent(updateProfileBody, "Profile update data"),
 	},
 	tags,
 	responses: {
