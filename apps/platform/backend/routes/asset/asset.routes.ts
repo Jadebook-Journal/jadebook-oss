@@ -58,7 +58,7 @@ export const getAssets = createRoute({
 });
 
 export const getAsset = createRoute({
-	path: "/api/assets/{assetId}",
+	path: "/api/assets/{id}",
 	summary: "Get asset",
 	description: "Gets a single asset by ID",
 	method: "get",
@@ -125,7 +125,7 @@ export const createAsset = createRoute({
 });
 
 export const updateAsset = createRoute({
-	path: "/api/assets/{assetId}",
+	path: "/api/assets/{id}",
 	summary: "Update asset",
 	description: "Updates an asset record. Supports partial updates.",
 	method: "put",
@@ -163,7 +163,7 @@ export const updateAsset = createRoute({
 });
 
 export const deleteAsset = createRoute({
-	path: "/api/assets/{assetId}",
+	path: "/api/assets/{id}",
 	summary: "Delete asset",
 	description: "Deletes an asset from both storage and database",
 	method: "delete",

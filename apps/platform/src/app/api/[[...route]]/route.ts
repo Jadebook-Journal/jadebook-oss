@@ -11,6 +11,7 @@ import document from "@backend/routes/document/document.index";
 import goal from "@backend/routes/goal/goal.index";
 import logs from "@backend/routes/logs/logs.index";
 import tag from "@backend/routes/tag/tag.index";
+import misc from "@backend/routes/misc/misc.index";
 
 export const runtime = "edge";
 
@@ -22,7 +23,16 @@ configureOpenAPI(app);
 app.use("/*", authMiddleware);
 
 // add all the other routes
-const routes = [index, profile, asset, document, goal, logs, tag] as const;
+const routes = [
+	index,
+	profile,
+	asset,
+	document,
+	goal,
+	logs,
+	tag,
+	misc,
+] as const;
 
 routes.forEach((route) => {
 	app.route("/", route);

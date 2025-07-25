@@ -1,6 +1,8 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { Suspense } from "react";
+import { QueryProvider } from "@/providers/query-provider";
 
 export default async function ProtectedLayout({
 	children,
@@ -34,14 +36,35 @@ export default async function ProtectedLayout({
 	const _defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
 	return (
-		<main className="min-h-screen flex flex-col items-center">
-			<div className="flex-1 w-full flex flex-col gap-20 items-center">
-				{children}
+		<Suspense>
+			<QueryProvider>
+				<div className="bg-background">
+					<AppStoreProvider
+						initialState={{
+							profile: profile,
+							pinnedResources: pinned,
+							tags: tags,
+							session,
+						}}
+					>
+						<ThemeHandler>
+							<PasscodeLayer>
+								<SidebarProvider defaultOpen={defaultOpen}>
+									<AppSidebar />
 
-				<div className="p-5 bg-gray-50 border">
-					<p className="text-sm font-semibold">{session.access_token}</p>
+									<MainContainer>
+										{children}
+
+										<SaveLayer />
+
+										<GlobalCommandCenter />
+									</MainContainer>
+								</SidebarProvider>
+							</PasscodeLayer>
+						</ThemeHandler>
+					</AppStoreProvider>
 				</div>
-			</div>
-		</main>
+			</QueryProvider>
+		</Suspense>
 	);
 }

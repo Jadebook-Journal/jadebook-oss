@@ -9,7 +9,8 @@
 		"lint": "biome lint ./src",
 		"format": "biome check ./src --write",
 		"supabase-typegen": "pnpm dlx supabase gen types typescript --local --schema public > src/lib/supabase/types.ts",
-		"add-component": "pnpm dlx shadcn@latest add"
+		"add-component": "pnpm dlx shadcn@latest add",
+		"sync-api": "orval --config orval.config.js"
 	},
 	"dependencies": {
 		"@hono/zod-openapi": "^1.0.0",
@@ -39,13 +40,15 @@
 		"sonner": "^2.0.6",
 		"stoker": "^1.4.3",
 		"tailwind-merge": "^3.3.1",
-		"zod": "^4.0.5"
+		"zod": "^4.0.5",
+		"zustand": "^5.0.6"
 	},
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"orval": "^7.10.0",
 		"postgres": "^3.4.7",
 		"supabase": "^2.31.4",
 		"tailwindcss": "^4",
