@@ -1,32 +1,35 @@
 import type { Session } from "@supabase/supabase-js";
 import { create } from "zustand";
 import type {
-	GetMiscPinned200,
+	GetApiMiscPinned200,
 	GetApiProfile200,
 	GetApiTags200Item,
 } from "@/api-client";
-import type { Theme } from "@/features/theme";
+
+import type { AppConfig } from "@/types/config";
+import type { SavedThemeSettings } from "@/types/theme";
 
 export interface AppState {
 	profile: GetApiProfile200;
-	pinnedResources: GetMiscPinned200;
+	pinnedResources: GetApiMiscPinned200;
 	tags: GetApiTags200Item[];
-	isPro: boolean;
 	session: Session;
-	theme: Theme;
+	theme: SavedThemeSettings;
+	config: AppConfig;
 	commandCenterOpen: boolean;
-	updatePinnedResources: (pinnedResources: GetMiscPinned200) => void;
+	updatePinnedResources: (pinnedResources: GetApiMiscPinned200) => void;
 	updateTag: (tag: GetApiTags200Item) => void;
 	updateTags: (tags: GetApiTags200Item[]) => void;
 	updateProfile: (profile: Partial<GetApiProfile200>) => void;
-	updateTheme: (theme: Theme) => void;
+	updateTheme: (theme: SavedThemeSettings) => void;
+	updateConfig: (config: AppConfig) => void;
 	updateCommandCenterOpen: (open: boolean) => void;
 }
 
 export const createAppStore = (
 	initialState: Pick<
 		AppState,
-		"profile" | "pinnedResources" | "tags" | "theme" | "session" | "isPro"
+		"profile" | "pinnedResources" | "tags" | "theme" | "session" | "config"
 	>,
 ) => {
 	return create<AppState>((set) => ({
@@ -49,11 +52,15 @@ export const createAppStore = (
 			set((state) => ({
 				...state.profile,
 				...profile,
+				config: state.config,
 				theme: state.theme,
 			}));
 		},
 		updateTheme: (theme) => {
 			set({ theme });
+		},
+		updateConfig: (config) => {
+			set({ config });
 		},
 		updateCommandCenterOpen: (open) => {
 			set({ commandCenterOpen: open });

@@ -1,6 +1,7 @@
 import { z } from "@hono/zod-openapi";
 
 export const selectProfileResponse = z.object({
+	config: z.string().nullable(),
 	created_at: z.string(),
 	current_streak: z.number(),
 	id: z.string().openapi({
@@ -19,6 +20,7 @@ export const updateProfileBody = z
 	.object({
 		profile_image: z.string().nullable().optional(),
 		theme: z.string().nullable().optional(),
+		config: z.string().nullable().optional(),
 		username: z.string().nullable().optional(),
 	})
 	.openapi({

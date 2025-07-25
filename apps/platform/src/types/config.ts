@@ -1,6 +1,4 @@
-import type { themeAccentPresets, themeBasePresets } from "./presets";
-
-export type Theme = {
+export type AppConfig = {
 	features: {
 		prompted: boolean;
 		guided: boolean;
@@ -9,9 +7,7 @@ export type Theme = {
 		chat: boolean;
 		insights: boolean;
 	};
-	behavior: {
-		disablePromptRefresh: boolean;
-	};
+	behavior: null;
 	layout: {
 		sidebarVariant: "default" | "floating" | "inset";
 		sidebarHiddenState: "offcanvas" | "icon" | "none";
@@ -19,9 +15,5 @@ export type Theme = {
 		documentLayout: "grid" | "list" | "monthly";
 		sortDate: "created_at" | "updated_at" | "document_date";
 		showItemIcon: boolean;
-	};
-	color: {
-		base_theme: keyof typeof themeBasePresets;
-		accent_theme: keyof typeof themeAccentPresets;
 	};
 };

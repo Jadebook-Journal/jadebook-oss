@@ -1,0 +1,3 @@
+The handling of the theme is heavily based on the implementation done in [shadcn/studio](https://github.com/themeselection/shadcn-studio). 
+
+Jadebook originally had a custom theme implementation that handled users setting different colors but the one from `themeselection` is simply way better, has more base presets, and also handles fonts and other aspects of Shadcn/UI components. We obviously had to change some stuff to match how Jadebook OSS works.

@@ -13,7 +13,7 @@ const internalServerErrorSchema = createMessageObjectSchema(
 );
 
 export const getPinnedResources = createRoute({
-	path: "/misc/pinned",
+	path: "/api/misc/pinned",
 	summary: "Get pinned resources",
 	description:
 		"Returns pinned resources including entries and goals. This is mainly meant for the sidebar.",

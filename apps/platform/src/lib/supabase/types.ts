@@ -259,6 +259,7 @@ export type Database = {
       }
       user: {
         Row: {
+          config: string | null
           created_at: string
           current_streak: number
           id: string
@@ -270,6 +271,7 @@ export type Database = {
           username: string | null
         }
         Insert: {
+          config?: string | null
           created_at?: string
           current_streak?: number
           id?: string
@@ -281,6 +283,7 @@ export type Database = {
           username?: string | null
         }
         Update: {
+          config?: string | null
           created_at?: string
           current_streak?: number
           id?: string

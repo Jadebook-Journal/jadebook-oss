@@ -30,6 +30,8 @@ export type GetApiDoc200 = {
 };
 
 export type GetApiProfile200 = {
+	/** @nullable */
+	config: string | null;
 	created_at: string;
 	current_streak: number;
 	/** The user's unique ID — reference to the Supabase Auth user ID */
@@ -66,6 +68,8 @@ export type PutApiProfileBody = {
 	profile_image?: string | null;
 	/** @nullable */
 	theme?: string | null;
+	/** @nullable */
+	config?: string | null;
 	/** @nullable */
 	username?: string | null;
 };
@@ -1374,7 +1378,7 @@ export type GetApiTagsIdGoals500 = {
 	message: string;
 };
 
-export type GetMiscPinned200EntriesItem = {
+export type GetApiMiscPinned200EntriesItem = {
 	id: string;
 	title: string;
 	pinned: boolean;
@@ -1383,7 +1387,7 @@ export type GetMiscPinned200EntriesItem = {
 	icon: string | null;
 };
 
-export type GetMiscPinned200GoalsItem = {
+export type GetApiMiscPinned200GoalsItem = {
 	id: string;
 	title: string;
 	pinned: boolean;
@@ -1391,20 +1395,20 @@ export type GetMiscPinned200GoalsItem = {
 	icon: string | null;
 };
 
-export type GetMiscPinned200 = {
-	entries: GetMiscPinned200EntriesItem[];
-	goals: GetMiscPinned200GoalsItem[];
+export type GetApiMiscPinned200 = {
+	entries: GetApiMiscPinned200EntriesItem[];
+	goals: GetApiMiscPinned200GoalsItem[];
 };
 
-export type GetMiscPinned401 = {
+export type GetApiMiscPinned401 = {
 	message: string;
 };
 
-export type GetMiscPinned429 = {
+export type GetApiMiscPinned429 = {
 	message: string;
 };
 
-export type GetMiscPinned500 = {
+export type GetApiMiscPinned500 = {
 	message: string;
 };
 
@@ -1424,7 +1428,7 @@ export type getApiDocResponse = getApiDocResponseComposite & {
 };
 
 export const getGetApiDocUrl = () => {
-	return `http://localhost:3000/api/api/doc`;
+	return `http://localhost:3000/api/doc`;
 };
 
 export const getApiDoc = async (
@@ -1446,7 +1450,7 @@ export const getApiDoc = async (
 };
 
 export const getGetApiDocQueryKey = () => {
-	return [`http://localhost:3000/api/api/doc`] as const;
+	return [`http://localhost:3000/api/doc`] as const;
 };
 
 export const getGetApiDocInfiniteQueryOptions = <
@@ -1740,7 +1744,7 @@ export type getApiProfileResponse = getApiProfileResponseComposite & {
 };
 
 export const getGetApiProfileUrl = () => {
-	return `http://localhost:3000/api/api/profile`;
+	return `http://localhost:3000/api/profile`;
 };
 
 export const getApiProfile = async (
@@ -1762,7 +1766,7 @@ export const getApiProfile = async (
 };
 
 export const getGetApiProfileQueryKey = () => {
-	return [`http://localhost:3000/api/api/profile`] as const;
+	return [`http://localhost:3000/api/profile`] as const;
 };
 
 export const getGetApiProfileInfiniteQueryOptions = <
@@ -2068,7 +2072,7 @@ export type putApiProfileResponse = putApiProfileResponseComposite & {
 };
 
 export const getPutApiProfileUrl = () => {
-	return `http://localhost:3000/api/api/profile`;
+	return `http://localhost:3000/api/profile`;
 };
 
 export const putApiProfile = async (
@@ -2228,8 +2232,8 @@ export const getGetApiAssetsUrl = (params?: GetApiAssetsParams) => {
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/api/assets?${stringifiedParams}`
-		: `http://localhost:3000/api/api/assets`;
+		? `http://localhost:3000/api/assets?${stringifiedParams}`
+		: `http://localhost:3000/api/assets`;
 };
 
 export const getApiAssets = async (
@@ -2253,7 +2257,7 @@ export const getApiAssets = async (
 
 export const getGetApiAssetsQueryKey = (params?: GetApiAssetsParams) => {
 	return [
-		`http://localhost:3000/api/api/assets`,
+		`http://localhost:3000/api/assets`,
 		...(params ? [params] : []),
 	] as const;
 };
@@ -2617,7 +2621,7 @@ export type postApiAssetsResponse = postApiAssetsResponseComposite & {
 };
 
 export const getPostApiAssetsUrl = () => {
-	return `http://localhost:3000/api/api/assets`;
+	return `http://localhost:3000/api/assets`;
 };
 
 export const postApiAssets = async (
@@ -2772,7 +2776,7 @@ export type getApiAssetsIdResponse = getApiAssetsIdResponseComposite & {
 };
 
 export const getGetApiAssetsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/assets/${id}`;
+	return `http://localhost:3000/api/assets/${id}`;
 };
 
 export const getApiAssetsId = async (
@@ -2795,7 +2799,7 @@ export const getApiAssetsId = async (
 };
 
 export const getGetApiAssetsIdQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/api/assets/${id}`] as const;
+	return [`http://localhost:3000/api/assets/${id}`] as const;
 };
 
 export const getGetApiAssetsIdInfiniteQueryOptions = <
@@ -3185,7 +3189,7 @@ export type putApiAssetsIdResponse = putApiAssetsIdResponseComposite & {
 };
 
 export const getPutApiAssetsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/assets/${id}`;
+	return `http://localhost:3000/api/assets/${id}`;
 };
 
 export const putApiAssetsId = async (
@@ -3344,7 +3348,7 @@ export type deleteApiAssetsIdResponse = deleteApiAssetsIdResponseComposite & {
 };
 
 export const getDeleteApiAssetsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/assets/${id}`;
+	return `http://localhost:3000/api/assets/${id}`;
 };
 
 export const deleteApiAssetsId = async (
@@ -3498,7 +3502,7 @@ export type postApiAssetsSignedUrlResponse =
 	};
 
 export const getPostApiAssetsSignedUrlUrl = () => {
-	return `http://localhost:3000/api/api/assets/signed-url`;
+	return `http://localhost:3000/api/assets/signed-url`;
 };
 
 export const postApiAssetsSignedUrl = async (
@@ -3650,7 +3654,7 @@ export type postApiAssetsUploadResponse =
 	};
 
 export const getPostApiAssetsUploadUrl = () => {
-	return `http://localhost:3000/api/api/assets/upload`;
+	return `http://localhost:3000/api/assets/upload`;
 };
 
 export const postApiAssetsUpload = async (
@@ -3818,8 +3822,8 @@ export const getGetApiDocumentsUrl = (params?: GetApiDocumentsParams) => {
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/api/documents?${stringifiedParams}`
-		: `http://localhost:3000/api/api/documents`;
+		? `http://localhost:3000/api/documents?${stringifiedParams}`
+		: `http://localhost:3000/api/documents`;
 };
 
 export const getApiDocuments = async (
@@ -3843,7 +3847,7 @@ export const getApiDocuments = async (
 
 export const getGetApiDocumentsQueryKey = (params?: GetApiDocumentsParams) => {
 	return [
-		`http://localhost:3000/api/api/documents`,
+		`http://localhost:3000/api/documents`,
 		...(params ? [params] : []),
 	] as const;
 };
@@ -4227,7 +4231,7 @@ export type postApiDocumentsResponse = postApiDocumentsResponseComposite & {
 };
 
 export const getPostApiDocumentsUrl = () => {
-	return `http://localhost:3000/api/api/documents`;
+	return `http://localhost:3000/api/documents`;
 };
 
 export const postApiDocuments = async (
@@ -4382,7 +4386,7 @@ export type getApiDocumentsIdResponse = getApiDocumentsIdResponseComposite & {
 };
 
 export const getGetApiDocumentsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/documents/${id}`;
+	return `http://localhost:3000/api/documents/${id}`;
 };
 
 export const getApiDocumentsId = async (
@@ -4405,7 +4409,7 @@ export const getApiDocumentsId = async (
 };
 
 export const getGetApiDocumentsIdQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/api/documents/${id}`] as const;
+	return [`http://localhost:3000/api/documents/${id}`] as const;
 };
 
 export const getGetApiDocumentsIdInfiniteQueryOptions = <
@@ -4815,7 +4819,7 @@ export type putApiDocumentsIdResponse = putApiDocumentsIdResponseComposite & {
 };
 
 export const getPutApiDocumentsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/documents/${id}`;
+	return `http://localhost:3000/api/documents/${id}`;
 };
 
 export const putApiDocumentsId = async (
@@ -4975,7 +4979,7 @@ export type deleteApiDocumentsIdResponse =
 	};
 
 export const getDeleteApiDocumentsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/documents/${id}`;
+	return `http://localhost:3000/api/documents/${id}`;
 };
 
 export const deleteApiDocumentsId = async (
@@ -5134,7 +5138,7 @@ export type getApiDocumentsIdMetadataResponse =
 	};
 
 export const getGetApiDocumentsIdMetadataUrl = (id: string) => {
-	return `http://localhost:3000/api/api/documents/${id}/metadata`;
+	return `http://localhost:3000/api/documents/${id}/metadata`;
 };
 
 export const getApiDocumentsIdMetadata = async (
@@ -5159,7 +5163,7 @@ export const getApiDocumentsIdMetadata = async (
 };
 
 export const getGetApiDocumentsIdMetadataQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/api/documents/${id}/metadata`] as const;
+	return [`http://localhost:3000/api/documents/${id}/metadata`] as const;
 };
 
 export const getGetApiDocumentsIdMetadataInfiniteQueryOptions = <
@@ -5581,8 +5585,8 @@ export const getGetApiGoalsUrl = (params?: GetApiGoalsParams) => {
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/api/goals?${stringifiedParams}`
-		: `http://localhost:3000/api/api/goals`;
+		? `http://localhost:3000/api/goals?${stringifiedParams}`
+		: `http://localhost:3000/api/goals`;
 };
 
 export const getApiGoals = async (
@@ -5606,7 +5610,7 @@ export const getApiGoals = async (
 
 export const getGetApiGoalsQueryKey = (params?: GetApiGoalsParams) => {
 	return [
-		`http://localhost:3000/api/api/goals`,
+		`http://localhost:3000/api/goals`,
 		...(params ? [params] : []),
 	] as const;
 };
@@ -5930,7 +5934,7 @@ export type postApiGoalsResponse = postApiGoalsResponseComposite & {
 };
 
 export const getPostApiGoalsUrl = () => {
-	return `http://localhost:3000/api/api/goals`;
+	return `http://localhost:3000/api/goals`;
 };
 
 export const postApiGoals = async (
@@ -6085,7 +6089,7 @@ export type getApiGoalsIdResponse = getApiGoalsIdResponseComposite & {
 };
 
 export const getGetApiGoalsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/goals/${id}`;
+	return `http://localhost:3000/api/goals/${id}`;
 };
 
 export const getApiGoalsId = async (
@@ -6108,7 +6112,7 @@ export const getApiGoalsId = async (
 };
 
 export const getGetApiGoalsIdQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/api/goals/${id}`] as const;
+	return [`http://localhost:3000/api/goals/${id}`] as const;
 };
 
 export const getGetApiGoalsIdInfiniteQueryOptions = <
@@ -6498,7 +6502,7 @@ export type putApiGoalsIdResponse = putApiGoalsIdResponseComposite & {
 };
 
 export const getPutApiGoalsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/goals/${id}`;
+	return `http://localhost:3000/api/goals/${id}`;
 };
 
 export const putApiGoalsId = async (
@@ -6657,7 +6661,7 @@ export type deleteApiGoalsIdResponse = deleteApiGoalsIdResponseComposite & {
 };
 
 export const getDeleteApiGoalsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/goals/${id}`;
+	return `http://localhost:3000/api/goals/${id}`;
 };
 
 export const deleteApiGoalsId = async (
@@ -6828,8 +6832,8 @@ export const getGetApiGoalGoalIdLogsUrl = (
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/api/goal/${goalId}/logs?${stringifiedParams}`
-		: `http://localhost:3000/api/api/goal/${goalId}/logs`;
+		? `http://localhost:3000/api/goal/${goalId}/logs?${stringifiedParams}`
+		: `http://localhost:3000/api/goal/${goalId}/logs`;
 };
 
 export const getApiGoalGoalIdLogs = async (
@@ -6859,7 +6863,7 @@ export const getGetApiGoalGoalIdLogsQueryKey = (
 	params?: GetApiGoalGoalIdLogsParams,
 ) => {
 	return [
-		`http://localhost:3000/api/api/goal/${goalId}/logs`,
+		`http://localhost:3000/api/goal/${goalId}/logs`,
 		...(params ? [params] : []),
 	] as const;
 };
@@ -7294,7 +7298,7 @@ export type postApiGoalGoalIdLogsResponse =
 	};
 
 export const getPostApiGoalGoalIdLogsUrl = (goalId: string) => {
-	return `http://localhost:3000/api/api/goal/${goalId}/logs`;
+	return `http://localhost:3000/api/goal/${goalId}/logs`;
 };
 
 export const postApiGoalGoalIdLogs = async (
@@ -7456,7 +7460,7 @@ export type putApiGoalGoalIdLogsIdResponse =
 	};
 
 export const getPutApiGoalGoalIdLogsIdUrl = (goalId: string, id: string) => {
-	return `http://localhost:3000/api/api/goal/${goalId}/logs/${id}`;
+	return `http://localhost:3000/api/goal/${goalId}/logs/${id}`;
 };
 
 export const putApiGoalGoalIdLogsId = async (
@@ -7613,7 +7617,7 @@ export type deleteApiGoalGoalIdLogsIdResponse =
 	};
 
 export const getDeleteApiGoalGoalIdLogsIdUrl = (goalId: string, id: string) => {
-	return `http://localhost:3000/api/api/goal/${goalId}/logs/${id}`;
+	return `http://localhost:3000/api/goal/${goalId}/logs/${id}`;
 };
 
 export const deleteApiGoalGoalIdLogsId = async (
@@ -7757,7 +7761,7 @@ export type getApiTagsResponse = getApiTagsResponseComposite & {
 };
 
 export const getGetApiTagsUrl = () => {
-	return `http://localhost:3000/api/api/tags`;
+	return `http://localhost:3000/api/tags`;
 };
 
 export const getApiTags = async (
@@ -7779,7 +7783,7 @@ export const getApiTags = async (
 };
 
 export const getGetApiTagsQueryKey = () => {
-	return [`http://localhost:3000/api/api/tags`] as const;
+	return [`http://localhost:3000/api/tags`] as const;
 };
 
 export const getGetApiTagsInfiniteQueryOptions = <
@@ -8085,7 +8089,7 @@ export type postApiTagsResponse = postApiTagsResponseComposite & {
 };
 
 export const getPostApiTagsUrl = () => {
-	return `http://localhost:3000/api/api/tags`;
+	return `http://localhost:3000/api/tags`;
 };
 
 export const postApiTags = async (
@@ -8232,7 +8236,7 @@ export type getApiTagsIdResponse = getApiTagsIdResponseComposite & {
 };
 
 export const getGetApiTagsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/tags/${id}`;
+	return `http://localhost:3000/api/tags/${id}`;
 };
 
 export const getApiTagsId = async (
@@ -8255,7 +8259,7 @@ export const getApiTagsId = async (
 };
 
 export const getGetApiTagsIdQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/api/tags/${id}`] as const;
+	return [`http://localhost:3000/api/tags/${id}`] as const;
 };
 
 export const getGetApiTagsIdInfiniteQueryOptions = <
@@ -8645,7 +8649,7 @@ export type putApiTagsIdResponse = putApiTagsIdResponseComposite & {
 };
 
 export const getPutApiTagsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/tags/${id}`;
+	return `http://localhost:3000/api/tags/${id}`;
 };
 
 export const putApiTagsId = async (
@@ -8804,7 +8808,7 @@ export type deleteApiTagsIdResponse = deleteApiTagsIdResponseComposite & {
 };
 
 export const getDeleteApiTagsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/api/tags/${id}`;
+	return `http://localhost:3000/api/tags/${id}`;
 };
 
 export const deleteApiTagsId = async (
@@ -8968,8 +8972,8 @@ export const getGetApiTagsIdGoalsUrl = (
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/api/tags/${id}/goals?${stringifiedParams}`
-		: `http://localhost:3000/api/api/tags/${id}/goals`;
+		? `http://localhost:3000/api/tags/${id}/goals?${stringifiedParams}`
+		: `http://localhost:3000/api/tags/${id}/goals`;
 };
 
 export const getApiTagsIdGoals = async (
@@ -8997,7 +9001,7 @@ export const getGetApiTagsIdGoalsQueryKey = (
 	params?: GetApiTagsIdGoalsParams,
 ) => {
 	return [
-		`http://localhost:3000/api/api/tags/${id}/goals`,
+		`http://localhost:3000/api/tags/${id}/goals`,
 		...(params ? [params] : []),
 	] as const;
 };
@@ -9372,69 +9376,69 @@ export function useGetApiTagsIdGoals<
  * Returns pinned resources including entries and goals. This is mainly meant for the sidebar.
  * @summary Get pinned resources
  */
-export type getMiscPinnedResponse200 = {
-	data: GetMiscPinned200;
+export type getApiMiscPinnedResponse200 = {
+	data: GetApiMiscPinned200;
 	status: 200;
 };
 
-export type getMiscPinnedResponse401 = {
-	data: GetMiscPinned401;
+export type getApiMiscPinnedResponse401 = {
+	data: GetApiMiscPinned401;
 	status: 401;
 };
 
-export type getMiscPinnedResponse429 = {
-	data: GetMiscPinned429;
+export type getApiMiscPinnedResponse429 = {
+	data: GetApiMiscPinned429;
 	status: 429;
 };
 
-export type getMiscPinnedResponse500 = {
-	data: GetMiscPinned500;
+export type getApiMiscPinnedResponse500 = {
+	data: GetApiMiscPinned500;
 	status: 500;
 };
 
-export type getMiscPinnedResponseComposite =
-	| getMiscPinnedResponse200
-	| getMiscPinnedResponse401
-	| getMiscPinnedResponse429
-	| getMiscPinnedResponse500;
+export type getApiMiscPinnedResponseComposite =
+	| getApiMiscPinnedResponse200
+	| getApiMiscPinnedResponse401
+	| getApiMiscPinnedResponse429
+	| getApiMiscPinnedResponse500;
 
-export type getMiscPinnedResponse = getMiscPinnedResponseComposite & {
+export type getApiMiscPinnedResponse = getApiMiscPinnedResponseComposite & {
 	headers: Headers;
 };
 
-export const getGetMiscPinnedUrl = () => {
+export const getGetApiMiscPinnedUrl = () => {
 	return `http://localhost:3000/api/misc/pinned`;
 };
 
-export const getMiscPinned = async (
+export const getApiMiscPinned = async (
 	options?: RequestInit,
-): Promise<getMiscPinnedResponse> => {
-	const res = await fetch(getGetMiscPinnedUrl(), {
+): Promise<getApiMiscPinnedResponse> => {
+	const res = await fetch(getGetApiMiscPinnedUrl(), {
 		...options,
 		method: "GET",
 	});
 
 	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-	const data: getMiscPinnedResponse["data"] = body ? JSON.parse(body) : {};
+	const data: getApiMiscPinnedResponse["data"] = body ? JSON.parse(body) : {};
 
 	return {
 		data,
 		status: res.status,
 		headers: res.headers,
-	} as getMiscPinnedResponse;
+	} as getApiMiscPinnedResponse;
 };
 
-export const getGetMiscPinnedQueryKey = () => {
+export const getGetApiMiscPinnedQueryKey = () => {
 	return [`http://localhost:3000/api/misc/pinned`] as const;
 };
 
-export const getGetMiscPinnedInfiniteQueryOptions = <
-	TData = InfiniteData<Awaited<ReturnType<typeof getMiscPinned>>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export const getGetApiMiscPinnedInfiniteQueryOptions = <
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(options?: {
 	query?: Partial<
 		UseInfiniteQueryOptions<
-			Awaited<ReturnType<typeof getMiscPinned>>,
+			Awaited<ReturnType<typeof getApiMiscPinned>>,
 			TError,
 			TData
 		>
@@ -9443,44 +9447,44 @@ export const getGetMiscPinnedInfiniteQueryOptions = <
 }) => {
 	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
 
-	const queryKey = queryOptions?.queryKey ?? getGetMiscPinnedQueryKey();
+	const queryKey = queryOptions?.queryKey ?? getGetApiMiscPinnedQueryKey();
 
-	const queryFn: QueryFunction<Awaited<ReturnType<typeof getMiscPinned>>> = ({
-		signal,
-	}) => getMiscPinned({ signal, ...fetchOptions });
+	const queryFn: QueryFunction<
+		Awaited<ReturnType<typeof getApiMiscPinned>>
+	> = ({ signal }) => getApiMiscPinned({ signal, ...fetchOptions });
 
 	return { queryKey, queryFn, ...queryOptions } as UseInfiniteQueryOptions<
-		Awaited<ReturnType<typeof getMiscPinned>>,
+		Awaited<ReturnType<typeof getApiMiscPinned>>,
 		TError,
 		TData
 	> & { queryKey: DataTag<QueryKey, TData, TError> };
 };
 
-export type GetMiscPinnedInfiniteQueryResult = NonNullable<
-	Awaited<ReturnType<typeof getMiscPinned>>
+export type GetApiMiscPinnedInfiniteQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiMiscPinned>>
 >;
-export type GetMiscPinnedInfiniteQueryError =
-	| GetMiscPinned401
-	| GetMiscPinned429
-	| GetMiscPinned500;
+export type GetApiMiscPinnedInfiniteQueryError =
+	| GetApiMiscPinned401
+	| GetApiMiscPinned429
+	| GetApiMiscPinned500;
 
-export function useGetMiscPinnedInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getMiscPinned>>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export function useGetApiMiscPinnedInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(
 	options: {
 		query: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getMiscPinned>>,
+				Awaited<ReturnType<typeof getApiMiscPinned>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				DefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getMiscPinned>>,
+					Awaited<ReturnType<typeof getApiMiscPinned>>,
 					TError,
-					Awaited<ReturnType<typeof getMiscPinned>>
+					Awaited<ReturnType<typeof getApiMiscPinned>>
 				>,
 				"initialData"
 			>;
@@ -9490,23 +9494,23 @@ export function useGetMiscPinnedInfinite<
 ): DefinedUseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetMiscPinnedInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getMiscPinned>>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export function useGetApiMiscPinnedInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getMiscPinned>>,
+				Awaited<ReturnType<typeof getApiMiscPinned>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				UndefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getMiscPinned>>,
+					Awaited<ReturnType<typeof getApiMiscPinned>>,
 					TError,
-					Awaited<ReturnType<typeof getMiscPinned>>
+					Awaited<ReturnType<typeof getApiMiscPinned>>
 				>,
 				"initialData"
 			>;
@@ -9516,14 +9520,14 @@ export function useGetMiscPinnedInfinite<
 ): UseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetMiscPinnedInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getMiscPinned>>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export function useGetApiMiscPinnedInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getMiscPinned>>,
+				Awaited<ReturnType<typeof getApiMiscPinned>>,
 				TError,
 				TData
 			>
@@ -9538,14 +9542,14 @@ export function useGetMiscPinnedInfinite<
  * @summary Get pinned resources
  */
 
-export function useGetMiscPinnedInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getMiscPinned>>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export function useGetApiMiscPinnedInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getMiscPinned>>,
+				Awaited<ReturnType<typeof getApiMiscPinned>>,
 				TError,
 				TData
 			>
@@ -9556,7 +9560,7 @@ export function useGetMiscPinnedInfinite<
 ): UseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
-	const queryOptions = getGetMiscPinnedInfiniteQueryOptions(options);
+	const queryOptions = getGetApiMiscPinnedInfiniteQueryOptions(options);
 
 	const query = useInfiniteQuery(
 		queryOptions,
@@ -9570,51 +9574,55 @@ export function useGetMiscPinnedInfinite<
 	return query;
 }
 
-export const getGetMiscPinnedQueryOptions = <
-	TData = Awaited<ReturnType<typeof getMiscPinned>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export const getGetApiMiscPinnedQueryOptions = <
+	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(options?: {
 	query?: Partial<
-		UseQueryOptions<Awaited<ReturnType<typeof getMiscPinned>>, TError, TData>
+		UseQueryOptions<Awaited<ReturnType<typeof getApiMiscPinned>>, TError, TData>
 	>;
 	fetch?: RequestInit;
 }) => {
 	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
 
-	const queryKey = queryOptions?.queryKey ?? getGetMiscPinnedQueryKey();
+	const queryKey = queryOptions?.queryKey ?? getGetApiMiscPinnedQueryKey();
 
-	const queryFn: QueryFunction<Awaited<ReturnType<typeof getMiscPinned>>> = ({
-		signal,
-	}) => getMiscPinned({ signal, ...fetchOptions });
+	const queryFn: QueryFunction<
+		Awaited<ReturnType<typeof getApiMiscPinned>>
+	> = ({ signal }) => getApiMiscPinned({ signal, ...fetchOptions });
 
 	return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
-		Awaited<ReturnType<typeof getMiscPinned>>,
+		Awaited<ReturnType<typeof getApiMiscPinned>>,
 		TError,
 		TData
 	> & { queryKey: DataTag<QueryKey, TData, TError> };
 };
 
-export type GetMiscPinnedQueryResult = NonNullable<
-	Awaited<ReturnType<typeof getMiscPinned>>
+export type GetApiMiscPinnedQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiMiscPinned>>
 >;
-export type GetMiscPinnedQueryError =
-	| GetMiscPinned401
-	| GetMiscPinned429
-	| GetMiscPinned500;
+export type GetApiMiscPinnedQueryError =
+	| GetApiMiscPinned401
+	| GetApiMiscPinned429
+	| GetApiMiscPinned500;
 
-export function useGetMiscPinned<
-	TData = Awaited<ReturnType<typeof getMiscPinned>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export function useGetApiMiscPinned<
+	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(
 	options: {
 		query: Partial<
-			UseQueryOptions<Awaited<ReturnType<typeof getMiscPinned>>, TError, TData>
+			UseQueryOptions<
+				Awaited<ReturnType<typeof getApiMiscPinned>>,
+				TError,
+				TData
+			>
 		> &
 			Pick<
 				DefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getMiscPinned>>,
+					Awaited<ReturnType<typeof getApiMiscPinned>>,
 					TError,
-					Awaited<ReturnType<typeof getMiscPinned>>
+					Awaited<ReturnType<typeof getApiMiscPinned>>
 				>,
 				"initialData"
 			>;
@@ -9624,19 +9632,23 @@ export function useGetMiscPinned<
 ): DefinedUseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetMiscPinned<
-	TData = Awaited<ReturnType<typeof getMiscPinned>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export function useGetApiMiscPinned<
+	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
-			UseQueryOptions<Awaited<ReturnType<typeof getMiscPinned>>, TError, TData>
+			UseQueryOptions<
+				Awaited<ReturnType<typeof getApiMiscPinned>>,
+				TError,
+				TData
+			>
 		> &
 			Pick<
 				UndefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getMiscPinned>>,
+					Awaited<ReturnType<typeof getApiMiscPinned>>,
 					TError,
-					Awaited<ReturnType<typeof getMiscPinned>>
+					Awaited<ReturnType<typeof getApiMiscPinned>>
 				>,
 				"initialData"
 			>;
@@ -9646,13 +9658,17 @@ export function useGetMiscPinned<
 ): UseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetMiscPinned<
-	TData = Awaited<ReturnType<typeof getMiscPinned>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export function useGetApiMiscPinned<
+	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
-			UseQueryOptions<Awaited<ReturnType<typeof getMiscPinned>>, TError, TData>
+			UseQueryOptions<
+				Awaited<ReturnType<typeof getApiMiscPinned>>,
+				TError,
+				TData
+			>
 		>;
 		fetch?: RequestInit;
 	},
@@ -9664,13 +9680,17 @@ export function useGetMiscPinned<
  * @summary Get pinned resources
  */
 
-export function useGetMiscPinned<
-	TData = Awaited<ReturnType<typeof getMiscPinned>>,
-	TError = GetMiscPinned401 | GetMiscPinned429 | GetMiscPinned500,
+export function useGetApiMiscPinned<
+	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
-			UseQueryOptions<Awaited<ReturnType<typeof getMiscPinned>>, TError, TData>
+			UseQueryOptions<
+				Awaited<ReturnType<typeof getApiMiscPinned>>,
+				TError,
+				TData
+			>
 		>;
 		fetch?: RequestInit;
 	},
@@ -9678,7 +9698,7 @@ export function useGetMiscPinned<
 ): UseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
-	const queryOptions = getGetMiscPinnedQueryOptions(options);
+	const queryOptions = getGetApiMiscPinnedQueryOptions(options);
 
 	const query = useQuery(queryOptions, queryClient) as UseQueryResult<
 		TData,

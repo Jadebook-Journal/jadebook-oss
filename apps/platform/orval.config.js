@@ -5,7 +5,7 @@ export default {
 		input: `${defaultUrl}/api/doc`,
 		output: {
 			target: "./src/api-client.ts",
-			baseUrl: `${defaultUrl}/api`,
+			baseUrl: `${defaultUrl}`,
 			client: "react-query",
 			httpClient: "fetch",
 			biome: true,

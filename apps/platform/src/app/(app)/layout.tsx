@@ -3,6 +3,11 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { Suspense } from "react";
 import { QueryProvider } from "@/providers/query-provider";
+import { AppStoreProvider } from "@/providers/app-store-provider";
+import { getApiMiscPinned, getApiProfile, getApiTags } from "@/api-client";
+import { ThemeLoader } from "@/features/theme/theme-loader";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app/sidebar";
 
 export default async function ProtectedLayout({
 	children,
@@ -31,9 +36,31 @@ export default async function ProtectedLayout({
 		return redirect("/sign-in");
 	}
 
-	console.log(session.access_token);
+	// load initial data on the server — we don't cache this data as it will be updated on the client
+	const [profile, tags, pinned] = await Promise.all([
+		getApiProfile({
+			headers: {
+				Authorization: session.access_token,
+			},
+			cache: "no-cache",
+		}),
+		getApiTags({
+			headers: {
+				Authorization: session.access_token,
+			},
+			cache: "no-cache",
+		}),
+		getApiMiscPinned({
+			headers: {
+				Authorization: session.access_token,
+			},
+			cache: "no-cache",
+		}),
+	]);
 
-	const _defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
+	console.log(profile, tags, pinned);
+
+	const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
 	return (
 		<Suspense>
@@ -47,21 +74,21 @@ export default async function ProtectedLayout({
 							session,
 						}}
 					>
-						<ThemeHandler>
-							<PasscodeLayer>
-								<SidebarProvider defaultOpen={defaultOpen}>
-									<AppSidebar />
+						<ThemeLoader>
+							<SidebarProvider defaultOpen={defaultOpen}>
+								<AppSidebar />
 
-									<MainContainer>
-										{children}
+								{children}
 
-										<SaveLayer />
+								{/* <MainContainer>
+									{children}
 
-										<GlobalCommandCenter />
-									</MainContainer>
-								</SidebarProvider>
-							</PasscodeLayer>
-						</ThemeHandler>
+									<SaveLayer />
+
+									<GlobalCommandCenter />
+								</MainContainer> */}
+							</SidebarProvider>
+						</ThemeLoader>
 					</AppStoreProvider>
 				</div>
 			</QueryProvider>

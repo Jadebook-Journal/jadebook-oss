@@ -1,22 +1,23 @@
 "use client";
 
 import equal from "fast-deep-equal";
-import { isUserPro, mergeWithDefault } from "jadebook";
 import React, { createContext, type ReactNode, useContext } from "react";
 import { useStore as useZustandStore } from "zustand";
 import { useShallow } from "zustand/react/shallow";
-import {
-	type getV1MiscPinnedResponse,
-	type getV1ProfileResponse,
-	type getV1TagsResponse,
-	useGetV1MiscPinned,
-	useGetV1Profile,
-	useGetV1Tags,
-} from "@/api-client";
-import { defaultTheme } from "@/features/theme/presets";
-import type { Subscription } from "@/lib/stripe/sync-stripe";
-import { debugLog } from "@/lib/utils";
+import { BASE_CONFIG } from "@/features/config/base.config";
 import { type AppState, createAppStore } from "@/stores/app-store";
+import {
+	type getApiMiscPinnedResponse,
+	useGetApiMiscPinned,
+	useGetApiProfile,
+	useGetApiTags,
+	type getApiProfileResponse,
+	type getApiTagsResponse,
+} from "@/api-client";
+
+import { mergeWithDefault } from "jadebook";
+import { defaultThemeState } from "@/features/theme/config.theme";
+import type { SavedThemeSettings, ThemeType } from "@/types/theme";
 
 type AppStore = ReturnType<typeof createAppStore>;
 
@@ -25,9 +26,9 @@ export const AppStoreContext = createContext<AppStore | null>(null);
 interface AppStoreProviderProps {
 	children: ReactNode;
 	initialState: Pick<AppState, "session"> & {
-		profile: getV1ProfileResponse;
-		pinnedResources: getV1MiscPinnedResponse;
-		tags: getV1TagsResponse;
+		profile: getApiProfileResponse;
+		pinnedResources: getApiMiscPinnedResponse;
+		tags: getApiTagsResponse;
 	};
 }
 
@@ -41,23 +42,19 @@ export const AppStoreProvider = ({
 	// useRef to ensure the store is created only once per request/render
 	const storeRef = React.useRef<AppStore | null>(null);
 
-	const profileQuery = useGetV1Profile(
-		{
-			onboarding: "true",
+	// Load React Query with the initial data — let's us load on server and refresh on client
+	const profileQuery = useGetApiProfile({
+		query: {
+			initialData: initialState.profile,
 		},
-		{
-			query: {
-				initialData: initialState.profile,
-			},
-			fetch: {
-				headers: {
-					Authorization: initialState.session.access_token,
-				},
+		fetch: {
+			headers: {
+				Authorization: initialState.session.access_token,
 			},
 		},
-	);
+	});
 
-	const pinnedResourcesQuery = useGetV1MiscPinned({
+	const pinnedResourcesQuery = useGetApiMiscPinned({
 		query: {
 			initialData: initialState.pinnedResources,
 		},
@@ -68,7 +65,7 @@ export const AppStoreProvider = ({
 		},
 	});
 
-	const tagsQuery = useGetV1Tags({
+	const tagsQuery = useGetApiTags({
 		query: {
 			initialData: initialState.tags,
 		},
@@ -87,6 +84,7 @@ export const AppStoreProvider = ({
 		throw new Error("Failed to fetch profile, pinned resources, or tags");
 	}
 
+	// properly type the data
 	const profile =
 		profileQuery.data.status === 200 ? profileQuery.data.data : null;
 	const pinnedResources =
@@ -95,35 +93,23 @@ export const AppStoreProvider = ({
 			: null;
 	const tags = tagsQuery.data.status === 200 ? tagsQuery.data.data : null;
 
+	// the initial data is required for the app to work correctly
 	if (!profile || !pinnedResources || !tags) {
 		throw new Error("Failed to fetch profile, pinned resources, or tags");
 	}
 
-	debugLog(initialState);
-
-	const subscription = profile.subscription
-		? (JSON.parse(profile.subscription) as Subscription)
-		: null;
-
+	// parse the JSON to appropriate types
 	const theme = parseTheme(profile.theme);
-
-	const isPro = (() => {
-		if (!subscription) {
-			return false;
-		}
-
-		return isUserPro(subscription.status);
-	})();
+	const config = parseConfig(profile.config);
 
 	if (!storeRef.current) {
 		storeRef.current = createAppStore({
 			profile,
 			pinnedResources,
 			tags,
-			isPro,
-			subscription,
 			theme,
 			session: initialState.session,
+			config,
 		});
 	}
 
@@ -137,8 +123,6 @@ export const AppStoreProvider = ({
 			!equal(currentState.profile, profile) ||
 			!equal(currentState.pinnedResources, pinnedResources) ||
 			!equal(currentState.tags, tags) ||
-			currentState.isPro !== isPro ||
-			!equal(currentState.subscription, subscription) ||
 			!equal(currentState.theme, theme);
 
 		if (hasChanged) {
@@ -146,12 +130,10 @@ export const AppStoreProvider = ({
 				profile,
 				pinnedResources,
 				tags,
-				isPro,
-				subscription,
 				theme,
 			});
 		}
-	}, [profile, pinnedResources, tags, isPro, subscription, theme]);
+	}, [profile, pinnedResources, tags, theme]);
 
 	return (
 		<AppStoreContext.Provider value={storeRef.current}>
@@ -171,18 +153,48 @@ export const useAppStore = <T,>(selector: (store: AppState) => T): T => {
 	return useZustandStore(appStoreContext, useShallow(selector));
 };
 
-export function parseTheme(theme: string | null | undefined) {
+// Parse the config from the profile
+export function parseConfig(config: string | null | undefined) {
+	if (!config) {
+		return BASE_CONFIG;
+	}
+
+	try {
+		const parsedConfig = JSON.parse(config);
+
+		return mergeWithDefault(parsedConfig, BASE_CONFIG);
+	} catch (error) {
+		console.error(error);
+
+		return BASE_CONFIG;
+	}
+}
+
+// Parse the theme from the profile
+export function parseTheme(
+	theme: string | null | undefined,
+): SavedThemeSettings {
 	if (!theme) {
-		return defaultTheme;
+		return {
+			mode: "light",
+			theme: {
+				styles: defaultThemeState,
+			},
+		};
 	}
 
 	try {
 		const parsedTheme = JSON.parse(theme);
 
-		return mergeWithDefault(parsedTheme, defaultTheme);
+		return parsedTheme as SavedThemeSettings;
 	} catch (error) {
 		console.error(error);
 
-		return defaultTheme;
+		return {
+			mode: "light",
+			theme: {
+				styles: defaultThemeState,
+			},
+		};
 	}
 }
