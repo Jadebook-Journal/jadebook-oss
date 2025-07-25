@@ -7,11 +7,12 @@ import { handle } from "hono/vercel";
 import index from "@backend/routes/index.route";
 import asset from "@backend/routes/asset/asset.index";
 import profile from "@backend/routes/profile/profile.index";
-import document from "@backend/routes/document/document.index";
+import entry from "@backend/routes/entry/entry.index";
 import goal from "@backend/routes/goal/goal.index";
 import logs from "@backend/routes/logs/logs.index";
 import tag from "@backend/routes/tag/tag.index";
 import misc from "@backend/routes/misc/misc.index";
+import prompts from "@backend/routes/prompts/prompts.index";
 
 export const runtime = "edge";
 
@@ -27,11 +28,12 @@ const routes = [
 	index,
 	profile,
 	asset,
-	document,
+	entry,
 	goal,
 	logs,
 	tag,
 	misc,
+	prompts,
 ] as const;
 
 routes.forEach((route) => {

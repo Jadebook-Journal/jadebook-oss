@@ -393,46 +393,46 @@ export type PostApiAssetsUpload500 = {
 	message: string;
 };
 
-export type GetApiDocumentsParams = {
+export type GetApiEntriesParams = {
 	/**
 	 * Page number for pagination (0-based)
 	 */
 	page?: string;
 	/**
-	 * Filter documents by tag ID
+	 * Filter entries by tag ID
 	 */
 	tagId?: string;
 	/**
-	 * Filter documents by type
+	 * Filter entries by type
 	 */
-	type?: GetApiDocumentsType;
+	type?: GetApiEntriesType;
 	/**
 	 * Sort by date field
 	 */
-	dateType?: GetApiDocumentsDateType;
+	dateType?: GetApiEntriesDateType;
 };
 
-export type GetApiDocumentsType =
-	(typeof GetApiDocumentsType)[keyof typeof GetApiDocumentsType];
+export type GetApiEntriesType =
+	(typeof GetApiEntriesType)[keyof typeof GetApiEntriesType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export const GetApiDocumentsType = {
-	document: "document",
+export const GetApiEntriesType = {
+	entry: "entry",
 	prompted: "prompted",
 	all: "all",
 } as const;
 
-export type GetApiDocumentsDateType =
-	(typeof GetApiDocumentsDateType)[keyof typeof GetApiDocumentsDateType];
+export type GetApiEntriesDateType =
+	(typeof GetApiEntriesDateType)[keyof typeof GetApiEntriesDateType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export const GetApiDocumentsDateType = {
+export const GetApiEntriesDateType = {
 	updated_at: "updated_at",
 	created_at: "created_at",
 	entry_date: "entry_date",
 } as const;
 
-export type GetApiDocuments200DataItem = {
+export type GetApiEntries200DataItem = {
 	id: string;
 	title: string;
 	created_at: string;
@@ -448,88 +448,88 @@ export type GetApiDocuments200DataItem = {
 	type: string;
 };
 
-export type GetApiDocuments200Meta = {
+export type GetApiEntries200Meta = {
 	totalCount: number;
 	totalPages: number;
 	currentPage: number;
 	hasNextPage: boolean;
 };
 
-export type GetApiDocuments200 = {
-	data: GetApiDocuments200DataItem[];
-	meta: GetApiDocuments200Meta;
+export type GetApiEntries200 = {
+	data: GetApiEntries200DataItem[];
+	meta: GetApiEntries200Meta;
 };
 
-export type GetApiDocuments400 = {
+export type GetApiEntries400 = {
 	message: string;
 };
 
-export type GetApiDocuments401 = {
+export type GetApiEntries401 = {
 	message: string;
 };
 
-export type GetApiDocuments429 = {
+export type GetApiEntries429 = {
 	message: string;
 };
 
-export type GetApiDocuments500 = {
+export type GetApiEntries500 = {
 	message: string;
 };
 
 /**
- * The type of document
+ * The type of entry
  */
-export type PostApiDocumentsBodyType =
-	(typeof PostApiDocumentsBodyType)[keyof typeof PostApiDocumentsBodyType];
+export type PostApiEntriesBodyType =
+	(typeof PostApiEntriesBodyType)[keyof typeof PostApiEntriesBodyType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export const PostApiDocumentsBodyType = {
-	document: "document",
+export const PostApiEntriesBodyType = {
+	entry: "entry",
 	prompted: "prompted",
 } as const;
 
-export type PostApiDocumentsBody = {
-	/** The title of the document */
+export type PostApiEntriesBody = {
+	/** The title of the entry */
 	title: string;
 	/** The date for the entry */
 	entry_date?: string;
-	/** Array of tag IDs associated with the document */
+	/** Array of tag IDs associated with the entry */
 	tags?: string[];
-	/** The type of document */
-	type: PostApiDocumentsBodyType;
+	/** The type of entry */
+	type: PostApiEntriesBodyType;
 	/**
-	 * A brief excerpt or summary of the document
+	 * A brief excerpt or summary of the entry
 	 * @nullable
 	 */
 	excerpt?: string | null;
 	/**
-	 * The main content of the document
+	 * The main content of the entry
 	 * @nullable
 	 */
 	content?: string | null;
 };
 
-export type PostApiDocuments201 = {
+export type PostApiEntries201 = {
 	id: string;
 };
 
-export type PostApiDocuments400 = {
+export type PostApiEntries400 = {
 	message: string;
 };
 
-export type PostApiDocuments401 = {
+export type PostApiEntries401 = {
 	message: string;
 };
 
-export type PostApiDocuments429 = {
+export type PostApiEntries429 = {
 	message: string;
 };
 
-export type PostApiDocuments500 = {
+export type PostApiEntries500 = {
 	message: string;
 };
 
-export type GetApiDocumentsId200 = {
+export type GetApiEntriesId200 = {
 	id: string;
 	user_id: string;
 	title: string;
@@ -551,36 +551,36 @@ export type GetApiDocumentsId200 = {
 	icon: string | null;
 };
 
-export type GetApiDocumentsId400 = {
+export type GetApiEntriesId400 = {
 	message: string;
 };
 
-export type GetApiDocumentsId401 = {
+export type GetApiEntriesId401 = {
 	message: string;
 };
 
-export type GetApiDocumentsId404 = {
+export type GetApiEntriesId404 = {
 	message: string;
 };
 
-export type GetApiDocumentsId429 = {
+export type GetApiEntriesId429 = {
 	message: string;
 };
 
-export type GetApiDocumentsId500 = {
+export type GetApiEntriesId500 = {
 	message: string;
 };
 
-export type PutApiDocumentsIdBodyType =
-	(typeof PutApiDocumentsIdBodyType)[keyof typeof PutApiDocumentsIdBodyType];
+export type PutApiEntriesIdBodyType =
+	(typeof PutApiEntriesIdBodyType)[keyof typeof PutApiEntriesIdBodyType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export const PutApiDocumentsIdBodyType = {
-	document: "document",
+export const PutApiEntriesIdBodyType = {
+	entry: "entry",
 	prompted: "prompted",
 } as const;
 
-export type PutApiDocumentsIdBody = {
+export type PutApiEntriesIdBody = {
 	character_count?: number;
 	/** @nullable */
 	content?: string | null;
@@ -595,80 +595,80 @@ export type PutApiDocumentsIdBody = {
 	title?: string;
 	/** @nullable */
 	icon?: string | null;
-	type?: PutApiDocumentsIdBodyType;
+	type?: PutApiEntriesIdBodyType;
 };
 
-export type PutApiDocumentsId200 = {
+export type PutApiEntriesId200 = {
 	message: string;
 };
 
-export type PutApiDocumentsId400 = {
+export type PutApiEntriesId400 = {
 	message: string;
 };
 
-export type PutApiDocumentsId401 = {
+export type PutApiEntriesId401 = {
 	message: string;
 };
 
-export type PutApiDocumentsId404 = {
+export type PutApiEntriesId404 = {
 	message: string;
 };
 
-export type PutApiDocumentsId429 = {
+export type PutApiEntriesId429 = {
 	message: string;
 };
 
-export type PutApiDocumentsId500 = {
+export type PutApiEntriesId500 = {
 	message: string;
 };
 
-export type DeleteApiDocumentsId200 = {
+export type DeleteApiEntriesId200 = {
 	message: string;
 };
 
-export type DeleteApiDocumentsId400 = {
+export type DeleteApiEntriesId400 = {
 	message: string;
 };
 
-export type DeleteApiDocumentsId401 = {
+export type DeleteApiEntriesId401 = {
 	message: string;
 };
 
-export type DeleteApiDocumentsId404 = {
+export type DeleteApiEntriesId404 = {
 	message: string;
 };
 
-export type DeleteApiDocumentsId429 = {
+export type DeleteApiEntriesId429 = {
 	message: string;
 };
 
-export type DeleteApiDocumentsId500 = {
+export type DeleteApiEntriesId500 = {
 	message: string;
 };
 
-export type GetApiDocumentsIdMetadata200 = {
+export type GetApiEntriesIdMetadata200 = {
 	title: string;
 	/** @nullable */
 	excerpt: string | null;
 };
 
-export type GetApiDocumentsIdMetadata400 = {
+export type GetApiEntriesIdMetadata400 = {
 	message: string;
 };
 
-export type GetApiDocumentsIdMetadata401 = {
+export type GetApiEntriesIdMetadata401 = {
 	message: string;
 };
 
-export type GetApiDocumentsIdMetadata404 = {
+export type GetApiEntriesIdMetadata404 = {
 	message: string;
 };
 
-export type GetApiDocumentsIdMetadata429 = {
+export type GetApiEntriesIdMetadata429 = {
 	message: string;
 };
 
-export type GetApiDocumentsIdMetadata500 = {
+export type GetApiEntriesIdMetadata500 = {
 	message: string;
 };
 
@@ -1409,6 +1409,25 @@ export type GetApiMiscPinned429 = {
 };
 
 export type GetApiMiscPinned500 = {
+	message: string;
+};
+
+/**
+ * Generated prompts response — always static since we don't have AI
+ */
+export type GetApiPrompts200 = {
+	prompts: string[];
+};
+
+export type GetApiPrompts401 = {
+	message: string;
+};
+
+export type GetApiPrompts429 = {
+	message: string;
+};
+
+export type GetApiPrompts500 = {
 	message: string;
 };
 
@@ -3771,46 +3790,46 @@ export const usePostApiAssetsUpload = <
 };
 
 /**
- * Gets a list of documents with pagination. Can be filtered by type, date, and tag id.
- * @summary Get documents
+ * Gets a list of entries with pagination. Can be filtered by type, date, and tag id.
+ * @summary Get entries
  */
-export type getApiDocumentsResponse200 = {
-	data: GetApiDocuments200;
+export type getApiEntriesResponse200 = {
+	data: GetApiEntries200;
 	status: 200;
 };
 
-export type getApiDocumentsResponse400 = {
-	data: GetApiDocuments400;
+export type getApiEntriesResponse400 = {
+	data: GetApiEntries400;
 	status: 400;
 };
 
-export type getApiDocumentsResponse401 = {
-	data: GetApiDocuments401;
+export type getApiEntriesResponse401 = {
+	data: GetApiEntries401;
 	status: 401;
 };
 
-export type getApiDocumentsResponse429 = {
-	data: GetApiDocuments429;
+export type getApiEntriesResponse429 = {
+	data: GetApiEntries429;
 	status: 429;
 };
 
-export type getApiDocumentsResponse500 = {
-	data: GetApiDocuments500;
+export type getApiEntriesResponse500 = {
+	data: GetApiEntries500;
 	status: 500;
 };
 
-export type getApiDocumentsResponseComposite =
-	| getApiDocumentsResponse200
-	| getApiDocumentsResponse400
-	| getApiDocumentsResponse401
-	| getApiDocumentsResponse429
-	| getApiDocumentsResponse500;
+export type getApiEntriesResponseComposite =
+	| getApiEntriesResponse200
+	| getApiEntriesResponse400
+	| getApiEntriesResponse401
+	| getApiEntriesResponse429
+	| getApiEntriesResponse500;
 
-export type getApiDocumentsResponse = getApiDocumentsResponseComposite & {
+export type getApiEntriesResponse = getApiEntriesResponseComposite & {
 	headers: Headers;
 };
 
-export const getGetApiDocumentsUrl = (params?: GetApiDocumentsParams) => {
+export const getGetApiEntriesUrl = (params?: GetApiEntriesParams) => {
 	const normalizedParams = new URLSearchParams();
 
 	Object.entries(params || {}).forEach(([key, value]) => {
@@ -3822,49 +3841,49 @@ export const getGetApiDocumentsUrl = (params?: GetApiDocumentsParams) => {
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/documents?${stringifiedParams}`
-		: `http://localhost:3000/api/documents`;
+		? `http://localhost:3000/api/entries?${stringifiedParams}`
+		: `http://localhost:3000/api/entries`;
 };
 
-export const getApiDocuments = async (
-	params?: GetApiDocumentsParams,
+export const getApiEntries = async (
+	params?: GetApiEntriesParams,
 	options?: RequestInit,
-): Promise<getApiDocumentsResponse> => {
-	const res = await fetch(getGetApiDocumentsUrl(params), {
+): Promise<getApiEntriesResponse> => {
+	const res = await fetch(getGetApiEntriesUrl(params), {
 		...options,
 		method: "GET",
 	});
 
 	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-	const data: getApiDocumentsResponse["data"] = body ? JSON.parse(body) : {};
+	const data: getApiEntriesResponse["data"] = body ? JSON.parse(body) : {};
 
 	return {
 		data,
 		status: res.status,
 		headers: res.headers,
-	} as getApiDocumentsResponse;
+	} as getApiEntriesResponse;
 };
 
-export const getGetApiDocumentsQueryKey = (params?: GetApiDocumentsParams) => {
+export const getGetApiEntriesQueryKey = (params?: GetApiEntriesParams) => {
 	return [
-		`http://localhost:3000/api/documents`,
+		`http://localhost:3000/api/entries`,
 		...(params ? [params] : []),
 	] as const;
 };
 
-export const getGetApiDocumentsInfiniteQueryOptions = <
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocuments>>>,
+export const getGetApiEntriesInfiniteQueryOptions = <
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params?: GetApiDocumentsParams,
+	params?: GetApiEntriesParams,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
+				Awaited<ReturnType<typeof getApiEntries>>,
 				TError,
 				TData
 			>
@@ -3874,50 +3893,50 @@ export const getGetApiDocumentsInfiniteQueryOptions = <
 ) => {
 	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
 
-	const queryKey = queryOptions?.queryKey ?? getGetApiDocumentsQueryKey(params);
+	const queryKey = queryOptions?.queryKey ?? getGetApiEntriesQueryKey(params);
 
-	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiDocuments>>> = ({
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiEntries>>> = ({
 		signal,
-	}) => getApiDocuments(params, { signal, ...fetchOptions });
+	}) => getApiEntries(params, { signal, ...fetchOptions });
 
 	return { queryKey, queryFn, ...queryOptions } as UseInfiniteQueryOptions<
-		Awaited<ReturnType<typeof getApiDocuments>>,
+		Awaited<ReturnType<typeof getApiEntries>>,
 		TError,
 		TData
 	> & { queryKey: DataTag<QueryKey, TData, TError> };
 };
 
-export type GetApiDocumentsInfiniteQueryResult = NonNullable<
-	Awaited<ReturnType<typeof getApiDocuments>>
+export type GetApiEntriesInfiniteQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiEntries>>
 >;
-export type GetApiDocumentsInfiniteQueryError =
-	| GetApiDocuments400
-	| GetApiDocuments401
-	| GetApiDocuments429
-	| GetApiDocuments500;
+export type GetApiEntriesInfiniteQueryError =
+	| GetApiEntries400
+	| GetApiEntries401
+	| GetApiEntries429
+	| GetApiEntries500;
 
-export function useGetApiDocumentsInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocuments>>>,
+export function useGetApiEntriesInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params: undefined | GetApiDocumentsParams,
+	params: undefined | GetApiEntriesParams,
 	options: {
 		query: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
+				Awaited<ReturnType<typeof getApiEntries>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				DefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocuments>>,
+					Awaited<ReturnType<typeof getApiEntries>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocuments>>
+					Awaited<ReturnType<typeof getApiEntries>>
 				>,
 				"initialData"
 			>;
@@ -3927,28 +3946,28 @@ export function useGetApiDocumentsInfinite<
 ): DefinedUseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocuments>>>,
+export function useGetApiEntriesInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params?: GetApiDocumentsParams,
+	params?: GetApiEntriesParams,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
+				Awaited<ReturnType<typeof getApiEntries>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				UndefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocuments>>,
+					Awaited<ReturnType<typeof getApiEntries>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocuments>>
+					Awaited<ReturnType<typeof getApiEntries>>
 				>,
 				"initialData"
 			>;
@@ -3958,19 +3977,19 @@ export function useGetApiDocumentsInfinite<
 ): UseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocuments>>>,
+export function useGetApiEntriesInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params?: GetApiDocumentsParams,
+	params?: GetApiEntriesParams,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
+				Awaited<ReturnType<typeof getApiEntries>>,
 				TError,
 				TData
 			>
@@ -3982,22 +4001,22 @@ export function useGetApiDocumentsInfinite<
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
 /**
- * @summary Get documents
+ * @summary Get entries
  */
 
-export function useGetApiDocumentsInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocuments>>>,
+export function useGetApiEntriesInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params?: GetApiDocumentsParams,
+	params?: GetApiEntriesParams,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
+				Awaited<ReturnType<typeof getApiEntries>>,
 				TError,
 				TData
 			>
@@ -4008,7 +4027,7 @@ export function useGetApiDocumentsInfinite<
 ): UseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
-	const queryOptions = getGetApiDocumentsInfiniteQueryOptions(params, options);
+	const queryOptions = getGetApiEntriesInfiniteQueryOptions(params, options);
 
 	const query = useInfiniteQuery(
 		queryOptions,
@@ -4022,72 +4041,64 @@ export function useGetApiDocumentsInfinite<
 	return query;
 }
 
-export const getGetApiDocumentsQueryOptions = <
-	TData = Awaited<ReturnType<typeof getApiDocuments>>,
+export const getGetApiEntriesQueryOptions = <
+	TData = Awaited<ReturnType<typeof getApiEntries>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params?: GetApiDocumentsParams,
+	params?: GetApiEntriesParams,
 	options?: {
 		query?: Partial<
-			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
-				TError,
-				TData
-			>
+			UseQueryOptions<Awaited<ReturnType<typeof getApiEntries>>, TError, TData>
 		>;
 		fetch?: RequestInit;
 	},
 ) => {
 	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
 
-	const queryKey = queryOptions?.queryKey ?? getGetApiDocumentsQueryKey(params);
+	const queryKey = queryOptions?.queryKey ?? getGetApiEntriesQueryKey(params);
 
-	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiDocuments>>> = ({
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiEntries>>> = ({
 		signal,
-	}) => getApiDocuments(params, { signal, ...fetchOptions });
+	}) => getApiEntries(params, { signal, ...fetchOptions });
 
 	return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
-		Awaited<ReturnType<typeof getApiDocuments>>,
+		Awaited<ReturnType<typeof getApiEntries>>,
 		TError,
 		TData
 	> & { queryKey: DataTag<QueryKey, TData, TError> };
 };
 
-export type GetApiDocumentsQueryResult = NonNullable<
-	Awaited<ReturnType<typeof getApiDocuments>>
+export type GetApiEntriesQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiEntries>>
 >;
-export type GetApiDocumentsQueryError =
-	| GetApiDocuments400
-	| GetApiDocuments401
-	| GetApiDocuments429
-	| GetApiDocuments500;
+export type GetApiEntriesQueryError =
+	| GetApiEntries400
+	| GetApiEntries401
+	| GetApiEntries429
+	| GetApiEntries500;
 
-export function useGetApiDocuments<
-	TData = Awaited<ReturnType<typeof getApiDocuments>>,
+export function useGetApiEntries<
+	TData = Awaited<ReturnType<typeof getApiEntries>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params: undefined | GetApiDocumentsParams,
+	params: undefined | GetApiEntriesParams,
 	options: {
 		query: Partial<
-			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
-				TError,
-				TData
-			>
+			UseQueryOptions<Awaited<ReturnType<typeof getApiEntries>>, TError, TData>
 		> &
 			Pick<
 				DefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocuments>>,
+					Awaited<ReturnType<typeof getApiEntries>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocuments>>
+					Awaited<ReturnType<typeof getApiEntries>>
 				>,
 				"initialData"
 			>;
@@ -4097,28 +4108,24 @@ export function useGetApiDocuments<
 ): DefinedUseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocuments<
-	TData = Awaited<ReturnType<typeof getApiDocuments>>,
+export function useGetApiEntries<
+	TData = Awaited<ReturnType<typeof getApiEntries>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params?: GetApiDocumentsParams,
+	params?: GetApiEntriesParams,
 	options?: {
 		query?: Partial<
-			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
-				TError,
-				TData
-			>
+			UseQueryOptions<Awaited<ReturnType<typeof getApiEntries>>, TError, TData>
 		> &
 			Pick<
 				UndefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocuments>>,
+					Awaited<ReturnType<typeof getApiEntries>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocuments>>
+					Awaited<ReturnType<typeof getApiEntries>>
 				>,
 				"initialData"
 			>;
@@ -4128,22 +4135,18 @@ export function useGetApiDocuments<
 ): UseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocuments<
-	TData = Awaited<ReturnType<typeof getApiDocuments>>,
+export function useGetApiEntries<
+	TData = Awaited<ReturnType<typeof getApiEntries>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params?: GetApiDocumentsParams,
+	params?: GetApiEntriesParams,
 	options?: {
 		query?: Partial<
-			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
-				TError,
-				TData
-			>
+			UseQueryOptions<Awaited<ReturnType<typeof getApiEntries>>, TError, TData>
 		>;
 		fetch?: RequestInit;
 	},
@@ -4152,25 +4155,21 @@ export function useGetApiDocuments<
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
 /**
- * @summary Get documents
+ * @summary Get entries
  */
 
-export function useGetApiDocuments<
-	TData = Awaited<ReturnType<typeof getApiDocuments>>,
+export function useGetApiEntries<
+	TData = Awaited<ReturnType<typeof getApiEntries>>,
 	TError =
-		| GetApiDocuments400
-		| GetApiDocuments401
-		| GetApiDocuments429
-		| GetApiDocuments500,
+		| GetApiEntries400
+		| GetApiEntries401
+		| GetApiEntries429
+		| GetApiEntries500,
 >(
-	params?: GetApiDocumentsParams,
+	params?: GetApiEntriesParams,
 	options?: {
 		query?: Partial<
-			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocuments>>,
-				TError,
-				TData
-			>
+			UseQueryOptions<Awaited<ReturnType<typeof getApiEntries>>, TError, TData>
 		>;
 		fetch?: RequestInit;
 	},
@@ -4178,7 +4177,7 @@ export function useGetApiDocuments<
 ): UseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
-	const queryOptions = getGetApiDocumentsQueryOptions(params, options);
+	const queryOptions = getGetApiEntriesQueryOptions(params, options);
 
 	const query = useQuery(queryOptions, queryClient) as UseQueryResult<
 		TData,
@@ -4191,92 +4190,92 @@ export function useGetApiDocuments<
 }
 
 /**
- * Creates a new document
- * @summary Create document
+ * Creates a new entry
+ * @summary Create entry
  */
-export type postApiDocumentsResponse201 = {
-	data: PostApiDocuments201;
+export type postApiEntriesResponse201 = {
+	data: PostApiEntries201;
 	status: 201;
 };
 
-export type postApiDocumentsResponse400 = {
-	data: PostApiDocuments400;
+export type postApiEntriesResponse400 = {
+	data: PostApiEntries400;
 	status: 400;
 };
 
-export type postApiDocumentsResponse401 = {
-	data: PostApiDocuments401;
+export type postApiEntriesResponse401 = {
+	data: PostApiEntries401;
 	status: 401;
 };
 
-export type postApiDocumentsResponse429 = {
-	data: PostApiDocuments429;
+export type postApiEntriesResponse429 = {
+	data: PostApiEntries429;
 	status: 429;
 };
 
-export type postApiDocumentsResponse500 = {
-	data: PostApiDocuments500;
+export type postApiEntriesResponse500 = {
+	data: PostApiEntries500;
 	status: 500;
 };
 
-export type postApiDocumentsResponseComposite =
-	| postApiDocumentsResponse201
-	| postApiDocumentsResponse400
-	| postApiDocumentsResponse401
-	| postApiDocumentsResponse429
-	| postApiDocumentsResponse500;
+export type postApiEntriesResponseComposite =
+	| postApiEntriesResponse201
+	| postApiEntriesResponse400
+	| postApiEntriesResponse401
+	| postApiEntriesResponse429
+	| postApiEntriesResponse500;
 
-export type postApiDocumentsResponse = postApiDocumentsResponseComposite & {
+export type postApiEntriesResponse = postApiEntriesResponseComposite & {
 	headers: Headers;
 };
 
-export const getPostApiDocumentsUrl = () => {
-	return `http://localhost:3000/api/documents`;
+export const getPostApiEntriesUrl = () => {
+	return `http://localhost:3000/api/entries`;
 };
 
-export const postApiDocuments = async (
-	postApiDocumentsBody: PostApiDocumentsBody,
+export const postApiEntries = async (
+	postApiEntriesBody: PostApiEntriesBody,
 	options?: RequestInit,
-): Promise<postApiDocumentsResponse> => {
-	const res = await fetch(getPostApiDocumentsUrl(), {
+): Promise<postApiEntriesResponse> => {
+	const res = await fetch(getPostApiEntriesUrl(), {
 		...options,
 		method: "POST",
 		headers: { "Content-Type": "application/json", ...options?.headers },
-		body: JSON.stringify(postApiDocumentsBody),
+		body: JSON.stringify(postApiEntriesBody),
 	});
 
 	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-	const data: postApiDocumentsResponse["data"] = body ? JSON.parse(body) : {};
+	const data: postApiEntriesResponse["data"] = body ? JSON.parse(body) : {};
 
 	return {
 		data,
 		status: res.status,
 		headers: res.headers,
-	} as postApiDocumentsResponse;
+	} as postApiEntriesResponse;
 };
 
-export const getPostApiDocumentsMutationOptions = <
+export const getPostApiEntriesMutationOptions = <
 	TError =
-		| PostApiDocuments400
-		| PostApiDocuments401
-		| PostApiDocuments429
-		| PostApiDocuments500,
+		| PostApiEntries400
+		| PostApiEntries401
+		| PostApiEntries429
+		| PostApiEntries500,
 	TContext = unknown,
 >(options?: {
 	mutation?: UseMutationOptions<
-		Awaited<ReturnType<typeof postApiDocuments>>,
+		Awaited<ReturnType<typeof postApiEntries>>,
 		TError,
-		{ data: PostApiDocumentsBody },
+		{ data: PostApiEntriesBody },
 		TContext
 	>;
 	fetch?: RequestInit;
 }): UseMutationOptions<
-	Awaited<ReturnType<typeof postApiDocuments>>,
+	Awaited<ReturnType<typeof postApiEntries>>,
 	TError,
-	{ data: PostApiDocumentsBody },
+	{ data: PostApiEntriesBody },
 	TContext
 > => {
-	const mutationKey = ["postApiDocuments"];
+	const mutationKey = ["postApiEntries"];
 	const { mutation: mutationOptions, fetch: fetchOptions } = options
 		? options.mutation &&
 			"mutationKey" in options.mutation &&
@@ -4286,146 +4285,146 @@ export const getPostApiDocumentsMutationOptions = <
 		: { mutation: { mutationKey }, fetch: undefined };
 
 	const mutationFn: MutationFunction<
-		Awaited<ReturnType<typeof postApiDocuments>>,
-		{ data: PostApiDocumentsBody }
+		Awaited<ReturnType<typeof postApiEntries>>,
+		{ data: PostApiEntriesBody }
 	> = (props) => {
 		const { data } = props ?? {};
 
-		return postApiDocuments(data, fetchOptions);
+		return postApiEntries(data, fetchOptions);
 	};
 
 	return { mutationFn, ...mutationOptions };
 };
 
-export type PostApiDocumentsMutationResult = NonNullable<
-	Awaited<ReturnType<typeof postApiDocuments>>
+export type PostApiEntriesMutationResult = NonNullable<
+	Awaited<ReturnType<typeof postApiEntries>>
 >;
-export type PostApiDocumentsMutationBody = PostApiDocumentsBody;
-export type PostApiDocumentsMutationError =
-	| PostApiDocuments400
-	| PostApiDocuments401
-	| PostApiDocuments429
-	| PostApiDocuments500;
+export type PostApiEntriesMutationBody = PostApiEntriesBody;
+export type PostApiEntriesMutationError =
+	| PostApiEntries400
+	| PostApiEntries401
+	| PostApiEntries429
+	| PostApiEntries500;
 
 /**
- * @summary Create document
+ * @summary Create entry
  */
-export const usePostApiDocuments = <
+export const usePostApiEntries = <
 	TError =
-		| PostApiDocuments400
-		| PostApiDocuments401
-		| PostApiDocuments429
-		| PostApiDocuments500,
+		| PostApiEntries400
+		| PostApiEntries401
+		| PostApiEntries429
+		| PostApiEntries500,
 	TContext = unknown,
 >(
 	options?: {
 		mutation?: UseMutationOptions<
-			Awaited<ReturnType<typeof postApiDocuments>>,
+			Awaited<ReturnType<typeof postApiEntries>>,
 			TError,
-			{ data: PostApiDocumentsBody },
+			{ data: PostApiEntriesBody },
 			TContext
 		>;
 		fetch?: RequestInit;
 	},
 	queryClient?: QueryClient,
 ): UseMutationResult<
-	Awaited<ReturnType<typeof postApiDocuments>>,
+	Awaited<ReturnType<typeof postApiEntries>>,
 	TError,
-	{ data: PostApiDocumentsBody },
+	{ data: PostApiEntriesBody },
 	TContext
 > => {
-	const mutationOptions = getPostApiDocumentsMutationOptions(options);
+	const mutationOptions = getPostApiEntriesMutationOptions(options);
 
 	return useMutation(mutationOptions, queryClient);
 };
 
 /**
- * Gets a single document by ID — Search Vector will not be returned. Will also return deleted documents.
- * @summary Get document
+ * Gets a single entry by ID — Search Vector will not be returned. Will also return deleted entries.
+ * @summary Get entry
  */
-export type getApiDocumentsIdResponse200 = {
-	data: GetApiDocumentsId200;
+export type getApiEntriesIdResponse200 = {
+	data: GetApiEntriesId200;
 	status: 200;
 };
 
-export type getApiDocumentsIdResponse400 = {
-	data: GetApiDocumentsId400;
+export type getApiEntriesIdResponse400 = {
+	data: GetApiEntriesId400;
 	status: 400;
 };
 
-export type getApiDocumentsIdResponse401 = {
-	data: GetApiDocumentsId401;
+export type getApiEntriesIdResponse401 = {
+	data: GetApiEntriesId401;
 	status: 401;
 };
 
-export type getApiDocumentsIdResponse404 = {
-	data: GetApiDocumentsId404;
+export type getApiEntriesIdResponse404 = {
+	data: GetApiEntriesId404;
 	status: 404;
 };
 
-export type getApiDocumentsIdResponse429 = {
-	data: GetApiDocumentsId429;
+export type getApiEntriesIdResponse429 = {
+	data: GetApiEntriesId429;
 	status: 429;
 };
 
-export type getApiDocumentsIdResponse500 = {
-	data: GetApiDocumentsId500;
+export type getApiEntriesIdResponse500 = {
+	data: GetApiEntriesId500;
 	status: 500;
 };
 
-export type getApiDocumentsIdResponseComposite =
-	| getApiDocumentsIdResponse200
-	| getApiDocumentsIdResponse400
-	| getApiDocumentsIdResponse401
-	| getApiDocumentsIdResponse404
-	| getApiDocumentsIdResponse429
-	| getApiDocumentsIdResponse500;
+export type getApiEntriesIdResponseComposite =
+	| getApiEntriesIdResponse200
+	| getApiEntriesIdResponse400
+	| getApiEntriesIdResponse401
+	| getApiEntriesIdResponse404
+	| getApiEntriesIdResponse429
+	| getApiEntriesIdResponse500;
 
-export type getApiDocumentsIdResponse = getApiDocumentsIdResponseComposite & {
+export type getApiEntriesIdResponse = getApiEntriesIdResponseComposite & {
 	headers: Headers;
 };
 
-export const getGetApiDocumentsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/documents/${id}`;
+export const getGetApiEntriesIdUrl = (id: string) => {
+	return `http://localhost:3000/api/entries/${id}`;
 };
 
-export const getApiDocumentsId = async (
+export const getApiEntriesId = async (
 	id: string,
 	options?: RequestInit,
-): Promise<getApiDocumentsIdResponse> => {
-	const res = await fetch(getGetApiDocumentsIdUrl(id), {
+): Promise<getApiEntriesIdResponse> => {
+	const res = await fetch(getGetApiEntriesIdUrl(id), {
 		...options,
 		method: "GET",
 	});
 
 	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-	const data: getApiDocumentsIdResponse["data"] = body ? JSON.parse(body) : {};
+	const data: getApiEntriesIdResponse["data"] = body ? JSON.parse(body) : {};
 
 	return {
 		data,
 		status: res.status,
 		headers: res.headers,
-	} as getApiDocumentsIdResponse;
+	} as getApiEntriesIdResponse;
 };
 
-export const getGetApiDocumentsIdQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/documents/${id}`] as const;
+export const getGetApiEntriesIdQueryKey = (id: string) => {
+	return [`http://localhost:3000/api/entries/${id}`] as const;
 };
 
-export const getGetApiDocumentsIdInfiniteQueryOptions = <
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsId>>>,
+export const getGetApiEntriesIdInfiniteQueryOptions = <
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesId>>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
@@ -4435,11 +4434,11 @@ export const getGetApiDocumentsIdInfiniteQueryOptions = <
 ) => {
 	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
 
-	const queryKey = queryOptions?.queryKey ?? getGetApiDocumentsIdQueryKey(id);
+	const queryKey = queryOptions?.queryKey ?? getGetApiEntriesIdQueryKey(id);
 
-	const queryFn: QueryFunction<
-		Awaited<ReturnType<typeof getApiDocumentsId>>
-	> = ({ signal }) => getApiDocumentsId(id, { signal, ...fetchOptions });
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiEntriesId>>> = ({
+		signal,
+	}) => getApiEntriesId(id, { signal, ...fetchOptions });
 
 	return {
 		queryKey,
@@ -4447,45 +4446,45 @@ export const getGetApiDocumentsIdInfiniteQueryOptions = <
 		enabled: !!id,
 		...queryOptions,
 	} as UseInfiniteQueryOptions<
-		Awaited<ReturnType<typeof getApiDocumentsId>>,
+		Awaited<ReturnType<typeof getApiEntriesId>>,
 		TError,
 		TData
 	> & { queryKey: DataTag<QueryKey, TData, TError> };
 };
 
-export type GetApiDocumentsIdInfiniteQueryResult = NonNullable<
-	Awaited<ReturnType<typeof getApiDocumentsId>>
+export type GetApiEntriesIdInfiniteQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiEntriesId>>
 >;
-export type GetApiDocumentsIdInfiniteQueryError =
-	| GetApiDocumentsId400
-	| GetApiDocumentsId401
-	| GetApiDocumentsId404
-	| GetApiDocumentsId429
-	| GetApiDocumentsId500;
+export type GetApiEntriesIdInfiniteQueryError =
+	| GetApiEntriesId400
+	| GetApiEntriesId401
+	| GetApiEntriesId404
+	| GetApiEntriesId429
+	| GetApiEntriesId500;
 
-export function useGetApiDocumentsIdInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsId>>>,
+export function useGetApiEntriesIdInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesId>>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options: {
 		query: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				DefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocumentsId>>,
+					Awaited<ReturnType<typeof getApiEntriesId>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocumentsId>>
+					Awaited<ReturnType<typeof getApiEntriesId>>
 				>,
 				"initialData"
 			>;
@@ -4495,29 +4494,29 @@ export function useGetApiDocumentsIdInfinite<
 ): DefinedUseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsIdInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsId>>>,
+export function useGetApiEntriesIdInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesId>>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				UndefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocumentsId>>,
+					Awaited<ReturnType<typeof getApiEntriesId>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocumentsId>>
+					Awaited<ReturnType<typeof getApiEntriesId>>
 				>,
 				"initialData"
 			>;
@@ -4527,20 +4526,20 @@ export function useGetApiDocumentsIdInfinite<
 ): UseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsIdInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsId>>>,
+export function useGetApiEntriesIdInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesId>>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
@@ -4552,23 +4551,23 @@ export function useGetApiDocumentsIdInfinite<
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
 /**
- * @summary Get document
+ * @summary Get entry
  */
 
-export function useGetApiDocumentsIdInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsId>>>,
+export function useGetApiEntriesIdInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesId>>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
@@ -4579,7 +4578,7 @@ export function useGetApiDocumentsIdInfinite<
 ): UseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
-	const queryOptions = getGetApiDocumentsIdInfiniteQueryOptions(id, options);
+	const queryOptions = getGetApiEntriesIdInfiniteQueryOptions(id, options);
 
 	const query = useInfiniteQuery(
 		queryOptions,
@@ -4593,20 +4592,20 @@ export function useGetApiDocumentsIdInfinite<
 	return query;
 }
 
-export const getGetApiDocumentsIdQueryOptions = <
-	TData = Awaited<ReturnType<typeof getApiDocumentsId>>,
+export const getGetApiEntriesIdQueryOptions = <
+	TData = Awaited<ReturnType<typeof getApiEntriesId>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
@@ -4616,11 +4615,11 @@ export const getGetApiDocumentsIdQueryOptions = <
 ) => {
 	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
 
-	const queryKey = queryOptions?.queryKey ?? getGetApiDocumentsIdQueryKey(id);
+	const queryKey = queryOptions?.queryKey ?? getGetApiEntriesIdQueryKey(id);
 
-	const queryFn: QueryFunction<
-		Awaited<ReturnType<typeof getApiDocumentsId>>
-	> = ({ signal }) => getApiDocumentsId(id, { signal, ...fetchOptions });
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiEntriesId>>> = ({
+		signal,
+	}) => getApiEntriesId(id, { signal, ...fetchOptions });
 
 	return {
 		queryKey,
@@ -4628,45 +4627,45 @@ export const getGetApiDocumentsIdQueryOptions = <
 		enabled: !!id,
 		...queryOptions,
 	} as UseQueryOptions<
-		Awaited<ReturnType<typeof getApiDocumentsId>>,
+		Awaited<ReturnType<typeof getApiEntriesId>>,
 		TError,
 		TData
 	> & { queryKey: DataTag<QueryKey, TData, TError> };
 };
 
-export type GetApiDocumentsIdQueryResult = NonNullable<
-	Awaited<ReturnType<typeof getApiDocumentsId>>
+export type GetApiEntriesIdQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiEntriesId>>
 >;
-export type GetApiDocumentsIdQueryError =
-	| GetApiDocumentsId400
-	| GetApiDocumentsId401
-	| GetApiDocumentsId404
-	| GetApiDocumentsId429
-	| GetApiDocumentsId500;
+export type GetApiEntriesIdQueryError =
+	| GetApiEntriesId400
+	| GetApiEntriesId401
+	| GetApiEntriesId404
+	| GetApiEntriesId429
+	| GetApiEntriesId500;
 
-export function useGetApiDocumentsId<
-	TData = Awaited<ReturnType<typeof getApiDocumentsId>>,
+export function useGetApiEntriesId<
+	TData = Awaited<ReturnType<typeof getApiEntriesId>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options: {
 		query: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				DefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocumentsId>>,
+					Awaited<ReturnType<typeof getApiEntriesId>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocumentsId>>
+					Awaited<ReturnType<typeof getApiEntriesId>>
 				>,
 				"initialData"
 			>;
@@ -4676,29 +4675,29 @@ export function useGetApiDocumentsId<
 ): DefinedUseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsId<
-	TData = Awaited<ReturnType<typeof getApiDocumentsId>>,
+export function useGetApiEntriesId<
+	TData = Awaited<ReturnType<typeof getApiEntriesId>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				UndefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocumentsId>>,
+					Awaited<ReturnType<typeof getApiEntriesId>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocumentsId>>
+					Awaited<ReturnType<typeof getApiEntriesId>>
 				>,
 				"initialData"
 			>;
@@ -4708,20 +4707,20 @@ export function useGetApiDocumentsId<
 ): UseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsId<
-	TData = Awaited<ReturnType<typeof getApiDocumentsId>>,
+export function useGetApiEntriesId<
+	TData = Awaited<ReturnType<typeof getApiEntriesId>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
@@ -4733,23 +4732,23 @@ export function useGetApiDocumentsId<
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
 /**
- * @summary Get document
+ * @summary Get entry
  */
 
-export function useGetApiDocumentsId<
-	TData = Awaited<ReturnType<typeof getApiDocumentsId>>,
+export function useGetApiEntriesId<
+	TData = Awaited<ReturnType<typeof getApiEntriesId>>,
 	TError =
-		| GetApiDocumentsId400
-		| GetApiDocumentsId401
-		| GetApiDocumentsId404
-		| GetApiDocumentsId429
-		| GetApiDocumentsId500,
+		| GetApiEntriesId400
+		| GetApiEntriesId401
+		| GetApiEntriesId404
+		| GetApiEntriesId429
+		| GetApiEntriesId500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsId>>,
+				Awaited<ReturnType<typeof getApiEntriesId>>,
 				TError,
 				TData
 			>
@@ -4760,7 +4759,7 @@ export function useGetApiDocumentsId<
 ): UseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
-	const queryOptions = getGetApiDocumentsIdQueryOptions(id, options);
+	const queryOptions = getGetApiEntriesIdQueryOptions(id, options);
 
 	const query = useQuery(queryOptions, queryClient) as UseQueryResult<
 		TData,
@@ -4773,100 +4772,100 @@ export function useGetApiDocumentsId<
 }
 
 /**
- * Updates a document — internally handles embeddings and text extraction from the editor content. Notes are not supported since they will be deprecated.
- * @summary Update document
+ * Updates an entry — internally handles embeddings and text extraction from the editor content. Notes are not supported since they will be deprecated.
+ * @summary Update entry
  */
-export type putApiDocumentsIdResponse200 = {
-	data: PutApiDocumentsId200;
+export type putApiEntriesIdResponse200 = {
+	data: PutApiEntriesId200;
 	status: 200;
 };
 
-export type putApiDocumentsIdResponse400 = {
-	data: PutApiDocumentsId400;
+export type putApiEntriesIdResponse400 = {
+	data: PutApiEntriesId400;
 	status: 400;
 };
 
-export type putApiDocumentsIdResponse401 = {
-	data: PutApiDocumentsId401;
+export type putApiEntriesIdResponse401 = {
+	data: PutApiEntriesId401;
 	status: 401;
 };
 
-export type putApiDocumentsIdResponse404 = {
-	data: PutApiDocumentsId404;
+export type putApiEntriesIdResponse404 = {
+	data: PutApiEntriesId404;
 	status: 404;
 };
 
-export type putApiDocumentsIdResponse429 = {
-	data: PutApiDocumentsId429;
+export type putApiEntriesIdResponse429 = {
+	data: PutApiEntriesId429;
 	status: 429;
 };
 
-export type putApiDocumentsIdResponse500 = {
-	data: PutApiDocumentsId500;
+export type putApiEntriesIdResponse500 = {
+	data: PutApiEntriesId500;
 	status: 500;
 };
 
-export type putApiDocumentsIdResponseComposite =
-	| putApiDocumentsIdResponse200
-	| putApiDocumentsIdResponse400
-	| putApiDocumentsIdResponse401
-	| putApiDocumentsIdResponse404
-	| putApiDocumentsIdResponse429
-	| putApiDocumentsIdResponse500;
+export type putApiEntriesIdResponseComposite =
+	| putApiEntriesIdResponse200
+	| putApiEntriesIdResponse400
+	| putApiEntriesIdResponse401
+	| putApiEntriesIdResponse404
+	| putApiEntriesIdResponse429
+	| putApiEntriesIdResponse500;
 
-export type putApiDocumentsIdResponse = putApiDocumentsIdResponseComposite & {
+export type putApiEntriesIdResponse = putApiEntriesIdResponseComposite & {
 	headers: Headers;
 };
 
-export const getPutApiDocumentsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/documents/${id}`;
+export const getPutApiEntriesIdUrl = (id: string) => {
+	return `http://localhost:3000/api/entries/${id}`;
 };
 
-export const putApiDocumentsId = async (
+export const putApiEntriesId = async (
 	id: string,
-	putApiDocumentsIdBody: PutApiDocumentsIdBody,
+	putApiEntriesIdBody: PutApiEntriesIdBody,
 	options?: RequestInit,
-): Promise<putApiDocumentsIdResponse> => {
-	const res = await fetch(getPutApiDocumentsIdUrl(id), {
+): Promise<putApiEntriesIdResponse> => {
+	const res = await fetch(getPutApiEntriesIdUrl(id), {
 		...options,
 		method: "PUT",
 		headers: { "Content-Type": "application/json", ...options?.headers },
-		body: JSON.stringify(putApiDocumentsIdBody),
+		body: JSON.stringify(putApiEntriesIdBody),
 	});
 
 	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-	const data: putApiDocumentsIdResponse["data"] = body ? JSON.parse(body) : {};
+	const data: putApiEntriesIdResponse["data"] = body ? JSON.parse(body) : {};
 
 	return {
 		data,
 		status: res.status,
 		headers: res.headers,
-	} as putApiDocumentsIdResponse;
+	} as putApiEntriesIdResponse;
 };
 
-export const getPutApiDocumentsIdMutationOptions = <
+export const getPutApiEntriesIdMutationOptions = <
 	TError =
-		| PutApiDocumentsId400
-		| PutApiDocumentsId401
-		| PutApiDocumentsId404
-		| PutApiDocumentsId429
-		| PutApiDocumentsId500,
+		| PutApiEntriesId400
+		| PutApiEntriesId401
+		| PutApiEntriesId404
+		| PutApiEntriesId429
+		| PutApiEntriesId500,
 	TContext = unknown,
 >(options?: {
 	mutation?: UseMutationOptions<
-		Awaited<ReturnType<typeof putApiDocumentsId>>,
+		Awaited<ReturnType<typeof putApiEntriesId>>,
 		TError,
-		{ id: string; data: PutApiDocumentsIdBody },
+		{ id: string; data: PutApiEntriesIdBody },
 		TContext
 	>;
 	fetch?: RequestInit;
 }): UseMutationOptions<
-	Awaited<ReturnType<typeof putApiDocumentsId>>,
+	Awaited<ReturnType<typeof putApiEntriesId>>,
 	TError,
-	{ id: string; data: PutApiDocumentsIdBody },
+	{ id: string; data: PutApiEntriesIdBody },
 	TContext
 > => {
-	const mutationKey = ["putApiDocumentsId"];
+	const mutationKey = ["putApiEntriesId"];
 	const { mutation: mutationOptions, fetch: fetchOptions } = options
 		? options.mutation &&
 			"mutationKey" in options.mutation &&
@@ -4876,156 +4875,153 @@ export const getPutApiDocumentsIdMutationOptions = <
 		: { mutation: { mutationKey }, fetch: undefined };
 
 	const mutationFn: MutationFunction<
-		Awaited<ReturnType<typeof putApiDocumentsId>>,
-		{ id: string; data: PutApiDocumentsIdBody }
+		Awaited<ReturnType<typeof putApiEntriesId>>,
+		{ id: string; data: PutApiEntriesIdBody }
 	> = (props) => {
 		const { id, data } = props ?? {};
 
-		return putApiDocumentsId(id, data, fetchOptions);
+		return putApiEntriesId(id, data, fetchOptions);
 	};
 
 	return { mutationFn, ...mutationOptions };
 };
 
-export type PutApiDocumentsIdMutationResult = NonNullable<
-	Awaited<ReturnType<typeof putApiDocumentsId>>
+export type PutApiEntriesIdMutationResult = NonNullable<
+	Awaited<ReturnType<typeof putApiEntriesId>>
 >;
-export type PutApiDocumentsIdMutationBody = PutApiDocumentsIdBody;
-export type PutApiDocumentsIdMutationError =
-	| PutApiDocumentsId400
-	| PutApiDocumentsId401
-	| PutApiDocumentsId404
-	| PutApiDocumentsId429
-	| PutApiDocumentsId500;
+export type PutApiEntriesIdMutationBody = PutApiEntriesIdBody;
+export type PutApiEntriesIdMutationError =
+	| PutApiEntriesId400
+	| PutApiEntriesId401
+	| PutApiEntriesId404
+	| PutApiEntriesId429
+	| PutApiEntriesId500;
 
 /**
- * @summary Update document
+ * @summary Update entry
  */
-export const usePutApiDocumentsId = <
+export const usePutApiEntriesId = <
 	TError =
-		| PutApiDocumentsId400
-		| PutApiDocumentsId401
-		| PutApiDocumentsId404
-		| PutApiDocumentsId429
-		| PutApiDocumentsId500,
+		| PutApiEntriesId400
+		| PutApiEntriesId401
+		| PutApiEntriesId404
+		| PutApiEntriesId429
+		| PutApiEntriesId500,
 	TContext = unknown,
 >(
 	options?: {
 		mutation?: UseMutationOptions<
-			Awaited<ReturnType<typeof putApiDocumentsId>>,
+			Awaited<ReturnType<typeof putApiEntriesId>>,
 			TError,
-			{ id: string; data: PutApiDocumentsIdBody },
+			{ id: string; data: PutApiEntriesIdBody },
 			TContext
 		>;
 		fetch?: RequestInit;
 	},
 	queryClient?: QueryClient,
 ): UseMutationResult<
-	Awaited<ReturnType<typeof putApiDocumentsId>>,
+	Awaited<ReturnType<typeof putApiEntriesId>>,
 	TError,
-	{ id: string; data: PutApiDocumentsIdBody },
+	{ id: string; data: PutApiEntriesIdBody },
 	TContext
 > => {
-	const mutationOptions = getPutApiDocumentsIdMutationOptions(options);
+	const mutationOptions = getPutApiEntriesIdMutationOptions(options);
 
 	return useMutation(mutationOptions, queryClient);
 };
 
 /**
- * Deletes a document
- * @summary Delete document
+ * Deletes an entry
+ * @summary Delete entry
  */
-export type deleteApiDocumentsIdResponse200 = {
-	data: DeleteApiDocumentsId200;
+export type deleteApiEntriesIdResponse200 = {
+	data: DeleteApiEntriesId200;
 	status: 200;
 };
 
-export type deleteApiDocumentsIdResponse400 = {
-	data: DeleteApiDocumentsId400;
+export type deleteApiEntriesIdResponse400 = {
+	data: DeleteApiEntriesId400;
 	status: 400;
 };
 
-export type deleteApiDocumentsIdResponse401 = {
-	data: DeleteApiDocumentsId401;
+export type deleteApiEntriesIdResponse401 = {
+	data: DeleteApiEntriesId401;
 	status: 401;
 };
 
-export type deleteApiDocumentsIdResponse404 = {
-	data: DeleteApiDocumentsId404;
+export type deleteApiEntriesIdResponse404 = {
+	data: DeleteApiEntriesId404;
 	status: 404;
 };
 
-export type deleteApiDocumentsIdResponse429 = {
-	data: DeleteApiDocumentsId429;
+export type deleteApiEntriesIdResponse429 = {
+	data: DeleteApiEntriesId429;
 	status: 429;
 };
 
-export type deleteApiDocumentsIdResponse500 = {
-	data: DeleteApiDocumentsId500;
+export type deleteApiEntriesIdResponse500 = {
+	data: DeleteApiEntriesId500;
 	status: 500;
 };
 
-export type deleteApiDocumentsIdResponseComposite =
-	| deleteApiDocumentsIdResponse200
-	| deleteApiDocumentsIdResponse400
-	| deleteApiDocumentsIdResponse401
-	| deleteApiDocumentsIdResponse404
-	| deleteApiDocumentsIdResponse429
-	| deleteApiDocumentsIdResponse500;
+export type deleteApiEntriesIdResponseComposite =
+	| deleteApiEntriesIdResponse200
+	| deleteApiEntriesIdResponse400
+	| deleteApiEntriesIdResponse401
+	| deleteApiEntriesIdResponse404
+	| deleteApiEntriesIdResponse429
+	| deleteApiEntriesIdResponse500;
 
-export type deleteApiDocumentsIdResponse =
-	deleteApiDocumentsIdResponseComposite & {
-		headers: Headers;
-	};
-
-export const getDeleteApiDocumentsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/documents/${id}`;
+export type deleteApiEntriesIdResponse = deleteApiEntriesIdResponseComposite & {
+	headers: Headers;
 };
 
-export const deleteApiDocumentsId = async (
+export const getDeleteApiEntriesIdUrl = (id: string) => {
+	return `http://localhost:3000/api/entries/${id}`;
+};
+
+export const deleteApiEntriesId = async (
 	id: string,
 	options?: RequestInit,
-): Promise<deleteApiDocumentsIdResponse> => {
-	const res = await fetch(getDeleteApiDocumentsIdUrl(id), {
+): Promise<deleteApiEntriesIdResponse> => {
+	const res = await fetch(getDeleteApiEntriesIdUrl(id), {
 		...options,
 		method: "DELETE",
 	});
 
 	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-	const data: deleteApiDocumentsIdResponse["data"] = body
-		? JSON.parse(body)
-		: {};
+	const data: deleteApiEntriesIdResponse["data"] = body ? JSON.parse(body) : {};
 
 	return {
 		data,
 		status: res.status,
 		headers: res.headers,
-	} as deleteApiDocumentsIdResponse;
+	} as deleteApiEntriesIdResponse;
 };
 
-export const getDeleteApiDocumentsIdMutationOptions = <
+export const getDeleteApiEntriesIdMutationOptions = <
 	TError =
-		| DeleteApiDocumentsId400
-		| DeleteApiDocumentsId401
-		| DeleteApiDocumentsId404
-		| DeleteApiDocumentsId429
-		| DeleteApiDocumentsId500,
+		| DeleteApiEntriesId400
+		| DeleteApiEntriesId401
+		| DeleteApiEntriesId404
+		| DeleteApiEntriesId429
+		| DeleteApiEntriesId500,
 	TContext = unknown,
 >(options?: {
 	mutation?: UseMutationOptions<
-		Awaited<ReturnType<typeof deleteApiDocumentsId>>,
+		Awaited<ReturnType<typeof deleteApiEntriesId>>,
 		TError,
 		{ id: string },
 		TContext
 	>;
 	fetch?: RequestInit;
 }): UseMutationOptions<
-	Awaited<ReturnType<typeof deleteApiDocumentsId>>,
+	Awaited<ReturnType<typeof deleteApiEntriesId>>,
 	TError,
 	{ id: string },
 	TContext
 > => {
-	const mutationKey = ["deleteApiDocumentsId"];
+	const mutationKey = ["deleteApiEntriesId"];
 	const { mutation: mutationOptions, fetch: fetchOptions } = options
 		? options.mutation &&
 			"mutationKey" in options.mutation &&
@@ -5035,43 +5031,43 @@ export const getDeleteApiDocumentsIdMutationOptions = <
 		: { mutation: { mutationKey }, fetch: undefined };
 
 	const mutationFn: MutationFunction<
-		Awaited<ReturnType<typeof deleteApiDocumentsId>>,
+		Awaited<ReturnType<typeof deleteApiEntriesId>>,
 		{ id: string }
 	> = (props) => {
 		const { id } = props ?? {};
 
-		return deleteApiDocumentsId(id, fetchOptions);
+		return deleteApiEntriesId(id, fetchOptions);
 	};
 
 	return { mutationFn, ...mutationOptions };
 };
 
-export type DeleteApiDocumentsIdMutationResult = NonNullable<
-	Awaited<ReturnType<typeof deleteApiDocumentsId>>
+export type DeleteApiEntriesIdMutationResult = NonNullable<
+	Awaited<ReturnType<typeof deleteApiEntriesId>>
 >;
 
-export type DeleteApiDocumentsIdMutationError =
-	| DeleteApiDocumentsId400
-	| DeleteApiDocumentsId401
-	| DeleteApiDocumentsId404
-	| DeleteApiDocumentsId429
-	| DeleteApiDocumentsId500;
+export type DeleteApiEntriesIdMutationError =
+	| DeleteApiEntriesId400
+	| DeleteApiEntriesId401
+	| DeleteApiEntriesId404
+	| DeleteApiEntriesId429
+	| DeleteApiEntriesId500;
 
 /**
- * @summary Delete document
+ * @summary Delete entry
  */
-export const useDeleteApiDocumentsId = <
+export const useDeleteApiEntriesId = <
 	TError =
-		| DeleteApiDocumentsId400
-		| DeleteApiDocumentsId401
-		| DeleteApiDocumentsId404
-		| DeleteApiDocumentsId429
-		| DeleteApiDocumentsId500,
+		| DeleteApiEntriesId400
+		| DeleteApiEntriesId401
+		| DeleteApiEntriesId404
+		| DeleteApiEntriesId429
+		| DeleteApiEntriesId500,
 	TContext = unknown,
 >(
 	options?: {
 		mutation?: UseMutationOptions<
-			Awaited<ReturnType<typeof deleteApiDocumentsId>>,
+			Awaited<ReturnType<typeof deleteApiEntriesId>>,
 			TError,
 			{ id: string },
 			TContext
@@ -5080,78 +5076,78 @@ export const useDeleteApiDocumentsId = <
 	},
 	queryClient?: QueryClient,
 ): UseMutationResult<
-	Awaited<ReturnType<typeof deleteApiDocumentsId>>,
+	Awaited<ReturnType<typeof deleteApiEntriesId>>,
 	TError,
 	{ id: string },
 	TContext
 > => {
-	const mutationOptions = getDeleteApiDocumentsIdMutationOptions(options);
+	const mutationOptions = getDeleteApiEntriesIdMutationOptions(options);
 
 	return useMutation(mutationOptions, queryClient);
 };
 
 /**
- * Gets only the title and excerpt of a document by ID
- * @summary Get document metadata
+ * Gets only the title and excerpt of an entry by ID
+ * @summary Get entry metadata
  */
-export type getApiDocumentsIdMetadataResponse200 = {
-	data: GetApiDocumentsIdMetadata200;
+export type getApiEntriesIdMetadataResponse200 = {
+	data: GetApiEntriesIdMetadata200;
 	status: 200;
 };
 
-export type getApiDocumentsIdMetadataResponse400 = {
-	data: GetApiDocumentsIdMetadata400;
+export type getApiEntriesIdMetadataResponse400 = {
+	data: GetApiEntriesIdMetadata400;
 	status: 400;
 };
 
-export type getApiDocumentsIdMetadataResponse401 = {
-	data: GetApiDocumentsIdMetadata401;
+export type getApiEntriesIdMetadataResponse401 = {
+	data: GetApiEntriesIdMetadata401;
 	status: 401;
 };
 
-export type getApiDocumentsIdMetadataResponse404 = {
-	data: GetApiDocumentsIdMetadata404;
+export type getApiEntriesIdMetadataResponse404 = {
+	data: GetApiEntriesIdMetadata404;
 	status: 404;
 };
 
-export type getApiDocumentsIdMetadataResponse429 = {
-	data: GetApiDocumentsIdMetadata429;
+export type getApiEntriesIdMetadataResponse429 = {
+	data: GetApiEntriesIdMetadata429;
 	status: 429;
 };
 
-export type getApiDocumentsIdMetadataResponse500 = {
-	data: GetApiDocumentsIdMetadata500;
+export type getApiEntriesIdMetadataResponse500 = {
+	data: GetApiEntriesIdMetadata500;
 	status: 500;
 };
 
-export type getApiDocumentsIdMetadataResponseComposite =
-	| getApiDocumentsIdMetadataResponse200
-	| getApiDocumentsIdMetadataResponse400
-	| getApiDocumentsIdMetadataResponse401
-	| getApiDocumentsIdMetadataResponse404
-	| getApiDocumentsIdMetadataResponse429
-	| getApiDocumentsIdMetadataResponse500;
+export type getApiEntriesIdMetadataResponseComposite =
+	| getApiEntriesIdMetadataResponse200
+	| getApiEntriesIdMetadataResponse400
+	| getApiEntriesIdMetadataResponse401
+	| getApiEntriesIdMetadataResponse404
+	| getApiEntriesIdMetadataResponse429
+	| getApiEntriesIdMetadataResponse500;
 
-export type getApiDocumentsIdMetadataResponse =
-	getApiDocumentsIdMetadataResponseComposite & {
+export type getApiEntriesIdMetadataResponse =
+	getApiEntriesIdMetadataResponseComposite & {
 		headers: Headers;
 	};
 
-export const getGetApiDocumentsIdMetadataUrl = (id: string) => {
-	return `http://localhost:3000/api/documents/${id}/metadata`;
+export const getGetApiEntriesIdMetadataUrl = (id: string) => {
+	return `http://localhost:3000/api/entries/${id}/metadata`;
 };
 
-export const getApiDocumentsIdMetadata = async (
+export const getApiEntriesIdMetadata = async (
 	id: string,
 	options?: RequestInit,
-): Promise<getApiDocumentsIdMetadataResponse> => {
-	const res = await fetch(getGetApiDocumentsIdMetadataUrl(id), {
+): Promise<getApiEntriesIdMetadataResponse> => {
+	const res = await fetch(getGetApiEntriesIdMetadataUrl(id), {
 		...options,
 		method: "GET",
 	});
 
 	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-	const data: getApiDocumentsIdMetadataResponse["data"] = body
+	const data: getApiEntriesIdMetadataResponse["data"] = body
 		? JSON.parse(body)
 		: {};
 
@@ -5159,27 +5155,27 @@ export const getApiDocumentsIdMetadata = async (
 		data,
 		status: res.status,
 		headers: res.headers,
-	} as getApiDocumentsIdMetadataResponse;
+	} as getApiEntriesIdMetadataResponse;
 };
 
-export const getGetApiDocumentsIdMetadataQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/documents/${id}/metadata`] as const;
+export const getGetApiEntriesIdMetadataQueryKey = (id: string) => {
+	return [`http://localhost:3000/api/entries/${id}/metadata`] as const;
 };
 
-export const getGetApiDocumentsIdMetadataInfiniteQueryOptions = <
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>>,
+export const getGetApiEntriesIdMetadataInfiniteQueryOptions = <
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesIdMetadata>>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
@@ -5190,12 +5186,11 @@ export const getGetApiDocumentsIdMetadataInfiniteQueryOptions = <
 	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
 
 	const queryKey =
-		queryOptions?.queryKey ?? getGetApiDocumentsIdMetadataQueryKey(id);
+		queryOptions?.queryKey ?? getGetApiEntriesIdMetadataQueryKey(id);
 
 	const queryFn: QueryFunction<
-		Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>
-	> = ({ signal }) =>
-		getApiDocumentsIdMetadata(id, { signal, ...fetchOptions });
+		Awaited<ReturnType<typeof getApiEntriesIdMetadata>>
+	> = ({ signal }) => getApiEntriesIdMetadata(id, { signal, ...fetchOptions });
 
 	return {
 		queryKey,
@@ -5203,45 +5198,45 @@ export const getGetApiDocumentsIdMetadataInfiniteQueryOptions = <
 		enabled: !!id,
 		...queryOptions,
 	} as UseInfiniteQueryOptions<
-		Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+		Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 		TError,
 		TData
 	> & { queryKey: DataTag<QueryKey, TData, TError> };
 };
 
-export type GetApiDocumentsIdMetadataInfiniteQueryResult = NonNullable<
-	Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>
+export type GetApiEntriesIdMetadataInfiniteQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiEntriesIdMetadata>>
 >;
-export type GetApiDocumentsIdMetadataInfiniteQueryError =
-	| GetApiDocumentsIdMetadata400
-	| GetApiDocumentsIdMetadata401
-	| GetApiDocumentsIdMetadata404
-	| GetApiDocumentsIdMetadata429
-	| GetApiDocumentsIdMetadata500;
+export type GetApiEntriesIdMetadataInfiniteQueryError =
+	| GetApiEntriesIdMetadata400
+	| GetApiEntriesIdMetadata401
+	| GetApiEntriesIdMetadata404
+	| GetApiEntriesIdMetadata429
+	| GetApiEntriesIdMetadata500;
 
-export function useGetApiDocumentsIdMetadataInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>>,
+export function useGetApiEntriesIdMetadataInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesIdMetadata>>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options: {
 		query: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				DefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+					Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>
+					Awaited<ReturnType<typeof getApiEntriesIdMetadata>>
 				>,
 				"initialData"
 			>;
@@ -5251,29 +5246,29 @@ export function useGetApiDocumentsIdMetadataInfinite<
 ): DefinedUseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsIdMetadataInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>>,
+export function useGetApiEntriesIdMetadataInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesIdMetadata>>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				UndefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+					Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>
+					Awaited<ReturnType<typeof getApiEntriesIdMetadata>>
 				>,
 				"initialData"
 			>;
@@ -5283,20 +5278,20 @@ export function useGetApiDocumentsIdMetadataInfinite<
 ): UseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsIdMetadataInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>>,
+export function useGetApiEntriesIdMetadataInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesIdMetadata>>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
@@ -5308,23 +5303,23 @@ export function useGetApiDocumentsIdMetadataInfinite<
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
 /**
- * @summary Get document metadata
+ * @summary Get entry metadata
  */
 
-export function useGetApiDocumentsIdMetadataInfinite<
-	TData = InfiniteData<Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>>,
+export function useGetApiEntriesIdMetadataInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntriesIdMetadata>>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseInfiniteQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
@@ -5335,7 +5330,7 @@ export function useGetApiDocumentsIdMetadataInfinite<
 ): UseInfiniteQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
-	const queryOptions = getGetApiDocumentsIdMetadataInfiniteQueryOptions(
+	const queryOptions = getGetApiEntriesIdMetadataInfiniteQueryOptions(
 		id,
 		options,
 	);
@@ -5352,20 +5347,20 @@ export function useGetApiDocumentsIdMetadataInfinite<
 	return query;
 }
 
-export const getGetApiDocumentsIdMetadataQueryOptions = <
-	TData = Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+export const getGetApiEntriesIdMetadataQueryOptions = <
+	TData = Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
@@ -5376,12 +5371,11 @@ export const getGetApiDocumentsIdMetadataQueryOptions = <
 	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
 
 	const queryKey =
-		queryOptions?.queryKey ?? getGetApiDocumentsIdMetadataQueryKey(id);
+		queryOptions?.queryKey ?? getGetApiEntriesIdMetadataQueryKey(id);
 
 	const queryFn: QueryFunction<
-		Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>
-	> = ({ signal }) =>
-		getApiDocumentsIdMetadata(id, { signal, ...fetchOptions });
+		Awaited<ReturnType<typeof getApiEntriesIdMetadata>>
+	> = ({ signal }) => getApiEntriesIdMetadata(id, { signal, ...fetchOptions });
 
 	return {
 		queryKey,
@@ -5389,45 +5383,45 @@ export const getGetApiDocumentsIdMetadataQueryOptions = <
 		enabled: !!id,
 		...queryOptions,
 	} as UseQueryOptions<
-		Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+		Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 		TError,
 		TData
 	> & { queryKey: DataTag<QueryKey, TData, TError> };
 };
 
-export type GetApiDocumentsIdMetadataQueryResult = NonNullable<
-	Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>
+export type GetApiEntriesIdMetadataQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiEntriesIdMetadata>>
 >;
-export type GetApiDocumentsIdMetadataQueryError =
-	| GetApiDocumentsIdMetadata400
-	| GetApiDocumentsIdMetadata401
-	| GetApiDocumentsIdMetadata404
-	| GetApiDocumentsIdMetadata429
-	| GetApiDocumentsIdMetadata500;
+export type GetApiEntriesIdMetadataQueryError =
+	| GetApiEntriesIdMetadata400
+	| GetApiEntriesIdMetadata401
+	| GetApiEntriesIdMetadata404
+	| GetApiEntriesIdMetadata429
+	| GetApiEntriesIdMetadata500;
 
-export function useGetApiDocumentsIdMetadata<
-	TData = Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+export function useGetApiEntriesIdMetadata<
+	TData = Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options: {
 		query: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				DefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+					Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>
+					Awaited<ReturnType<typeof getApiEntriesIdMetadata>>
 				>,
 				"initialData"
 			>;
@@ -5437,29 +5431,29 @@ export function useGetApiDocumentsIdMetadata<
 ): DefinedUseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsIdMetadata<
-	TData = Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+export function useGetApiEntriesIdMetadata<
+	TData = Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
 		> &
 			Pick<
 				UndefinedInitialDataOptions<
-					Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+					Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 					TError,
-					Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>
+					Awaited<ReturnType<typeof getApiEntriesIdMetadata>>
 				>,
 				"initialData"
 			>;
@@ -5469,20 +5463,20 @@ export function useGetApiDocumentsIdMetadata<
 ): UseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
-export function useGetApiDocumentsIdMetadata<
-	TData = Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+export function useGetApiEntriesIdMetadata<
+	TData = Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
@@ -5494,23 +5488,23 @@ export function useGetApiDocumentsIdMetadata<
 	queryKey: DataTag<QueryKey, TData, TError>;
 };
 /**
- * @summary Get document metadata
+ * @summary Get entry metadata
  */
 
-export function useGetApiDocumentsIdMetadata<
-	TData = Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+export function useGetApiEntriesIdMetadata<
+	TData = Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 	TError =
-		| GetApiDocumentsIdMetadata400
-		| GetApiDocumentsIdMetadata401
-		| GetApiDocumentsIdMetadata404
-		| GetApiDocumentsIdMetadata429
-		| GetApiDocumentsIdMetadata500,
+		| GetApiEntriesIdMetadata400
+		| GetApiEntriesIdMetadata401
+		| GetApiEntriesIdMetadata404
+		| GetApiEntriesIdMetadata429
+		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
 	options?: {
 		query?: Partial<
 			UseQueryOptions<
-				Awaited<ReturnType<typeof getApiDocumentsIdMetadata>>,
+				Awaited<ReturnType<typeof getApiEntriesIdMetadata>>,
 				TError,
 				TData
 			>
@@ -5521,7 +5515,7 @@ export function useGetApiDocumentsIdMetadata<
 ): UseQueryResult<TData, TError> & {
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
-	const queryOptions = getGetApiDocumentsIdMetadataQueryOptions(id, options);
+	const queryOptions = getGetApiEntriesIdMetadataQueryOptions(id, options);
 
 	const query = useQuery(queryOptions, queryClient) as UseQueryResult<
 		TData,
@@ -9699,6 +9693,328 @@ export function useGetApiMiscPinned<
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
 	const queryOptions = getGetApiMiscPinnedQueryOptions(options);
+
+	const query = useQuery(queryOptions, queryClient) as UseQueryResult<
+		TData,
+		TError
+	> & { queryKey: DataTag<QueryKey, TData, TError> };
+
+	query.queryKey = queryOptions.queryKey;
+
+	return query;
+}
+
+/**
+ * Gets 3 writing prompts. The prompts will always be static since we don't have AI. These prompts are hard-coded.
+ * @summary Get writing prompts
+ */
+export type getApiPromptsResponse200 = {
+	data: GetApiPrompts200;
+	status: 200;
+};
+
+export type getApiPromptsResponse401 = {
+	data: GetApiPrompts401;
+	status: 401;
+};
+
+export type getApiPromptsResponse429 = {
+	data: GetApiPrompts429;
+	status: 429;
+};
+
+export type getApiPromptsResponse500 = {
+	data: GetApiPrompts500;
+	status: 500;
+};
+
+export type getApiPromptsResponseComposite =
+	| getApiPromptsResponse200
+	| getApiPromptsResponse401
+	| getApiPromptsResponse429
+	| getApiPromptsResponse500;
+
+export type getApiPromptsResponse = getApiPromptsResponseComposite & {
+	headers: Headers;
+};
+
+export const getGetApiPromptsUrl = () => {
+	return `http://localhost:3000/api/prompts`;
+};
+
+export const getApiPrompts = async (
+	options?: RequestInit,
+): Promise<getApiPromptsResponse> => {
+	const res = await fetch(getGetApiPromptsUrl(), {
+		...options,
+		method: "GET",
+	});
+
+	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+	const data: getApiPromptsResponse["data"] = body ? JSON.parse(body) : {};
+
+	return {
+		data,
+		status: res.status,
+		headers: res.headers,
+	} as getApiPromptsResponse;
+};
+
+export const getGetApiPromptsQueryKey = () => {
+	return [`http://localhost:3000/api/prompts`] as const;
+};
+
+export const getGetApiPromptsInfiniteQueryOptions = <
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(options?: {
+	query?: Partial<
+		UseInfiniteQueryOptions<
+			Awaited<ReturnType<typeof getApiPrompts>>,
+			TError,
+			TData
+		>
+	>;
+	fetch?: RequestInit;
+}) => {
+	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
+
+	const queryKey = queryOptions?.queryKey ?? getGetApiPromptsQueryKey();
+
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiPrompts>>> = ({
+		signal,
+	}) => getApiPrompts({ signal, ...fetchOptions });
+
+	return { queryKey, queryFn, ...queryOptions } as UseInfiniteQueryOptions<
+		Awaited<ReturnType<typeof getApiPrompts>>,
+		TError,
+		TData
+	> & { queryKey: DataTag<QueryKey, TData, TError> };
+};
+
+export type GetApiPromptsInfiniteQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiPrompts>>
+>;
+export type GetApiPromptsInfiniteQueryError =
+	| GetApiPrompts401
+	| GetApiPrompts429
+	| GetApiPrompts500;
+
+export function useGetApiPromptsInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(
+	options: {
+		query: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getApiPrompts>>,
+				TError,
+				TData
+			>
+		> &
+			Pick<
+				DefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getApiPrompts>>,
+					TError,
+					Awaited<ReturnType<typeof getApiPrompts>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): DefinedUseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetApiPromptsInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getApiPrompts>>,
+				TError,
+				TData
+			>
+		> &
+			Pick<
+				UndefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getApiPrompts>>,
+					TError,
+					Awaited<ReturnType<typeof getApiPrompts>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetApiPromptsInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getApiPrompts>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+/**
+ * @summary Get writing prompts
+ */
+
+export function useGetApiPromptsInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getApiPrompts>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+} {
+	const queryOptions = getGetApiPromptsInfiniteQueryOptions(options);
+
+	const query = useInfiniteQuery(
+		queryOptions,
+		queryClient,
+	) as UseInfiniteQueryResult<TData, TError> & {
+		queryKey: DataTag<QueryKey, TData, TError>;
+	};
+
+	query.queryKey = queryOptions.queryKey;
+
+	return query;
+}
+
+export const getGetApiPromptsQueryOptions = <
+	TData = Awaited<ReturnType<typeof getApiPrompts>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(options?: {
+	query?: Partial<
+		UseQueryOptions<Awaited<ReturnType<typeof getApiPrompts>>, TError, TData>
+	>;
+	fetch?: RequestInit;
+}) => {
+	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
+
+	const queryKey = queryOptions?.queryKey ?? getGetApiPromptsQueryKey();
+
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiPrompts>>> = ({
+		signal,
+	}) => getApiPrompts({ signal, ...fetchOptions });
+
+	return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
+		Awaited<ReturnType<typeof getApiPrompts>>,
+		TError,
+		TData
+	> & { queryKey: DataTag<QueryKey, TData, TError> };
+};
+
+export type GetApiPromptsQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiPrompts>>
+>;
+export type GetApiPromptsQueryError =
+	| GetApiPrompts401
+	| GetApiPrompts429
+	| GetApiPrompts500;
+
+export function useGetApiPrompts<
+	TData = Awaited<ReturnType<typeof getApiPrompts>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(
+	options: {
+		query: Partial<
+			UseQueryOptions<Awaited<ReturnType<typeof getApiPrompts>>, TError, TData>
+		> &
+			Pick<
+				DefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getApiPrompts>>,
+					TError,
+					Awaited<ReturnType<typeof getApiPrompts>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): DefinedUseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetApiPrompts<
+	TData = Awaited<ReturnType<typeof getApiPrompts>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(
+	options?: {
+		query?: Partial<
+			UseQueryOptions<Awaited<ReturnType<typeof getApiPrompts>>, TError, TData>
+		> &
+			Pick<
+				UndefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getApiPrompts>>,
+					TError,
+					Awaited<ReturnType<typeof getApiPrompts>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetApiPrompts<
+	TData = Awaited<ReturnType<typeof getApiPrompts>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(
+	options?: {
+		query?: Partial<
+			UseQueryOptions<Awaited<ReturnType<typeof getApiPrompts>>, TError, TData>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+/**
+ * @summary Get writing prompts
+ */
+
+export function useGetApiPrompts<
+	TData = Awaited<ReturnType<typeof getApiPrompts>>,
+	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+>(
+	options?: {
+		query?: Partial<
+			UseQueryOptions<Awaited<ReturnType<typeof getApiPrompts>>, TError, TData>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+} {
+	const queryOptions = getGetApiPromptsQueryOptions(options);
 
 	const query = useQuery(queryOptions, queryClient) as UseQueryResult<
 		TData,

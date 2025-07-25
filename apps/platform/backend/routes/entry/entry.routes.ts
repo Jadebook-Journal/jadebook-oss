@@ -5,39 +5,39 @@ import { jsonContent } from "stoker/openapi/helpers";
 import { createMessageObjectSchema } from "stoker/openapi/schemas";
 
 import {
-	createDocumentBody,
-	createDocumentResponse,
-	deleteDocumentParams,
-	documentMetadataResponse,
-	documentResponse,
-	documentsResponse,
-	getDocumentParams,
-	getDocumentsQuery,
+	createEntryBody,
+	createEntryResponse,
+	deleteEntryParams,
+	entryMetadataResponse,
+	entryResponse,
+	entriesResponse,
+	getEntryParams,
+	getEntriesQuery,
 	successResponse,
-	updateDocumentBody,
-	updateDocumentParams,
-} from "./document.validation";
+	updateEntryBody,
+	updateEntryParams,
+} from "./entry.validation";
 
-const tags = ["Documents"];
+const tags = ["Entries"];
 
 const internalServerErrorSchema = createMessageObjectSchema(
 	HttpStatusPhrases.INTERNAL_SERVER_ERROR,
 );
 
-export const getDocuments = createRoute({
-	path: "/api/documents",
-	summary: "Get documents",
+export const getEntries = createRoute({
+	path: "/api/entries",
+	summary: "Get entries",
 	description:
-		"Gets a list of documents with pagination. Can be filtered by type, date, and tag id.",
+		"Gets a list of entries with pagination. Can be filtered by type, date, and tag id.",
 	method: "get",
 	request: {
-		query: getDocumentsQuery,
+		query: getEntriesQuery,
 	},
 	tags,
 	responses: {
 		[HttpStatusCodes.OK]: jsonContent(
-			documentsResponse,
-			"List of user documents with pagination",
+			entriesResponse,
+			"List of user entries with pagination",
 		),
 		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
 			createMessageObjectSchema("Bad request"),
@@ -58,32 +58,29 @@ export const getDocuments = createRoute({
 	},
 });
 
-export const getDocument = createRoute({
-	path: "/api/documents/{id}",
-	summary: "Get document",
+export const getEntry = createRoute({
+	path: "/api/entries/{id}",
+	summary: "Get entry",
 	description:
-		"Gets a single document by ID — Search Vector will not be returned. Will also return deleted documents.",
+		"Gets a single entry by ID — Search Vector will not be returned. Will also return deleted entries.",
 	method: "get",
 	request: {
-		params: getDocumentParams,
+		params: getEntryParams,
 	},
 	tags,
 	responses: {
-		[HttpStatusCodes.OK]: jsonContent(
-			documentResponse,
-			"The requested document",
-		),
+		[HttpStatusCodes.OK]: jsonContent(entryResponse, "The requested entry"),
 		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
 			createMessageObjectSchema("Bad request"),
-			"Invalid document ID",
+			"Invalid entry ID",
 		),
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
 		[HttpStatusCodes.NOT_FOUND]: jsonContent(
-			createMessageObjectSchema("Document not found"),
-			"Document does not exist or access denied",
+			createMessageObjectSchema("Entry not found"),
+			"Entry does not exist or access denied",
 		),
 		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
 			createMessageObjectSchema("Too many requests"),
@@ -96,31 +93,31 @@ export const getDocument = createRoute({
 	},
 });
 
-export const getDocumentMetadata = createRoute({
-	path: "/api/documents/{id}/metadata",
-	summary: "Get document metadata",
-	description: "Gets only the title and excerpt of a document by ID",
+export const getEntryMetadata = createRoute({
+	path: "/api/entries/{id}/metadata",
+	summary: "Get entry metadata",
+	description: "Gets only the title and excerpt of an entry by ID",
 	method: "get",
 	request: {
-		params: getDocumentParams,
+		params: getEntryParams,
 	},
 	tags,
 	responses: {
 		[HttpStatusCodes.OK]: jsonContent(
-			documentMetadataResponse,
-			"The requested document metadata",
+			entryMetadataResponse,
+			"The requested entry metadata",
 		),
 		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
 			createMessageObjectSchema("Bad request"),
-			"Invalid document ID",
+			"Invalid entry ID",
 		),
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
 		[HttpStatusCodes.NOT_FOUND]: jsonContent(
-			createMessageObjectSchema("Document not found"),
-			"Document does not exist or access denied",
+			createMessageObjectSchema("Entry not found"),
+			"Entry does not exist or access denied",
 		),
 		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
 			createMessageObjectSchema("Too many requests"),
@@ -133,19 +130,19 @@ export const getDocumentMetadata = createRoute({
 	},
 });
 
-export const createDocument = createRoute({
-	path: "/api/documents",
-	summary: "Create document",
-	description: "Creates a new document",
+export const createEntry = createRoute({
+	path: "/api/entries",
+	summary: "Create entry",
+	description: "Creates a new entry",
 	method: "post",
 	request: {
-		body: jsonContent(createDocumentBody, "Document creation data"),
+		body: jsonContent(createEntryBody, "Entry creation data"),
 	},
 	tags,
 	responses: {
 		[HttpStatusCodes.CREATED]: jsonContent(
-			createDocumentResponse,
-			"Document created successfully",
+			createEntryResponse,
+			"Entry created successfully",
 		),
 		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
 			createMessageObjectSchema("Bad request"),
@@ -166,21 +163,21 @@ export const createDocument = createRoute({
 	},
 });
 
-export const updateDocument = createRoute({
-	path: "/api/documents/{id}",
-	summary: "Update document",
+export const updateEntry = createRoute({
+	path: "/api/entries/{id}",
+	summary: "Update entry",
 	description:
-		"Updates a document — internally handles embeddings and text extraction from the editor content. Notes are not supported since they will be deprecated.",
+		"Updates an entry — internally handles embeddings and text extraction from the editor content. Notes are not supported since they will be deprecated.",
 	method: "put",
 	request: {
-		params: updateDocumentParams,
-		body: jsonContent(updateDocumentBody, "Document update data"),
+		params: updateEntryParams,
+		body: jsonContent(updateEntryBody, "Entry update data"),
 	},
 	tags,
 	responses: {
 		[HttpStatusCodes.OK]: jsonContent(
 			successResponse,
-			"Document updated successfully",
+			"Entry updated successfully",
 		),
 		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
 			createMessageObjectSchema("Bad request"),
@@ -191,8 +188,8 @@ export const updateDocument = createRoute({
 			"Authentication required",
 		),
 		[HttpStatusCodes.NOT_FOUND]: jsonContent(
-			createMessageObjectSchema("Document not found"),
-			"Document does not exist or access denied",
+			createMessageObjectSchema("Entry not found"),
+			"Entry does not exist or access denied",
 		),
 		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
 			createMessageObjectSchema("Too many requests"),
@@ -205,31 +202,31 @@ export const updateDocument = createRoute({
 	},
 });
 
-export const deleteDocument = createRoute({
-	path: "/api/documents/{id}",
-	summary: "Delete document",
-	description: "Deletes a document",
+export const deleteEntry = createRoute({
+	path: "/api/entries/{id}",
+	summary: "Delete entry",
+	description: "Deletes an entry",
 	method: "delete",
 	request: {
-		params: deleteDocumentParams,
+		params: deleteEntryParams,
 	},
 	tags,
 	responses: {
 		[HttpStatusCodes.OK]: jsonContent(
 			successResponse,
-			"Document deleted successfully",
+			"Entry deleted successfully",
 		),
 		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
 			createMessageObjectSchema("Bad request"),
-			"Invalid document ID",
+			"Invalid entry ID",
 		),
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
 		[HttpStatusCodes.NOT_FOUND]: jsonContent(
-			createMessageObjectSchema("Document not found"),
-			"Document does not exist or access denied",
+			createMessageObjectSchema("Entry not found"),
+			"Entry does not exist or access denied",
 		),
 		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
 			createMessageObjectSchema("Too many requests"),
@@ -242,9 +239,9 @@ export const deleteDocument = createRoute({
 	},
 });
 
-export type GetDocumentsRoute = typeof getDocuments;
-export type GetDocumentRoute = typeof getDocument;
-export type GetDocumentMetadataRoute = typeof getDocumentMetadata;
-export type CreateDocumentRoute = typeof createDocument;
-export type UpdateDocumentRoute = typeof updateDocument;
-export type DeleteDocumentRoute = typeof deleteDocument;
+export type GetEntriesRoute = typeof getEntries;
+export type GetEntryRoute = typeof getEntry;
+export type GetEntryMetadataRoute = typeof getEntryMetadata;
+export type CreateEntryRoute = typeof createEntry;
+export type UpdateEntryRoute = typeof updateEntry;
+export type DeleteEntryRoute = typeof deleteEntry;

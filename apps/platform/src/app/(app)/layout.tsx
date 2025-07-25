@@ -8,6 +8,7 @@ import { getApiMiscPinned, getApiProfile, getApiTags } from "@/api-client";
 import { ThemeLoader } from "@/features/theme/theme-loader";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app/sidebar";
+import { MainContainer } from "@/components/app/main-container";
 
 export default async function ProtectedLayout({
 	children,
@@ -58,7 +59,7 @@ export default async function ProtectedLayout({
 		}),
 	]);
 
-	console.log(profile, tags, pinned);
+	console.log("server layout", profile.data, tags.data, pinned.data);
 
 	const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
@@ -78,7 +79,7 @@ export default async function ProtectedLayout({
 							<SidebarProvider defaultOpen={defaultOpen}>
 								<AppSidebar />
 
-								{children}
+								<MainContainer>{children}</MainContainer>
 
 								{/* <MainContainer>
 									{children}

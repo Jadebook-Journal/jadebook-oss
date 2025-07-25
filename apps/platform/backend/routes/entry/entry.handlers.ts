@@ -3,25 +3,25 @@ import * as HttpStatusPhrases from "stoker/http-status-phrases";
 import type { z } from "zod";
 import type { AppRouteHandler } from "@backend/types";
 import type {
-	createDocumentResponse,
-	documentMetadataResponse,
-	documentResponse,
-	documentsResponse,
+	createEntryResponse,
+	entryMetadataResponse,
+	entryResponse,
+	entriesResponse,
 	successResponse,
-} from "./document.validation";
+} from "./entry.validation";
 import type {
-	CreateDocumentRoute,
-	DeleteDocumentRoute,
-	GetDocumentMetadataRoute,
-	GetDocumentRoute,
-	GetDocumentsRoute,
-	UpdateDocumentRoute,
-} from "./document.routes";
+	CreateEntryRoute,
+	DeleteEntryRoute,
+	GetEntryMetadataRoute,
+	GetEntryRoute,
+	GetEntriesRoute,
+	UpdateEntryRoute,
+} from "./entry.routes";
 import { calculateAndUpdateStreak } from "@backend/calculate-streak";
 
 const PAGE_SIZE = 12;
 
-export const getDocuments: AppRouteHandler<GetDocumentsRoute> = async (c) => {
+export const getEntries: AppRouteHandler<GetEntriesRoute> = async (c) => {
 	const userId = c.get("userId");
 	const supabase = c.get("supabase");
 	const { page, tagId, type, dateType } = c.req.valid("query");
@@ -54,13 +54,13 @@ export const getDocuments: AppRouteHandler<GetDocumentsRoute> = async (c) => {
 
 			return c.json(
 				{
-					message: "Failed to fetch documents",
+					message: "Failed to fetch entries",
 				},
 				HttpStatusCodes.INTERNAL_SERVER_ERROR,
 			);
 		}
 
-		const response: z.infer<typeof documentsResponse> = {
+		const response: z.infer<typeof entriesResponse> = {
 			data: data || [],
 			meta: {
 				totalCount: count || 0,
@@ -83,7 +83,7 @@ export const getDocuments: AppRouteHandler<GetDocumentsRoute> = async (c) => {
 	}
 };
 
-export const getDocument: AppRouteHandler<GetDocumentRoute> = async (c) => {
+export const getEntry: AppRouteHandler<GetEntryRoute> = async (c) => {
 	const userId = c.get("userId");
 	const supabase = c.get("supabase");
 	const { id } = c.req.valid("param");
@@ -104,7 +104,7 @@ export const getDocument: AppRouteHandler<GetDocumentRoute> = async (c) => {
 			if (error.code === "PGRST116") {
 				return c.json(
 					{
-						message: "Document not found",
+						message: "Entry not found",
 					},
 					HttpStatusCodes.NOT_FOUND,
 				);
@@ -112,13 +112,13 @@ export const getDocument: AppRouteHandler<GetDocumentRoute> = async (c) => {
 
 			return c.json(
 				{
-					message: "Failed to fetch document",
+					message: "Failed to fetch entry",
 				},
 				HttpStatusCodes.INTERNAL_SERVER_ERROR,
 			);
 		}
 
-		const response: z.infer<typeof documentResponse> = data;
+		const response: z.infer<typeof entryResponse> = data;
 
 		return c.json(response, HttpStatusCodes.OK);
 	} catch (error) {
@@ -133,9 +133,9 @@ export const getDocument: AppRouteHandler<GetDocumentRoute> = async (c) => {
 	}
 };
 
-export const getDocumentMetadata: AppRouteHandler<
-	GetDocumentMetadataRoute
-> = async (c) => {
+export const getEntryMetadata: AppRouteHandler<GetEntryMetadataRoute> = async (
+	c,
+) => {
 	const userId = c.get("userId");
 	const supabase = c.get("supabase");
 	const { id } = c.req.valid("param");
@@ -156,7 +156,7 @@ export const getDocumentMetadata: AppRouteHandler<
 			if (error.code === "PGRST116") {
 				return c.json(
 					{
-						message: "Document not found",
+						message: "Entry not found",
 					},
 					HttpStatusCodes.NOT_FOUND,
 				);
@@ -164,13 +164,13 @@ export const getDocumentMetadata: AppRouteHandler<
 
 			return c.json(
 				{
-					message: "Failed to fetch document metadata",
+					message: "Failed to fetch entry metadata",
 				},
 				HttpStatusCodes.INTERNAL_SERVER_ERROR,
 			);
 		}
 
-		const response: z.infer<typeof documentMetadataResponse> = data;
+		const response: z.infer<typeof entryMetadataResponse> = data;
 
 		return c.json(response, HttpStatusCodes.OK);
 	} catch (error) {
@@ -185,9 +185,7 @@ export const getDocumentMetadata: AppRouteHandler<
 	}
 };
 
-export const createDocument: AppRouteHandler<CreateDocumentRoute> = async (
-	c,
-) => {
+export const createEntry: AppRouteHandler<CreateEntryRoute> = async (c) => {
 	const userId = c.get("userId");
 	const supabase = c.get("supabase");
 	const body = c.req.valid("json");
@@ -208,7 +206,7 @@ export const createDocument: AppRouteHandler<CreateDocumentRoute> = async (
 
 			return c.json(
 				{
-					message: "Failed to create document",
+					message: "Failed to create entry",
 				},
 				HttpStatusCodes.INTERNAL_SERVER_ERROR,
 			);
@@ -222,7 +220,7 @@ export const createDocument: AppRouteHandler<CreateDocumentRoute> = async (
 			// Don't fail the request if streak update fails
 		}
 
-		const response: z.infer<typeof createDocumentResponse> = {
+		const response: z.infer<typeof createEntryResponse> = {
 			id: data.id,
 		};
 
@@ -239,9 +237,7 @@ export const createDocument: AppRouteHandler<CreateDocumentRoute> = async (
 	}
 };
 
-export const updateDocument: AppRouteHandler<UpdateDocumentRoute> = async (
-	c,
-) => {
+export const updateEntry: AppRouteHandler<UpdateEntryRoute> = async (c) => {
 	const userId = c.get("userId");
 	const supabase = c.get("supabase");
 	const { id } = c.req.valid("param");
@@ -269,19 +265,19 @@ export const updateDocument: AppRouteHandler<UpdateDocumentRoute> = async (
 
 			if (error.code === "PGRST116") {
 				return c.json(
-					{ message: "Document not found" },
+					{ message: "Entry not found" },
 					HttpStatusCodes.NOT_FOUND,
 				);
 			}
 
 			return c.json(
-				{ message: "Failed to update document in database" },
+				{ message: "Failed to update entry in database" },
 				HttpStatusCodes.INTERNAL_SERVER_ERROR,
 			);
 		}
 
 		const response: z.infer<typeof successResponse> = {
-			message: "Document updated successfully",
+			message: "Entry updated successfully",
 		};
 
 		return c.json(response, HttpStatusCodes.OK);
@@ -290,16 +286,14 @@ export const updateDocument: AppRouteHandler<UpdateDocumentRoute> = async (
 
 		return c.json(
 			{
-				message: "An unexpected error occurred while updating the document",
+				message: "An unexpected error occurred while updating the entry",
 			},
 			HttpStatusCodes.INTERNAL_SERVER_ERROR,
 		);
 	}
 };
 
-export const deleteDocument: AppRouteHandler<DeleteDocumentRoute> = async (
-	c,
-) => {
+export const deleteEntry: AppRouteHandler<DeleteEntryRoute> = async (c) => {
 	const userId = c.get("userId");
 	const supabase = c.get("supabase");
 	const { id } = c.req.valid("param");
@@ -316,7 +310,7 @@ export const deleteDocument: AppRouteHandler<DeleteDocumentRoute> = async (
 			if (error.code === "PGRST116") {
 				return c.json(
 					{
-						message: "Document not found",
+						message: "Entry not found",
 					},
 					HttpStatusCodes.NOT_FOUND,
 				);
@@ -324,14 +318,14 @@ export const deleteDocument: AppRouteHandler<DeleteDocumentRoute> = async (
 
 			return c.json(
 				{
-					message: "Failed to purge document",
+					message: "Failed to delete entry",
 				},
 				HttpStatusCodes.INTERNAL_SERVER_ERROR,
 			);
 		}
 
 		const response: z.infer<typeof successResponse> = {
-			message: "Document purged successfully",
+			message: "Entry deleted successfully",
 		};
 
 		return c.json(response, HttpStatusCodes.OK);

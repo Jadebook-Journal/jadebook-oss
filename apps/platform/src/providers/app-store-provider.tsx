@@ -18,6 +18,7 @@ import {
 import { mergeWithDefault } from "jadebook";
 import { defaultThemeState } from "@/features/theme/config.theme";
 import type { SavedThemeSettings, ThemeType } from "@/types/theme";
+import { AppConfig } from "@/types/config";
 
 type AppStore = ReturnType<typeof createAppStore>;
 
@@ -154,8 +155,10 @@ export const useAppStore = <T,>(selector: (store: AppState) => T): T => {
 };
 
 // Parse the config from the profile
-export function parseConfig(config: string | null | undefined) {
+function parseConfig(config: string | null | undefined): AppConfig {
 	if (!config) {
+		console.log("using default config");
+
 		return BASE_CONFIG;
 	}
 
@@ -171,9 +174,7 @@ export function parseConfig(config: string | null | undefined) {
 }
 
 // Parse the theme from the profile
-export function parseTheme(
-	theme: string | null | undefined,
-): SavedThemeSettings {
+function parseTheme(theme: string | null | undefined): SavedThemeSettings {
 	if (!theme) {
 		return {
 			mode: "light",

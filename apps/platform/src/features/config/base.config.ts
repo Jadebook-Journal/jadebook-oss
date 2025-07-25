@@ -12,15 +12,13 @@ export const BASE_CONFIG: AppConfig = {
 		chat: true,
 		insights: true,
 	},
-	behavior: {
-		disablePromptRefresh: false,
-	},
+	behavior: null,
 	layout: {
 		sidebarVariant: "default",
 		sidebarHiddenState: "icon",
 		monochromeIcons: false,
-		documentLayout: "list",
-		sortDate: "updated_at",
+		journalLayout: "list",
+		sortDate: "entry_date",
 		showItemIcon: true,
 	},
 };

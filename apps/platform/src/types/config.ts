@@ -12,8 +12,8 @@ export type AppConfig = {
 		sidebarVariant: "default" | "floating" | "inset";
 		sidebarHiddenState: "offcanvas" | "icon" | "none";
 		monochromeIcons: boolean;
-		documentLayout: "grid" | "list" | "monthly";
-		sortDate: "created_at" | "updated_at" | "document_date";
+		journalLayout: "grid" | "list" | "monthly";
+		sortDate: "created_at" | "updated_at" | "entry_date";
 		showItemIcon: boolean;
 	};
 };

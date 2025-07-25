@@ -1,18 +1,18 @@
 import { z } from "@hono/zod-openapi";
 
-// Query parameters for getting documents with filtering
-export const getDocumentsQuery = z.object({
+// Query parameters for getting entries with filtering
+export const getEntriesQuery = z.object({
 	page: z.string().optional().default("0").openapi({
 		example: "0",
 		description: "Page number for pagination (0-based)",
 	}),
 	tagId: z.string().optional().openapi({
 		example: "550e8400-e29b-41d4-a716-446655440000",
-		description: "Filter documents by tag ID",
+		description: "Filter entries by tag ID",
 	}),
-	type: z.enum(["document", "prompted", "all"]).optional().openapi({
-		example: "document",
-		description: "Filter documents by type",
+	type: z.enum(["entry", "prompted", "all"]).optional().openapi({
+		example: "entry",
+		description: "Filter entries by type",
 	}),
 	dateType: z
 		.enum(["updated_at", "created_at", "entry_date"])
@@ -23,16 +23,16 @@ export const getDocumentsQuery = z.object({
 		}),
 });
 
-// Path parameters for getting a single document
-export const getDocumentParams = z.object({
+// Path parameters for getting a single entry
+export const getEntryParams = z.object({
 	id: z.string().openapi({
 		example: "550e8400-e29b-41d4-a716-446655440000",
-		description: "The document UUID",
+		description: "The entry UUID",
 	}),
 });
 
-// Document response schema (without sensitive fields)
-export const documentResponse = z.object({
+// Entry response schema (without sensitive fields)
+export const entryResponse = z.object({
 	id: z.string(),
 	user_id: z.string(),
 	title: z.string(),
@@ -49,8 +49,8 @@ export const documentResponse = z.object({
 	icon: z.string().nullable(),
 });
 
-// Document list item response (for the documents list endpoint)
-export const documentListItemResponse = z.object({
+// Entry list item response (for the entries list endpoint)
+export const entryListItemResponse = z.object({
 	id: z.string(),
 	title: z.string(),
 	created_at: z.string(),
@@ -63,9 +63,9 @@ export const documentListItemResponse = z.object({
 	type: z.string(),
 });
 
-// Paginated documents response
-export const documentsResponse = z.object({
-	data: z.array(documentListItemResponse),
+// Paginated entries response
+export const entriesResponse = z.object({
+	data: z.array(entryListItemResponse),
 	meta: z.object({
 		totalCount: z.number(),
 		totalPages: z.number(),
@@ -74,11 +74,11 @@ export const documentsResponse = z.object({
 	}),
 });
 
-// Validation schemas for document operations
-export const createDocumentBody = z.object({
+// Validation schemas for entry operations
+export const createEntryBody = z.object({
 	title: z.string().openapi({
 		example: "My Journal Entry",
-		description: "The title of the document",
+		description: "The title of the entry",
 	}),
 	entry_date: z.string().optional().openapi({
 		example: "2023-12-01T10:00:00Z",
@@ -89,30 +89,30 @@ export const createDocumentBody = z.object({
 		.optional()
 		.openapi({
 			example: ["UUID for the tag"],
-			description: "Array of tag IDs associated with the document",
+			description: "Array of tag IDs associated with the entry",
 		}),
-	type: z.enum(["document", "prompted"]).openapi({
-		example: "document",
-		description: "The type of document",
+	type: z.enum(["entry", "prompted"]).openapi({
+		example: "entry",
+		description: "The type of entry",
 	}),
 	excerpt: z.string().optional().nullable().openapi({
 		example: "Today was a good day...",
-		description: "A brief excerpt or summary of the document",
+		description: "A brief excerpt or summary of the entry",
 	}),
 	content: z.string().optional().nullable().openapi({
 		example: "The full content of my journal entry...",
-		description: "The main content of the document",
+		description: "The main content of the entry",
 	}),
 });
 
-export const updateDocumentParams = z.object({
+export const updateEntryParams = z.object({
 	id: z.string().openapi({
 		example: "550e8400-e29b-41d4-a716-446655440000",
-		description: "The document UUID to update",
+		description: "The entry UUID to update",
 	}),
 });
 
-export const updateDocumentBody = z
+export const updateEntryBody = z
 	.object({
 		character_count: z.number().optional(),
 		content: z.string().optional().nullable(),
@@ -123,7 +123,7 @@ export const updateDocumentBody = z
 		tags: z.array(z.string()).optional().nullable(),
 		title: z.string().optional(),
 		icon: z.string().optional().nullable(),
-		type: z.enum(["document", "prompted"]).optional(),
+		type: z.enum(["entry", "prompted"]).optional(),
 	})
 	.openapi({
 		example: {
@@ -134,15 +134,15 @@ export const updateDocumentBody = z
 		},
 	});
 
-export const deleteDocumentParams = z.object({
+export const deleteEntryParams = z.object({
 	id: z.string().openapi({
 		example: "550e8400-e29b-41d4-a716-446655440000",
-		description: "The document UUID to delete",
+		description: "The entry UUID to delete",
 	}),
 });
 
 // Response schemas
-export const createDocumentResponse = z.object({
+export const createEntryResponse = z.object({
 	id: z.string(),
 });
 
@@ -150,8 +150,8 @@ export const successResponse = z.object({
 	message: z.string(),
 });
 
-// Document metadata response schema (only title and excerpt)
-export const documentMetadataResponse = z.object({
+// Entry metadata response schema (only title and excerpt)
+export const entryMetadataResponse = z.object({
 	title: z.string(),
 	excerpt: z.string().nullable(),
 });
