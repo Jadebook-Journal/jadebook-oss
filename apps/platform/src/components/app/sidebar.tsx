@@ -56,6 +56,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Shortcut } from "@/components/ui/shortcut-key";
 import { EntryActionDropdown } from "./entry-dropdown";
+import { GoalActionDropdown } from "./goal-dropdown";
 // import { EntryActionDropdown } from "./entry-dropdown";
 // import { GoalActionDropdown } from "./goal-dropdown";
 
@@ -416,11 +417,11 @@ function PinnedGoals() {
 										</Link>
 									</SidebarMenuButton>
 
-									{/* <GoalActionDropdown goal={goal} side="right">
+									<GoalActionDropdown goal={goal} side="right">
 										<SidebarMenuAction className="group-hover/item:opacity-100 opacity-0 data-[state=open]:opacity-100">
 											<DotsThreeVerticalIcon size={12} weight="bold" />
 										</SidebarMenuAction>
-									</GoalActionDropdown> */}
+									</GoalActionDropdown>
 								</SidebarMenuItem>
 							);
 						});

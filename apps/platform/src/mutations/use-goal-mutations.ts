@@ -91,12 +91,6 @@ export function useGoalMutations({ goalId }: { goalId: string }) {
 				return;
 			}
 
-			// this handles an edge case where we've updated the goals but the not through the query, which means invalidation is not triggered
-			// so we manually update the goals store
-			updateGoals(
-				globalGoals.map((g) => (g.id === goalId ? { ...g, ...data.data } : g)),
-			);
-
 			if (
 				variables.data.pinned ||
 				variables.data.title ||
@@ -111,7 +105,6 @@ export function useGoalMutations({ goalId }: { goalId: string }) {
 				queryKey: getGetApiGoalsQueryKey(),
 			});
 
-			// optimistic update
 			queryClient.invalidateQueries({
 				queryKey: getGetApiGoalsIdQueryKey(goalId),
 			});
