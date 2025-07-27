@@ -26,10 +26,7 @@ export const getUserProfile = createRoute({
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -58,10 +55,6 @@ export const updateUserProfile = createRoute({
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
-		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
 		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,

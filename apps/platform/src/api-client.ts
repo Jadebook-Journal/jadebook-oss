@@ -52,10 +52,6 @@ export type GetApiProfile401 = {
 	message: string;
 };
 
-export type GetApiProfile429 = {
-	message: string;
-};
-
 export type GetApiProfile500 = {
 	message: string;
 };
@@ -83,10 +79,6 @@ export type PutApiProfile400 = {
 };
 
 export type PutApiProfile401 = {
-	message: string;
-};
-
-export type PutApiProfile429 = {
 	message: string;
 };
 
@@ -141,10 +133,6 @@ export type GetApiAssets401 = {
 	message: string;
 };
 
-export type GetApiAssets429 = {
-	message: string;
-};
-
 export type GetApiAssets500 = {
 	message: string;
 };
@@ -189,10 +177,6 @@ export type PostApiAssets401 = {
 	message: string;
 };
 
-export type PostApiAssets429 = {
-	message: string;
-};
-
 export type PostApiAssets500 = {
 	message: string;
 };
@@ -220,10 +204,6 @@ export type GetApiAssetsId401 = {
 };
 
 export type GetApiAssetsId404 = {
-	message: string;
-};
-
-export type GetApiAssetsId429 = {
 	message: string;
 };
 
@@ -266,10 +246,6 @@ export type PutApiAssetsId404 = {
 	message: string;
 };
 
-export type PutApiAssetsId429 = {
-	message: string;
-};
-
 export type PutApiAssetsId500 = {
 	message: string;
 };
@@ -292,10 +268,6 @@ export type DeleteApiAssetsId401 = {
 };
 
 export type DeleteApiAssetsId404 = {
-	message: string;
-};
-
-export type DeleteApiAssetsId429 = {
 	message: string;
 };
 
@@ -322,10 +294,6 @@ export type PostApiAssetsSignedUrl400 = {
 };
 
 export type PostApiAssetsSignedUrl401 = {
-	message: string;
-};
-
-export type PostApiAssetsSignedUrl429 = {
 	message: string;
 };
 
@@ -382,10 +350,6 @@ export type PostApiAssetsUpload400 = {
 };
 
 export type PostApiAssetsUpload401 = {
-	message: string;
-};
-
-export type PostApiAssetsUpload429 = {
 	message: string;
 };
 
@@ -468,10 +432,6 @@ export type GetApiEntries401 = {
 	message: string;
 };
 
-export type GetApiEntries429 = {
-	message: string;
-};
-
 export type GetApiEntries500 = {
 	message: string;
 };
@@ -521,10 +481,6 @@ export type PostApiEntries401 = {
 	message: string;
 };
 
-export type PostApiEntries429 = {
-	message: string;
-};
-
 export type PostApiEntries500 = {
 	message: string;
 };
@@ -560,10 +516,6 @@ export type GetApiEntriesId401 = {
 };
 
 export type GetApiEntriesId404 = {
-	message: string;
-};
-
-export type GetApiEntriesId429 = {
 	message: string;
 };
 
@@ -614,10 +566,6 @@ export type PutApiEntriesId404 = {
 	message: string;
 };
 
-export type PutApiEntriesId429 = {
-	message: string;
-};
-
 export type PutApiEntriesId500 = {
 	message: string;
 };
@@ -635,10 +583,6 @@ export type DeleteApiEntriesId401 = {
 };
 
 export type DeleteApiEntriesId404 = {
-	message: string;
-};
-
-export type DeleteApiEntriesId429 = {
 	message: string;
 };
 
@@ -661,10 +605,6 @@ export type GetApiEntriesIdMetadata401 = {
 };
 
 export type GetApiEntriesIdMetadata404 = {
-	message: string;
-};
-
-export type GetApiEntriesIdMetadata429 = {
 	message: string;
 };
 
@@ -719,10 +659,6 @@ export type GetApiGoals401 = {
 	message: string;
 };
 
-export type GetApiGoals429 = {
-	message: string;
-};
-
 export type GetApiGoals500 = {
 	message: string;
 };
@@ -767,10 +703,6 @@ export type PostApiGoals401 = {
 	message: string;
 };
 
-export type PostApiGoals429 = {
-	message: string;
-};
-
 export type PostApiGoals500 = {
 	message: string;
 };
@@ -803,10 +735,6 @@ export type GetApiGoalsId401 = {
 };
 
 export type GetApiGoalsId404 = {
-	message: string;
-};
-
-export type GetApiGoalsId429 = {
 	message: string;
 };
 
@@ -877,10 +805,6 @@ export type PutApiGoalsId404 = {
 	message: string;
 };
 
-export type PutApiGoalsId429 = {
-	message: string;
-};
-
 export type PutApiGoalsId500 = {
 	message: string;
 };
@@ -898,10 +822,6 @@ export type DeleteApiGoalsId401 = {
 };
 
 export type DeleteApiGoalsId404 = {
-	message: string;
-};
-
-export type DeleteApiGoalsId429 = {
 	message: string;
 };
 
@@ -951,10 +871,6 @@ export type GetApiGoalGoalIdLogs404 = {
 	message: string;
 };
 
-export type GetApiGoalGoalIdLogs429 = {
-	message: string;
-};
-
 export type GetApiGoalGoalIdLogs500 = {
 	message: string;
 };
@@ -995,10 +911,6 @@ export type PostApiGoalGoalIdLogs401 = {
 };
 
 export type PostApiGoalGoalIdLogs404 = {
-	message: string;
-};
-
-export type PostApiGoalGoalIdLogs429 = {
 	message: string;
 };
 
@@ -1045,10 +957,6 @@ export type PutApiGoalGoalIdLogsId404 = {
 	message: string;
 };
 
-export type PutApiGoalGoalIdLogsId429 = {
-	message: string;
-};
-
 export type PutApiGoalGoalIdLogsId500 = {
 	message: string;
 };
@@ -1062,10 +970,6 @@ export type DeleteApiGoalGoalIdLogsId401 = {
 };
 
 export type DeleteApiGoalGoalIdLogsId404 = {
-	message: string;
-};
-
-export type DeleteApiGoalGoalIdLogsId429 = {
 	message: string;
 };
 
@@ -1091,10 +995,6 @@ export type GetApiTags200Item = {
 };
 
 export type GetApiTags401 = {
-	message: string;
-};
-
-export type GetApiTags429 = {
 	message: string;
 };
 
@@ -1174,10 +1074,6 @@ export type PostApiTags401 = {
 	message: string;
 };
 
-export type PostApiTags429 = {
-	message: string;
-};
-
 export type PostApiTags500 = {
 	message: string;
 };
@@ -1208,10 +1104,6 @@ export type GetApiTagsId401 = {
 };
 
 export type GetApiTagsId404 = {
-	message: string;
-};
-
-export type GetApiTagsId429 = {
 	message: string;
 };
 
@@ -1305,10 +1197,6 @@ export type PutApiTagsId404 = {
 	message: string;
 };
 
-export type PutApiTagsId429 = {
-	message: string;
-};
-
 export type PutApiTagsId500 = {
 	message: string;
 };
@@ -1326,10 +1214,6 @@ export type DeleteApiTagsId401 = {
 };
 
 export type DeleteApiTagsId404 = {
-	message: string;
-};
-
-export type DeleteApiTagsId429 = {
 	message: string;
 };
 
@@ -1370,10 +1254,6 @@ export type GetApiTagsIdGoals401 = {
 	message: string;
 };
 
-export type GetApiTagsIdGoals429 = {
-	message: string;
-};
-
 export type GetApiTagsIdGoals500 = {
 	message: string;
 };
@@ -1404,10 +1284,6 @@ export type GetApiMiscPinned401 = {
 	message: string;
 };
 
-export type GetApiMiscPinned429 = {
-	message: string;
-};
-
 export type GetApiMiscPinned500 = {
 	message: string;
 };
@@ -1423,11 +1299,59 @@ export type GetApiPrompts401 = {
 	message: string;
 };
 
-export type GetApiPrompts429 = {
+export type GetApiPrompts500 = {
 	message: string;
 };
 
-export type GetApiPrompts500 = {
+export type GetApiSearchParams = {
+	searchTerm: string;
+};
+
+export type GetApiSearch200EntriesItem = {
+	id: string;
+	title: string;
+	/** @nullable */
+	excerpt: string | null;
+	/** @nullable */
+	icon: string | null;
+	tags: string[];
+	updated_at: string;
+};
+
+export type GetApiSearch200GoalsItem = {
+	id: string;
+	title: string;
+	/** @nullable */
+	description: string | null;
+	/** @nullable */
+	icon: string | null;
+	tags: string[];
+	updated_at: string;
+};
+
+export type GetApiSearch200LogsItem = {
+	id: string;
+	/** @nullable */
+	goal_id: string | null;
+	/** @nullable */
+	goal_title: string | null;
+	/** @nullable */
+	content: string | null;
+	updated_at: string;
+};
+
+export type GetApiSearch200 = {
+	entries: GetApiSearch200EntriesItem[];
+	goals: GetApiSearch200GoalsItem[];
+	logs: GetApiSearch200LogsItem[];
+	hasErrors: boolean;
+};
+
+export type GetApiSearch401 = {
+	message: string;
+};
+
+export type GetApiSearch500 = {
 	message: string;
 };
 
@@ -1742,11 +1666,6 @@ export type getApiProfileResponse401 = {
 	status: 401;
 };
 
-export type getApiProfileResponse429 = {
-	data: GetApiProfile429;
-	status: 429;
-};
-
 export type getApiProfileResponse500 = {
 	data: GetApiProfile500;
 	status: 500;
@@ -1755,7 +1674,6 @@ export type getApiProfileResponse500 = {
 export type getApiProfileResponseComposite =
 	| getApiProfileResponse200
 	| getApiProfileResponse401
-	| getApiProfileResponse429
 	| getApiProfileResponse500;
 
 export type getApiProfileResponse = getApiProfileResponseComposite & {
@@ -1790,7 +1708,7 @@ export const getGetApiProfileQueryKey = () => {
 
 export const getGetApiProfileInfiniteQueryOptions = <
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiProfile>>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(options?: {
 	query?: Partial<
 		UseInfiniteQueryOptions<
@@ -1821,12 +1739,11 @@ export type GetApiProfileInfiniteQueryResult = NonNullable<
 >;
 export type GetApiProfileInfiniteQueryError =
 	| GetApiProfile401
-	| GetApiProfile429
 	| GetApiProfile500;
 
 export function useGetApiProfileInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiProfile>>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(
 	options: {
 		query: Partial<
@@ -1852,7 +1769,7 @@ export function useGetApiProfileInfinite<
 };
 export function useGetApiProfileInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiProfile>>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(
 	options?: {
 		query?: Partial<
@@ -1878,7 +1795,7 @@ export function useGetApiProfileInfinite<
 };
 export function useGetApiProfileInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiProfile>>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(
 	options?: {
 		query?: Partial<
@@ -1900,7 +1817,7 @@ export function useGetApiProfileInfinite<
 
 export function useGetApiProfileInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiProfile>>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(
 	options?: {
 		query?: Partial<
@@ -1932,7 +1849,7 @@ export function useGetApiProfileInfinite<
 
 export const getGetApiProfileQueryOptions = <
 	TData = Awaited<ReturnType<typeof getApiProfile>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(options?: {
 	query?: Partial<
 		UseQueryOptions<Awaited<ReturnType<typeof getApiProfile>>, TError, TData>
@@ -1957,14 +1874,11 @@ export const getGetApiProfileQueryOptions = <
 export type GetApiProfileQueryResult = NonNullable<
 	Awaited<ReturnType<typeof getApiProfile>>
 >;
-export type GetApiProfileQueryError =
-	| GetApiProfile401
-	| GetApiProfile429
-	| GetApiProfile500;
+export type GetApiProfileQueryError = GetApiProfile401 | GetApiProfile500;
 
 export function useGetApiProfile<
 	TData = Awaited<ReturnType<typeof getApiProfile>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(
 	options: {
 		query: Partial<
@@ -1986,7 +1900,7 @@ export function useGetApiProfile<
 };
 export function useGetApiProfile<
 	TData = Awaited<ReturnType<typeof getApiProfile>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(
 	options?: {
 		query?: Partial<
@@ -2008,7 +1922,7 @@ export function useGetApiProfile<
 };
 export function useGetApiProfile<
 	TData = Awaited<ReturnType<typeof getApiProfile>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(
 	options?: {
 		query?: Partial<
@@ -2026,7 +1940,7 @@ export function useGetApiProfile<
 
 export function useGetApiProfile<
 	TData = Awaited<ReturnType<typeof getApiProfile>>,
-	TError = GetApiProfile401 | GetApiProfile429 | GetApiProfile500,
+	TError = GetApiProfile401 | GetApiProfile500,
 >(
 	options?: {
 		query?: Partial<
@@ -2069,11 +1983,6 @@ export type putApiProfileResponse401 = {
 	status: 401;
 };
 
-export type putApiProfileResponse429 = {
-	data: PutApiProfile429;
-	status: 429;
-};
-
 export type putApiProfileResponse500 = {
 	data: PutApiProfile500;
 	status: 500;
@@ -2083,7 +1992,6 @@ export type putApiProfileResponseComposite =
 	| putApiProfileResponse200
 	| putApiProfileResponse400
 	| putApiProfileResponse401
-	| putApiProfileResponse429
 	| putApiProfileResponse500;
 
 export type putApiProfileResponse = putApiProfileResponseComposite & {
@@ -2116,11 +2024,7 @@ export const putApiProfile = async (
 };
 
 export const getPutApiProfileMutationOptions = <
-	TError =
-		| PutApiProfile400
-		| PutApiProfile401
-		| PutApiProfile429
-		| PutApiProfile500,
+	TError = PutApiProfile400 | PutApiProfile401 | PutApiProfile500,
 	TContext = unknown,
 >(options?: {
 	mutation?: UseMutationOptions<
@@ -2164,18 +2068,13 @@ export type PutApiProfileMutationBody = PutApiProfileBody;
 export type PutApiProfileMutationError =
 	| PutApiProfile400
 	| PutApiProfile401
-	| PutApiProfile429
 	| PutApiProfile500;
 
 /**
  * @summary Update profile
  */
 export const usePutApiProfile = <
-	TError =
-		| PutApiProfile400
-		| PutApiProfile401
-		| PutApiProfile429
-		| PutApiProfile500,
+	TError = PutApiProfile400 | PutApiProfile401 | PutApiProfile500,
 	TContext = unknown,
 >(
 	options?: {
@@ -2218,11 +2117,6 @@ export type getApiAssetsResponse401 = {
 	status: 401;
 };
 
-export type getApiAssetsResponse429 = {
-	data: GetApiAssets429;
-	status: 429;
-};
-
 export type getApiAssetsResponse500 = {
 	data: GetApiAssets500;
 	status: 500;
@@ -2232,7 +2126,6 @@ export type getApiAssetsResponseComposite =
 	| getApiAssetsResponse200
 	| getApiAssetsResponse400
 	| getApiAssetsResponse401
-	| getApiAssetsResponse429
 	| getApiAssetsResponse500;
 
 export type getApiAssetsResponse = getApiAssetsResponseComposite & {
@@ -2283,11 +2176,7 @@ export const getGetApiAssetsQueryKey = (params?: GetApiAssetsParams) => {
 
 export const getGetApiAssetsInfiniteQueryOptions = <
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiAssets>>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params?: GetApiAssetsParams,
 	options?: {
@@ -2322,16 +2211,11 @@ export type GetApiAssetsInfiniteQueryResult = NonNullable<
 export type GetApiAssetsInfiniteQueryError =
 	| GetApiAssets400
 	| GetApiAssets401
-	| GetApiAssets429
 	| GetApiAssets500;
 
 export function useGetApiAssetsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiAssets>>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params: undefined | GetApiAssetsParams,
 	options: {
@@ -2358,11 +2242,7 @@ export function useGetApiAssetsInfinite<
 };
 export function useGetApiAssetsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiAssets>>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params?: GetApiAssetsParams,
 	options?: {
@@ -2389,11 +2269,7 @@ export function useGetApiAssetsInfinite<
 };
 export function useGetApiAssetsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiAssets>>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params?: GetApiAssetsParams,
 	options?: {
@@ -2416,11 +2292,7 @@ export function useGetApiAssetsInfinite<
 
 export function useGetApiAssetsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiAssets>>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params?: GetApiAssetsParams,
 	options?: {
@@ -2453,11 +2325,7 @@ export function useGetApiAssetsInfinite<
 
 export const getGetApiAssetsQueryOptions = <
 	TData = Awaited<ReturnType<typeof getApiAssets>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params?: GetApiAssetsParams,
 	options?: {
@@ -2488,16 +2356,11 @@ export type GetApiAssetsQueryResult = NonNullable<
 export type GetApiAssetsQueryError =
 	| GetApiAssets400
 	| GetApiAssets401
-	| GetApiAssets429
 	| GetApiAssets500;
 
 export function useGetApiAssets<
 	TData = Awaited<ReturnType<typeof getApiAssets>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params: undefined | GetApiAssetsParams,
 	options: {
@@ -2520,11 +2383,7 @@ export function useGetApiAssets<
 };
 export function useGetApiAssets<
 	TData = Awaited<ReturnType<typeof getApiAssets>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params?: GetApiAssetsParams,
 	options?: {
@@ -2547,11 +2406,7 @@ export function useGetApiAssets<
 };
 export function useGetApiAssets<
 	TData = Awaited<ReturnType<typeof getApiAssets>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params?: GetApiAssetsParams,
 	options?: {
@@ -2570,11 +2425,7 @@ export function useGetApiAssets<
 
 export function useGetApiAssets<
 	TData = Awaited<ReturnType<typeof getApiAssets>>,
-	TError =
-		| GetApiAssets400
-		| GetApiAssets401
-		| GetApiAssets429
-		| GetApiAssets500,
+	TError = GetApiAssets400 | GetApiAssets401 | GetApiAssets500,
 >(
 	params?: GetApiAssetsParams,
 	options?: {
@@ -2618,11 +2469,6 @@ export type postApiAssetsResponse401 = {
 	status: 401;
 };
 
-export type postApiAssetsResponse429 = {
-	data: PostApiAssets429;
-	status: 429;
-};
-
 export type postApiAssetsResponse500 = {
 	data: PostApiAssets500;
 	status: 500;
@@ -2632,7 +2478,6 @@ export type postApiAssetsResponseComposite =
 	| postApiAssetsResponse201
 	| postApiAssetsResponse400
 	| postApiAssetsResponse401
-	| postApiAssetsResponse429
 	| postApiAssetsResponse500;
 
 export type postApiAssetsResponse = postApiAssetsResponseComposite & {
@@ -2665,11 +2510,7 @@ export const postApiAssets = async (
 };
 
 export const getPostApiAssetsMutationOptions = <
-	TError =
-		| PostApiAssets400
-		| PostApiAssets401
-		| PostApiAssets429
-		| PostApiAssets500,
+	TError = PostApiAssets400 | PostApiAssets401 | PostApiAssets500,
 	TContext = unknown,
 >(options?: {
 	mutation?: UseMutationOptions<
@@ -2713,18 +2554,13 @@ export type PostApiAssetsMutationBody = PostApiAssetsBody;
 export type PostApiAssetsMutationError =
 	| PostApiAssets400
 	| PostApiAssets401
-	| PostApiAssets429
 	| PostApiAssets500;
 
 /**
  * @summary Create asset
  */
 export const usePostApiAssets = <
-	TError =
-		| PostApiAssets400
-		| PostApiAssets401
-		| PostApiAssets429
-		| PostApiAssets500,
+	TError = PostApiAssets400 | PostApiAssets401 | PostApiAssets500,
 	TContext = unknown,
 >(
 	options?: {
@@ -2772,11 +2608,6 @@ export type getApiAssetsIdResponse404 = {
 	status: 404;
 };
 
-export type getApiAssetsIdResponse429 = {
-	data: GetApiAssetsId429;
-	status: 429;
-};
-
 export type getApiAssetsIdResponse500 = {
 	data: GetApiAssetsId500;
 	status: 500;
@@ -2787,7 +2618,6 @@ export type getApiAssetsIdResponseComposite =
 	| getApiAssetsIdResponse400
 	| getApiAssetsIdResponse401
 	| getApiAssetsIdResponse404
-	| getApiAssetsIdResponse429
 	| getApiAssetsIdResponse500;
 
 export type getApiAssetsIdResponse = getApiAssetsIdResponseComposite & {
@@ -2827,7 +2657,6 @@ export const getGetApiAssetsIdInfiniteQueryOptions = <
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -2869,7 +2698,6 @@ export type GetApiAssetsIdInfiniteQueryError =
 	| GetApiAssetsId400
 	| GetApiAssetsId401
 	| GetApiAssetsId404
-	| GetApiAssetsId429
 	| GetApiAssetsId500;
 
 export function useGetApiAssetsIdInfinite<
@@ -2878,7 +2706,6 @@ export function useGetApiAssetsIdInfinite<
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -2910,7 +2737,6 @@ export function useGetApiAssetsIdInfinite<
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -2942,7 +2768,6 @@ export function useGetApiAssetsIdInfinite<
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -2970,7 +2795,6 @@ export function useGetApiAssetsIdInfinite<
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -3008,7 +2832,6 @@ export const getGetApiAssetsIdQueryOptions = <
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -3046,7 +2869,6 @@ export type GetApiAssetsIdQueryError =
 	| GetApiAssetsId400
 	| GetApiAssetsId401
 	| GetApiAssetsId404
-	| GetApiAssetsId429
 	| GetApiAssetsId500;
 
 export function useGetApiAssetsId<
@@ -3055,7 +2877,6 @@ export function useGetApiAssetsId<
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -3083,7 +2904,6 @@ export function useGetApiAssetsId<
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -3111,7 +2931,6 @@ export function useGetApiAssetsId<
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -3135,7 +2954,6 @@ export function useGetApiAssetsId<
 		| GetApiAssetsId400
 		| GetApiAssetsId401
 		| GetApiAssetsId404
-		| GetApiAssetsId429
 		| GetApiAssetsId500,
 >(
 	id: string,
@@ -3185,11 +3003,6 @@ export type putApiAssetsIdResponse404 = {
 	status: 404;
 };
 
-export type putApiAssetsIdResponse429 = {
-	data: PutApiAssetsId429;
-	status: 429;
-};
-
 export type putApiAssetsIdResponse500 = {
 	data: PutApiAssetsId500;
 	status: 500;
@@ -3200,7 +3013,6 @@ export type putApiAssetsIdResponseComposite =
 	| putApiAssetsIdResponse400
 	| putApiAssetsIdResponse401
 	| putApiAssetsIdResponse404
-	| putApiAssetsIdResponse429
 	| putApiAssetsIdResponse500;
 
 export type putApiAssetsIdResponse = putApiAssetsIdResponseComposite & {
@@ -3238,7 +3050,6 @@ export const getPutApiAssetsIdMutationOptions = <
 		| PutApiAssetsId400
 		| PutApiAssetsId401
 		| PutApiAssetsId404
-		| PutApiAssetsId429
 		| PutApiAssetsId500,
 	TContext = unknown,
 >(options?: {
@@ -3284,7 +3095,6 @@ export type PutApiAssetsIdMutationError =
 	| PutApiAssetsId400
 	| PutApiAssetsId401
 	| PutApiAssetsId404
-	| PutApiAssetsId429
 	| PutApiAssetsId500;
 
 /**
@@ -3295,7 +3105,6 @@ export const usePutApiAssetsId = <
 		| PutApiAssetsId400
 		| PutApiAssetsId401
 		| PutApiAssetsId404
-		| PutApiAssetsId429
 		| PutApiAssetsId500,
 	TContext = unknown,
 >(
@@ -3344,11 +3153,6 @@ export type deleteApiAssetsIdResponse404 = {
 	status: 404;
 };
 
-export type deleteApiAssetsIdResponse429 = {
-	data: DeleteApiAssetsId429;
-	status: 429;
-};
-
 export type deleteApiAssetsIdResponse500 = {
 	data: DeleteApiAssetsId500;
 	status: 500;
@@ -3359,7 +3163,6 @@ export type deleteApiAssetsIdResponseComposite =
 	| deleteApiAssetsIdResponse400
 	| deleteApiAssetsIdResponse401
 	| deleteApiAssetsIdResponse404
-	| deleteApiAssetsIdResponse429
 	| deleteApiAssetsIdResponse500;
 
 export type deleteApiAssetsIdResponse = deleteApiAssetsIdResponseComposite & {
@@ -3397,7 +3200,6 @@ export const getDeleteApiAssetsIdMutationOptions = <
 		| DeleteApiAssetsId400
 		| DeleteApiAssetsId401
 		| DeleteApiAssetsId404
-		| DeleteApiAssetsId429
 		| DeleteApiAssetsId500,
 	TContext = unknown,
 >(options?: {
@@ -3443,7 +3245,6 @@ export type DeleteApiAssetsIdMutationError =
 	| DeleteApiAssetsId400
 	| DeleteApiAssetsId401
 	| DeleteApiAssetsId404
-	| DeleteApiAssetsId429
 	| DeleteApiAssetsId500;
 
 /**
@@ -3454,7 +3255,6 @@ export const useDeleteApiAssetsId = <
 		| DeleteApiAssetsId400
 		| DeleteApiAssetsId401
 		| DeleteApiAssetsId404
-		| DeleteApiAssetsId429
 		| DeleteApiAssetsId500,
 	TContext = unknown,
 >(
@@ -3498,11 +3298,6 @@ export type postApiAssetsSignedUrlResponse401 = {
 	status: 401;
 };
 
-export type postApiAssetsSignedUrlResponse429 = {
-	data: PostApiAssetsSignedUrl429;
-	status: 429;
-};
-
 export type postApiAssetsSignedUrlResponse500 = {
 	data: PostApiAssetsSignedUrl500;
 	status: 500;
@@ -3512,7 +3307,6 @@ export type postApiAssetsSignedUrlResponseComposite =
 	| postApiAssetsSignedUrlResponse200
 	| postApiAssetsSignedUrlResponse400
 	| postApiAssetsSignedUrlResponse401
-	| postApiAssetsSignedUrlResponse429
 	| postApiAssetsSignedUrlResponse500;
 
 export type postApiAssetsSignedUrlResponse =
@@ -3551,7 +3345,6 @@ export const getPostApiAssetsSignedUrlMutationOptions = <
 	TError =
 		| PostApiAssetsSignedUrl400
 		| PostApiAssetsSignedUrl401
-		| PostApiAssetsSignedUrl429
 		| PostApiAssetsSignedUrl500,
 	TContext = unknown,
 >(options?: {
@@ -3596,7 +3389,6 @@ export type PostApiAssetsSignedUrlMutationBody = PostApiAssetsSignedUrlBody;
 export type PostApiAssetsSignedUrlMutationError =
 	| PostApiAssetsSignedUrl400
 	| PostApiAssetsSignedUrl401
-	| PostApiAssetsSignedUrl429
 	| PostApiAssetsSignedUrl500;
 
 /**
@@ -3606,7 +3398,6 @@ export const usePostApiAssetsSignedUrl = <
 	TError =
 		| PostApiAssetsSignedUrl400
 		| PostApiAssetsSignedUrl401
-		| PostApiAssetsSignedUrl429
 		| PostApiAssetsSignedUrl500,
 	TContext = unknown,
 >(
@@ -3650,11 +3441,6 @@ export type postApiAssetsUploadResponse401 = {
 	status: 401;
 };
 
-export type postApiAssetsUploadResponse429 = {
-	data: PostApiAssetsUpload429;
-	status: 429;
-};
-
 export type postApiAssetsUploadResponse500 = {
 	data: PostApiAssetsUpload500;
 	status: 500;
@@ -3664,7 +3450,6 @@ export type postApiAssetsUploadResponseComposite =
 	| postApiAssetsUploadResponse201
 	| postApiAssetsUploadResponse400
 	| postApiAssetsUploadResponse401
-	| postApiAssetsUploadResponse429
 	| postApiAssetsUploadResponse500;
 
 export type postApiAssetsUploadResponse =
@@ -3709,7 +3494,6 @@ export const getPostApiAssetsUploadMutationOptions = <
 	TError =
 		| PostApiAssetsUpload400
 		| PostApiAssetsUpload401
-		| PostApiAssetsUpload429
 		| PostApiAssetsUpload500,
 	TContext = unknown,
 >(options?: {
@@ -3754,7 +3538,6 @@ export type PostApiAssetsUploadMutationBody = PostApiAssetsUploadBody;
 export type PostApiAssetsUploadMutationError =
 	| PostApiAssetsUpload400
 	| PostApiAssetsUpload401
-	| PostApiAssetsUpload429
 	| PostApiAssetsUpload500;
 
 /**
@@ -3764,7 +3547,6 @@ export const usePostApiAssetsUpload = <
 	TError =
 		| PostApiAssetsUpload400
 		| PostApiAssetsUpload401
-		| PostApiAssetsUpload429
 		| PostApiAssetsUpload500,
 	TContext = unknown,
 >(
@@ -3808,11 +3590,6 @@ export type getApiEntriesResponse401 = {
 	status: 401;
 };
 
-export type getApiEntriesResponse429 = {
-	data: GetApiEntries429;
-	status: 429;
-};
-
 export type getApiEntriesResponse500 = {
 	data: GetApiEntries500;
 	status: 500;
@@ -3822,7 +3599,6 @@ export type getApiEntriesResponseComposite =
 	| getApiEntriesResponse200
 	| getApiEntriesResponse400
 	| getApiEntriesResponse401
-	| getApiEntriesResponse429
 	| getApiEntriesResponse500;
 
 export type getApiEntriesResponse = getApiEntriesResponseComposite & {
@@ -3873,11 +3649,7 @@ export const getGetApiEntriesQueryKey = (params?: GetApiEntriesParams) => {
 
 export const getGetApiEntriesInfiniteQueryOptions = <
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params?: GetApiEntriesParams,
 	options?: {
@@ -3912,16 +3684,11 @@ export type GetApiEntriesInfiniteQueryResult = NonNullable<
 export type GetApiEntriesInfiniteQueryError =
 	| GetApiEntries400
 	| GetApiEntries401
-	| GetApiEntries429
 	| GetApiEntries500;
 
 export function useGetApiEntriesInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params: undefined | GetApiEntriesParams,
 	options: {
@@ -3948,11 +3715,7 @@ export function useGetApiEntriesInfinite<
 };
 export function useGetApiEntriesInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params?: GetApiEntriesParams,
 	options?: {
@@ -3979,11 +3742,7 @@ export function useGetApiEntriesInfinite<
 };
 export function useGetApiEntriesInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params?: GetApiEntriesParams,
 	options?: {
@@ -4006,11 +3765,7 @@ export function useGetApiEntriesInfinite<
 
 export function useGetApiEntriesInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiEntries>>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params?: GetApiEntriesParams,
 	options?: {
@@ -4043,11 +3798,7 @@ export function useGetApiEntriesInfinite<
 
 export const getGetApiEntriesQueryOptions = <
 	TData = Awaited<ReturnType<typeof getApiEntries>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params?: GetApiEntriesParams,
 	options?: {
@@ -4078,16 +3829,11 @@ export type GetApiEntriesQueryResult = NonNullable<
 export type GetApiEntriesQueryError =
 	| GetApiEntries400
 	| GetApiEntries401
-	| GetApiEntries429
 	| GetApiEntries500;
 
 export function useGetApiEntries<
 	TData = Awaited<ReturnType<typeof getApiEntries>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params: undefined | GetApiEntriesParams,
 	options: {
@@ -4110,11 +3856,7 @@ export function useGetApiEntries<
 };
 export function useGetApiEntries<
 	TData = Awaited<ReturnType<typeof getApiEntries>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params?: GetApiEntriesParams,
 	options?: {
@@ -4137,11 +3879,7 @@ export function useGetApiEntries<
 };
 export function useGetApiEntries<
 	TData = Awaited<ReturnType<typeof getApiEntries>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params?: GetApiEntriesParams,
 	options?: {
@@ -4160,11 +3898,7 @@ export function useGetApiEntries<
 
 export function useGetApiEntries<
 	TData = Awaited<ReturnType<typeof getApiEntries>>,
-	TError =
-		| GetApiEntries400
-		| GetApiEntries401
-		| GetApiEntries429
-		| GetApiEntries500,
+	TError = GetApiEntries400 | GetApiEntries401 | GetApiEntries500,
 >(
 	params?: GetApiEntriesParams,
 	options?: {
@@ -4208,11 +3942,6 @@ export type postApiEntriesResponse401 = {
 	status: 401;
 };
 
-export type postApiEntriesResponse429 = {
-	data: PostApiEntries429;
-	status: 429;
-};
-
 export type postApiEntriesResponse500 = {
 	data: PostApiEntries500;
 	status: 500;
@@ -4222,7 +3951,6 @@ export type postApiEntriesResponseComposite =
 	| postApiEntriesResponse201
 	| postApiEntriesResponse400
 	| postApiEntriesResponse401
-	| postApiEntriesResponse429
 	| postApiEntriesResponse500;
 
 export type postApiEntriesResponse = postApiEntriesResponseComposite & {
@@ -4255,11 +3983,7 @@ export const postApiEntries = async (
 };
 
 export const getPostApiEntriesMutationOptions = <
-	TError =
-		| PostApiEntries400
-		| PostApiEntries401
-		| PostApiEntries429
-		| PostApiEntries500,
+	TError = PostApiEntries400 | PostApiEntries401 | PostApiEntries500,
 	TContext = unknown,
 >(options?: {
 	mutation?: UseMutationOptions<
@@ -4303,18 +4027,13 @@ export type PostApiEntriesMutationBody = PostApiEntriesBody;
 export type PostApiEntriesMutationError =
 	| PostApiEntries400
 	| PostApiEntries401
-	| PostApiEntries429
 	| PostApiEntries500;
 
 /**
  * @summary Create entry
  */
 export const usePostApiEntries = <
-	TError =
-		| PostApiEntries400
-		| PostApiEntries401
-		| PostApiEntries429
-		| PostApiEntries500,
+	TError = PostApiEntries400 | PostApiEntries401 | PostApiEntries500,
 	TContext = unknown,
 >(
 	options?: {
@@ -4362,11 +4081,6 @@ export type getApiEntriesIdResponse404 = {
 	status: 404;
 };
 
-export type getApiEntriesIdResponse429 = {
-	data: GetApiEntriesId429;
-	status: 429;
-};
-
 export type getApiEntriesIdResponse500 = {
 	data: GetApiEntriesId500;
 	status: 500;
@@ -4377,7 +4091,6 @@ export type getApiEntriesIdResponseComposite =
 	| getApiEntriesIdResponse400
 	| getApiEntriesIdResponse401
 	| getApiEntriesIdResponse404
-	| getApiEntriesIdResponse429
 	| getApiEntriesIdResponse500;
 
 export type getApiEntriesIdResponse = getApiEntriesIdResponseComposite & {
@@ -4417,7 +4130,6 @@ export const getGetApiEntriesIdInfiniteQueryOptions = <
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4459,7 +4171,6 @@ export type GetApiEntriesIdInfiniteQueryError =
 	| GetApiEntriesId400
 	| GetApiEntriesId401
 	| GetApiEntriesId404
-	| GetApiEntriesId429
 	| GetApiEntriesId500;
 
 export function useGetApiEntriesIdInfinite<
@@ -4468,7 +4179,6 @@ export function useGetApiEntriesIdInfinite<
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4500,7 +4210,6 @@ export function useGetApiEntriesIdInfinite<
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4532,7 +4241,6 @@ export function useGetApiEntriesIdInfinite<
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4560,7 +4268,6 @@ export function useGetApiEntriesIdInfinite<
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4598,7 +4305,6 @@ export const getGetApiEntriesIdQueryOptions = <
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4640,7 +4346,6 @@ export type GetApiEntriesIdQueryError =
 	| GetApiEntriesId400
 	| GetApiEntriesId401
 	| GetApiEntriesId404
-	| GetApiEntriesId429
 	| GetApiEntriesId500;
 
 export function useGetApiEntriesId<
@@ -4649,7 +4354,6 @@ export function useGetApiEntriesId<
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4681,7 +4385,6 @@ export function useGetApiEntriesId<
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4713,7 +4416,6 @@ export function useGetApiEntriesId<
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4741,7 +4443,6 @@ export function useGetApiEntriesId<
 		| GetApiEntriesId400
 		| GetApiEntriesId401
 		| GetApiEntriesId404
-		| GetApiEntriesId429
 		| GetApiEntriesId500,
 >(
 	id: string,
@@ -4795,11 +4496,6 @@ export type putApiEntriesIdResponse404 = {
 	status: 404;
 };
 
-export type putApiEntriesIdResponse429 = {
-	data: PutApiEntriesId429;
-	status: 429;
-};
-
 export type putApiEntriesIdResponse500 = {
 	data: PutApiEntriesId500;
 	status: 500;
@@ -4810,7 +4506,6 @@ export type putApiEntriesIdResponseComposite =
 	| putApiEntriesIdResponse400
 	| putApiEntriesIdResponse401
 	| putApiEntriesIdResponse404
-	| putApiEntriesIdResponse429
 	| putApiEntriesIdResponse500;
 
 export type putApiEntriesIdResponse = putApiEntriesIdResponseComposite & {
@@ -4848,7 +4543,6 @@ export const getPutApiEntriesIdMutationOptions = <
 		| PutApiEntriesId400
 		| PutApiEntriesId401
 		| PutApiEntriesId404
-		| PutApiEntriesId429
 		| PutApiEntriesId500,
 	TContext = unknown,
 >(options?: {
@@ -4894,7 +4588,6 @@ export type PutApiEntriesIdMutationError =
 	| PutApiEntriesId400
 	| PutApiEntriesId401
 	| PutApiEntriesId404
-	| PutApiEntriesId429
 	| PutApiEntriesId500;
 
 /**
@@ -4905,7 +4598,6 @@ export const usePutApiEntriesId = <
 		| PutApiEntriesId400
 		| PutApiEntriesId401
 		| PutApiEntriesId404
-		| PutApiEntriesId429
 		| PutApiEntriesId500,
 	TContext = unknown,
 >(
@@ -4954,11 +4646,6 @@ export type deleteApiEntriesIdResponse404 = {
 	status: 404;
 };
 
-export type deleteApiEntriesIdResponse429 = {
-	data: DeleteApiEntriesId429;
-	status: 429;
-};
-
 export type deleteApiEntriesIdResponse500 = {
 	data: DeleteApiEntriesId500;
 	status: 500;
@@ -4969,7 +4656,6 @@ export type deleteApiEntriesIdResponseComposite =
 	| deleteApiEntriesIdResponse400
 	| deleteApiEntriesIdResponse401
 	| deleteApiEntriesIdResponse404
-	| deleteApiEntriesIdResponse429
 	| deleteApiEntriesIdResponse500;
 
 export type deleteApiEntriesIdResponse = deleteApiEntriesIdResponseComposite & {
@@ -5004,7 +4690,6 @@ export const getDeleteApiEntriesIdMutationOptions = <
 		| DeleteApiEntriesId400
 		| DeleteApiEntriesId401
 		| DeleteApiEntriesId404
-		| DeleteApiEntriesId429
 		| DeleteApiEntriesId500,
 	TContext = unknown,
 >(options?: {
@@ -5050,7 +4735,6 @@ export type DeleteApiEntriesIdMutationError =
 	| DeleteApiEntriesId400
 	| DeleteApiEntriesId401
 	| DeleteApiEntriesId404
-	| DeleteApiEntriesId429
 	| DeleteApiEntriesId500;
 
 /**
@@ -5061,7 +4745,6 @@ export const useDeleteApiEntriesId = <
 		| DeleteApiEntriesId400
 		| DeleteApiEntriesId401
 		| DeleteApiEntriesId404
-		| DeleteApiEntriesId429
 		| DeleteApiEntriesId500,
 	TContext = unknown,
 >(
@@ -5110,11 +4793,6 @@ export type getApiEntriesIdMetadataResponse404 = {
 	status: 404;
 };
 
-export type getApiEntriesIdMetadataResponse429 = {
-	data: GetApiEntriesIdMetadata429;
-	status: 429;
-};
-
 export type getApiEntriesIdMetadataResponse500 = {
 	data: GetApiEntriesIdMetadata500;
 	status: 500;
@@ -5125,7 +4803,6 @@ export type getApiEntriesIdMetadataResponseComposite =
 	| getApiEntriesIdMetadataResponse400
 	| getApiEntriesIdMetadataResponse401
 	| getApiEntriesIdMetadataResponse404
-	| getApiEntriesIdMetadataResponse429
 	| getApiEntriesIdMetadataResponse500;
 
 export type getApiEntriesIdMetadataResponse =
@@ -5168,7 +4845,6 @@ export const getGetApiEntriesIdMetadataInfiniteQueryOptions = <
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5211,7 +4887,6 @@ export type GetApiEntriesIdMetadataInfiniteQueryError =
 	| GetApiEntriesIdMetadata400
 	| GetApiEntriesIdMetadata401
 	| GetApiEntriesIdMetadata404
-	| GetApiEntriesIdMetadata429
 	| GetApiEntriesIdMetadata500;
 
 export function useGetApiEntriesIdMetadataInfinite<
@@ -5220,7 +4895,6 @@ export function useGetApiEntriesIdMetadataInfinite<
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5252,7 +4926,6 @@ export function useGetApiEntriesIdMetadataInfinite<
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5284,7 +4957,6 @@ export function useGetApiEntriesIdMetadataInfinite<
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5312,7 +4984,6 @@ export function useGetApiEntriesIdMetadataInfinite<
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5353,7 +5024,6 @@ export const getGetApiEntriesIdMetadataQueryOptions = <
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5396,7 +5066,6 @@ export type GetApiEntriesIdMetadataQueryError =
 	| GetApiEntriesIdMetadata400
 	| GetApiEntriesIdMetadata401
 	| GetApiEntriesIdMetadata404
-	| GetApiEntriesIdMetadata429
 	| GetApiEntriesIdMetadata500;
 
 export function useGetApiEntriesIdMetadata<
@@ -5405,7 +5074,6 @@ export function useGetApiEntriesIdMetadata<
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5437,7 +5105,6 @@ export function useGetApiEntriesIdMetadata<
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5469,7 +5136,6 @@ export function useGetApiEntriesIdMetadata<
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5497,7 +5163,6 @@ export function useGetApiEntriesIdMetadata<
 		| GetApiEntriesIdMetadata400
 		| GetApiEntriesIdMetadata401
 		| GetApiEntriesIdMetadata404
-		| GetApiEntriesIdMetadata429
 		| GetApiEntriesIdMetadata500,
 >(
 	id: string,
@@ -5546,11 +5211,6 @@ export type getApiGoalsResponse401 = {
 	status: 401;
 };
 
-export type getApiGoalsResponse429 = {
-	data: GetApiGoals429;
-	status: 429;
-};
-
 export type getApiGoalsResponse500 = {
 	data: GetApiGoals500;
 	status: 500;
@@ -5560,7 +5220,6 @@ export type getApiGoalsResponseComposite =
 	| getApiGoalsResponse200
 	| getApiGoalsResponse400
 	| getApiGoalsResponse401
-	| getApiGoalsResponse429
 	| getApiGoalsResponse500;
 
 export type getApiGoalsResponse = getApiGoalsResponseComposite & {
@@ -5611,7 +5270,7 @@ export const getGetApiGoalsQueryKey = (params?: GetApiGoalsParams) => {
 
 export const getGetApiGoalsInfiniteQueryOptions = <
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiGoals>>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params?: GetApiGoalsParams,
 	options?: {
@@ -5646,12 +5305,11 @@ export type GetApiGoalsInfiniteQueryResult = NonNullable<
 export type GetApiGoalsInfiniteQueryError =
 	| GetApiGoals400
 	| GetApiGoals401
-	| GetApiGoals429
 	| GetApiGoals500;
 
 export function useGetApiGoalsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiGoals>>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params: undefined | GetApiGoalsParams,
 	options: {
@@ -5678,7 +5336,7 @@ export function useGetApiGoalsInfinite<
 };
 export function useGetApiGoalsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiGoals>>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params?: GetApiGoalsParams,
 	options?: {
@@ -5705,7 +5363,7 @@ export function useGetApiGoalsInfinite<
 };
 export function useGetApiGoalsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiGoals>>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params?: GetApiGoalsParams,
 	options?: {
@@ -5728,7 +5386,7 @@ export function useGetApiGoalsInfinite<
 
 export function useGetApiGoalsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiGoals>>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params?: GetApiGoalsParams,
 	options?: {
@@ -5761,7 +5419,7 @@ export function useGetApiGoalsInfinite<
 
 export const getGetApiGoalsQueryOptions = <
 	TData = Awaited<ReturnType<typeof getApiGoals>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params?: GetApiGoalsParams,
 	options?: {
@@ -5792,12 +5450,11 @@ export type GetApiGoalsQueryResult = NonNullable<
 export type GetApiGoalsQueryError =
 	| GetApiGoals400
 	| GetApiGoals401
-	| GetApiGoals429
 	| GetApiGoals500;
 
 export function useGetApiGoals<
 	TData = Awaited<ReturnType<typeof getApiGoals>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params: undefined | GetApiGoalsParams,
 	options: {
@@ -5820,7 +5477,7 @@ export function useGetApiGoals<
 };
 export function useGetApiGoals<
 	TData = Awaited<ReturnType<typeof getApiGoals>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params?: GetApiGoalsParams,
 	options?: {
@@ -5843,7 +5500,7 @@ export function useGetApiGoals<
 };
 export function useGetApiGoals<
 	TData = Awaited<ReturnType<typeof getApiGoals>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params?: GetApiGoalsParams,
 	options?: {
@@ -5862,7 +5519,7 @@ export function useGetApiGoals<
 
 export function useGetApiGoals<
 	TData = Awaited<ReturnType<typeof getApiGoals>>,
-	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals429 | GetApiGoals500,
+	TError = GetApiGoals400 | GetApiGoals401 | GetApiGoals500,
 >(
 	params?: GetApiGoalsParams,
 	options?: {
@@ -5906,11 +5563,6 @@ export type postApiGoalsResponse401 = {
 	status: 401;
 };
 
-export type postApiGoalsResponse429 = {
-	data: PostApiGoals429;
-	status: 429;
-};
-
 export type postApiGoalsResponse500 = {
 	data: PostApiGoals500;
 	status: 500;
@@ -5920,7 +5572,6 @@ export type postApiGoalsResponseComposite =
 	| postApiGoalsResponse201
 	| postApiGoalsResponse400
 	| postApiGoalsResponse401
-	| postApiGoalsResponse429
 	| postApiGoalsResponse500;
 
 export type postApiGoalsResponse = postApiGoalsResponseComposite & {
@@ -5953,11 +5604,7 @@ export const postApiGoals = async (
 };
 
 export const getPostApiGoalsMutationOptions = <
-	TError =
-		| PostApiGoals400
-		| PostApiGoals401
-		| PostApiGoals429
-		| PostApiGoals500,
+	TError = PostApiGoals400 | PostApiGoals401 | PostApiGoals500,
 	TContext = unknown,
 >(options?: {
 	mutation?: UseMutationOptions<
@@ -6001,18 +5648,13 @@ export type PostApiGoalsMutationBody = PostApiGoalsBody;
 export type PostApiGoalsMutationError =
 	| PostApiGoals400
 	| PostApiGoals401
-	| PostApiGoals429
 	| PostApiGoals500;
 
 /**
  * @summary Create goal
  */
 export const usePostApiGoals = <
-	TError =
-		| PostApiGoals400
-		| PostApiGoals401
-		| PostApiGoals429
-		| PostApiGoals500,
+	TError = PostApiGoals400 | PostApiGoals401 | PostApiGoals500,
 	TContext = unknown,
 >(
 	options?: {
@@ -6060,11 +5702,6 @@ export type getApiGoalsIdResponse404 = {
 	status: 404;
 };
 
-export type getApiGoalsIdResponse429 = {
-	data: GetApiGoalsId429;
-	status: 429;
-};
-
 export type getApiGoalsIdResponse500 = {
 	data: GetApiGoalsId500;
 	status: 500;
@@ -6075,7 +5712,6 @@ export type getApiGoalsIdResponseComposite =
 	| getApiGoalsIdResponse400
 	| getApiGoalsIdResponse401
 	| getApiGoalsIdResponse404
-	| getApiGoalsIdResponse429
 	| getApiGoalsIdResponse500;
 
 export type getApiGoalsIdResponse = getApiGoalsIdResponseComposite & {
@@ -6115,7 +5751,6 @@ export const getGetApiGoalsIdInfiniteQueryOptions = <
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6157,7 +5792,6 @@ export type GetApiGoalsIdInfiniteQueryError =
 	| GetApiGoalsId400
 	| GetApiGoalsId401
 	| GetApiGoalsId404
-	| GetApiGoalsId429
 	| GetApiGoalsId500;
 
 export function useGetApiGoalsIdInfinite<
@@ -6166,7 +5800,6 @@ export function useGetApiGoalsIdInfinite<
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6198,7 +5831,6 @@ export function useGetApiGoalsIdInfinite<
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6230,7 +5862,6 @@ export function useGetApiGoalsIdInfinite<
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6258,7 +5889,6 @@ export function useGetApiGoalsIdInfinite<
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6296,7 +5926,6 @@ export const getGetApiGoalsIdQueryOptions = <
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6334,7 +5963,6 @@ export type GetApiGoalsIdQueryError =
 	| GetApiGoalsId400
 	| GetApiGoalsId401
 	| GetApiGoalsId404
-	| GetApiGoalsId429
 	| GetApiGoalsId500;
 
 export function useGetApiGoalsId<
@@ -6343,7 +5971,6 @@ export function useGetApiGoalsId<
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6371,7 +5998,6 @@ export function useGetApiGoalsId<
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6399,7 +6025,6 @@ export function useGetApiGoalsId<
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6423,7 +6048,6 @@ export function useGetApiGoalsId<
 		| GetApiGoalsId400
 		| GetApiGoalsId401
 		| GetApiGoalsId404
-		| GetApiGoalsId429
 		| GetApiGoalsId500,
 >(
 	id: string,
@@ -6473,11 +6097,6 @@ export type putApiGoalsIdResponse404 = {
 	status: 404;
 };
 
-export type putApiGoalsIdResponse429 = {
-	data: PutApiGoalsId429;
-	status: 429;
-};
-
 export type putApiGoalsIdResponse500 = {
 	data: PutApiGoalsId500;
 	status: 500;
@@ -6488,7 +6107,6 @@ export type putApiGoalsIdResponseComposite =
 	| putApiGoalsIdResponse400
 	| putApiGoalsIdResponse401
 	| putApiGoalsIdResponse404
-	| putApiGoalsIdResponse429
 	| putApiGoalsIdResponse500;
 
 export type putApiGoalsIdResponse = putApiGoalsIdResponseComposite & {
@@ -6526,7 +6144,6 @@ export const getPutApiGoalsIdMutationOptions = <
 		| PutApiGoalsId400
 		| PutApiGoalsId401
 		| PutApiGoalsId404
-		| PutApiGoalsId429
 		| PutApiGoalsId500,
 	TContext = unknown,
 >(options?: {
@@ -6572,7 +6189,6 @@ export type PutApiGoalsIdMutationError =
 	| PutApiGoalsId400
 	| PutApiGoalsId401
 	| PutApiGoalsId404
-	| PutApiGoalsId429
 	| PutApiGoalsId500;
 
 /**
@@ -6583,7 +6199,6 @@ export const usePutApiGoalsId = <
 		| PutApiGoalsId400
 		| PutApiGoalsId401
 		| PutApiGoalsId404
-		| PutApiGoalsId429
 		| PutApiGoalsId500,
 	TContext = unknown,
 >(
@@ -6632,11 +6247,6 @@ export type deleteApiGoalsIdResponse404 = {
 	status: 404;
 };
 
-export type deleteApiGoalsIdResponse429 = {
-	data: DeleteApiGoalsId429;
-	status: 429;
-};
-
 export type deleteApiGoalsIdResponse500 = {
 	data: DeleteApiGoalsId500;
 	status: 500;
@@ -6647,7 +6257,6 @@ export type deleteApiGoalsIdResponseComposite =
 	| deleteApiGoalsIdResponse400
 	| deleteApiGoalsIdResponse401
 	| deleteApiGoalsIdResponse404
-	| deleteApiGoalsIdResponse429
 	| deleteApiGoalsIdResponse500;
 
 export type deleteApiGoalsIdResponse = deleteApiGoalsIdResponseComposite & {
@@ -6682,7 +6291,6 @@ export const getDeleteApiGoalsIdMutationOptions = <
 		| DeleteApiGoalsId400
 		| DeleteApiGoalsId401
 		| DeleteApiGoalsId404
-		| DeleteApiGoalsId429
 		| DeleteApiGoalsId500,
 	TContext = unknown,
 >(options?: {
@@ -6728,7 +6336,6 @@ export type DeleteApiGoalsIdMutationError =
 	| DeleteApiGoalsId400
 	| DeleteApiGoalsId401
 	| DeleteApiGoalsId404
-	| DeleteApiGoalsId429
 	| DeleteApiGoalsId500;
 
 /**
@@ -6739,7 +6346,6 @@ export const useDeleteApiGoalsId = <
 		| DeleteApiGoalsId400
 		| DeleteApiGoalsId401
 		| DeleteApiGoalsId404
-		| DeleteApiGoalsId429
 		| DeleteApiGoalsId500,
 	TContext = unknown,
 >(
@@ -6788,11 +6394,6 @@ export type getApiGoalGoalIdLogsResponse404 = {
 	status: 404;
 };
 
-export type getApiGoalGoalIdLogsResponse429 = {
-	data: GetApiGoalGoalIdLogs429;
-	status: 429;
-};
-
 export type getApiGoalGoalIdLogsResponse500 = {
 	data: GetApiGoalGoalIdLogs500;
 	status: 500;
@@ -6803,7 +6404,6 @@ export type getApiGoalGoalIdLogsResponseComposite =
 	| getApiGoalGoalIdLogsResponse400
 	| getApiGoalGoalIdLogsResponse401
 	| getApiGoalGoalIdLogsResponse404
-	| getApiGoalGoalIdLogsResponse429
 	| getApiGoalGoalIdLogsResponse500;
 
 export type getApiGoalGoalIdLogsResponse =
@@ -6868,7 +6468,6 @@ export const getGetApiGoalGoalIdLogsInfiniteQueryOptions = <
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -6913,7 +6512,6 @@ export type GetApiGoalGoalIdLogsInfiniteQueryError =
 	| GetApiGoalGoalIdLogs400
 	| GetApiGoalGoalIdLogs401
 	| GetApiGoalGoalIdLogs404
-	| GetApiGoalGoalIdLogs429
 	| GetApiGoalGoalIdLogs500;
 
 export function useGetApiGoalGoalIdLogsInfinite<
@@ -6922,7 +6520,6 @@ export function useGetApiGoalGoalIdLogsInfinite<
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -6955,7 +6552,6 @@ export function useGetApiGoalGoalIdLogsInfinite<
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -6988,7 +6584,6 @@ export function useGetApiGoalGoalIdLogsInfinite<
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -7017,7 +6612,6 @@ export function useGetApiGoalGoalIdLogsInfinite<
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -7060,7 +6654,6 @@ export const getGetApiGoalGoalIdLogsQueryOptions = <
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -7105,7 +6698,6 @@ export type GetApiGoalGoalIdLogsQueryError =
 	| GetApiGoalGoalIdLogs400
 	| GetApiGoalGoalIdLogs401
 	| GetApiGoalGoalIdLogs404
-	| GetApiGoalGoalIdLogs429
 	| GetApiGoalGoalIdLogs500;
 
 export function useGetApiGoalGoalIdLogs<
@@ -7114,7 +6706,6 @@ export function useGetApiGoalGoalIdLogs<
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -7147,7 +6738,6 @@ export function useGetApiGoalGoalIdLogs<
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -7180,7 +6770,6 @@ export function useGetApiGoalGoalIdLogs<
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -7209,7 +6798,6 @@ export function useGetApiGoalGoalIdLogs<
 		| GetApiGoalGoalIdLogs400
 		| GetApiGoalGoalIdLogs401
 		| GetApiGoalGoalIdLogs404
-		| GetApiGoalGoalIdLogs429
 		| GetApiGoalGoalIdLogs500,
 >(
 	goalId: string,
@@ -7268,11 +6856,6 @@ export type postApiGoalGoalIdLogsResponse404 = {
 	status: 404;
 };
 
-export type postApiGoalGoalIdLogsResponse429 = {
-	data: PostApiGoalGoalIdLogs429;
-	status: 429;
-};
-
 export type postApiGoalGoalIdLogsResponse500 = {
 	data: PostApiGoalGoalIdLogs500;
 	status: 500;
@@ -7283,7 +6866,6 @@ export type postApiGoalGoalIdLogsResponseComposite =
 	| postApiGoalGoalIdLogsResponse400
 	| postApiGoalGoalIdLogsResponse401
 	| postApiGoalGoalIdLogsResponse404
-	| postApiGoalGoalIdLogsResponse429
 	| postApiGoalGoalIdLogsResponse500;
 
 export type postApiGoalGoalIdLogsResponse =
@@ -7324,7 +6906,6 @@ export const getPostApiGoalGoalIdLogsMutationOptions = <
 		| PostApiGoalGoalIdLogs400
 		| PostApiGoalGoalIdLogs401
 		| PostApiGoalGoalIdLogs404
-		| PostApiGoalGoalIdLogs429
 		| PostApiGoalGoalIdLogs500,
 	TContext = unknown,
 >(options?: {
@@ -7370,7 +6951,6 @@ export type PostApiGoalGoalIdLogsMutationError =
 	| PostApiGoalGoalIdLogs400
 	| PostApiGoalGoalIdLogs401
 	| PostApiGoalGoalIdLogs404
-	| PostApiGoalGoalIdLogs429
 	| PostApiGoalGoalIdLogs500;
 
 /**
@@ -7381,7 +6961,6 @@ export const usePostApiGoalGoalIdLogs = <
 		| PostApiGoalGoalIdLogs400
 		| PostApiGoalGoalIdLogs401
 		| PostApiGoalGoalIdLogs404
-		| PostApiGoalGoalIdLogs429
 		| PostApiGoalGoalIdLogs500,
 	TContext = unknown,
 >(
@@ -7430,11 +7009,6 @@ export type putApiGoalGoalIdLogsIdResponse404 = {
 	status: 404;
 };
 
-export type putApiGoalGoalIdLogsIdResponse429 = {
-	data: PutApiGoalGoalIdLogsId429;
-	status: 429;
-};
-
 export type putApiGoalGoalIdLogsIdResponse500 = {
 	data: PutApiGoalGoalIdLogsId500;
 	status: 500;
@@ -7445,7 +7019,6 @@ export type putApiGoalGoalIdLogsIdResponseComposite =
 	| putApiGoalGoalIdLogsIdResponse400
 	| putApiGoalGoalIdLogsIdResponse401
 	| putApiGoalGoalIdLogsIdResponse404
-	| putApiGoalGoalIdLogsIdResponse429
 	| putApiGoalGoalIdLogsIdResponse500;
 
 export type putApiGoalGoalIdLogsIdResponse =
@@ -7487,7 +7060,6 @@ export const getPutApiGoalGoalIdLogsIdMutationOptions = <
 		| PutApiGoalGoalIdLogsId400
 		| PutApiGoalGoalIdLogsId401
 		| PutApiGoalGoalIdLogsId404
-		| PutApiGoalGoalIdLogsId429
 		| PutApiGoalGoalIdLogsId500,
 	TContext = unknown,
 >(options?: {
@@ -7533,7 +7105,6 @@ export type PutApiGoalGoalIdLogsIdMutationError =
 	| PutApiGoalGoalIdLogsId400
 	| PutApiGoalGoalIdLogsId401
 	| PutApiGoalGoalIdLogsId404
-	| PutApiGoalGoalIdLogsId429
 	| PutApiGoalGoalIdLogsId500;
 
 /**
@@ -7544,7 +7115,6 @@ export const usePutApiGoalGoalIdLogsId = <
 		| PutApiGoalGoalIdLogsId400
 		| PutApiGoalGoalIdLogsId401
 		| PutApiGoalGoalIdLogsId404
-		| PutApiGoalGoalIdLogsId429
 		| PutApiGoalGoalIdLogsId500,
 	TContext = unknown,
 >(
@@ -7588,11 +7158,6 @@ export type deleteApiGoalGoalIdLogsIdResponse404 = {
 	status: 404;
 };
 
-export type deleteApiGoalGoalIdLogsIdResponse429 = {
-	data: DeleteApiGoalGoalIdLogsId429;
-	status: 429;
-};
-
 export type deleteApiGoalGoalIdLogsIdResponse500 = {
 	data: DeleteApiGoalGoalIdLogsId500;
 	status: 500;
@@ -7602,7 +7167,6 @@ export type deleteApiGoalGoalIdLogsIdResponseComposite =
 	| deleteApiGoalGoalIdLogsIdResponse200
 	| deleteApiGoalGoalIdLogsIdResponse401
 	| deleteApiGoalGoalIdLogsIdResponse404
-	| deleteApiGoalGoalIdLogsIdResponse429
 	| deleteApiGoalGoalIdLogsIdResponse500;
 
 export type deleteApiGoalGoalIdLogsIdResponse =
@@ -7640,7 +7204,6 @@ export const getDeleteApiGoalGoalIdLogsIdMutationOptions = <
 	TError =
 		| DeleteApiGoalGoalIdLogsId401
 		| DeleteApiGoalGoalIdLogsId404
-		| DeleteApiGoalGoalIdLogsId429
 		| DeleteApiGoalGoalIdLogsId500,
 	TContext = unknown,
 >(options?: {
@@ -7685,7 +7248,6 @@ export type DeleteApiGoalGoalIdLogsIdMutationResult = NonNullable<
 export type DeleteApiGoalGoalIdLogsIdMutationError =
 	| DeleteApiGoalGoalIdLogsId401
 	| DeleteApiGoalGoalIdLogsId404
-	| DeleteApiGoalGoalIdLogsId429
 	| DeleteApiGoalGoalIdLogsId500;
 
 /**
@@ -7695,7 +7257,6 @@ export const useDeleteApiGoalGoalIdLogsId = <
 	TError =
 		| DeleteApiGoalGoalIdLogsId401
 		| DeleteApiGoalGoalIdLogsId404
-		| DeleteApiGoalGoalIdLogsId429
 		| DeleteApiGoalGoalIdLogsId500,
 	TContext = unknown,
 >(
@@ -7734,11 +7295,6 @@ export type getApiTagsResponse401 = {
 	status: 401;
 };
 
-export type getApiTagsResponse429 = {
-	data: GetApiTags429;
-	status: 429;
-};
-
 export type getApiTagsResponse500 = {
 	data: GetApiTags500;
 	status: 500;
@@ -7747,7 +7303,6 @@ export type getApiTagsResponse500 = {
 export type getApiTagsResponseComposite =
 	| getApiTagsResponse200
 	| getApiTagsResponse401
-	| getApiTagsResponse429
 	| getApiTagsResponse500;
 
 export type getApiTagsResponse = getApiTagsResponseComposite & {
@@ -7782,7 +7337,7 @@ export const getGetApiTagsQueryKey = () => {
 
 export const getGetApiTagsInfiniteQueryOptions = <
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTags>>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(options?: {
 	query?: Partial<
 		UseInfiniteQueryOptions<
@@ -7811,14 +7366,11 @@ export const getGetApiTagsInfiniteQueryOptions = <
 export type GetApiTagsInfiniteQueryResult = NonNullable<
 	Awaited<ReturnType<typeof getApiTags>>
 >;
-export type GetApiTagsInfiniteQueryError =
-	| GetApiTags401
-	| GetApiTags429
-	| GetApiTags500;
+export type GetApiTagsInfiniteQueryError = GetApiTags401 | GetApiTags500;
 
 export function useGetApiTagsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTags>>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(
 	options: {
 		query: Partial<
@@ -7844,7 +7396,7 @@ export function useGetApiTagsInfinite<
 };
 export function useGetApiTagsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTags>>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(
 	options?: {
 		query?: Partial<
@@ -7870,7 +7422,7 @@ export function useGetApiTagsInfinite<
 };
 export function useGetApiTagsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTags>>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(
 	options?: {
 		query?: Partial<
@@ -7892,7 +7444,7 @@ export function useGetApiTagsInfinite<
 
 export function useGetApiTagsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTags>>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(
 	options?: {
 		query?: Partial<
@@ -7924,7 +7476,7 @@ export function useGetApiTagsInfinite<
 
 export const getGetApiTagsQueryOptions = <
 	TData = Awaited<ReturnType<typeof getApiTags>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(options?: {
 	query?: Partial<
 		UseQueryOptions<Awaited<ReturnType<typeof getApiTags>>, TError, TData>
@@ -7949,14 +7501,11 @@ export const getGetApiTagsQueryOptions = <
 export type GetApiTagsQueryResult = NonNullable<
 	Awaited<ReturnType<typeof getApiTags>>
 >;
-export type GetApiTagsQueryError =
-	| GetApiTags401
-	| GetApiTags429
-	| GetApiTags500;
+export type GetApiTagsQueryError = GetApiTags401 | GetApiTags500;
 
 export function useGetApiTags<
 	TData = Awaited<ReturnType<typeof getApiTags>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(
 	options: {
 		query: Partial<
@@ -7978,7 +7527,7 @@ export function useGetApiTags<
 };
 export function useGetApiTags<
 	TData = Awaited<ReturnType<typeof getApiTags>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(
 	options?: {
 		query?: Partial<
@@ -8000,7 +7549,7 @@ export function useGetApiTags<
 };
 export function useGetApiTags<
 	TData = Awaited<ReturnType<typeof getApiTags>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(
 	options?: {
 		query?: Partial<
@@ -8018,7 +7567,7 @@ export function useGetApiTags<
 
 export function useGetApiTags<
 	TData = Awaited<ReturnType<typeof getApiTags>>,
-	TError = GetApiTags401 | GetApiTags429 | GetApiTags500,
+	TError = GetApiTags401 | GetApiTags500,
 >(
 	options?: {
 		query?: Partial<
@@ -8061,11 +7610,6 @@ export type postApiTagsResponse401 = {
 	status: 401;
 };
 
-export type postApiTagsResponse429 = {
-	data: PostApiTags429;
-	status: 429;
-};
-
 export type postApiTagsResponse500 = {
 	data: PostApiTags500;
 	status: 500;
@@ -8075,7 +7619,6 @@ export type postApiTagsResponseComposite =
 	| postApiTagsResponse201
 	| postApiTagsResponse400
 	| postApiTagsResponse401
-	| postApiTagsResponse429
 	| postApiTagsResponse500;
 
 export type postApiTagsResponse = postApiTagsResponseComposite & {
@@ -8108,7 +7651,7 @@ export const postApiTags = async (
 };
 
 export const getPostApiTagsMutationOptions = <
-	TError = PostApiTags400 | PostApiTags401 | PostApiTags429 | PostApiTags500,
+	TError = PostApiTags400 | PostApiTags401 | PostApiTags500,
 	TContext = unknown,
 >(options?: {
 	mutation?: UseMutationOptions<
@@ -8152,14 +7695,13 @@ export type PostApiTagsMutationBody = PostApiTagsBody;
 export type PostApiTagsMutationError =
 	| PostApiTags400
 	| PostApiTags401
-	| PostApiTags429
 	| PostApiTags500;
 
 /**
  * @summary Create tag
  */
 export const usePostApiTags = <
-	TError = PostApiTags400 | PostApiTags401 | PostApiTags429 | PostApiTags500,
+	TError = PostApiTags400 | PostApiTags401 | PostApiTags500,
 	TContext = unknown,
 >(
 	options?: {
@@ -8207,11 +7749,6 @@ export type getApiTagsIdResponse404 = {
 	status: 404;
 };
 
-export type getApiTagsIdResponse429 = {
-	data: GetApiTagsId429;
-	status: 429;
-};
-
 export type getApiTagsIdResponse500 = {
 	data: GetApiTagsId500;
 	status: 500;
@@ -8222,7 +7759,6 @@ export type getApiTagsIdResponseComposite =
 	| getApiTagsIdResponse400
 	| getApiTagsIdResponse401
 	| getApiTagsIdResponse404
-	| getApiTagsIdResponse429
 	| getApiTagsIdResponse500;
 
 export type getApiTagsIdResponse = getApiTagsIdResponseComposite & {
@@ -8262,7 +7798,6 @@ export const getGetApiTagsIdInfiniteQueryOptions = <
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8304,7 +7839,6 @@ export type GetApiTagsIdInfiniteQueryError =
 	| GetApiTagsId400
 	| GetApiTagsId401
 	| GetApiTagsId404
-	| GetApiTagsId429
 	| GetApiTagsId500;
 
 export function useGetApiTagsIdInfinite<
@@ -8313,7 +7847,6 @@ export function useGetApiTagsIdInfinite<
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8345,7 +7878,6 @@ export function useGetApiTagsIdInfinite<
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8377,7 +7909,6 @@ export function useGetApiTagsIdInfinite<
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8405,7 +7936,6 @@ export function useGetApiTagsIdInfinite<
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8443,7 +7973,6 @@ export const getGetApiTagsIdQueryOptions = <
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8481,7 +8010,6 @@ export type GetApiTagsIdQueryError =
 	| GetApiTagsId400
 	| GetApiTagsId401
 	| GetApiTagsId404
-	| GetApiTagsId429
 	| GetApiTagsId500;
 
 export function useGetApiTagsId<
@@ -8490,7 +8018,6 @@ export function useGetApiTagsId<
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8518,7 +8045,6 @@ export function useGetApiTagsId<
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8546,7 +8072,6 @@ export function useGetApiTagsId<
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8570,7 +8095,6 @@ export function useGetApiTagsId<
 		| GetApiTagsId400
 		| GetApiTagsId401
 		| GetApiTagsId404
-		| GetApiTagsId429
 		| GetApiTagsId500,
 >(
 	id: string,
@@ -8620,11 +8144,6 @@ export type putApiTagsIdResponse404 = {
 	status: 404;
 };
 
-export type putApiTagsIdResponse429 = {
-	data: PutApiTagsId429;
-	status: 429;
-};
-
 export type putApiTagsIdResponse500 = {
 	data: PutApiTagsId500;
 	status: 500;
@@ -8635,7 +8154,6 @@ export type putApiTagsIdResponseComposite =
 	| putApiTagsIdResponse400
 	| putApiTagsIdResponse401
 	| putApiTagsIdResponse404
-	| putApiTagsIdResponse429
 	| putApiTagsIdResponse500;
 
 export type putApiTagsIdResponse = putApiTagsIdResponseComposite & {
@@ -8673,7 +8191,6 @@ export const getPutApiTagsIdMutationOptions = <
 		| PutApiTagsId400
 		| PutApiTagsId401
 		| PutApiTagsId404
-		| PutApiTagsId429
 		| PutApiTagsId500,
 	TContext = unknown,
 >(options?: {
@@ -8719,7 +8236,6 @@ export type PutApiTagsIdMutationError =
 	| PutApiTagsId400
 	| PutApiTagsId401
 	| PutApiTagsId404
-	| PutApiTagsId429
 	| PutApiTagsId500;
 
 /**
@@ -8730,7 +8246,6 @@ export const usePutApiTagsId = <
 		| PutApiTagsId400
 		| PutApiTagsId401
 		| PutApiTagsId404
-		| PutApiTagsId429
 		| PutApiTagsId500,
 	TContext = unknown,
 >(
@@ -8779,11 +8294,6 @@ export type deleteApiTagsIdResponse404 = {
 	status: 404;
 };
 
-export type deleteApiTagsIdResponse429 = {
-	data: DeleteApiTagsId429;
-	status: 429;
-};
-
 export type deleteApiTagsIdResponse500 = {
 	data: DeleteApiTagsId500;
 	status: 500;
@@ -8794,7 +8304,6 @@ export type deleteApiTagsIdResponseComposite =
 	| deleteApiTagsIdResponse400
 	| deleteApiTagsIdResponse401
 	| deleteApiTagsIdResponse404
-	| deleteApiTagsIdResponse429
 	| deleteApiTagsIdResponse500;
 
 export type deleteApiTagsIdResponse = deleteApiTagsIdResponseComposite & {
@@ -8829,7 +8338,6 @@ export const getDeleteApiTagsIdMutationOptions = <
 		| DeleteApiTagsId400
 		| DeleteApiTagsId401
 		| DeleteApiTagsId404
-		| DeleteApiTagsId429
 		| DeleteApiTagsId500,
 	TContext = unknown,
 >(options?: {
@@ -8875,7 +8383,6 @@ export type DeleteApiTagsIdMutationError =
 	| DeleteApiTagsId400
 	| DeleteApiTagsId401
 	| DeleteApiTagsId404
-	| DeleteApiTagsId429
 	| DeleteApiTagsId500;
 
 /**
@@ -8886,7 +8393,6 @@ export const useDeleteApiTagsId = <
 		| DeleteApiTagsId400
 		| DeleteApiTagsId401
 		| DeleteApiTagsId404
-		| DeleteApiTagsId429
 		| DeleteApiTagsId500,
 	TContext = unknown,
 >(
@@ -8930,11 +8436,6 @@ export type getApiTagsIdGoalsResponse401 = {
 	status: 401;
 };
 
-export type getApiTagsIdGoalsResponse429 = {
-	data: GetApiTagsIdGoals429;
-	status: 429;
-};
-
 export type getApiTagsIdGoalsResponse500 = {
 	data: GetApiTagsIdGoals500;
 	status: 500;
@@ -8944,7 +8445,6 @@ export type getApiTagsIdGoalsResponseComposite =
 	| getApiTagsIdGoalsResponse200
 	| getApiTagsIdGoalsResponse400
 	| getApiTagsIdGoalsResponse401
-	| getApiTagsIdGoalsResponse429
 	| getApiTagsIdGoalsResponse500;
 
 export type getApiTagsIdGoalsResponse = getApiTagsIdGoalsResponseComposite & {
@@ -9002,11 +8502,7 @@ export const getGetApiTagsIdGoalsQueryKey = (
 
 export const getGetApiTagsIdGoalsInfiniteQueryOptions = <
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTagsIdGoals>>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params?: GetApiTagsIdGoalsParams,
@@ -9049,16 +8545,11 @@ export type GetApiTagsIdGoalsInfiniteQueryResult = NonNullable<
 export type GetApiTagsIdGoalsInfiniteQueryError =
 	| GetApiTagsIdGoals400
 	| GetApiTagsIdGoals401
-	| GetApiTagsIdGoals429
 	| GetApiTagsIdGoals500;
 
 export function useGetApiTagsIdGoalsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTagsIdGoals>>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params: undefined | GetApiTagsIdGoalsParams,
@@ -9086,11 +8577,7 @@ export function useGetApiTagsIdGoalsInfinite<
 };
 export function useGetApiTagsIdGoalsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTagsIdGoals>>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params?: GetApiTagsIdGoalsParams,
@@ -9118,11 +8605,7 @@ export function useGetApiTagsIdGoalsInfinite<
 };
 export function useGetApiTagsIdGoalsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTagsIdGoals>>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params?: GetApiTagsIdGoalsParams,
@@ -9146,11 +8629,7 @@ export function useGetApiTagsIdGoalsInfinite<
 
 export function useGetApiTagsIdGoalsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiTagsIdGoals>>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params?: GetApiTagsIdGoalsParams,
@@ -9188,11 +8667,7 @@ export function useGetApiTagsIdGoalsInfinite<
 
 export const getGetApiTagsIdGoalsQueryOptions = <
 	TData = Awaited<ReturnType<typeof getApiTagsIdGoals>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params?: GetApiTagsIdGoalsParams,
@@ -9235,16 +8710,11 @@ export type GetApiTagsIdGoalsQueryResult = NonNullable<
 export type GetApiTagsIdGoalsQueryError =
 	| GetApiTagsIdGoals400
 	| GetApiTagsIdGoals401
-	| GetApiTagsIdGoals429
 	| GetApiTagsIdGoals500;
 
 export function useGetApiTagsIdGoals<
 	TData = Awaited<ReturnType<typeof getApiTagsIdGoals>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params: undefined | GetApiTagsIdGoalsParams,
@@ -9272,11 +8742,7 @@ export function useGetApiTagsIdGoals<
 };
 export function useGetApiTagsIdGoals<
 	TData = Awaited<ReturnType<typeof getApiTagsIdGoals>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params?: GetApiTagsIdGoalsParams,
@@ -9304,11 +8770,7 @@ export function useGetApiTagsIdGoals<
 };
 export function useGetApiTagsIdGoals<
 	TData = Awaited<ReturnType<typeof getApiTagsIdGoals>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params?: GetApiTagsIdGoalsParams,
@@ -9332,11 +8794,7 @@ export function useGetApiTagsIdGoals<
 
 export function useGetApiTagsIdGoals<
 	TData = Awaited<ReturnType<typeof getApiTagsIdGoals>>,
-	TError =
-		| GetApiTagsIdGoals400
-		| GetApiTagsIdGoals401
-		| GetApiTagsIdGoals429
-		| GetApiTagsIdGoals500,
+	TError = GetApiTagsIdGoals400 | GetApiTagsIdGoals401 | GetApiTagsIdGoals500,
 >(
 	id: string,
 	params?: GetApiTagsIdGoalsParams,
@@ -9380,11 +8838,6 @@ export type getApiMiscPinnedResponse401 = {
 	status: 401;
 };
 
-export type getApiMiscPinnedResponse429 = {
-	data: GetApiMiscPinned429;
-	status: 429;
-};
-
 export type getApiMiscPinnedResponse500 = {
 	data: GetApiMiscPinned500;
 	status: 500;
@@ -9393,7 +8846,6 @@ export type getApiMiscPinnedResponse500 = {
 export type getApiMiscPinnedResponseComposite =
 	| getApiMiscPinnedResponse200
 	| getApiMiscPinnedResponse401
-	| getApiMiscPinnedResponse429
 	| getApiMiscPinnedResponse500;
 
 export type getApiMiscPinnedResponse = getApiMiscPinnedResponseComposite & {
@@ -9428,7 +8880,7 @@ export const getGetApiMiscPinnedQueryKey = () => {
 
 export const getGetApiMiscPinnedInfiniteQueryOptions = <
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(options?: {
 	query?: Partial<
 		UseInfiniteQueryOptions<
@@ -9459,12 +8911,11 @@ export type GetApiMiscPinnedInfiniteQueryResult = NonNullable<
 >;
 export type GetApiMiscPinnedInfiniteQueryError =
 	| GetApiMiscPinned401
-	| GetApiMiscPinned429
 	| GetApiMiscPinned500;
 
 export function useGetApiMiscPinnedInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(
 	options: {
 		query: Partial<
@@ -9490,7 +8941,7 @@ export function useGetApiMiscPinnedInfinite<
 };
 export function useGetApiMiscPinnedInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
@@ -9516,7 +8967,7 @@ export function useGetApiMiscPinnedInfinite<
 };
 export function useGetApiMiscPinnedInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
@@ -9538,7 +8989,7 @@ export function useGetApiMiscPinnedInfinite<
 
 export function useGetApiMiscPinnedInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiMiscPinned>>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
@@ -9570,7 +9021,7 @@ export function useGetApiMiscPinnedInfinite<
 
 export const getGetApiMiscPinnedQueryOptions = <
 	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(options?: {
 	query?: Partial<
 		UseQueryOptions<Awaited<ReturnType<typeof getApiMiscPinned>>, TError, TData>
@@ -9597,12 +9048,11 @@ export type GetApiMiscPinnedQueryResult = NonNullable<
 >;
 export type GetApiMiscPinnedQueryError =
 	| GetApiMiscPinned401
-	| GetApiMiscPinned429
 	| GetApiMiscPinned500;
 
 export function useGetApiMiscPinned<
 	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(
 	options: {
 		query: Partial<
@@ -9628,7 +9078,7 @@ export function useGetApiMiscPinned<
 };
 export function useGetApiMiscPinned<
 	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
@@ -9654,7 +9104,7 @@ export function useGetApiMiscPinned<
 };
 export function useGetApiMiscPinned<
 	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
@@ -9676,7 +9126,7 @@ export function useGetApiMiscPinned<
 
 export function useGetApiMiscPinned<
 	TData = Awaited<ReturnType<typeof getApiMiscPinned>>,
-	TError = GetApiMiscPinned401 | GetApiMiscPinned429 | GetApiMiscPinned500,
+	TError = GetApiMiscPinned401 | GetApiMiscPinned500,
 >(
 	options?: {
 		query?: Partial<
@@ -9718,11 +9168,6 @@ export type getApiPromptsResponse401 = {
 	status: 401;
 };
 
-export type getApiPromptsResponse429 = {
-	data: GetApiPrompts429;
-	status: 429;
-};
-
 export type getApiPromptsResponse500 = {
 	data: GetApiPrompts500;
 	status: 500;
@@ -9731,7 +9176,6 @@ export type getApiPromptsResponse500 = {
 export type getApiPromptsResponseComposite =
 	| getApiPromptsResponse200
 	| getApiPromptsResponse401
-	| getApiPromptsResponse429
 	| getApiPromptsResponse500;
 
 export type getApiPromptsResponse = getApiPromptsResponseComposite & {
@@ -9766,7 +9210,7 @@ export const getGetApiPromptsQueryKey = () => {
 
 export const getGetApiPromptsInfiniteQueryOptions = <
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(options?: {
 	query?: Partial<
 		UseInfiniteQueryOptions<
@@ -9797,12 +9241,11 @@ export type GetApiPromptsInfiniteQueryResult = NonNullable<
 >;
 export type GetApiPromptsInfiniteQueryError =
 	| GetApiPrompts401
-	| GetApiPrompts429
 	| GetApiPrompts500;
 
 export function useGetApiPromptsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(
 	options: {
 		query: Partial<
@@ -9828,7 +9271,7 @@ export function useGetApiPromptsInfinite<
 };
 export function useGetApiPromptsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(
 	options?: {
 		query?: Partial<
@@ -9854,7 +9297,7 @@ export function useGetApiPromptsInfinite<
 };
 export function useGetApiPromptsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(
 	options?: {
 		query?: Partial<
@@ -9876,7 +9319,7 @@ export function useGetApiPromptsInfinite<
 
 export function useGetApiPromptsInfinite<
 	TData = InfiniteData<Awaited<ReturnType<typeof getApiPrompts>>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(
 	options?: {
 		query?: Partial<
@@ -9908,7 +9351,7 @@ export function useGetApiPromptsInfinite<
 
 export const getGetApiPromptsQueryOptions = <
 	TData = Awaited<ReturnType<typeof getApiPrompts>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(options?: {
 	query?: Partial<
 		UseQueryOptions<Awaited<ReturnType<typeof getApiPrompts>>, TError, TData>
@@ -9933,14 +9376,11 @@ export const getGetApiPromptsQueryOptions = <
 export type GetApiPromptsQueryResult = NonNullable<
 	Awaited<ReturnType<typeof getApiPrompts>>
 >;
-export type GetApiPromptsQueryError =
-	| GetApiPrompts401
-	| GetApiPrompts429
-	| GetApiPrompts500;
+export type GetApiPromptsQueryError = GetApiPrompts401 | GetApiPrompts500;
 
 export function useGetApiPrompts<
 	TData = Awaited<ReturnType<typeof getApiPrompts>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(
 	options: {
 		query: Partial<
@@ -9962,7 +9402,7 @@ export function useGetApiPrompts<
 };
 export function useGetApiPrompts<
 	TData = Awaited<ReturnType<typeof getApiPrompts>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(
 	options?: {
 		query?: Partial<
@@ -9984,7 +9424,7 @@ export function useGetApiPrompts<
 };
 export function useGetApiPrompts<
 	TData = Awaited<ReturnType<typeof getApiPrompts>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(
 	options?: {
 		query?: Partial<
@@ -10002,7 +9442,7 @@ export function useGetApiPrompts<
 
 export function useGetApiPrompts<
 	TData = Awaited<ReturnType<typeof getApiPrompts>>,
-	TError = GetApiPrompts401 | GetApiPrompts429 | GetApiPrompts500,
+	TError = GetApiPrompts401 | GetApiPrompts500,
 >(
 	options?: {
 		query?: Partial<
@@ -10015,6 +9455,346 @@ export function useGetApiPrompts<
 	queryKey: DataTag<QueryKey, TData, TError>;
 } {
 	const queryOptions = getGetApiPromptsQueryOptions(options);
+
+	const query = useQuery(queryOptions, queryClient) as UseQueryResult<
+		TData,
+		TError
+	> & { queryKey: DataTag<QueryKey, TData, TError> };
+
+	query.queryKey = queryOptions.queryKey;
+
+	return query;
+}
+
+/**
+ * Returns entries, goals, and logs that match the search term. This is entirely based on Full-Text Search.
+ * @summary Search Jadebook
+ */
+export type getApiSearchResponse200 = {
+	data: GetApiSearch200;
+	status: 200;
+};
+
+export type getApiSearchResponse401 = {
+	data: GetApiSearch401;
+	status: 401;
+};
+
+export type getApiSearchResponse500 = {
+	data: GetApiSearch500;
+	status: 500;
+};
+
+export type getApiSearchResponseComposite =
+	| getApiSearchResponse200
+	| getApiSearchResponse401
+	| getApiSearchResponse500;
+
+export type getApiSearchResponse = getApiSearchResponseComposite & {
+	headers: Headers;
+};
+
+export const getGetApiSearchUrl = (params: GetApiSearchParams) => {
+	const normalizedParams = new URLSearchParams();
+
+	Object.entries(params || {}).forEach(([key, value]) => {
+		if (value !== undefined) {
+			normalizedParams.append(key, value === null ? "null" : value.toString());
+		}
+	});
+
+	const stringifiedParams = normalizedParams.toString();
+
+	return stringifiedParams.length > 0
+		? `http://localhost:3000/api/search?${stringifiedParams}`
+		: `http://localhost:3000/api/search`;
+};
+
+export const getApiSearch = async (
+	params: GetApiSearchParams,
+	options?: RequestInit,
+): Promise<getApiSearchResponse> => {
+	const res = await fetch(getGetApiSearchUrl(params), {
+		...options,
+		method: "GET",
+	});
+
+	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+	const data: getApiSearchResponse["data"] = body ? JSON.parse(body) : {};
+
+	return {
+		data,
+		status: res.status,
+		headers: res.headers,
+	} as getApiSearchResponse;
+};
+
+export const getGetApiSearchQueryKey = (params: GetApiSearchParams) => {
+	return [
+		`http://localhost:3000/api/search`,
+		...(params ? [params] : []),
+	] as const;
+};
+
+export const getGetApiSearchInfiniteQueryOptions = <
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiSearch>>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getApiSearch>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+) => {
+	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
+
+	const queryKey = queryOptions?.queryKey ?? getGetApiSearchQueryKey(params);
+
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiSearch>>> = ({
+		signal,
+	}) => getApiSearch(params, { signal, ...fetchOptions });
+
+	return { queryKey, queryFn, ...queryOptions } as UseInfiniteQueryOptions<
+		Awaited<ReturnType<typeof getApiSearch>>,
+		TError,
+		TData
+	> & { queryKey: DataTag<QueryKey, TData, TError> };
+};
+
+export type GetApiSearchInfiniteQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiSearch>>
+>;
+export type GetApiSearchInfiniteQueryError = GetApiSearch401 | GetApiSearch500;
+
+export function useGetApiSearchInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiSearch>>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options: {
+		query: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getApiSearch>>,
+				TError,
+				TData
+			>
+		> &
+			Pick<
+				DefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getApiSearch>>,
+					TError,
+					Awaited<ReturnType<typeof getApiSearch>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): DefinedUseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetApiSearchInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiSearch>>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getApiSearch>>,
+				TError,
+				TData
+			>
+		> &
+			Pick<
+				UndefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getApiSearch>>,
+					TError,
+					Awaited<ReturnType<typeof getApiSearch>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetApiSearchInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiSearch>>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getApiSearch>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+/**
+ * @summary Search Jadebook
+ */
+
+export function useGetApiSearchInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getApiSearch>>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getApiSearch>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+} {
+	const queryOptions = getGetApiSearchInfiniteQueryOptions(params, options);
+
+	const query = useInfiniteQuery(
+		queryOptions,
+		queryClient,
+	) as UseInfiniteQueryResult<TData, TError> & {
+		queryKey: DataTag<QueryKey, TData, TError>;
+	};
+
+	query.queryKey = queryOptions.queryKey;
+
+	return query;
+}
+
+export const getGetApiSearchQueryOptions = <
+	TData = Awaited<ReturnType<typeof getApiSearch>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options?: {
+		query?: Partial<
+			UseQueryOptions<Awaited<ReturnType<typeof getApiSearch>>, TError, TData>
+		>;
+		fetch?: RequestInit;
+	},
+) => {
+	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
+
+	const queryKey = queryOptions?.queryKey ?? getGetApiSearchQueryKey(params);
+
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiSearch>>> = ({
+		signal,
+	}) => getApiSearch(params, { signal, ...fetchOptions });
+
+	return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
+		Awaited<ReturnType<typeof getApiSearch>>,
+		TError,
+		TData
+	> & { queryKey: DataTag<QueryKey, TData, TError> };
+};
+
+export type GetApiSearchQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getApiSearch>>
+>;
+export type GetApiSearchQueryError = GetApiSearch401 | GetApiSearch500;
+
+export function useGetApiSearch<
+	TData = Awaited<ReturnType<typeof getApiSearch>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options: {
+		query: Partial<
+			UseQueryOptions<Awaited<ReturnType<typeof getApiSearch>>, TError, TData>
+		> &
+			Pick<
+				DefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getApiSearch>>,
+					TError,
+					Awaited<ReturnType<typeof getApiSearch>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): DefinedUseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetApiSearch<
+	TData = Awaited<ReturnType<typeof getApiSearch>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options?: {
+		query?: Partial<
+			UseQueryOptions<Awaited<ReturnType<typeof getApiSearch>>, TError, TData>
+		> &
+			Pick<
+				UndefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getApiSearch>>,
+					TError,
+					Awaited<ReturnType<typeof getApiSearch>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetApiSearch<
+	TData = Awaited<ReturnType<typeof getApiSearch>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options?: {
+		query?: Partial<
+			UseQueryOptions<Awaited<ReturnType<typeof getApiSearch>>, TError, TData>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+/**
+ * @summary Search Jadebook
+ */
+
+export function useGetApiSearch<
+	TData = Awaited<ReturnType<typeof getApiSearch>>,
+	TError = GetApiSearch401 | GetApiSearch500,
+>(
+	params: GetApiSearchParams,
+	options?: {
+		query?: Partial<
+			UseQueryOptions<Awaited<ReturnType<typeof getApiSearch>>, TError, TData>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+} {
+	const queryOptions = getGetApiSearchQueryOptions(params, options);
 
 	const query = useQuery(queryOptions, queryClient) as UseQueryResult<
 		TData,

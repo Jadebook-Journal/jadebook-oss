@@ -65,7 +65,9 @@ export const updateUserProfile: AppRouteHandler<
 				...updateData,
 				updated_at: new Date().toISOString(),
 			})
-			.eq("id", userId);
+			.match({
+				id: userId,
+			});
 
 		if (error) {
 			return c.json(

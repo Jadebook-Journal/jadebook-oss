@@ -46,10 +46,6 @@ export const getGoals = createRoute({
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -84,10 +80,7 @@ export const getGoal = createRoute({
 			createMessageObjectSchema("Goal not found"),
 			"Goal does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -117,10 +110,7 @@ export const createGoal = createRoute({
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -156,10 +146,7 @@ export const updateGoal = createRoute({
 			createMessageObjectSchema("Goal not found"),
 			"Goal does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -193,10 +180,7 @@ export const deleteGoal = createRoute({
 			createMessageObjectSchema("Goal not found"),
 			"Goal does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",

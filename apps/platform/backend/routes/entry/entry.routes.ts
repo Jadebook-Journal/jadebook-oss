@@ -47,10 +47,7 @@ export const getEntries = createRoute({
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -81,10 +78,6 @@ export const getEntry = createRoute({
 		[HttpStatusCodes.NOT_FOUND]: jsonContent(
 			createMessageObjectSchema("Entry not found"),
 			"Entry does not exist or access denied",
-		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
 		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
@@ -119,10 +112,6 @@ export const getEntryMetadata = createRoute({
 			createMessageObjectSchema("Entry not found"),
 			"Entry does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -151,10 +140,6 @@ export const createEntry = createRoute({
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
-		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
 		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
@@ -191,10 +176,6 @@ export const updateEntry = createRoute({
 			createMessageObjectSchema("Entry not found"),
 			"Entry does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -227,10 +208,6 @@ export const deleteEntry = createRoute({
 		[HttpStatusCodes.NOT_FOUND]: jsonContent(
 			createMessageObjectSchema("Entry not found"),
 			"Entry does not exist or access denied",
-		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
 		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,

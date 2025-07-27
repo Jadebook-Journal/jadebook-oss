@@ -46,10 +46,7 @@ export const getAssets = createRoute({
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -80,10 +77,7 @@ export const getAsset = createRoute({
 			createMessageObjectSchema("Asset not found"),
 			"Asset does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -113,10 +107,7 @@ export const createAsset = createRoute({
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -151,10 +142,7 @@ export const updateAsset = createRoute({
 			createMessageObjectSchema("Asset not found"),
 			"Asset does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -189,10 +177,7 @@ export const deleteAsset = createRoute({
 			createMessageObjectSchema("Asset not found"),
 			"Asset does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -222,10 +207,7 @@ export const generateSignedUrl = createRoute({
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -275,10 +257,7 @@ export const uploadFile = createRoute({
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",

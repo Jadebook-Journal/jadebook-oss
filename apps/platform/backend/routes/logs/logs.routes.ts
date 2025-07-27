@@ -48,10 +48,7 @@ export const getGoalLogs = createRoute({
 			createMessageObjectSchema("Goal not found"),
 			"Goal not found",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
+
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -85,10 +82,6 @@ export const createGoalLog = createRoute({
 		[HttpStatusCodes.NOT_FOUND]: jsonContent(
 			createMessageObjectSchema("Goal not found"),
 			"Goal not found",
-		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
 		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
@@ -124,10 +117,6 @@ export const updateGoalLog = createRoute({
 			createMessageObjectSchema("Log not found"),
 			"Log not found",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -156,10 +145,6 @@ export const deleteGoalLog = createRoute({
 		[HttpStatusCodes.NOT_FOUND]: jsonContent(
 			createMessageObjectSchema("Log not found"),
 			"Log not found",
-		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
 		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,

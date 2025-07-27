@@ -41,10 +41,6 @@ export const getTags = createRoute({
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -75,10 +71,6 @@ export const getTag = createRoute({
 			createMessageObjectSchema("Tag not found"),
 			"Tag does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -107,10 +99,6 @@ export const createTag = createRoute({
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
-		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
 		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
@@ -146,10 +134,6 @@ export const updateTag = createRoute({
 			createMessageObjectSchema("Tag not found"),
 			"Tag does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -183,10 +167,6 @@ export const deleteTag = createRoute({
 			createMessageObjectSchema("Tag not found"),
 			"Tag does not exist or access denied",
 		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
-		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -216,10 +196,6 @@ export const getGoalsByTag = createRoute({
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
-		),
-		[HttpStatusCodes.TOO_MANY_REQUESTS]: jsonContent(
-			createMessageObjectSchema("Too many requests"),
-			"Rate limit exceeded",
 		),
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,

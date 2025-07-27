@@ -4,28 +4,30 @@ import * as HttpStatusPhrases from "stoker/http-status-phrases";
 import { jsonContent } from "stoker/openapi/helpers";
 import { createMessageObjectSchema } from "stoker/openapi/schemas";
 
-import { promptsResponse } from "./prompts.validation";
+import { searchResponse, searchQueryParams } from "./search.validation";
 
-const tags = ["Prompts"];
+const tags = ["Search"];
 
 const internalServerErrorSchema = createMessageObjectSchema(
 	HttpStatusPhrases.INTERNAL_SERVER_ERROR,
 );
 
-export const getPrompts = createRoute({
-	path: "/api/prompts",
-	summary: "Get writing prompts",
+export const getSearchJadebook = createRoute({
+	path: "/api/search",
+	summary: "Search Jadebook",
 	description:
-		"Gets 3 writing prompts. The prompts will always be static since we don't have AI. These prompts are hard-coded.",
+		"Returns entries, goals, and logs that match the search term. This is entirely based on Full-Text Search.",
 	method: "get",
 	tags,
+	request: {
+		query: searchQueryParams,
+	},
 	responses: {
-		[HttpStatusCodes.OK]: jsonContent(promptsResponse, "Selected prompts"),
+		[HttpStatusCodes.OK]: jsonContent(searchResponse, "Search results"),
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",
 		),
-
 		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
 			internalServerErrorSchema,
 			"Internal server error",
@@ -33,4 +35,4 @@ export const getPrompts = createRoute({
 	},
 });
 
-export type GetPromptsRoute = typeof getPrompts;
+export type GetSearchJadebookRoute = typeof getSearchJadebook;

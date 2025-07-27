@@ -26,7 +26,9 @@ export const getTags: AppRouteHandler<GetTagsRoute> = async (c) => {
 		const { data, error } = await supabase
 			.from("tag")
 			.select("*")
-			.eq("user_id", userId)
+			.match({
+				user_id: userId,
+			})
 			.order("created_at", { ascending: false });
 
 		if (error) {

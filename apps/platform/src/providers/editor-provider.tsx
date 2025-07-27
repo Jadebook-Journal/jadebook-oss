@@ -32,6 +32,7 @@ export const EntryEditorProvider = ({
 	const updateCharacterCount = useGlobalEntryStore(
 		(state) => state.updateCharacterCount,
 	);
+	const updateExcerpt = useGlobalEntryStore((state) => state.updateExcerpt);
 
 	const editor = useTipTap({
 		editorProps: {
@@ -52,10 +53,11 @@ export const EntryEditorProvider = ({
 			updateCharacterCount(text.length);
 		},
 		onUpdate: ({ editor }) => {
-			const text = editor.getText().replaceAll(/\n/g, " ");
+			const text = editor.getText();
 
-			updateCharacterCount(text.length);
+			updateCharacterCount(text.replaceAll(/\n/g, " ").length);
 			updateContent(JSON.stringify(editor.getJSON()));
+			updateExcerpt(text.slice(0, 150));
 		},
 	});
 
