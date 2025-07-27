@@ -80,11 +80,6 @@ export function UploadAssetDialog({
 
 		if (!file) return;
 
-		if (file.type.startsWith("video/")) {
-			toast.error("Video files are not supported");
-			return;
-		}
-
 		uploadAssetMutation.mutate({
 			data: {
 				file,
@@ -100,8 +95,7 @@ export function UploadAssetDialog({
 				<DialogHeader>
 					<DialogTitle>Upload Asset</DialogTitle>
 					<DialogDescription>
-						Upload an asset to your journal. Note, we will do some processing if
-						you upload a large image file. Videos are not supported.
+						Upload an asset to your journal. You can only do 1 file at a time.
 					</DialogDescription>
 				</DialogHeader>
 
@@ -146,7 +140,6 @@ export function UploadAssetDialog({
 							id={inputId}
 							type="file"
 							className="hidden"
-							accept="image/*,audio/*,text/*,application/*"
 							onChange={handleFileChange}
 						/>
 					</label>

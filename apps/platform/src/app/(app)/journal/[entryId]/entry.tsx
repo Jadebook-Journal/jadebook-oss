@@ -51,7 +51,7 @@ export function EntryPage({ entry }: { entry: GetApiEntriesId200 }) {
 					}
 					actions={
 						<div className="flex gap-3 items-center">
-							<DocumentDatePicker />
+							<EntryDatePicker />
 
 							<OptionsMenu />
 						</div>
@@ -249,7 +249,7 @@ function TagsList() {
 	return <TagSelector value={tags} onValueChange={updateTags} />;
 }
 
-function DocumentDatePicker() {
+function EntryDatePicker() {
 	const entryDate = useGlobalEntryStore((store) => store.entry_date);
 	const updateEntryDate = useGlobalEntryStore((store) => store.updateEntryDate);
 

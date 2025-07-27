@@ -35,12 +35,12 @@ export const useTextmenuCommands = (editor: Editor) => {
 		[editor],
 	);
 
-	const onChangeHighlight = useCallback(
-		(color: string) => editor.chain().setHighlight({ color }).run(),
+	const onChangeBackgroundColor = useCallback(
+		(color: string) => editor.chain().setBackgroundColor(color).run(),
 		[editor],
 	);
-	const onClearHighlight = useCallback(
-		() => editor.chain().focus().unsetHighlight().run(),
+	const onClearBackgroundColor = useCallback(
+		() => editor.chain().focus().unsetBackgroundColor().run(),
 		[editor],
 	);
 
@@ -62,8 +62,8 @@ export const useTextmenuCommands = (editor: Editor) => {
 		onCode,
 		onChangeColor,
 		onClearColor,
-		onChangeHighlight,
-		onClearHighlight,
+		onChangeBackgroundColor,
+		onClearBackgroundColor,
 		onLink,
 		onBlockquote,
 	};

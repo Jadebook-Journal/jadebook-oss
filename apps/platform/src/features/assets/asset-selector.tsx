@@ -1,7 +1,7 @@
 import {
 	ArrowSquareOutIcon,
 	FileIcon,
-	UploadIcon,
+	UploadSimpleIcon,
 	XIcon,
 } from "@phosphor-icons/react";
 import React from "react";
@@ -55,7 +55,7 @@ export function AssetSelector({
 									setOpen(true);
 								}}
 							>
-								<UploadIcon size={16} weight="bold" />
+								<UploadSimpleIcon size={16} weight="bold" />
 							</button>
 						</TooltipTrigger>
 					</div>

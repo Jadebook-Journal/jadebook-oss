@@ -10,6 +10,7 @@ export type CommandButtonProps = {
 	title: string;
 };
 
+// Custom component to handle active states
 export const CommandButton = forwardRef<HTMLButtonElement, CommandButtonProps>(
 	({ active, icon: Icon, onClick, title }, ref) => {
 		const wrapperClass = cn(
@@ -27,7 +28,7 @@ export const CommandButton = forwardRef<HTMLButtonElement, CommandButtonProps>(
 			>
 				<Icon size={12} weight="bold" />
 				<div className="flex flex-col items-start justify-start">
-					<div className="text-sm font-medium">{title}</div>
+					<div className="text-sm">{title}</div>
 				</div>
 			</button>
 		);

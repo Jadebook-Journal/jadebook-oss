@@ -9,6 +9,8 @@ import { ThemeLoader } from "@/features/theme/theme-loader";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app/sidebar";
 import { MainContainer } from "@/components/app/main-container";
+import { SaveLayer } from "@/components/journal/save-layer";
+import { GlobalCommandCenter } from "@/components/command/command-center";
 
 export default async function ProtectedLayout({
 	children,
@@ -81,13 +83,9 @@ export default async function ProtectedLayout({
 
 								<MainContainer>{children}</MainContainer>
 
-								{/* <MainContainer>
-									{children}
+								<SaveLayer />
 
-									<SaveLayer />
-
-									<GlobalCommandCenter />
-								</MainContainer> */}
+								<GlobalCommandCenter />
 							</SidebarProvider>
 						</ThemeLoader>
 					</AppStoreProvider>

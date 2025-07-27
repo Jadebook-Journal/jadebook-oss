@@ -21,5 +21,4 @@ export interface MenuListProps {
 	editor: Editor;
 	items: Group[];
 	command: (command: Command) => void;
-	uploadFilesEnabled: boolean;
 }

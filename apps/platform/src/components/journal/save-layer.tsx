@@ -14,8 +14,7 @@ import {
 	getPutApiEntriesIdMutationOptions,
 } from "@/api-client";
 
-// this is an extremely complex component — handling the syncing of the entire journal document
-
+// Handles the syncing of the journal document
 export function SaveLayer() {
 	const pathname = usePathname();
 	const entryState = useGlobalEntryStore();

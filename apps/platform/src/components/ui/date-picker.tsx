@@ -23,6 +23,8 @@ export function DatePicker({
 	disabled,
 	tooltip,
 	label,
+	side = "bottom",
+	align = "end",
 }: {
 	date: Date;
 	setDate: (date: Date) => void;
@@ -30,6 +32,8 @@ export function DatePicker({
 	disabled?: ComponentProps<typeof Calendar>["disabled"];
 	tooltip?: string;
 	label?: string;
+	side?: ComponentProps<typeof PopoverContent>["side"];
+	align?: ComponentProps<typeof PopoverContent>["align"];
 }) {
 	return (
 		<Popover>
@@ -48,7 +52,7 @@ export function DatePicker({
 					{date ? format(date, "PPP") : <span>Pick a date</span>}
 				</Button>
 			</PopoverTrigger>
-			<PopoverContent className="w-auto p-0">
+			<PopoverContent side={side} align={align} className="w-auto p-0">
 				{label && (
 					<div className="p-3 border-b bg-muted flex items-center justify-between shrink-0">
 						<Label asChild>

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { computePosition } from "@floating-ui/dom";
 import { PluginKey } from "@tiptap/pm/state";
 import { type Editor, Extension, ReactRenderer } from "@tiptap/react";
 import Suggestion, {
@@ -12,38 +13,24 @@ import MenuList from "./menu-list";
 
 const extensionName = "slashCommand";
 
-// biome-ignore lint/suspicious/noExplicitAny: the Popup component is custom and the type definition is quite complex
-let popup: any;
+// Define storage interface for TypeScript
+declare module "@tiptap/react" {
+	interface Storage {
+		slashCommand: {
+			rect: DOMRect | null;
+		};
+	}
+}
 
-export const SlashCommand = Extension.create<{ uploadFilesEnabled: boolean }>({
+export const SlashCommand = Extension.create({
 	name: extensionName,
 
 	priority: 200,
 
-	addOptions() {
+	addStorage() {
 		return {
-			uploadFilesEnabled: true,
+			rect: null,
 		};
-	},
-
-	onCreate() {
-		popup = tippy("body", {
-			interactive: true,
-			trigger: "manual",
-			placement: "bottom-start",
-			theme: "slash-command",
-			maxWidth: "16rem",
-			offset: [16, 8],
-			popperOptions: {
-				strategy: "fixed",
-				modifiers: [
-					{
-						name: "flip",
-						enabled: false,
-					},
-				],
-			},
-		});
 	},
 
 	addProseMirrorPlugins() {
@@ -69,7 +56,6 @@ export const SlashCommand = Extension.create<{ uploadFilesEnabled: boolean }>({
 						isRootDepth && isParagraph && isStartOfNode && isValidAfterContent
 					);
 				},
-				// biome-ignore lint/suspicious/noExplicitAny: the MenuList component is custom and the type definition is quite complex
 				command: ({ editor, props }: { editor: Editor; props: any }) => {
 					const { view, state } = editor;
 					const { $head, $from } = view.state.selection;
@@ -135,144 +121,96 @@ export const SlashCommand = Extension.create<{ uploadFilesEnabled: boolean }>({
 					return withEnabledSettings;
 				},
 				render: () => {
-					// biome-ignore lint/suspicious/noExplicitAny: the MenuList component is custom and the type definition is quite complex
 					let component: any;
-
 					let scrollHandler: (() => void) | null = null;
+					const editor = this.editor; // Capture editor reference
+
+					function repositionComponent(clientRect: DOMRect | null) {
+						if (!component || !component.element || !clientRect) {
+							return;
+						}
+
+						const virtualElement = {
+							getBoundingClientRect() {
+								return clientRect;
+							},
+						};
+
+						computePosition(virtualElement, component.element, {
+							placement: "bottom-start",
+						}).then((pos) => {
+							Object.assign(component.element.style, {
+								left: `${pos.x}px`,
+								top: `${pos.y}px`,
+								position: pos.strategy === "fixed" ? "fixed" : "absolute",
+								zIndex: "1000",
+							});
+						});
+					}
 
 					return {
 						onStart: (props: SuggestionProps) => {
 							component = new ReactRenderer(MenuList, {
 								props: {
 									...props,
-									uploadFilesEnabled: this.options.uploadFilesEnabled,
 								},
 								editor: props.editor,
 							});
 
+							document.body.appendChild(component.element);
+
+							const clientRect = props.clientRect?.();
+
+							if (clientRect === undefined) {
+								return;
+							}
+
+							editor.storage[extensionName].rect = clientRect;
+							repositionComponent(clientRect);
+
 							const { view } = props.editor;
 
-							// const editorNode = view.dom as HTMLElement;
-
-							const getReferenceClientRect = () => {
-								if (!props.clientRect) {
-									return props.editor.storage[extensionName].rect;
-								}
-
-								const rect = props.clientRect();
-
-								if (!rect) {
-									return props.editor.storage[extensionName].rect;
-								}
-
-								let yPos = rect.y;
-
-								if (
-									rect.top + component.element.offsetHeight + 40 >
-									window.innerHeight
-								) {
-									const diff =
-										rect.top +
-										component.element.offsetHeight -
-										window.innerHeight +
-										40;
-									yPos = rect.y - diff;
-								}
-
-								return new DOMRect(rect.x, yPos, rect.width, rect.height);
-							};
-
 							scrollHandler = () => {
-								popup?.[0].setProps({
-									getReferenceClientRect,
-								});
+								const rect = props.clientRect?.();
+								if (rect) {
+									editor.storage[extensionName].rect = rect;
+									repositionComponent(rect);
+								}
 							};
 
 							view.dom.parentElement?.addEventListener("scroll", scrollHandler);
-
-							popup?.[0].setProps({
-								getReferenceClientRect,
-								appendTo: () => document.body,
-								content: component.element,
-							});
-
-							popup?.[0].show();
 						},
 
 						onUpdate(props: SuggestionProps) {
 							component.updateProps(props);
 
-							const { view } = props.editor;
+							const clientRect = props.clientRect?.();
 
-							// const editorNode = view.dom as HTMLElement;
+							if (clientRect === undefined) {
+								return;
+							}
 
-							const getReferenceClientRect = () => {
-								if (!props.clientRect) {
-									return props.editor.storage[extensionName].rect;
-								}
-
-								const rect = props.clientRect();
-
-								if (!rect) {
-									return props.editor.storage[extensionName].rect;
-								}
-
-								let yPos = rect.y;
-
-								if (
-									rect.top + component.element.offsetHeight + 40 >
-									window.innerHeight
-								) {
-									const diff =
-										rect.top +
-										component.element.offsetHeight -
-										window.innerHeight +
-										40;
-									yPos = rect.y - diff;
-								}
-
-								return new DOMRect(rect.x, yPos, rect.width, rect.height);
-							};
-
-							const scrollHandler = () => {
-								popup?.[0].setProps({
-									getReferenceClientRect,
-								});
-							};
-
-							view.dom.parentElement?.addEventListener("scroll", scrollHandler);
-
-							props.editor.storage[extensionName].rect = props.clientRect
-								? getReferenceClientRect()
-								: {
-										width: 0,
-										height: 0,
-										left: 0,
-										top: 0,
-										right: 0,
-										bottom: 0,
-									};
-							popup?.[0].setProps({
-								getReferenceClientRect,
-							});
+							editor.storage[extensionName].rect = clientRect;
+							repositionComponent(clientRect);
 						},
 
 						onKeyDown(props: SuggestionKeyDownProps) {
 							if (props.event.key === "Escape") {
-								popup?.[0].hide();
-
+								if (document.body.contains(component.element)) {
+									document.body.removeChild(component.element);
+								}
+								component.destroy();
 								return true;
-							}
-
-							if (!popup?.[0].state.isShown) {
-								popup?.[0].show();
 							}
 
 							return component.ref?.onKeyDown(props);
 						},
 
 						onExit(props) {
-							popup?.[0].hide();
+							if (document.body.contains(component.element)) {
+								document.body.removeChild(component.element);
+							}
+
 							if (scrollHandler) {
 								const { view } = props.editor;
 								view.dom.parentElement?.removeEventListener(
@@ -280,25 +218,13 @@ export const SlashCommand = Extension.create<{ uploadFilesEnabled: boolean }>({
 									scrollHandler,
 								);
 							}
+
 							component.destroy();
 						},
 					};
 				},
 			}),
 		];
-	},
-
-	addStorage() {
-		return {
-			rect: {
-				width: 0,
-				height: 0,
-				left: 0,
-				top: 0,
-				right: 0,
-				bottom: 0,
-			},
-		};
 	},
 });
 

@@ -56,7 +56,6 @@ export function CoverPicker({
 						<TabsList>
 							<TabsTrigger value="gallery">Gallery</TabsTrigger>
 							<TabsTrigger value="link">Link</TabsTrigger>
-							<TabsTrigger value="unsplash">Unsplash</TabsTrigger>
 						</TabsList>
 
 						{cover && (
@@ -109,9 +108,6 @@ const GalleryImageSelection = React.memo(
 	({ handleUpdateCover }: { handleUpdateCover: (cover: string) => void }) => {
 		const colors = Object.keys(COVER_CONFIG.solid);
 		const gradient = Object.keys(COVER_CONFIG.gradient);
-		const glow = Object.keys(COVER_CONFIG.glow);
-		const vivid = Object.keys(COVER_CONFIG.vivid);
-		const grads = Object.keys(COVER_CONFIG.grads);
 
 		return (
 			<>
@@ -158,75 +154,6 @@ const GalleryImageSelection = React.memo(
 									className: gradientClass,
 								}}
 								label={`Gradient — ${gradient}`}
-							/>
-						);
-					})}
-				</CoverSection>
-
-				<CoverSection title="Glow Cascade by Is.Graphics">
-					{glow.map((glow) => {
-						const { mini, full } =
-							COVER_CONFIG.glow[
-								Number.parseInt(glow) as keyof typeof COVER_CONFIG.glow
-							];
-
-						return (
-							<ImageItem
-								key={glow}
-								onClick={() =>
-									handleUpdateCover(generateCover({ type: "url", value: full }))
-								}
-								data={{
-									type: "image",
-									src: mini,
-								}}
-								label={`Glow — ${glow}`}
-							/>
-						);
-					})}
-				</CoverSection>
-
-				<CoverSection title="Vivid Spheroids by Is.Graphics">
-					{vivid.map((vivid) => {
-						const { mini, full } =
-							COVER_CONFIG.vivid[
-								Number.parseInt(vivid) as keyof typeof COVER_CONFIG.vivid
-							];
-
-						return (
-							<ImageItem
-								key={vivid}
-								onClick={() =>
-									handleUpdateCover(generateCover({ type: "url", value: full }))
-								}
-								data={{
-									type: "image",
-									src: mini,
-								}}
-								label={`Vivid — ${vivid}`}
-							/>
-						);
-					})}
-				</CoverSection>
-
-				<CoverSection title="Grads V2 by Charco">
-					{grads.map((grad) => {
-						const { mini, full } =
-							COVER_CONFIG.grads[
-								Number.parseInt(grad) as keyof typeof COVER_CONFIG.grads
-							];
-
-						return (
-							<ImageItem
-								key={grad}
-								onClick={() =>
-									handleUpdateCover(generateCover({ type: "url", value: full }))
-								}
-								data={{
-									type: "image",
-									src: mini,
-								}}
-								label={`Grads V2 — ${grad}`}
 							/>
 						);
 					})}

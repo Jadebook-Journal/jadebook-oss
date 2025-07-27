@@ -25,7 +25,7 @@ export function AssetsList({
 		updateAssets: store.updateAssets,
 	}));
 
-	const _assetsQuery = useQuery({
+	useQuery({
 		...getGetApiAssetsQueryOptions(
 			{
 				entityType,
@@ -55,7 +55,7 @@ export function AssetsList({
 	}
 
 	return (
-		<div className="p-3 bg-muted rounded-md space-y-2">
+		<div className="p-3 bg-muted/50 rounded-md space-y-2">
 			<p className="text-sm font-semibold">Assets</p>
 			<AssetSelector entityType={entityType} entityId={entityId} />
 		</div>

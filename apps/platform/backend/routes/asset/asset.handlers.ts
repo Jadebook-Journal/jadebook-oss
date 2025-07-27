@@ -477,7 +477,6 @@ export const uploadFile: AppRouteHandler<UploadFileRoute> = async (c) => {
 		const { error: uploadError } = await supabase.storage
 			.from("user-assets")
 			.upload(path, fileToUpload, {
-				upsert: true,
 				contentType: file.type,
 			});
 

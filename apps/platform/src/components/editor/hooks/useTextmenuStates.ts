@@ -2,7 +2,6 @@ import type { EditorState } from "@tiptap/pm/state";
 import type { EditorView } from "@tiptap/pm/view";
 import { type Editor, useEditorState } from "@tiptap/react";
 import React from "react";
-import isCustomNodeSelected from "../utils/isCustomNodeSelected";
 import isTextSelected from "../utils/isTextSelected";
 
 export type ShouldShowProps = {
@@ -43,16 +42,8 @@ export const useTextmenuStates = (editor: Editor) => {
 	});
 
 	const shouldShow = React.useCallback(
-		({ view, from }: ShouldShowProps) => {
+		({ view }: ShouldShowProps) => {
 			if (!view || editor.view.dragging) {
-				return false;
-			}
-
-			const domAtPos = view.domAtPos(from || 0).node as HTMLElement;
-			const nodeDOM = view.nodeDOM(from || 0) as HTMLElement;
-			const node = nodeDOM || domAtPos;
-
-			if (isCustomNodeSelected(editor, node)) {
 				return false;
 			}
 

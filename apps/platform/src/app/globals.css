@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@source "../../../../packages/jadebook";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -116,7 +118,137 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+
 	body {
 		@apply bg-background text-foreground;
+	}
+
+	.tiptap {
+		:first-child {
+			@apply mt-0;
+		}
+
+		p {
+			@apply leading-loose;
+		}
+
+		h1 {
+			@apply text-4xl font-bold leading-loose;
+		}
+
+		h2 {
+			@apply text-3xl font-bold leading-loose;
+		}
+
+		h3 {
+			@apply text-2xl font-bold leading-loose;
+		}
+
+		ol li {
+			@apply list-decimal ml-6;
+		}
+
+		ul li {
+			@apply list-disc ml-6;
+		}
+
+		blockquote {
+			@apply bg-transparent rounded-r text-sm font-medium text-primary py-3 px-3 border-l-4 border-muted;
+		}
+
+		table {
+			@apply border;
+			border-collapse: collapse;
+			margin: 0;
+			table-layout: fixed;
+			width: 100%;
+			overflow: hidden;
+
+			tbody {
+				@apply divide-y;
+			}
+
+			.selectedCell {
+				@apply bg-accent-foreground text-accent;
+			}
+
+			th {
+				@apply px-2 bg-accent;
+				text-align: initial;
+				text-decoration: initial;
+				font-weight: initial;
+			}
+
+			tr {
+				@apply divide-x;
+			}
+
+			td {
+				@apply px-2 bg-white relative overflow-visible;
+
+				.column-resizing {
+					@apply ring-1;
+				}
+
+				.column-resize-handle {
+					background-color: hsl(var(--chart-1));
+					bottom: -2px;
+					position: absolute;
+					right: -2.5px;
+					top: 0;
+					width: 4px;
+					z-index: 40;
+					cursor: col-resize;
+				}
+			}
+		}
+
+		.tableWrapper {
+			margin: 1.5rem 0;
+			overflow-x: auto;
+		}
+
+		&.resize-cursor {
+			cursor: col-resize;
+		}
+
+		p {
+			code {
+				@apply bg-secondary rounded text-foreground font-mono py-0.5 px-1;
+			}
+
+			a {
+				@apply text-foreground hover:text-foreground/70 underline cursor-pointer transition-all ease-in-out;
+			}
+
+			code {
+				@apply bg-primary-foreground rounded-sm overflow-hidden font-mono text-sm text-primary ring ring-primary/10;
+			}
+		}
+
+		img {
+			margin: 1.5rem 0;
+			@apply rounded-md max-w-full h-auto block;
+
+			&.ProseMirror-selectednode {
+				outline: 3px solid var(--purple);
+			}
+		}
+
+		.is-editor-empty {
+			@apply text-muted-foreground;
+		}
+
+		pre {
+			@apply bg-muted rounded-lg overflow-hidden text-primary font-mono py-4 px-4;
+			margin: 1.5rem 0;
+
+			code {
+				background: none;
+				color: inherit;
+				font-size: 0.8rem;
+				padding: 0;
+			}
+		}
 	}
 }

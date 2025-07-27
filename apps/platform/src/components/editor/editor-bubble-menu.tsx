@@ -140,8 +140,8 @@ export const TextMenu = ({ editor, mini = false }: TextMenuProps) => {
 					<PopoverContent side="top" sideOffset={8} className="w-fit p-1">
 						<MemoColorPicker
 							color={states.currentHighlight}
-							onChange={commands.onChangeHighlight}
-							onClear={commands.onClearHighlight}
+							onChange={commands.onChangeBackgroundColor}
+							onClear={commands.onClearBackgroundColor}
 						/>
 					</PopoverContent>
 				</Popover>

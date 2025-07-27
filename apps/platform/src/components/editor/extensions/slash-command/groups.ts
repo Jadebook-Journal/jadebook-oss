@@ -1,8 +1,12 @@
 import {
+	CodeIcon,
 	ListBulletsIcon,
 	ListNumbersIcon,
 	QuotesIcon,
+	TextHFiveIcon,
+	TextHFourIcon,
 	TextHOneIcon,
+	TextHSixIcon,
 	TextHThreeIcon,
 	TextHTwoIcon,
 } from "@phosphor-icons/react";
@@ -44,6 +48,42 @@ export const GROUPS: Group[] = [
 				},
 			},
 			{
+				name: "heading4",
+				label: "Heading 4",
+				iconName: TextHFourIcon,
+				description: "Low priority section title",
+				aliases: ["h4"],
+				action: (editor) => {
+					editor.chain().focus().setHeading({ level: 4 }).run();
+				},
+			},
+			{
+				name: "heading5",
+				label: "Heading 5",
+				iconName: TextHFiveIcon,
+				description: "Low priority section title",
+				aliases: ["h5"],
+				action: (editor) => {
+					editor.chain().focus().setHeading({ level: 5 }).run();
+				},
+			},
+			{
+				name: "heading6",
+				label: "Heading 6",
+				iconName: TextHSixIcon,
+				description: "Low priority section title",
+				aliases: ["h6"],
+				action: (editor) => {
+					editor.chain().focus().setHeading({ level: 6 }).run();
+				},
+			},
+		],
+	},
+	{
+		name: "lists",
+		title: "Lists",
+		commands: [
+			{
 				name: "bulletList",
 				label: "Bullet List",
 				iconName: ListBulletsIcon,
@@ -63,6 +103,12 @@ export const GROUPS: Group[] = [
 					editor.chain().focus().toggleOrderedList().run();
 				},
 			},
+		],
+	},
+	{
+		name: "blocks",
+		title: "Blocks",
+		commands: [
 			{
 				name: "blockquote",
 				label: "Blockquote",
@@ -70,6 +116,15 @@ export const GROUPS: Group[] = [
 				description: "Element for quoting",
 				action: (editor) => {
 					editor.chain().focus().setBlockquote().run();
+				},
+			},
+			{
+				name: "codeBlock",
+				label: "Code Block",
+				iconName: CodeIcon,
+				description: "Element for code",
+				action: (editor) => {
+					editor.chain().focus().setCodeBlock().run();
 				},
 			},
 		],
