@@ -344,10 +344,8 @@ function PinnedEntries() {
 															: ICON_TEXT_COLOR_CLASSNAMES[color]
 													}
 												/>
-											) : entry.type === "document" ? (
-												<FileIcon size={16} weight="bold" />
 											) : (
-												<SealQuestionIcon size={16} weight="bold" />
+												<FileIcon size={16} weight="bold" />
 											)}
 											<span>{entry.title ?? "Untitled"}</span>
 										</Link>
