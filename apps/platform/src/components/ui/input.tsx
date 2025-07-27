@@ -18,4 +18,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
 	);
 }
 
-export { Input };
+const transparentInputStyle =
+	"block py-0.5 resize-none field-sizing-content rounded-md outline-none hover:bg-accent/50 hover:text-accent-foreground disabled:hover:bg-transparent focus:outline-none bg-transparent focus:bg-accent/50 focus:text-accent-foreground w-full transition-all ease-in-out focus:px-2";
+
+export { Input, transparentInputStyle };

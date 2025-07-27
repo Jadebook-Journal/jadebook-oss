@@ -148,7 +148,7 @@ export function HomePage() {
 						>
 							<TabsList>
 								<TabsTrigger value="all">All</TabsTrigger>
-								<TabsTrigger value="document">Main</TabsTrigger>
+								<TabsTrigger value="entry">Main</TabsTrigger>
 								<TabsTrigger value="prompted">Prompted</TabsTrigger>
 							</TabsList>
 						</Tabs>
