@@ -93,6 +93,7 @@ export const generateThemeCode = (
   --font-mono: ${themeStyles.light["font-mono"]};
 
   --radius: ${themeStyles.light.radius};
+  --shadow-color: ${themeStyles.light["shadow-color"]};
   ${generateShadowVariables(getShadowMap(themeStyles.light, colorFormat))}
   ${
 		themeStyles.light["letter-spacing"] !==
@@ -134,6 +135,7 @@ export const generateThemeCode = (
   --sidebar-accent-foreground: ${formatColor(themeStyles.dark["sidebar-accent-foreground"])};
   --sidebar-border: ${formatColor(themeStyles.dark["sidebar-border"])};
   --sidebar-ring: ${formatColor(themeStyles.dark["sidebar-ring"])};
+    --shadow-color: ${themeStyles.light["shadow-color"]};
   ${generateShadowVariables(getShadowMap(themeStyles.dark, colorFormat))}
 }
 

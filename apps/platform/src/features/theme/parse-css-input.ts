@@ -206,15 +206,36 @@ const extractBasicShadowProperties = (
 	// Process the selected shadow
 	const parts = bestShadow.value.split(",")[0].trim().split(/\s+/);
 
-	if (parts.length >= 5) {
-		// Extract the basic shadow properties
+	if (parts.length >= 3) {
+		// Handle different shadow formats:
+		// 3 parts: offset-x offset-y color
+		// 4 parts: offset-x offset-y blur color
+		// 5+ parts: offset-x offset-y blur spread color
+
 		target["shadow-offset-x"] = parts[0];
 		target["shadow-offset-y"] = parts[1];
-		target["shadow-blur"] = parts[2];
-		target["shadow-spread"] = parts[3];
+
+		let colorStartIndex: number;
+
+		if (parts.length === 3) {
+			// offset-x offset-y color
+			target["shadow-blur"] = "0px";
+			target["shadow-spread"] = "0px";
+			colorStartIndex = 2;
+		} else if (parts.length === 4) {
+			// offset-x offset-y blur color
+			target["shadow-blur"] = parts[2];
+			target["shadow-spread"] = "0px";
+			colorStartIndex = 3;
+		} else {
+			// offset-x offset-y blur spread color (5+ parts)
+			target["shadow-blur"] = parts[2];
+			target["shadow-spread"] = parts[3];
+			colorStartIndex = 4;
+		}
 
 		// Join remaining parts as they form the color
-		const colorPart = parts.slice(4).join(" ");
+		const colorPart = parts.slice(colorStartIndex).join(" ");
 
 		// Use a combined regex pattern for all color formats
 		const colorRegex = /(?:hsl|rgb|oklch)\(([^/]+)(?:\/\s*([^)]+))?\)/;

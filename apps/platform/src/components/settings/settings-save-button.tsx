@@ -8,6 +8,32 @@ import {
 	useAppStore,
 } from "@/providers/app-store-provider";
 import { Button } from "../ui/button";
+import { generateThemeCode } from "@/features/theme/style-generator";
+import type { ThemeStyleProps } from "@/types/theme";
+
+export function ThemeExportButton() {
+	const { theme } = useAppStore((store) => ({
+		theme: store.theme,
+	}));
+
+	return (
+		<Button
+			variant="secondary"
+			value="action"
+			size="action"
+			onClick={() => {
+				navigator.clipboard.writeText(
+					generateThemeCode({
+						light: theme.theme.light as ThemeStyleProps,
+						dark: theme.theme.dark as ThemeStyleProps,
+					}),
+				);
+			}}
+		>
+			Copy Theme
+		</Button>
+	);
+}
 
 export function ThemeSaveButton() {
 	const { theme, profile } = useAppStore((store) => ({

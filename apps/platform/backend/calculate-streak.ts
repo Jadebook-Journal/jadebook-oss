@@ -1,4 +1,4 @@
-import { Database } from "@/lib/supabase/types";
+import type { Database } from "@/lib/supabase/types";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 // Define a type for the user's streak data (adjust based on your table name/columns)

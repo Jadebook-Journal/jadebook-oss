@@ -4,7 +4,6 @@ import {
 	ArrowRightIcon,
 	CalendarIcon,
 	FireIcon,
-	PathIcon,
 	PlantIcon,
 	QuestionIcon,
 	TargetIcon,

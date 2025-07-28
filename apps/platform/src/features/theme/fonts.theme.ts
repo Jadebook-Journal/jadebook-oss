@@ -66,6 +66,9 @@ export const monoFonts = Object.fromEntries(
 	),
 );
 
+// we currently don't use serif or mono fonts so we let the user pick from all fonts
+export const allFonts = Object.fromEntries(Object.entries(fonts));
+
 export const getAppliedThemeFont = (
 	state: Partial<ThemeStyleProps> | undefined,
 	fontKey: keyof ThemeStyleProps,

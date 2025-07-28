@@ -79,7 +79,7 @@ export default async function ProtectedLayout({
 				/>
 			</Head>
 			<QueryProvider>
-				<div className="bg-background">
+				<div className="bg-background tracking-normal">
 					<AppStoreProvider
 						initialState={{
 							profile: profile,

@@ -63,10 +63,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-border": "oklch(0.85 0 0)",
 			"sidebar-ring": "oklch(0.83 0.09 248.95)",
 
-			"font-sans": "Gabriela, Geist Fallback, ui-sans-serif",
-			"font-serif": "Gabriela, Geist Fallback, ui-serif",
-			"font-mono": "Geist Mono, Geist Mono Fallback, ui-monospace",
-
 			radius: "0rem",
 
 			"shadow-color": "oklch(0.83 0.09 248.95 )",
@@ -150,10 +146,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.32 0 0)",
 			"sidebar-border": "oklch(0.65 0.13 81.56)",
 			"sidebar-ring": "oklch(0.75 0.15 83.98)",
-
-			"font-sans": "Delius Swash Caps",
-			"font-serif": "Delius Swash Caps",
-			"font-mono": "Delius Swash Caps",
 
 			radius: "0.625rem",
 
@@ -239,12 +231,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.15 0.02 269.18)",
 			"sidebar-border": "oklch(0.82 0.02 240.77)",
 			"sidebar-ring": "oklch(0.57 0.11 228.97)",
-			"font-sans":
-				"'Source Code Pro', 'Geist', 'Geist Fallback', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-			"font-serif":
-				"'Source Serif 4', 'Geist', 'Geist Fallback', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif",
-			"font-mono":
-				"'Source Code Pro', 'Geist Mono', 'Geist Mono Fallback', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
 			radius: "0rem",
 
 			"shadow-color": "oklch(0.49 0.09 235.45)",
@@ -329,12 +315,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-border": "oklch(0.85 0.02 240.75)",
 			"sidebar-ring": "oklch(0.67 0.17 153.85)",
 
-			"font-sans": "Lato, sans-serif",
-			"font-serif":
-				'Merriweather, Geist, Geist Fallback, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
-			"font-mono":
-				'Roboto Mono, Geist Mono, Geist Mono Fallback, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-
 			radius: "0.25rem",
 
 			"shadow-color": "oklch(0.35 0.05 163.50)",
@@ -418,10 +398,7 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.38 0.02 64.34)",
 			"sidebar-border": "oklch(0.87 0.08 65.91)",
 			"sidebar-ring": "oklch(0.70 0.17 28.12)",
-			"font-sans": "Nunito, Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-			"font-serif":
-				"Lora, ui-serif, Georgia, Cambria, Times New Roman, Times, serif",
-			"font-mono": "Fira Code, ui-monospace, SFMono-Regular",
+
 			radius: "0.6rem",
 			"shadow-color": "oklch(0.70 0.17 28.12 / 30%)",
 			"shadow-opacity": "0.05",
@@ -504,11 +481,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.25 0 0)",
 			"sidebar-border": "oklch(0.90 0 0)",
 			"sidebar-ring": "oklch(0.56 0.11 228.27)",
-
-			"font-sans": "Roboto, sans-serif",
-			"font-serif": "Merriweather, serif",
-			"font-mono":
-				'"Geist Mono", "Geist Mono Fallback", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 
 			radius: "1rem",
 
@@ -593,10 +565,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-border": "oklch(0.87 0.01 25.23)",
 			"sidebar-ring": "oklch(0.52 0.14 247.51)",
 
-			"font-sans": "Outfit, sans-serif",
-			"font-serif": "Merriweather, serif",
-			"font-mono": "Geist Mono, monospace",
-
 			radius: "0rem",
 			"shadow-color": "oklch(0 0 0 / 0.01)",
 			"shadow-opacity": "0.01",
@@ -678,9 +646,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.43 0.13 20.62)",
 			"sidebar-border": "oklch(0.91 0.05 11.40)",
 			"sidebar-ring": "oklch(0.92 0.04 12.39)",
-			"font-sans": "Barlow",
-			"font-serif": "Merriweather",
-			"font-mono": "JetBrains Mono",
 			radius: "0rem",
 			"shadow-color": "oklch(0.3 0.0891 19.6)",
 			"shadow-opacity": "0.08",
@@ -756,9 +721,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.26 0.02 358.42)",
 			"sidebar-border": "oklch(0.91 0.00 0.43)",
 			"sidebar-ring": "oklch(0.71 0.00 0.37)",
-			"font-sans": "Nunito, sans-serif",
-			"font-serif": "PT Serif, serif",
-			"font-mono": "JetBrains Mono, monospace",
 			radius: "0.625rem",
 		},
 		dark: {
@@ -829,8 +791,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-border": "oklch(0.92 0 0)",
 			"sidebar-ring": "oklch(0.71 0 0)",
 
-			"font-serif": "Source Serif 4, serif",
-			"font-mono": "JetBrains Mono, monospace",
 			radius: "0.375rem",
 		},
 		dark: {
@@ -901,9 +861,7 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.43 0.12 144.31)",
 			"sidebar-border": "oklch(0.88 0.02 74.64)",
 			"sidebar-ring": "oklch(0.52 0.13 144.17)",
-			"font-sans": "Montserrat, sans-serif",
-			"font-serif": "Merriweather, serif",
-			"font-mono": "Source Code Pro, monospace",
+
 			radius: "0.5rem",
 		},
 		dark: {
@@ -974,9 +932,7 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.40 0.13 25.72)",
 			"sidebar-border": "oklch(0.94 0.03 80.99)",
 			"sidebar-ring": "oklch(0.47 0.15 24.94)",
-			"font-sans": "Poppins, sans-serif",
-			"font-serif": "Libre Baskerville, serif",
-			"font-mono": "IBM Plex Mono, monospace",
+
 			radius: "0.375rem",
 			"shadow-color": "hsl(0 63% 18%)",
 			"shadow-opacity": "0.12",
@@ -1053,10 +1009,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(1.00 0 0)",
 			"sidebar-border": "oklch(0 0 0)",
 			"sidebar-ring": "oklch(0.65 0.24 26.97)",
-			"font-sans": "DM Sans, sans-serif",
-			"font-serif":
-				'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
-			"font-mono": "Space Mono, monospace",
 			radius: "0px",
 			"shadow-color": "hsl(0 0% 0%)",
 			"shadow-opacity": "1",
@@ -1133,9 +1085,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.37 0.03 259.73)",
 			"sidebar-border": "oklch(0.91 0.05 306.09)",
 			"sidebar-ring": "oklch(0.71 0.16 293.54)",
-			"font-sans": "Open Sans, sans-serif",
-			"font-serif": "Source Serif 4, serif",
-			"font-mono": "IBM Plex Mono, monospace",
 			radius: "1.5rem",
 			"shadow-color": "hsl(0 0% 0%)",
 			"shadow-opacity": "0.08",
@@ -1212,9 +1161,7 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.37 0.03 259.73)",
 			"sidebar-border": "oklch(0.87 0.01 258.34)",
 			"sidebar-ring": "oklch(0.59 0.20 277.12)",
-			"font-sans": "Inter, sans-serif",
-			"font-serif": "Merriweather, serif",
-			"font-mono": "JetBrains Mono, monospace",
+
 			radius: "0.5rem",
 			"shadow-color": "hsl(0 0% 0%)",
 			"shadow-opacity": "0.1",
@@ -1291,9 +1238,7 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(1.00 0 0)",
 			"sidebar-border": "oklch(0.87 0 0)",
 			"sidebar-ring": "oklch(0.57 0.20 283.08)",
-			"font-sans": "Montserrat, sans-serif",
-			"font-serif": "Playfair Display, serif",
-			"font-mono": "Source Code Pro, monospace",
+
 			radius: "0.5rem",
 			"shadow-color": "hsl(0 0% 0%)",
 			"shadow-opacity": "0.1",
@@ -1370,9 +1315,7 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.34 0.01 2.77)",
 			"sidebar-border": "oklch(0.93 0.04 38.69)",
 			"sidebar-ring": "oklch(0.74 0.16 34.71)",
-			"font-sans": "Montserrat, sans-serif",
-			"font-serif": "Merriweather, serif",
-			"font-mono": "Ubuntu Mono, monospace",
+
 			radius: "0.625rem",
 			"shadow-color": "hsl(0 0% 0%)",
 			"shadow-opacity": "0.09",
@@ -1589,9 +1532,7 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.48 0.20 260.48)",
 			"sidebar-border": "oklch(0.93 0.01 264.60)",
 			"sidebar-ring": "oklch(0.48 0.20 260.48)",
-			"font-sans": "Inter, sans-serif",
-			"font-serif": "Source Serif 4, serif",
-			"font-mono": "IBM Plex Mono, monospace",
+
 			radius: "0.375rem",
 		},
 		dark: {
@@ -1662,9 +1603,7 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.31 0.11 327.07)",
 			"sidebar-border": "oklch(0.91 0 0)",
 			"sidebar-ring": "oklch(0.37 0.14 323.23)",
-			"font-sans": "Lato, sans-serif",
-			"font-serif": "Merriweather, serif",
-			"font-mono": "Roboto Mono, monospace",
+
 			radius: "0.5rem",
 		},
 		dark: {
@@ -1735,9 +1674,6 @@ export const presets: Record<string, ThemeStyles> = {
 			"sidebar-accent-foreground": "oklch(0.57 0.10 213.38)",
 			"sidebar-border": "oklch(0.93 0.01 255.51)",
 			"sidebar-ring": "oklch(0.72 0.12 209.78)",
-			"font-sans": "Inter, sans-serif",
-			"font-serif": "Lora, serif",
-			"font-mono": "Roboto Mono, monospace",
 			radius: "0.5rem",
 		},
 		dark: {

@@ -145,6 +145,8 @@ export function SettingsTagCreate() {
 	});
 
 	function onSubmit(data: PostApiTagsBody) {
+		console.log(data);
+
 		createTagMutation.mutate({ data });
 	}
 
@@ -156,7 +158,6 @@ export function SettingsTagCreate() {
 			icon: generateIconString({
 				key: "tag",
 				weight: "regular",
-				color: undefined,
 			}),
 		},
 		disabled: createTagMutation.isPending,
@@ -210,7 +211,6 @@ export function SettingsTagCreate() {
 							<FormField
 								control={form.control}
 								name="color"
-								disabled={true}
 								render={({ field }) => (
 									<FormItem>
 										<FormLabel>Color</FormLabel>

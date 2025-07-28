@@ -57,7 +57,7 @@ export const createTagBody = z.object({
 		description: "The color scheme of the tag",
 	}),
 	icon: z.string().openapi({
-		example: "🏥",
+		example: "",
 		description: "An optional icon for the tag",
 	}),
 });

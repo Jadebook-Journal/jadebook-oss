@@ -3,41 +3,43 @@
 import { PageSection } from "@/components/app/page";
 import { PageContainer } from "@/components/app/page-container";
 import { SettingsPanel, SettingsPanelSection } from "@/components/settings";
-import { ThemeSaveButton } from "@/components/settings/settings-save-button";
 import {
-	Select,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-	SelectLabel,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
+	ThemeExportButton,
+	ThemeSaveButton,
+} from "@/components/settings/settings-save-button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { colorFormatter } from "@/features/theme/color-converter";
-import {
-	DEFAULT_FONT_SANS,
-	DEFAULT_FONT_SERIF,
-} from "@/features/theme/config.theme";
+import { DEFAULT_FONT_SANS } from "@/features/theme/config.theme";
 import CssImportDialog from "@/features/theme/css-import-dialog";
 import ThemeFontSelect from "@/features/theme/font-selector.theme";
-import {
-	getAppliedThemeFont,
-	sansSerifFonts,
-	serifFonts,
-} from "@/features/theme/fonts.theme";
+import { allFonts, getAppliedThemeFont } from "@/features/theme/fonts.theme";
 import ThemePresetSelect from "@/features/theme/preset-selector.theme";
 import { getPresetThemeStyles, presets } from "@/features/theme/presets.theme";
 import { RandomizerButton } from "@/features/theme/randomizer-button";
 import { useThemeHelpers } from "@/features/theme/use-theme-helpers";
 import { useAppStore } from "@/providers/app-store-provider";
-import type { ThemeStyleProps } from "@/types/theme";
+import type { SavedThemeSettings, ThemeStyleProps } from "@/types/theme";
 import React from "react";
 import type { InputHTMLAttributes } from "react";
+import { Slider } from "@/components/ui/slider";
+import {
+	parseCssInput,
+	parseLetterSpacing,
+	parseShadowVariables,
+} from "@/features/theme/parse-css-input";
+import { toast } from "sonner";
 
 export function ThemePage() {
 	return (
-		<PageContainer title="Theme" actions={<ThemeSaveButton />}>
+		<PageContainer
+			title="Theme"
+			actions={
+				<div className="flex items-center gap-2">
+					<ThemeExportButton />
+					<ThemeSaveButton />
+				</div>
+			}
+		>
 			<ThemePresets />
 			<SettingsTheme />
 		</PageContainer>
@@ -49,6 +51,8 @@ const ThemePresets = () => {
 		theme: state.theme,
 		updateTheme: state.updateTheme,
 	}));
+
+	console.log("actual theme", theme);
 
 	const [importDialogOpen, setImportDialogOpen] = React.useState(false);
 
@@ -64,6 +68,42 @@ const ThemePresets = () => {
 		},
 	});
 
+	const handleCssImport = (css: string) => {
+		const { lightColors, darkColors } = parseCssInput(css);
+		const { lightShadows, darkShadows } = parseShadowVariables(css);
+		const letterSpacing = parseLetterSpacing(css);
+
+		// Always preserve both themes and merge with new ones
+		const currentLightStyles = theme.theme.light || {};
+		const currentDarkStyles = theme.theme.dark || {};
+
+		const updatedSettings: SavedThemeSettings = {
+			...theme,
+			preset: null, // Reset preset as we're using custom theme
+			theme: {
+				light: {
+					...currentLightStyles,
+					...lightColors,
+					...lightShadows,
+					"letter-spacing": letterSpacing,
+				},
+				dark: {
+					...currentDarkStyles,
+					...darkColors,
+					...darkShadows,
+				},
+			},
+		};
+
+		// Update settings and persist to storage
+		updateTheme(updatedSettings);
+
+		// Show success message with details
+		toast.success("Theme imported successfully", {
+			description: "Both light and dark mode styles have been updated",
+		});
+	};
+
 	return (
 		<PageSection
 			title="Theme Presets"
@@ -72,8 +112,8 @@ const ThemePresets = () => {
 					<CssImportDialog
 						open={importDialogOpen}
 						onOpenChange={setImportDialogOpen}
-						onImport={() => {
-							setImportDialogOpen(false);
+						onImport={(css) => {
+							handleCssImport(css);
 						}}
 					/>
 					<RandomizerButton randomize={randomize} />
@@ -81,7 +121,7 @@ const ThemePresets = () => {
 			}
 		>
 			<SettingsPanel>
-				<SettingsPanelSection title="Presets">
+				<SettingsPanelSection title="Base Preset" description="">
 					<ThemePresetSelect
 						presets={presets}
 						currentPreset={theme.preset}
@@ -142,6 +182,32 @@ function SettingsTheme() {
 		theme.mode === "system" ? "light" : theme.mode
 	] as Partial<ThemeStyleProps>;
 
+	console.log(theme);
+
+	// Helper function to ensure both themes are updated together
+	const updateBothThemes = (updates: Partial<ThemeStyleProps>) => {
+		const currentLight = theme.theme.light || {};
+		const currentDark = theme.theme.dark || {};
+
+		updateTheme({
+			...theme,
+			theme: {
+				...theme.theme,
+				light: { ...currentLight, ...updates },
+				dark: { ...currentDark, ...updates },
+			},
+		});
+	};
+
+	// Update radius change handler to use the new helper
+	const handleRadiusChange = (value: number) => {
+		updateBothThemes({ radius: `${value}rem` });
+	};
+
+	const handleSpacingChange = (value: number) => {
+		updateBothThemes({ spacing: `${value}rem` });
+	};
+
 	// biome-ignore lint/correctness/useExhaustiveDependencies: we don't want to re-run the effect when the updateTheme changes
 	const updateStyle = React.useCallback(
 		(key: keyof ThemeStyleProps, value: string) => {
@@ -154,24 +220,22 @@ function SettingsTheme() {
 				key === "font-mono" ||
 				key === "radius"
 			) {
-				updateTheme({
-					mode: theme.mode,
-					preset: theme.preset,
-					theme: {
-						light: { ...theme.theme.light, [key]: value },
-						dark: { ...theme.theme.dark, [key]: value },
-					},
-				});
+				updateBothThemes({ [key]: value });
 
 				return;
 			}
+
+			const currentMode = theme.mode === "system" ? "light" : theme.mode;
 
 			updateTheme({
 				mode: theme.mode,
 				preset: theme.preset,
 				theme: {
 					...theme.theme,
-					[key]: value,
+					[currentMode]: {
+						...theme.theme[currentMode],
+						[key]: value,
+					},
 				},
 			});
 		},
@@ -180,33 +244,54 @@ function SettingsTheme() {
 
 	return (
 		<>
-			<PageSection
-				title="Fonts"
-				description="Almost everything will use the sans-serif font, but there might be rare cases where we use a different font."
-			>
+			<PageSection title="Typography">
 				<SettingsPanel>
-					<SettingsPanelSection title="Sans-Serif">
+					<SettingsPanelSection title="Main font">
 						<ThemeFontSelect
-							fonts={sansSerifFonts}
+							fonts={allFonts}
 							defaultValue={DEFAULT_FONT_SANS}
 							currentFont={getAppliedThemeFont(currentTheme, "font-sans")}
 							onFontChange={(value) => updateStyle("font-sans", value)}
 						/>
 					</SettingsPanelSection>
-					<SettingsPanelSection title="Serif">
-						<ThemeFontSelect
-							fonts={serifFonts}
-							defaultValue={DEFAULT_FONT_SERIF}
-							currentFont={getAppliedThemeFont(currentTheme, "font-serif")}
-							onFontChange={(value) => updateStyle("font-serif", value)}
-						/>
-					</SettingsPanelSection>
-					<SettingsPanelSection title="Mono">
-						<ThemeFontSelect
-							fonts={serifFonts}
-							defaultValue={DEFAULT_FONT_SERIF}
-							currentFont={getAppliedThemeFont(currentTheme, "font-serif")}
-							onFontChange={(value) => updateStyle("font-serif", value)}
+
+					{/* we don't use serif or mono fonts yet — in the future we might
+
+						<SettingsPanelSection title="Serif">
+							<ThemeFontSelect
+								fonts={serifFonts}
+								defaultValue={DEFAULT_FONT_SERIF}
+								currentFont={getAppliedThemeFont(currentTheme, "font-serif")}
+								onFontChange={(value) => updateStyle("font-serif", value)}
+							/>
+						</SettingsPanelSection>
+						<SettingsPanelSection title="Mono">
+							<ThemeFontSelect
+								fonts={serifFonts}
+								defaultValue={DEFAULT_FONT_SERIF}
+								currentFont={getAppliedThemeFont(currentTheme, "font-serif")}
+								onFontChange={(value) => updateStyle("font-serif", value)}
+							/>
+						</SettingsPanelSection> 
+					*/}
+
+					<SettingsPanelSection
+						title="Letter Spacing"
+						description={currentTheme["letter-spacing"] || "0em"}
+					>
+						<Slider
+							className="max-w-1/2"
+							defaultValue={[
+								currentTheme["letter-spacing"]
+									? parseFloat(currentTheme["letter-spacing"])
+									: 0,
+							]}
+							min={-0.25}
+							max={0.25}
+							step={0.025}
+							onValueChange={(value) => {
+								updateStyle("letter-spacing", `${value[0]}em`);
+							}}
 						/>
 					</SettingsPanelSection>
 				</SettingsPanel>
@@ -441,6 +526,159 @@ function SettingsTheme() {
 						currentTheme={currentTheme}
 						updateColor={updateStyle}
 					/>
+				</SettingsPanel>
+			</PageSection>
+
+			<PageSection title="Other">
+				<SettingsPanel>
+					<SettingsPanelSection
+						title="Radius"
+						description={currentTheme["radius"] || "0rem"}
+					>
+						<Slider
+							className="max-w-1/2"
+							defaultValue={[
+								currentTheme["radius"] ? parseFloat(currentTheme["radius"]) : 0,
+							]}
+							min={0}
+							max={2.5}
+							step={0.075}
+							onValueChange={(value) => {
+								handleRadiusChange(value[0]);
+							}}
+						/>
+					</SettingsPanelSection>
+
+					<SettingsPanelSection
+						title="Spacing"
+						description={currentTheme["spacing"] || "0rem"}
+					>
+						<Slider
+							className="max-w-1/2"
+							defaultValue={[
+								currentTheme["spacing"]
+									? parseFloat(currentTheme["spacing"])
+									: 0,
+							]}
+							min={0.2}
+							max={0.35}
+							step={0.05}
+							onValueChange={(value) => {
+								handleSpacingChange(value[0]);
+							}}
+						/>
+					</SettingsPanelSection>
+				</SettingsPanel>
+			</PageSection>
+
+			<PageSection title="Shadow">
+				<SettingsPanel>
+					<ColorItem
+						label="Shadow Color"
+						colorKey="shadow-color"
+						currentTheme={currentTheme}
+						updateColor={updateStyle}
+					/>
+
+					<SettingsPanelSection
+						title="Shadow Opacity"
+						description={currentTheme["shadow-opacity"] || "0"}
+					>
+						<Slider
+							className="max-w-1/2"
+							defaultValue={[
+								currentTheme["shadow-opacity"]
+									? Number(currentTheme["shadow-opacity"])
+									: 0,
+							]}
+							min={0}
+							max={1}
+							step={0.01}
+							onValueChange={(value) => {
+								updateStyle("shadow-opacity", value[0].toString());
+							}}
+						/>
+					</SettingsPanelSection>
+
+					<SettingsPanelSection
+						title="Blur Radius"
+						description={currentTheme["shadow-blur"] || "0px"}
+					>
+						<Slider
+							className="max-w-1/2"
+							defaultValue={[
+								currentTheme["shadow-blur"]
+									? Number(currentTheme["shadow-blur"].replace("px", ""))
+									: 0,
+							]}
+							min={0}
+							max={50}
+							step={0.5}
+							onValueChange={(value) => {
+								updateStyle("shadow-blur", `${value[0]}px`);
+							}}
+						/>
+					</SettingsPanelSection>
+
+					<SettingsPanelSection
+						title="Blur Spread"
+						description={currentTheme["shadow-spread"] || "0px"}
+					>
+						<Slider
+							className="max-w-1/2"
+							defaultValue={[
+								currentTheme["shadow-spread"]
+									? Number(currentTheme["shadow-spread"].replace("px", ""))
+									: 0,
+							]}
+							min={-50}
+							max={50}
+							step={0.5}
+							onValueChange={(value) => {
+								updateStyle("shadow-spread", `${value[0]}px`);
+							}}
+						/>
+					</SettingsPanelSection>
+
+					<SettingsPanelSection
+						title="Offset X"
+						description={currentTheme["shadow-offset-x"] || "0px"}
+					>
+						<Slider
+							className="max-w-1/2"
+							defaultValue={[
+								currentTheme["shadow-offset-x"]
+									? Number(currentTheme["shadow-offset-x"].replace("px", ""))
+									: 0,
+							]}
+							min={-50}
+							max={50}
+							step={0.5}
+							onValueChange={(value) => {
+								updateStyle("shadow-offset-x", `${value[0]}px`);
+							}}
+						/>
+					</SettingsPanelSection>
+
+					<SettingsPanelSection
+						title="Offset Y"
+						description={currentTheme["shadow-offset-y"] || "0px"}
+					>
+						<Slider
+							className="max-w-1/2"
+							defaultValue={[
+								currentTheme["shadow-offset-y"]
+									? Number(currentTheme["shadow-offset-y"].replace("px", ""))
+									: 0,
+							]}
+							min={-50}
+							max={50}
+							step={0.5}
+							onValueChange={(value) => {
+								updateStyle("shadow-offset-y", `${value[0]}px`);
+							}}
+						/>
+					</SettingsPanelSection>
 				</SettingsPanel>
 			</PageSection>
 		</>

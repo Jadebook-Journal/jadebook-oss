@@ -4,7 +4,7 @@ import { DiceFiveIcon } from "@phosphor-icons/react";
 export function RandomizerButton({ randomize }: { randomize: () => void }) {
 	return (
 		<Button
-			size="sm"
+			size="action"
 			variant="default"
 			onClick={randomize}
 			className="cursor-pointer"

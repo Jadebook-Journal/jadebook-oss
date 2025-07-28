@@ -67,7 +67,7 @@ export function RenderTag({
 							)}
 							onClick={onDelete}
 						>
-							<PhosphorIcons.X size={12} weight="bold" />
+							<PhosphorIcons.XIcon size={12} weight="bold" />
 						</button>
 					</div>
 				)}
