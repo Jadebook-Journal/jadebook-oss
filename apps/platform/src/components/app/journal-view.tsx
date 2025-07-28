@@ -168,10 +168,15 @@ function JournalViewMonthly({
 	entries: GetApiEntries200DataItem[];
 	showTags?: boolean;
 }) {
+	const { config } = useAppStore((store) => ({ config: store.config }));
+
 	const sortedMonthlyEntries = React.useMemo(() => {
 		// Step 1: Map entries to include their "month" property
 		const monthlyEntries = entries.map((entry) => {
-			const month = format(new Date(entry.entry_date), "MMMM, yyyy");
+			const month = format(
+				new Date(entry[config.layout.sortDate]),
+				"MMMM, yyyy",
+			);
 
 			return {
 				...entry,
@@ -195,22 +200,28 @@ function JournalViewMonthly({
 			{} as Record<string, GetApiEntries200DataItem[]>,
 		);
 
-		// Step 3: Convert grouped data into an array
+		// Step 3: Convert grouped data into an array and sort entries within each group
 		const sortedMonthlyEntryGroups = Object.entries(monthlyEntryGroups).map(
 			([month, entries]) => ({
 				month,
-				entries: entries,
+				entries: entries.sort((a, b) => {
+					const dateA = new Date(a[config.layout.sortDate]);
+					const dateB = new Date(b[config.layout.sortDate]);
+					return dateB.getTime() - dateA.getTime(); // Sort entries within group in descending order
+				}),
 			}),
 		);
 
-		// Sort the remaining months by date in descending order
+		// Sort the monthly groups by date in descending order
 		sortedMonthlyEntryGroups.sort((a, b) => {
-			const dateA = new Date(a.entries[0].entry_date);
-			const dateB = new Date(b.entries[0].entry_date);
+			// Use the month string for more reliable sorting
+			const dateA = new Date(`01 ${a.month}`);
+			const dateB = new Date(`01 ${b.month}`);
 			return dateB.getTime() - dateA.getTime();
 		});
+
 		return sortedMonthlyEntryGroups;
-	}, [entries]);
+	}, [entries, config.layout.sortDate]);
 
 	return (
 		<div className="space-y-8">

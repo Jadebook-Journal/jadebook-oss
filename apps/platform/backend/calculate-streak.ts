@@ -76,6 +76,7 @@ export async function calculateAndUpdateStreak(
 			current_streak: newCurrentStreak,
 			longest_streak: newLongestStreak,
 			last_entry_date: today,
+			updated_at: new Date().toISOString(),
 		})
 		.eq("id", userId);
 

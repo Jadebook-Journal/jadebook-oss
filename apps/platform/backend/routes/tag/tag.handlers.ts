@@ -173,10 +173,16 @@ export const updateTag: AppRouteHandler<UpdateTagRoute> = async (c) => {
 		if (body.cover !== undefined) updateData.cover = body.cover;
 		if (body.pinned !== undefined) updateData.pinned = body.pinned;
 
-		const { error } = await supabase.from("tag").update(updateData).match({
-			user_id: userId,
-			id,
-		});
+		const { error } = await supabase
+			.from("tag")
+			.update({
+				...updateData,
+				updated_at: new Date().toISOString(),
+			})
+			.match({
+				user_id: userId,
+				id,
+			});
 
 		if (error) {
 			console.error(error);

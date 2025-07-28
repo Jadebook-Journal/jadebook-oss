@@ -255,10 +255,16 @@ export const updateEntry: AppRouteHandler<UpdateEntryRoute> = async (c) => {
 			);
 		}
 
-		const { error } = await supabase.from("entry").update(body).match({
-			user_id: userId,
-			id: id,
-		});
+		const { error } = await supabase
+			.from("entry")
+			.update({
+				...body,
+				updated_at: new Date().toISOString(),
+			})
+			.match({
+				user_id: userId,
+				id: id,
+			});
 
 		if (error) {
 			console.error(error);

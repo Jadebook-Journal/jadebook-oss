@@ -176,10 +176,16 @@ export const updateGoal: AppRouteHandler<UpdateGoalRoute> = async (c) => {
 
 		const updateData = body;
 
-		const { error } = await supabase.from("goal").update(updateData).match({
-			user_id: userId,
-			id,
-		});
+		const { error } = await supabase
+			.from("goal")
+			.update({
+				...updateData,
+				updated_at: new Date().toISOString(),
+			})
+			.match({
+				user_id: userId,
+				id,
+			});
 
 		if (error) {
 			console.error(error);
