@@ -2,48 +2,21 @@
 import type { ThemeStyleProps } from "@/types/theme";
 
 const sansSerifFontNames = [
+	"Arial",
+	"Helvetica",
+	"Verdana",
 	"Inter",
 	"Roboto",
 	"Open Sans",
 	"Geist",
-	"Poppins",
 	"Montserrat",
-	"Outfit",
-	"Plus Jakarta Sans",
-	"DM Sans",
-	"Nunito",
-	"IBM Plex Sans",
-	"Source Code Pro",
-	"Lato",
-	"Gabriela",
-	"Delius Swash Caps",
+	"Noto Sans",
+	"Nunito Sans",
 ] as const;
 
-const serifFontNames = [
-	"Merriweather",
-	"Playfair Display",
-	"Lora",
-	"Geist",
-	"Source Serif 4",
-	"Libre Baskerville",
-	"Space Grotesk",
-	"PT Serif",
-	"Nunito",
-	"Lato",
-	"Gabriela",
-	"Delius Swash Caps",
-] as const;
+const serifFontNames = ["Times New Roman", "Georgia"] as const;
 
-const monoFontNames = [
-	"JetBrains Mono",
-	"Fira Code",
-	"Source Code Pro",
-	"Geist Mono",
-	"IBM Plex Mono",
-	"Roboto Mono",
-	"Space Mono",
-	"Delius Swash Caps",
-] as const;
+const monoFontNames = ["Courier New", "Monaco", "Geist Mono"] as const;
 
 type FontName =
 	| (typeof monoFontNames)[number]
@@ -51,39 +24,28 @@ type FontName =
 	| (typeof sansSerifFontNames)[number];
 
 export const fonts: Record<FontName, string> = {
-	// Sans-serif fonts
+	// Browser-based sans-serif fonts
+	Arial: "Arial, sans-serif",
+	Helvetica: "Helvetica, sans-serif",
+	Verdana: "Verdana, sans-serif",
+
+	// Specific sans-serif fonts
 	Inter: "Inter, sans-serif",
 	Roboto: "Roboto, sans-serif",
 	"Open Sans": "Open Sans, sans-serif",
-	Poppins: "Poppins, sans-serif",
-	Montserrat: "Montserrat, sans-serif",
-	Outfit: "Outfit, sans-serif",
-	"Plus Jakarta Sans": "Plus Jakarta Sans, sans-serif",
-	"DM Sans": "DM Sans, sans-serif",
-	"IBM Plex Sans": "IBM Plex Sans, sans-serif",
-	Nunito: "Nunito, sans-serif",
-	Lato: "Lato, sans-serif",
 	Geist: "Geist, Geist Fallback, sans-serif",
+	Montserrat: "Montserrat, sans-serif",
+	"Noto Sans": "Noto Sans, sans-serif",
+	"Nunito Sans": "Nunito Sans, sans-serif",
 
-	// Serif fonts
-	Merriweather: "Merriweather, serif",
-	"Playfair Display": "Playfair Display, serif",
-	Lora: "Lora, serif",
-	"Source Serif 4": "Source Serif 4, serif",
-	"Libre Baskerville": "Libre Baskerville, serif",
-	"Space Grotesk": "Space Grotesk, serif",
-	"PT Serif": "PT Serif, serif",
-	Gabriela: "Gabriela, Geist Fallback",
-	"Delius Swash Caps": "Delius Swash Caps, serif",
+	// Browser-based serif fonts
+	"Times New Roman": "Times New Roman, serif",
+	Georgia: "Georgia, serif",
 
-	// Monospace fonts
-	"JetBrains Mono": "JetBrains Mono, monospace",
-	"Fira Code": "Fira Code, monospace",
-	"Source Code Pro": "Source Code Pro, monospace",
+	// Browser-based monospace fonts
+	"Courier New": "Courier New, monospace",
+	Monaco: "Monaco, monospace",
 	"Geist Mono": "Geist Mono, Geist Mono Fallback, monospace",
-	"IBM Plex Mono": "IBM Plex Mono, monospace",
-	"Roboto Mono": "Roboto Mono, monospace",
-	"Space Mono": "Space Mono, monospace",
 };
 
 export const sansSerifFonts = Object.fromEntries(
@@ -91,11 +53,13 @@ export const sansSerifFonts = Object.fromEntries(
 		sansSerifFontNames.includes(key as (typeof sansSerifFontNames)[number]),
 	),
 );
+
 export const serifFonts = Object.fromEntries(
 	Object.entries(fonts).filter(([key]) =>
 		serifFontNames.includes(key as (typeof serifFontNames)[number]),
 	),
 );
+
 export const monoFonts = Object.fromEntries(
 	Object.entries(fonts).filter(([key]) =>
 		monoFontNames.includes(key as (typeof monoFontNames)[number]),

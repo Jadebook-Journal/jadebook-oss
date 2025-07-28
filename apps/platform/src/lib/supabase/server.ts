@@ -7,16 +7,22 @@ import type { Database } from "./types";
  * global variable. Always create a new client within each function when using
  * it.
  */
-export async function createClient() {
+export async function createClient(props?: { admin?: boolean }) {
 	const cookieStore = await cookies();
 
-	if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) {
+	if (
+		!process.env.SUPABASE_URL ||
+		!process.env.SUPABASE_ANON_KEY ||
+		!process.env.SUPABASE_SERVICE_ROLE_KEY
+	) {
 		throw new Error("Missing Supabase environment variables");
 	}
 
 	return createServerClient<Database>(
 		process.env.SUPABASE_URL,
-		process.env.SUPABASE_ANON_KEY,
+		props?.admin
+			? process.env.SUPABASE_SERVICE_ROLE_KEY
+			: process.env.SUPABASE_ANON_KEY,
 		{
 			cookies: {
 				getAll() {

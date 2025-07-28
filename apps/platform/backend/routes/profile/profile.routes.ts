@@ -63,5 +63,32 @@ export const updateUserProfile = createRoute({
 	},
 });
 
+export const deleteUserProfile = createRoute({
+	path: "/api/profile",
+	summary: "Delete profile",
+	description: "Deletes the user's profile",
+	method: "delete",
+	tags,
+	responses: {
+		[HttpStatusCodes.OK]: jsonContent(
+			createMessageObjectSchema("OK"),
+			"Profile deleted",
+		),
+		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
+			createMessageObjectSchema("Bad request"),
+			"Invalid request data",
+		),
+		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
+			createMessageObjectSchema("Unauthorized"),
+			"Authentication required",
+		),
+		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
+			internalServerErrorSchema,
+			"Internal server error",
+		),
+	},
+});
+
 export type GetUserProfileRoute = typeof getUserProfile;
 export type UpdateUserProfileRoute = typeof updateUserProfile;
+export type DeleteUserProfileRoute = typeof deleteUserProfile;

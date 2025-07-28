@@ -86,6 +86,22 @@ export type PutApiProfile500 = {
 	message: string;
 };
 
+export type DeleteApiProfile200 = {
+	message: string;
+};
+
+export type DeleteApiProfile400 = {
+	message: string;
+};
+
+export type DeleteApiProfile401 = {
+	message: string;
+};
+
+export type DeleteApiProfile500 = {
+	message: string;
+};
+
 export type GetApiAssetsParams = {
 	/**
 	 * Filter assets by entity type
@@ -1314,7 +1330,8 @@ export type GetApiSearch200EntriesItem = {
 	excerpt: string | null;
 	/** @nullable */
 	icon: string | null;
-	tags: string[];
+	/** @nullable */
+	tags: string[] | null;
 	updated_at: string;
 };
 
@@ -1325,7 +1342,8 @@ export type GetApiSearch200GoalsItem = {
 	description: string | null;
 	/** @nullable */
 	icon: string | null;
-	tags: string[];
+	/** @nullable */
+	tags: string[] | null;
 	updated_at: string;
 };
 
@@ -2094,6 +2112,135 @@ export const usePutApiProfile = <
 	TContext
 > => {
 	const mutationOptions = getPutApiProfileMutationOptions(options);
+
+	return useMutation(mutationOptions, queryClient);
+};
+
+/**
+ * Deletes the user's profile
+ * @summary Delete profile
+ */
+export type deleteApiProfileResponse200 = {
+	data: DeleteApiProfile200;
+	status: 200;
+};
+
+export type deleteApiProfileResponse400 = {
+	data: DeleteApiProfile400;
+	status: 400;
+};
+
+export type deleteApiProfileResponse401 = {
+	data: DeleteApiProfile401;
+	status: 401;
+};
+
+export type deleteApiProfileResponse500 = {
+	data: DeleteApiProfile500;
+	status: 500;
+};
+
+export type deleteApiProfileResponseComposite =
+	| deleteApiProfileResponse200
+	| deleteApiProfileResponse400
+	| deleteApiProfileResponse401
+	| deleteApiProfileResponse500;
+
+export type deleteApiProfileResponse = deleteApiProfileResponseComposite & {
+	headers: Headers;
+};
+
+export const getDeleteApiProfileUrl = () => {
+	return `http://localhost:3000/api/profile`;
+};
+
+export const deleteApiProfile = async (
+	options?: RequestInit,
+): Promise<deleteApiProfileResponse> => {
+	const res = await fetch(getDeleteApiProfileUrl(), {
+		...options,
+		method: "DELETE",
+	});
+
+	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+	const data: deleteApiProfileResponse["data"] = body ? JSON.parse(body) : {};
+
+	return {
+		data,
+		status: res.status,
+		headers: res.headers,
+	} as deleteApiProfileResponse;
+};
+
+export const getDeleteApiProfileMutationOptions = <
+	TError = DeleteApiProfile400 | DeleteApiProfile401 | DeleteApiProfile500,
+	TContext = unknown,
+>(options?: {
+	mutation?: UseMutationOptions<
+		Awaited<ReturnType<typeof deleteApiProfile>>,
+		TError,
+		void,
+		TContext
+	>;
+	fetch?: RequestInit;
+}): UseMutationOptions<
+	Awaited<ReturnType<typeof deleteApiProfile>>,
+	TError,
+	void,
+	TContext
+> => {
+	const mutationKey = ["deleteApiProfile"];
+	const { mutation: mutationOptions, fetch: fetchOptions } = options
+		? options.mutation &&
+			"mutationKey" in options.mutation &&
+			options.mutation.mutationKey
+			? options
+			: { ...options, mutation: { ...options.mutation, mutationKey } }
+		: { mutation: { mutationKey }, fetch: undefined };
+
+	const mutationFn: MutationFunction<
+		Awaited<ReturnType<typeof deleteApiProfile>>,
+		void
+	> = () => {
+		return deleteApiProfile(fetchOptions);
+	};
+
+	return { mutationFn, ...mutationOptions };
+};
+
+export type DeleteApiProfileMutationResult = NonNullable<
+	Awaited<ReturnType<typeof deleteApiProfile>>
+>;
+
+export type DeleteApiProfileMutationError =
+	| DeleteApiProfile400
+	| DeleteApiProfile401
+	| DeleteApiProfile500;
+
+/**
+ * @summary Delete profile
+ */
+export const useDeleteApiProfile = <
+	TError = DeleteApiProfile400 | DeleteApiProfile401 | DeleteApiProfile500,
+	TContext = unknown,
+>(
+	options?: {
+		mutation?: UseMutationOptions<
+			Awaited<ReturnType<typeof deleteApiProfile>>,
+			TError,
+			void,
+			TContext
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseMutationResult<
+	Awaited<ReturnType<typeof deleteApiProfile>>,
+	TError,
+	void,
+	TContext
+> => {
+	const mutationOptions = getDeleteApiProfileMutationOptions(options);
 
 	return useMutation(mutationOptions, queryClient);
 };

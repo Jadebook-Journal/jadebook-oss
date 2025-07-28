@@ -1,11 +1,8 @@
 export type AppConfig = {
 	features: {
 		prompted: boolean;
-		guided: boolean;
 		search: boolean;
 		goals: boolean;
-		chat: boolean;
-		insights: boolean;
 	};
 	behavior: null;
 	layout: {

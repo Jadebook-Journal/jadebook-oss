@@ -18,7 +18,11 @@ export type ModeSettings = {
 };
 
 // this is what will be stored in the database
-export type SavedThemeSettings = ModeSettings & ThemeSettings;
+export type SavedThemeSettings = {
+	mode: Mode;
+	preset: string | null;
+	theme: ThemePreset;
+};
 
 export type ThemeStyleProps = {
 	background: string;

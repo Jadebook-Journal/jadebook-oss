@@ -14,8 +14,8 @@ export const settingsNavigation = [
 		icon: <UserIcon size={8} weight="bold" />,
 	},
 	{
-		pathname: "/settings/behaviors",
-		label: "Behaviors",
+		pathname: "/settings/config",
+		label: "Config",
 		icon: <BrainIcon size={8} weight="bold" />,
 	},
 	{

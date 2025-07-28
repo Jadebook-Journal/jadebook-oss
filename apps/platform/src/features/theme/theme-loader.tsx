@@ -64,7 +64,7 @@ export function ThemeLoader({ children }: { children: ReactNode }) {
 	useEffect(() => {
 		try {
 			const root = window.document.documentElement;
-			const themeStyles = theme.theme.styles;
+			const themeStyles = theme.theme;
 
 			if (!themeStyles) {
 				root.removeAttribute("style");
