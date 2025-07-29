@@ -20,9 +20,7 @@ ALTER TABLE public.user ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Allow Authenticated Users" ON "public"."user" AS PERMISSIVE
 FOR ALL TO anon, authenticated USING (true);
 
-
 -- Entry Table 
-
 
 -- Create the entry table in the public schema
 CREATE TABLE public.entry (

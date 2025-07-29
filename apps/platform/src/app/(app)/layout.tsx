@@ -4,7 +4,6 @@ import { createClient } from "@/lib/supabase/server";
 import { Suspense } from "react";
 import { QueryProvider } from "@/providers/query-provider";
 import { AppStoreProvider } from "@/providers/app-store-provider";
-import { getApiMiscPinned, getApiProfile, getApiTags } from "@/api-client";
 import { ThemeLoader } from "@/features/theme/theme-loader";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app/sidebar";

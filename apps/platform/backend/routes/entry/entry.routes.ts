@@ -8,7 +8,6 @@ import {
 	createEntryBody,
 	createEntryResponse,
 	deleteEntryParams,
-	entryMetadataResponse,
 	entryResponse,
 	entriesResponse,
 	getEntryParams,
@@ -67,39 +66,6 @@ export const getEntry = createRoute({
 	tags,
 	responses: {
 		[HttpStatusCodes.OK]: jsonContent(entryResponse, "The requested entry"),
-		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
-			createMessageObjectSchema("Bad request"),
-			"Invalid entry ID",
-		),
-		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
-			createMessageObjectSchema("Unauthorized"),
-			"Authentication required",
-		),
-		[HttpStatusCodes.NOT_FOUND]: jsonContent(
-			createMessageObjectSchema("Entry not found"),
-			"Entry does not exist or access denied",
-		),
-		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
-			internalServerErrorSchema,
-			"Internal server error",
-		),
-	},
-});
-
-export const getEntryMetadata = createRoute({
-	path: "/api/entries/{id}/metadata",
-	summary: "Get entry metadata",
-	description: "Gets only the title and excerpt of an entry by ID",
-	method: "get",
-	request: {
-		params: getEntryParams,
-	},
-	tags,
-	responses: {
-		[HttpStatusCodes.OK]: jsonContent(
-			entryMetadataResponse,
-			"The requested entry metadata",
-		),
 		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
 			createMessageObjectSchema("Bad request"),
 			"Invalid entry ID",
@@ -218,7 +184,6 @@ export const deleteEntry = createRoute({
 
 export type GetEntriesRoute = typeof getEntries;
 export type GetEntryRoute = typeof getEntry;
-export type GetEntryMetadataRoute = typeof getEntryMetadata;
 export type CreateEntryRoute = typeof createEntry;
 export type UpdateEntryRoute = typeof updateEntry;
 export type DeleteEntryRoute = typeof deleteEntry;

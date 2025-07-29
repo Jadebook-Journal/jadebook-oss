@@ -149,9 +149,3 @@ export const createEntryResponse = z.object({
 export const successResponse = z.object({
 	message: z.string(),
 });
-
-// Entry metadata response schema (only title and excerpt)
-export const entryMetadataResponse = z.object({
-	title: z.string(),
-	excerpt: z.string().nullable(),
-});

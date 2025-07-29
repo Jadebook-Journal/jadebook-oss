@@ -4,7 +4,6 @@ import type { z } from "zod";
 import type { AppRouteHandler } from "@backend/types";
 import type {
 	createEntryResponse,
-	entryMetadataResponse,
 	entryResponse,
 	entriesResponse,
 	successResponse,
@@ -12,7 +11,6 @@ import type {
 import type {
 	CreateEntryRoute,
 	DeleteEntryRoute,
-	GetEntryMetadataRoute,
 	GetEntryRoute,
 	GetEntriesRoute,
 	UpdateEntryRoute,
@@ -119,58 +117,6 @@ export const getEntry: AppRouteHandler<GetEntryRoute> = async (c) => {
 		}
 
 		const response: z.infer<typeof entryResponse> = data;
-
-		return c.json(response, HttpStatusCodes.OK);
-	} catch (error) {
-		console.error(error);
-
-		return c.json(
-			{
-				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR,
-			},
-			HttpStatusCodes.INTERNAL_SERVER_ERROR,
-		);
-	}
-};
-
-export const getEntryMetadata: AppRouteHandler<GetEntryMetadataRoute> = async (
-	c,
-) => {
-	const userId = c.get("userId");
-	const supabase = c.get("supabase");
-	const { id } = c.req.valid("param");
-
-	try {
-		const { data, error } = await supabase
-			.from("entry")
-			.select("title, excerpt")
-			.match({
-				user_id: userId,
-				id: id,
-			})
-			.single();
-
-		if (error) {
-			console.error(error);
-
-			if (error.code === "PGRST116") {
-				return c.json(
-					{
-						message: "Entry not found",
-					},
-					HttpStatusCodes.NOT_FOUND,
-				);
-			}
-
-			return c.json(
-				{
-					message: "Failed to fetch entry metadata",
-				},
-				HttpStatusCodes.INTERNAL_SERVER_ERROR,
-			);
-		}
-
-		const response: z.infer<typeof entryMetadataResponse> = data;
 
 		return c.json(response, HttpStatusCodes.OK);
 	} catch (error) {

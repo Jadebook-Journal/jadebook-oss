@@ -9,7 +9,11 @@ import {
 import { ICON_TEXT_COLOR_CLASSNAMES } from "jadebook/react";
 import React from "react";
 import { toast } from "sonner";
-import type { GetApiEntriesId200 } from "@/api-client";
+import {
+	getGetApiEntriesIdQueryOptions,
+	useGetApiEntriesId,
+	type GetApiEntriesId200,
+} from "@/api-client";
 import { PageContainer } from "@/components/app/page-container";
 import { BlockEditor } from "@/components/editor/block-editor";
 import { OptionsMenu } from "@/components/journal/options-menu";
@@ -29,20 +33,52 @@ import { AssetStoreProvider, useAssetStore } from "@/providers/assets-provider";
 import { EntryEditorProvider, useEditor } from "@/providers/editor-provider";
 import { useGlobalEntryStore } from "@/stores/global-entry-store";
 import { transparentInputStyle } from "@/components/ui/input";
+import { useQuery } from "@tanstack/react-query";
+import { useAppStore } from "@/providers/app-store-provider";
+import { FullPageLoading } from "@/components/routes/loading";
+import { ErrorRoute } from "@/components/routes/error";
 
-export function EntryPage({ entry }: { entry: GetApiEntriesId200 }) {
+export function EntryPage({ entryId }: { entryId: string }) {
+	const { session } = useAppStore((store) => ({
+		session: store.session,
+	}));
+
 	const cover = useGlobalEntryStore((store) => store.cover);
 	const title = useGlobalEntryStore((store) => store.title);
 
 	const updateEntry = useGlobalEntryStore((store) => store.updateEntry);
 
+	const entryQuery = useQuery({
+		...getGetApiEntriesIdQueryOptions(entryId, {
+			fetch: {
+				headers: {
+					Authorization: `Bearer ${session.access_token}`,
+				},
+			},
+		}),
+	});
+
 	// Sync local and server state
 	React.useEffect(() => {
-		updateEntry(entry);
-	}, [entry, updateEntry]);
+		if (entryQuery.data && entryQuery.data.status === 200) {
+			updateEntry(entryQuery.data.data);
+		}
+	}, [entryQuery.data, updateEntry]);
+
+	if (entryQuery.isLoading) {
+		return <FullPageLoading />;
+	}
+
+	if (
+		entryQuery.isError ||
+		!entryQuery.data ||
+		entryQuery.data.status !== 200
+	) {
+		return <ErrorRoute />;
+	}
 
 	return (
-		<EntryEditorProvider initialContent={entry.content || ""}>
+		<EntryEditorProvider initialContent={entryQuery.data.data.content || ""}>
 			<AssetStoreProvider>
 				<PageContainer
 					title={title}
