@@ -7,18 +7,20 @@ import { useShallow } from "zustand/react/shallow";
 import { BASE_CONFIG } from "@/features/config/base.config";
 import { type AppState, createAppStore } from "@/stores/app-store";
 import {
-	type getApiMiscPinnedResponse,
 	useGetApiMiscPinned,
 	useGetApiProfile,
 	useGetApiTags,
-	type getApiProfileResponse,
-	type getApiTagsResponse,
+	type GetApiProfile200,
+	type GetApiTags200Item,
+	type GetApiMiscPinned200,
 } from "@/api-client";
 
 import { mergeWithDefault } from "jadebook";
 import { defaultThemeState } from "@/features/theme/config.theme";
 import type { SavedThemeSettings } from "@/types/theme";
 import type { AppConfig } from "@/types/config";
+import { PageLoading } from "@/components/routes/loading";
+import { Session } from "@supabase/supabase-js";
 
 type AppStore = ReturnType<typeof createAppStore>;
 
@@ -26,11 +28,7 @@ export const AppStoreContext = createContext<AppStore | null>(null);
 
 interface AppStoreProviderProps {
 	children: ReactNode;
-	initialState: Pick<AppState, "session"> & {
-		profile: getApiProfileResponse;
-		pinnedResources: getApiMiscPinnedResponse;
-		tags: getApiTagsResponse;
-	};
+	initialState: Pick<AppState, "session">;
 }
 
 /**
@@ -40,14 +38,8 @@ export const AppStoreProvider = ({
 	children,
 	initialState,
 }: AppStoreProviderProps) => {
-	// useRef to ensure the store is created only once per request/render
-	const storeRef = React.useRef<AppStore | null>(null);
-
 	// Load React Query with the initial data — let's us load on server and refresh on client
 	const profileQuery = useGetApiProfile({
-		query: {
-			initialData: initialState.profile,
-		},
 		fetch: {
 			headers: {
 				Authorization: initialState.session.access_token,
@@ -56,9 +48,6 @@ export const AppStoreProvider = ({
 	});
 
 	const pinnedResourcesQuery = useGetApiMiscPinned({
-		query: {
-			initialData: initialState.pinnedResources,
-		},
 		fetch: {
 			headers: {
 				Authorization: initialState.session.access_token,
@@ -67,15 +56,24 @@ export const AppStoreProvider = ({
 	});
 
 	const tagsQuery = useGetApiTags({
-		query: {
-			initialData: initialState.tags,
-		},
 		fetch: {
 			headers: {
 				Authorization: initialState.session.access_token,
 			},
 		},
 	});
+
+	if (
+		profileQuery.isLoading ||
+		pinnedResourcesQuery.isLoading ||
+		tagsQuery.isLoading
+	) {
+		return <PageLoading />;
+	}
+
+	if (!profileQuery.data || !pinnedResourcesQuery.data || !tagsQuery.data) {
+		throw new Error("Failed to fetch profile, pinned resources, or tags");
+	}
 
 	if (
 		profileQuery.isError ||
@@ -103,13 +101,48 @@ export const AppStoreProvider = ({
 	const theme = parseTheme(profile.theme);
 	const config = parseConfig(profile.config);
 
+	return (
+		<AppStoreProviderInner
+			profile={profile}
+			pinnedResources={pinnedResources}
+			tags={tags}
+			theme={theme}
+			session={initialState.session}
+			config={config}
+		>
+			{children}
+		</AppStoreProviderInner>
+	);
+};
+
+// Only run after initial data is loaded
+function AppStoreProviderInner({
+	children,
+	profile,
+	pinnedResources,
+	tags,
+	theme,
+	session,
+	config,
+}: {
+	children: ReactNode;
+	profile: GetApiProfile200;
+	pinnedResources: GetApiMiscPinned200;
+	tags: GetApiTags200Item[];
+	theme: SavedThemeSettings;
+	config: AppConfig;
+	session: Session;
+}) {
+	// useRef to ensure the store is created only once per request/render
+	const storeRef = React.useRef<AppStore | null>(null);
+
 	if (!storeRef.current) {
 		storeRef.current = createAppStore({
 			profile,
 			pinnedResources,
 			tags,
 			theme,
-			session: initialState.session,
+			session,
 			config,
 		});
 	}
@@ -141,7 +174,7 @@ export const AppStoreProvider = ({
 			{children}
 		</AppStoreContext.Provider>
 	);
-};
+}
 
 // Custom hook to use the store from the context
 export const useAppStore = <T,>(selector: (store: AppState) => T): T => {

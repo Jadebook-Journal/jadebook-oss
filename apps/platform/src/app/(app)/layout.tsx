@@ -40,28 +40,6 @@ export default async function ProtectedLayout({
 		return redirect("/sign-in");
 	}
 
-	// load initial data on the server — we don't cache this data as it will be updated on the client
-	const [profile, tags, pinned] = await Promise.all([
-		getApiProfile({
-			headers: {
-				Authorization: session.access_token,
-			},
-			cache: "no-cache",
-		}),
-		getApiTags({
-			headers: {
-				Authorization: session.access_token,
-			},
-			cache: "no-cache",
-		}),
-		getApiMiscPinned({
-			headers: {
-				Authorization: session.access_token,
-			},
-			cache: "no-cache",
-		}),
-	]);
-
 	const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
 	return (
@@ -82,9 +60,6 @@ export default async function ProtectedLayout({
 				<div className="bg-background tracking-normal">
 					<AppStoreProvider
 						initialState={{
-							profile: profile,
-							pinnedResources: pinned,
-							tags: tags,
 							session,
 						}}
 					>
