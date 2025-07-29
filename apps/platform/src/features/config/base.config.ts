@@ -6,11 +6,8 @@ import type { AppConfig } from "@/types/config";
 export const BASE_CONFIG: AppConfig = {
 	features: {
 		prompted: true,
-		guided: true,
 		search: true,
 		goals: true,
-		chat: true,
-		insights: true,
 	},
 	behavior: null,
 	layout: {
