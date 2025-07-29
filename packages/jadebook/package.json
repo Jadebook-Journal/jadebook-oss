@@ -17,10 +17,12 @@
 			"types": "./dist/react.d.ts"
 		}
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"author": "Jadebook",
-	"license": "ISC",
-	"description": "Utility functions and helpers for Jadebook platform",
+	"license": "MIT",
+	"description": "Utility functions and helpers for Jadebook OSS platform",
 	"scripts": {
 		"test": "vitest",
 		"test:run": "vitest run",
