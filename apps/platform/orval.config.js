@@ -1,11 +1,9 @@
-import { defaultUrl } from "./src/lib/utils";
-
 export default {
 	"jadebook-platform": {
-		input: `${defaultUrl}/api/doc`,
+		input: `http://localhost:3000/api/doc`,
 		output: {
 			target: "./src/api-client.ts",
-			baseUrl: `${defaultUrl}`,
+			baseUrl: `/`,
 			client: "react-query",
 			httpClient: "fetch",
 			biome: true,

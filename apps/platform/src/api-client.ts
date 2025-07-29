@@ -1389,7 +1389,7 @@ export type getApiDocResponse = getApiDocResponseComposite & {
 };
 
 export const getGetApiDocUrl = () => {
-	return `http://localhost:3000/api/doc`;
+	return `/api/doc`;
 };
 
 export const getApiDoc = async (
@@ -1411,7 +1411,7 @@ export const getApiDoc = async (
 };
 
 export const getGetApiDocQueryKey = () => {
-	return [`http://localhost:3000/api/doc`] as const;
+	return [`/api/doc`] as const;
 };
 
 export const getGetApiDocInfiniteQueryOptions = <
@@ -1699,7 +1699,7 @@ export type getApiProfileResponse = getApiProfileResponseComposite & {
 };
 
 export const getGetApiProfileUrl = () => {
-	return `http://localhost:3000/api/profile`;
+	return `/api/profile`;
 };
 
 export const getApiProfile = async (
@@ -1721,7 +1721,7 @@ export const getApiProfile = async (
 };
 
 export const getGetApiProfileQueryKey = () => {
-	return [`http://localhost:3000/api/profile`] as const;
+	return [`/api/profile`] as const;
 };
 
 export const getGetApiProfileInfiniteQueryOptions = <
@@ -2017,7 +2017,7 @@ export type putApiProfileResponse = putApiProfileResponseComposite & {
 };
 
 export const getPutApiProfileUrl = () => {
-	return `http://localhost:3000/api/profile`;
+	return `/api/profile`;
 };
 
 export const putApiProfile = async (
@@ -2151,7 +2151,7 @@ export type deleteApiProfileResponse = deleteApiProfileResponseComposite & {
 };
 
 export const getDeleteApiProfileUrl = () => {
-	return `http://localhost:3000/api/profile`;
+	return `/api/profile`;
 };
 
 export const deleteApiProfile = async (
@@ -2291,8 +2291,8 @@ export const getGetApiAssetsUrl = (params?: GetApiAssetsParams) => {
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/assets?${stringifiedParams}`
-		: `http://localhost:3000/api/assets`;
+		? `/api/assets?${stringifiedParams}`
+		: `/api/assets`;
 };
 
 export const getApiAssets = async (
@@ -2315,10 +2315,7 @@ export const getApiAssets = async (
 };
 
 export const getGetApiAssetsQueryKey = (params?: GetApiAssetsParams) => {
-	return [
-		`http://localhost:3000/api/assets`,
-		...(params ? [params] : []),
-	] as const;
+	return [`/api/assets`, ...(params ? [params] : [])] as const;
 };
 
 export const getGetApiAssetsInfiniteQueryOptions = <
@@ -2632,7 +2629,7 @@ export type postApiAssetsResponse = postApiAssetsResponseComposite & {
 };
 
 export const getPostApiAssetsUrl = () => {
-	return `http://localhost:3000/api/assets`;
+	return `/api/assets`;
 };
 
 export const postApiAssets = async (
@@ -2772,7 +2769,7 @@ export type getApiAssetsIdResponse = getApiAssetsIdResponseComposite & {
 };
 
 export const getGetApiAssetsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/assets/${id}`;
+	return `/api/assets/${id}`;
 };
 
 export const getApiAssetsId = async (
@@ -2795,7 +2792,7 @@ export const getApiAssetsId = async (
 };
 
 export const getGetApiAssetsIdQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/assets/${id}`] as const;
+	return [`/api/assets/${id}`] as const;
 };
 
 export const getGetApiAssetsIdInfiniteQueryOptions = <
@@ -3167,7 +3164,7 @@ export type putApiAssetsIdResponse = putApiAssetsIdResponseComposite & {
 };
 
 export const getPutApiAssetsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/assets/${id}`;
+	return `/api/assets/${id}`;
 };
 
 export const putApiAssetsId = async (
@@ -3317,7 +3314,7 @@ export type deleteApiAssetsIdResponse = deleteApiAssetsIdResponseComposite & {
 };
 
 export const getDeleteApiAssetsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/assets/${id}`;
+	return `/api/assets/${id}`;
 };
 
 export const deleteApiAssetsId = async (
@@ -3462,7 +3459,7 @@ export type postApiAssetsSignedUrlResponse =
 	};
 
 export const getPostApiAssetsSignedUrlUrl = () => {
-	return `http://localhost:3000/api/assets/signed-url`;
+	return `/api/assets/signed-url`;
 };
 
 export const postApiAssetsSignedUrl = async (
@@ -3605,7 +3602,7 @@ export type postApiAssetsUploadResponse =
 	};
 
 export const getPostApiAssetsUploadUrl = () => {
-	return `http://localhost:3000/api/assets/upload`;
+	return `/api/assets/upload`;
 };
 
 export const postApiAssetsUpload = async (
@@ -3764,8 +3761,8 @@ export const getGetApiEntriesUrl = (params?: GetApiEntriesParams) => {
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/entries?${stringifiedParams}`
-		: `http://localhost:3000/api/entries`;
+		? `/api/entries?${stringifiedParams}`
+		: `/api/entries`;
 };
 
 export const getApiEntries = async (
@@ -3788,10 +3785,7 @@ export const getApiEntries = async (
 };
 
 export const getGetApiEntriesQueryKey = (params?: GetApiEntriesParams) => {
-	return [
-		`http://localhost:3000/api/entries`,
-		...(params ? [params] : []),
-	] as const;
+	return [`/api/entries`, ...(params ? [params] : [])] as const;
 };
 
 export const getGetApiEntriesInfiniteQueryOptions = <
@@ -4105,7 +4099,7 @@ export type postApiEntriesResponse = postApiEntriesResponseComposite & {
 };
 
 export const getPostApiEntriesUrl = () => {
-	return `http://localhost:3000/api/entries`;
+	return `/api/entries`;
 };
 
 export const postApiEntries = async (
@@ -4245,7 +4239,7 @@ export type getApiEntriesIdResponse = getApiEntriesIdResponseComposite & {
 };
 
 export const getGetApiEntriesIdUrl = (id: string) => {
-	return `http://localhost:3000/api/entries/${id}`;
+	return `/api/entries/${id}`;
 };
 
 export const getApiEntriesId = async (
@@ -4268,7 +4262,7 @@ export const getApiEntriesId = async (
 };
 
 export const getGetApiEntriesIdQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/entries/${id}`] as const;
+	return [`/api/entries/${id}`] as const;
 };
 
 export const getGetApiEntriesIdInfiniteQueryOptions = <
@@ -4660,7 +4654,7 @@ export type putApiEntriesIdResponse = putApiEntriesIdResponseComposite & {
 };
 
 export const getPutApiEntriesIdUrl = (id: string) => {
-	return `http://localhost:3000/api/entries/${id}`;
+	return `/api/entries/${id}`;
 };
 
 export const putApiEntriesId = async (
@@ -4810,7 +4804,7 @@ export type deleteApiEntriesIdResponse = deleteApiEntriesIdResponseComposite & {
 };
 
 export const getDeleteApiEntriesIdUrl = (id: string) => {
-	return `http://localhost:3000/api/entries/${id}`;
+	return `/api/entries/${id}`;
 };
 
 export const deleteApiEntriesId = async (
@@ -4958,7 +4952,7 @@ export type getApiEntriesIdMetadataResponse =
 	};
 
 export const getGetApiEntriesIdMetadataUrl = (id: string) => {
-	return `http://localhost:3000/api/entries/${id}/metadata`;
+	return `/api/entries/${id}/metadata`;
 };
 
 export const getApiEntriesIdMetadata = async (
@@ -4983,7 +4977,7 @@ export const getApiEntriesIdMetadata = async (
 };
 
 export const getGetApiEntriesIdMetadataQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/entries/${id}/metadata`] as const;
+	return [`/api/entries/${id}/metadata`] as const;
 };
 
 export const getGetApiEntriesIdMetadataInfiniteQueryOptions = <
@@ -5385,8 +5379,8 @@ export const getGetApiGoalsUrl = (params?: GetApiGoalsParams) => {
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/goals?${stringifiedParams}`
-		: `http://localhost:3000/api/goals`;
+		? `/api/goals?${stringifiedParams}`
+		: `/api/goals`;
 };
 
 export const getApiGoals = async (
@@ -5409,10 +5403,7 @@ export const getApiGoals = async (
 };
 
 export const getGetApiGoalsQueryKey = (params?: GetApiGoalsParams) => {
-	return [
-		`http://localhost:3000/api/goals`,
-		...(params ? [params] : []),
-	] as const;
+	return [`/api/goals`, ...(params ? [params] : [])] as const;
 };
 
 export const getGetApiGoalsInfiniteQueryOptions = <
@@ -5726,7 +5717,7 @@ export type postApiGoalsResponse = postApiGoalsResponseComposite & {
 };
 
 export const getPostApiGoalsUrl = () => {
-	return `http://localhost:3000/api/goals`;
+	return `/api/goals`;
 };
 
 export const postApiGoals = async (
@@ -5866,7 +5857,7 @@ export type getApiGoalsIdResponse = getApiGoalsIdResponseComposite & {
 };
 
 export const getGetApiGoalsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/goals/${id}`;
+	return `/api/goals/${id}`;
 };
 
 export const getApiGoalsId = async (
@@ -5889,7 +5880,7 @@ export const getApiGoalsId = async (
 };
 
 export const getGetApiGoalsIdQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/goals/${id}`] as const;
+	return [`/api/goals/${id}`] as const;
 };
 
 export const getGetApiGoalsIdInfiniteQueryOptions = <
@@ -6261,7 +6252,7 @@ export type putApiGoalsIdResponse = putApiGoalsIdResponseComposite & {
 };
 
 export const getPutApiGoalsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/goals/${id}`;
+	return `/api/goals/${id}`;
 };
 
 export const putApiGoalsId = async (
@@ -6411,7 +6402,7 @@ export type deleteApiGoalsIdResponse = deleteApiGoalsIdResponseComposite & {
 };
 
 export const getDeleteApiGoalsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/goals/${id}`;
+	return `/api/goals/${id}`;
 };
 
 export const deleteApiGoalsId = async (
@@ -6573,8 +6564,8 @@ export const getGetApiGoalGoalIdLogsUrl = (
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/goal/${goalId}/logs?${stringifiedParams}`
-		: `http://localhost:3000/api/goal/${goalId}/logs`;
+		? `/api/goal/${goalId}/logs?${stringifiedParams}`
+		: `/api/goal/${goalId}/logs`;
 };
 
 export const getApiGoalGoalIdLogs = async (
@@ -6603,10 +6594,7 @@ export const getGetApiGoalGoalIdLogsQueryKey = (
 	goalId: string,
 	params?: GetApiGoalGoalIdLogsParams,
 ) => {
-	return [
-		`http://localhost:3000/api/goal/${goalId}/logs`,
-		...(params ? [params] : []),
-	] as const;
+	return [`/api/goal/${goalId}/logs`, ...(params ? [params] : [])] as const;
 };
 
 export const getGetApiGoalGoalIdLogsInfiniteQueryOptions = <
@@ -7021,7 +7009,7 @@ export type postApiGoalGoalIdLogsResponse =
 	};
 
 export const getPostApiGoalGoalIdLogsUrl = (goalId: string) => {
-	return `http://localhost:3000/api/goal/${goalId}/logs`;
+	return `/api/goal/${goalId}/logs`;
 };
 
 export const postApiGoalGoalIdLogs = async (
@@ -7174,7 +7162,7 @@ export type putApiGoalGoalIdLogsIdResponse =
 	};
 
 export const getPutApiGoalGoalIdLogsIdUrl = (goalId: string, id: string) => {
-	return `http://localhost:3000/api/goal/${goalId}/logs/${id}`;
+	return `/api/goal/${goalId}/logs/${id}`;
 };
 
 export const putApiGoalGoalIdLogsId = async (
@@ -7322,7 +7310,7 @@ export type deleteApiGoalGoalIdLogsIdResponse =
 	};
 
 export const getDeleteApiGoalGoalIdLogsIdUrl = (goalId: string, id: string) => {
-	return `http://localhost:3000/api/goal/${goalId}/logs/${id}`;
+	return `/api/goal/${goalId}/logs/${id}`;
 };
 
 export const deleteApiGoalGoalIdLogsId = async (
@@ -7457,7 +7445,7 @@ export type getApiTagsResponse = getApiTagsResponseComposite & {
 };
 
 export const getGetApiTagsUrl = () => {
-	return `http://localhost:3000/api/tags`;
+	return `/api/tags`;
 };
 
 export const getApiTags = async (
@@ -7479,7 +7467,7 @@ export const getApiTags = async (
 };
 
 export const getGetApiTagsQueryKey = () => {
-	return [`http://localhost:3000/api/tags`] as const;
+	return [`/api/tags`] as const;
 };
 
 export const getGetApiTagsInfiniteQueryOptions = <
@@ -7773,7 +7761,7 @@ export type postApiTagsResponse = postApiTagsResponseComposite & {
 };
 
 export const getPostApiTagsUrl = () => {
-	return `http://localhost:3000/api/tags`;
+	return `/api/tags`;
 };
 
 export const postApiTags = async (
@@ -7913,7 +7901,7 @@ export type getApiTagsIdResponse = getApiTagsIdResponseComposite & {
 };
 
 export const getGetApiTagsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/tags/${id}`;
+	return `/api/tags/${id}`;
 };
 
 export const getApiTagsId = async (
@@ -7936,7 +7924,7 @@ export const getApiTagsId = async (
 };
 
 export const getGetApiTagsIdQueryKey = (id: string) => {
-	return [`http://localhost:3000/api/tags/${id}`] as const;
+	return [`/api/tags/${id}`] as const;
 };
 
 export const getGetApiTagsIdInfiniteQueryOptions = <
@@ -8308,7 +8296,7 @@ export type putApiTagsIdResponse = putApiTagsIdResponseComposite & {
 };
 
 export const getPutApiTagsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/tags/${id}`;
+	return `/api/tags/${id}`;
 };
 
 export const putApiTagsId = async (
@@ -8458,7 +8446,7 @@ export type deleteApiTagsIdResponse = deleteApiTagsIdResponseComposite & {
 };
 
 export const getDeleteApiTagsIdUrl = (id: string) => {
-	return `http://localhost:3000/api/tags/${id}`;
+	return `/api/tags/${id}`;
 };
 
 export const deleteApiTagsId = async (
@@ -8613,8 +8601,8 @@ export const getGetApiTagsIdGoalsUrl = (
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/tags/${id}/goals?${stringifiedParams}`
-		: `http://localhost:3000/api/tags/${id}/goals`;
+		? `/api/tags/${id}/goals?${stringifiedParams}`
+		: `/api/tags/${id}/goals`;
 };
 
 export const getApiTagsIdGoals = async (
@@ -8641,10 +8629,7 @@ export const getGetApiTagsIdGoalsQueryKey = (
 	id: string,
 	params?: GetApiTagsIdGoalsParams,
 ) => {
-	return [
-		`http://localhost:3000/api/tags/${id}/goals`,
-		...(params ? [params] : []),
-	] as const;
+	return [`/api/tags/${id}/goals`, ...(params ? [params] : [])] as const;
 };
 
 export const getGetApiTagsIdGoalsInfiniteQueryOptions = <
@@ -9000,7 +8985,7 @@ export type getApiMiscPinnedResponse = getApiMiscPinnedResponseComposite & {
 };
 
 export const getGetApiMiscPinnedUrl = () => {
-	return `http://localhost:3000/api/misc/pinned`;
+	return `/api/misc/pinned`;
 };
 
 export const getApiMiscPinned = async (
@@ -9022,7 +9007,7 @@ export const getApiMiscPinned = async (
 };
 
 export const getGetApiMiscPinnedQueryKey = () => {
-	return [`http://localhost:3000/api/misc/pinned`] as const;
+	return [`/api/misc/pinned`] as const;
 };
 
 export const getGetApiMiscPinnedInfiniteQueryOptions = <
@@ -9330,7 +9315,7 @@ export type getApiPromptsResponse = getApiPromptsResponseComposite & {
 };
 
 export const getGetApiPromptsUrl = () => {
-	return `http://localhost:3000/api/prompts`;
+	return `/api/prompts`;
 };
 
 export const getApiPrompts = async (
@@ -9352,7 +9337,7 @@ export const getApiPrompts = async (
 };
 
 export const getGetApiPromptsQueryKey = () => {
-	return [`http://localhost:3000/api/prompts`] as const;
+	return [`/api/prompts`] as const;
 };
 
 export const getGetApiPromptsInfiniteQueryOptions = <
@@ -9653,8 +9638,8 @@ export const getGetApiSearchUrl = (params: GetApiSearchParams) => {
 	const stringifiedParams = normalizedParams.toString();
 
 	return stringifiedParams.length > 0
-		? `http://localhost:3000/api/search?${stringifiedParams}`
-		: `http://localhost:3000/api/search`;
+		? `/api/search?${stringifiedParams}`
+		: `/api/search`;
 };
 
 export const getApiSearch = async (
@@ -9677,10 +9662,7 @@ export const getApiSearch = async (
 };
 
 export const getGetApiSearchQueryKey = (params: GetApiSearchParams) => {
-	return [
-		`http://localhost:3000/api/search`,
-		...(params ? [params] : []),
-	] as const;
+	return [`/api/search`, ...(params ? [params] : [])] as const;
 };
 
 export const getGetApiSearchInfiniteQueryOptions = <
