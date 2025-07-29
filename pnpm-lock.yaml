@@ -11,6 +11,9 @@ importers:
       '@biomejs/biome':
         specifier: ^2.1.2
         version: 2.1.2
+      supabase:
+        specifier: ^2.31.4
+        version: 2.31.4
       turbo:
         specifier: ^2.5.5
         version: 2.5.5

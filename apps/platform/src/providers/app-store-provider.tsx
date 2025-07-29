@@ -20,7 +20,7 @@ import { defaultThemeState } from "@/features/theme/config.theme";
 import type { SavedThemeSettings } from "@/types/theme";
 import type { AppConfig } from "@/types/config";
 import { PageLoading } from "@/components/routes/loading";
-import { Session } from "@supabase/supabase-js";
+import type { Session } from "@supabase/supabase-js";
 
 type AppStore = ReturnType<typeof createAppStore>;
 
