@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbopack",
-		"build": "pnpm lint --diagnostic-level=error && next build",
+		"build": "pnpm lint --diagnostic-level=error && pnpm sync-api && next build",
 		"start": "next start",
 		"lint": "biome lint ./src",
 		"format": "biome check ./src --write",
