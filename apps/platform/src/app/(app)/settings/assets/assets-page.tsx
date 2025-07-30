@@ -1,6 +1,10 @@
 "use client";
 
-import { DotsThreeIcon, TrashIcon } from "@phosphor-icons/react";
+import {
+	ArrowSquareOutIcon,
+	DotsThreeIcon,
+	TrashIcon,
+} from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import { Coolshape } from "coolshapes-react";
 import React from "react";
@@ -17,12 +21,14 @@ import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
+	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAssetMutations } from "@/mutations/use-assets-mutations";
 import { useAppStore } from "@/providers/app-store-provider";
 import { AssetStoreProvider, useAssetStore } from "@/providers/assets-provider";
+import { useRouter } from "next/navigation";
 
 export function AssetsPage() {
 	return (
@@ -122,6 +128,7 @@ function SettingsAssetOptionsMenu({
 }: {
 	asset: GetApiAssets200DataItem;
 }) {
+	const router = useRouter();
 	const [confirmDialogOpen, setConfirmDialogOpen] = React.useState(false);
 
 	const { deleteAssetMutation } = useAssetMutations({
@@ -139,6 +146,25 @@ function SettingsAssetOptionsMenu({
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
+					<DropdownMenuItem
+						onClick={() => {
+							const url = new URL(window.location.origin);
+
+							if (asset.entity_type === "entry") {
+								url.pathname = `/journal/${asset.entity_id}`;
+							} else if (asset.entity_type === "goal") {
+								url.pathname = `/goals/${asset.entity_id}`;
+							}
+
+							router.push(url.toString());
+						}}
+					>
+						<ArrowSquareOutIcon size={12} />
+						Open entity
+					</DropdownMenuItem>
+
+					<DropdownMenuSeparator />
+
 					<DropdownMenuItem
 						variant="destructive"
 						onClick={() => {

@@ -1,5 +1,6 @@
 import { z } from "@hono/zod-openapi";
 import { logTypeEnum } from "../logs/logs.validation";
+import { goalStateEnum } from "../goal/goal.validation";
 
 export const selectExportsResponse = z.array(
 	z.object({
@@ -25,6 +26,14 @@ export const createExportBody = z
 	})
 	.openapi({
 		description: "Create an export",
+	});
+
+export const expireExportBody = z
+	.object({
+		expire_at: z.string(),
+	})
+	.openapi({
+		description: "Update an export",
 	});
 
 export const getUserExportParams = z.object({
@@ -78,6 +87,8 @@ export const selectExportResponse = z.object({
 				updated_at: z.string(),
 				icon: z.string().nullable(),
 				cover: z.string().nullable(),
+				end_date: z.string(),
+				state: goalStateEnum,
 				logs: z.array(
 					z.object({
 						created_at: z.string(),

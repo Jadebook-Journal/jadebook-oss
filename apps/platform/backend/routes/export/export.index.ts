@@ -7,6 +7,7 @@ const router = createRouter();
 // Define routes
 router.openapi(routes.getUserExports, handlers.getUserExports);
 router.openapi(routes.createUserExport, handlers.createUserExport);
+router.openapi(routes.expireUserExport, handlers.expireUserExport);
 router.openapi(routes.getUserExport, handlers.getUserExport);
 
 export default router;

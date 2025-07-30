@@ -9,6 +9,7 @@ import {
 	getUserExportQuery,
 	selectExportResponse,
 	selectExportsResponse,
+	expireExportBody,
 } from "./export.validation";
 
 const tags = ["Export"];
@@ -99,6 +100,37 @@ export const createUserExport = createRoute({
 	},
 });
 
+export const expireUserExport = createRoute({
+	path: "/api/export/{id}",
+	summary: "Expire export",
+	description: "Expire an existing export",
+	method: "put",
+	request: {
+		params: getUserExportParams,
+		body: jsonContent(expireExportBody, "Export data"),
+	},
+	tags,
+	responses: {
+		[HttpStatusCodes.OK]: jsonContent(
+			createMessageObjectSchema("OK"),
+			"Export updated",
+		),
+		[HttpStatusCodes.BAD_REQUEST]: jsonContent(
+			createMessageObjectSchema("Bad request"),
+			"Invalid request data",
+		),
+		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
+			createMessageObjectSchema("Unauthorized"),
+			"Authentication required",
+		),
+		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
+			internalServerErrorSchema,
+			"Internal server error",
+		),
+	},
+});
+
 export type GetUserExportsRoute = typeof getUserExports;
 export type GetUserExportRoute = typeof getUserExport;
 export type CreateUserExportRoute = typeof createUserExport;
+export type ExpireUserExportRoute = typeof expireUserExport;

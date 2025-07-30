@@ -2,6 +2,7 @@ import type { selectExportResponse } from "@backend/routes/export/export.validat
 import type { NextRequest } from "next/server";
 import type z from "zod";
 import { createClient } from "@/lib/supabase/server";
+import { goalStateEnum } from "@backend/routes/goal/goal.validation";
 
 // this is a separate route from the backend since we don't want to run the auth middleware
 export async function GET(
@@ -84,7 +85,9 @@ export async function GET(
 	} else if (exportData.type === "goals") {
 		const { data: goalsData, error: goalsError } = await supabase
 			.from("goal")
-			.select("id, title, description, created_at, updated_at, icon, cover")
+			.select(
+				"id, title, description, created_at, updated_at, icon, cover, end_date, state",
+			)
 			.eq("user_id", exportData.user_id)
 			.gte("created_at", startDate.toISOString())
 			.lte("created_at", endDate.toISOString());
@@ -102,6 +105,7 @@ export async function GET(
 
 		goals = goalsData.map((goal) => ({
 			...goal,
+			state: goal.state as z.infer<typeof goalStateEnum>,
 			logs: [], // empty array for now
 		}));
 	}

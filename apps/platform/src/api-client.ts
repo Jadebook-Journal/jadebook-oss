@@ -624,6 +624,15 @@ export const GetApiGoalsState = {
 	archived: "archived",
 } as const;
 
+export type GetApiGoals200ItemState =
+	(typeof GetApiGoals200ItemState)[keyof typeof GetApiGoals200ItemState];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetApiGoals200ItemState = {
+	active: "active",
+	archived: "archived",
+} as const;
+
 export type GetApiGoals200Item = {
 	id: string;
 	user_id: string;
@@ -633,7 +642,7 @@ export type GetApiGoals200Item = {
 	created_at: string;
 	updated_at: string;
 	end_date: string;
-	state: string;
+	state: GetApiGoals200ItemState;
 	/** @nullable */
 	icon: string | null;
 	tags: string[];
@@ -695,6 +704,15 @@ export type PostApiGoals500 = {
 	message: string;
 };
 
+export type GetApiGoalsId200State =
+	(typeof GetApiGoalsId200State)[keyof typeof GetApiGoalsId200State];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetApiGoalsId200State = {
+	active: "active",
+	archived: "archived",
+} as const;
+
 export type GetApiGoalsId200 = {
 	id: string;
 	user_id: string;
@@ -704,7 +722,7 @@ export type GetApiGoalsId200 = {
 	created_at: string;
 	updated_at: string;
 	end_date: string;
-	state: string;
+	state: GetApiGoalsId200State;
 	/** @nullable */
 	icon: string | null;
 	tags: string[];
@@ -1398,6 +1416,29 @@ export type PostApiExport500 = {
 	message: string;
 };
 
+/**
+ * Update an export
+ */
+export type PutApiExportIdBody = {
+	expire_at: string;
+};
+
+export type PutApiExportId200 = {
+	message: string;
+};
+
+export type PutApiExportId400 = {
+	message: string;
+};
+
+export type PutApiExportId401 = {
+	message: string;
+};
+
+export type PutApiExportId500 = {
+	message: string;
+};
+
 export type GetDataExportIdParams = {
 	/**
 	 * Set to 'true' to trigger file download
@@ -1453,6 +1494,15 @@ export type GetDataExportId200EntriesItem = {
 	type: GetDataExportId200EntriesItemType;
 };
 
+export type GetDataExportId200GoalsItemState =
+	(typeof GetDataExportId200GoalsItemState)[keyof typeof GetDataExportId200GoalsItemState];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetDataExportId200GoalsItemState = {
+	active: "active",
+	archived: "archived",
+} as const;
+
 /**
  * The type of log
  */
@@ -1485,6 +1535,8 @@ export type GetDataExportId200GoalsItem = {
 	icon: string | null;
 	/** @nullable */
 	cover: string | null;
+	end_date: string;
+	state: GetDataExportId200GoalsItemState;
 	logs: GetDataExportId200GoalsItemLogsItem[];
 };
 
@@ -1506,6 +1558,29 @@ export type GetDataExportId401 = {
 };
 
 export type GetDataExportId500 = {
+	message: string;
+};
+
+export type PostApiImportJsonBody = {
+	/** The file to upload */
+	file?: Blob;
+	/** The URL to import from */
+	url?: string;
+};
+
+export type PostApiImportJson200 = {
+	message: string;
+};
+
+export type PostApiImportJson400 = {
+	message: string;
+};
+
+export type PostApiImportJson401 = {
+	message: string;
+};
+
+export type PostApiImportJson500 = {
 	message: string;
 };
 
@@ -10093,6 +10168,141 @@ export const usePostApiExport = <
 };
 
 /**
+ * Expire an existing export
+ * @summary Expire export
+ */
+export type putApiExportIdResponse200 = {
+	data: PutApiExportId200;
+	status: 200;
+};
+
+export type putApiExportIdResponse400 = {
+	data: PutApiExportId400;
+	status: 400;
+};
+
+export type putApiExportIdResponse401 = {
+	data: PutApiExportId401;
+	status: 401;
+};
+
+export type putApiExportIdResponse500 = {
+	data: PutApiExportId500;
+	status: 500;
+};
+
+export type putApiExportIdResponseComposite =
+	| putApiExportIdResponse200
+	| putApiExportIdResponse400
+	| putApiExportIdResponse401
+	| putApiExportIdResponse500;
+
+export type putApiExportIdResponse = putApiExportIdResponseComposite & {
+	headers: Headers;
+};
+
+export const getPutApiExportIdUrl = (id: string) => {
+	return `/api/export/${id}`;
+};
+
+export const putApiExportId = async (
+	id: string,
+	putApiExportIdBody: PutApiExportIdBody,
+	options?: RequestInit,
+): Promise<putApiExportIdResponse> => {
+	const res = await fetch(getPutApiExportIdUrl(id), {
+		...options,
+		method: "PUT",
+		headers: { "Content-Type": "application/json", ...options?.headers },
+		body: JSON.stringify(putApiExportIdBody),
+	});
+
+	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+	const data: putApiExportIdResponse["data"] = body ? JSON.parse(body) : {};
+
+	return {
+		data,
+		status: res.status,
+		headers: res.headers,
+	} as putApiExportIdResponse;
+};
+
+export const getPutApiExportIdMutationOptions = <
+	TError = PutApiExportId400 | PutApiExportId401 | PutApiExportId500,
+	TContext = unknown,
+>(options?: {
+	mutation?: UseMutationOptions<
+		Awaited<ReturnType<typeof putApiExportId>>,
+		TError,
+		{ id: string; data: PutApiExportIdBody },
+		TContext
+	>;
+	fetch?: RequestInit;
+}): UseMutationOptions<
+	Awaited<ReturnType<typeof putApiExportId>>,
+	TError,
+	{ id: string; data: PutApiExportIdBody },
+	TContext
+> => {
+	const mutationKey = ["putApiExportId"];
+	const { mutation: mutationOptions, fetch: fetchOptions } = options
+		? options.mutation &&
+			"mutationKey" in options.mutation &&
+			options.mutation.mutationKey
+			? options
+			: { ...options, mutation: { ...options.mutation, mutationKey } }
+		: { mutation: { mutationKey }, fetch: undefined };
+
+	const mutationFn: MutationFunction<
+		Awaited<ReturnType<typeof putApiExportId>>,
+		{ id: string; data: PutApiExportIdBody }
+	> = (props) => {
+		const { id, data } = props ?? {};
+
+		return putApiExportId(id, data, fetchOptions);
+	};
+
+	return { mutationFn, ...mutationOptions };
+};
+
+export type PutApiExportIdMutationResult = NonNullable<
+	Awaited<ReturnType<typeof putApiExportId>>
+>;
+export type PutApiExportIdMutationBody = PutApiExportIdBody;
+export type PutApiExportIdMutationError =
+	| PutApiExportId400
+	| PutApiExportId401
+	| PutApiExportId500;
+
+/**
+ * @summary Expire export
+ */
+export const usePutApiExportId = <
+	TError = PutApiExportId400 | PutApiExportId401 | PutApiExportId500,
+	TContext = unknown,
+>(
+	options?: {
+		mutation?: UseMutationOptions<
+			Awaited<ReturnType<typeof putApiExportId>>,
+			TError,
+			{ id: string; data: PutApiExportIdBody },
+			TContext
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseMutationResult<
+	Awaited<ReturnType<typeof putApiExportId>>,
+	TError,
+	{ id: string; data: PutApiExportIdBody },
+	TContext
+> => {
+	const mutationOptions = getPutApiExportIdMutationOptions(options);
+
+	return useMutation(mutationOptions, queryClient);
+};
+
+/**
  * Gets a specific export. This will be in a JSON format. Add download=true query parameter to trigger file download. Note that this is not in the backend, it needs to be accessible to the public and thus, is a separate route.
  * @summary Get export
  */
@@ -10483,3 +10693,144 @@ export function useGetDataExportId<
 
 	return query;
 }
+
+/**
+ * Import entries or goals from a JSON file. Either pass the file or a URL.
+ * @summary Import JSON
+ */
+export type postApiImportJsonResponse200 = {
+	data: PostApiImportJson200;
+	status: 200;
+};
+
+export type postApiImportJsonResponse400 = {
+	data: PostApiImportJson400;
+	status: 400;
+};
+
+export type postApiImportJsonResponse401 = {
+	data: PostApiImportJson401;
+	status: 401;
+};
+
+export type postApiImportJsonResponse500 = {
+	data: PostApiImportJson500;
+	status: 500;
+};
+
+export type postApiImportJsonResponseComposite =
+	| postApiImportJsonResponse200
+	| postApiImportJsonResponse400
+	| postApiImportJsonResponse401
+	| postApiImportJsonResponse500;
+
+export type postApiImportJsonResponse = postApiImportJsonResponseComposite & {
+	headers: Headers;
+};
+
+export const getPostApiImportJsonUrl = () => {
+	return `/api/import/json`;
+};
+
+export const postApiImportJson = async (
+	postApiImportJsonBody: PostApiImportJsonBody,
+	options?: RequestInit,
+): Promise<postApiImportJsonResponse> => {
+	const formData = new FormData();
+	if (postApiImportJsonBody.file !== undefined) {
+		formData.append(`file`, postApiImportJsonBody.file);
+	}
+	if (postApiImportJsonBody.url !== undefined) {
+		formData.append(`url`, postApiImportJsonBody.url);
+	}
+
+	const res = await fetch(getPostApiImportJsonUrl(), {
+		...options,
+		method: "POST",
+		body: formData,
+	});
+
+	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+	const data: postApiImportJsonResponse["data"] = body ? JSON.parse(body) : {};
+
+	return {
+		data,
+		status: res.status,
+		headers: res.headers,
+	} as postApiImportJsonResponse;
+};
+
+export const getPostApiImportJsonMutationOptions = <
+	TError = PostApiImportJson400 | PostApiImportJson401 | PostApiImportJson500,
+	TContext = unknown,
+>(options?: {
+	mutation?: UseMutationOptions<
+		Awaited<ReturnType<typeof postApiImportJson>>,
+		TError,
+		{ data: PostApiImportJsonBody },
+		TContext
+	>;
+	fetch?: RequestInit;
+}): UseMutationOptions<
+	Awaited<ReturnType<typeof postApiImportJson>>,
+	TError,
+	{ data: PostApiImportJsonBody },
+	TContext
+> => {
+	const mutationKey = ["postApiImportJson"];
+	const { mutation: mutationOptions, fetch: fetchOptions } = options
+		? options.mutation &&
+			"mutationKey" in options.mutation &&
+			options.mutation.mutationKey
+			? options
+			: { ...options, mutation: { ...options.mutation, mutationKey } }
+		: { mutation: { mutationKey }, fetch: undefined };
+
+	const mutationFn: MutationFunction<
+		Awaited<ReturnType<typeof postApiImportJson>>,
+		{ data: PostApiImportJsonBody }
+	> = (props) => {
+		const { data } = props ?? {};
+
+		return postApiImportJson(data, fetchOptions);
+	};
+
+	return { mutationFn, ...mutationOptions };
+};
+
+export type PostApiImportJsonMutationResult = NonNullable<
+	Awaited<ReturnType<typeof postApiImportJson>>
+>;
+export type PostApiImportJsonMutationBody = PostApiImportJsonBody;
+export type PostApiImportJsonMutationError =
+	| PostApiImportJson400
+	| PostApiImportJson401
+	| PostApiImportJson500;
+
+/**
+ * @summary Import JSON
+ */
+export const usePostApiImportJson = <
+	TError = PostApiImportJson400 | PostApiImportJson401 | PostApiImportJson500,
+	TContext = unknown,
+>(
+	options?: {
+		mutation?: UseMutationOptions<
+			Awaited<ReturnType<typeof postApiImportJson>>,
+			TError,
+			{ data: PostApiImportJsonBody },
+			TContext
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseMutationResult<
+	Awaited<ReturnType<typeof postApiImportJson>>,
+	TError,
+	{ data: PostApiImportJsonBody },
+	TContext
+> => {
+	const mutationOptions = getPostApiImportJsonMutationOptions(options);
+
+	return useMutation(mutationOptions, queryClient);
+};

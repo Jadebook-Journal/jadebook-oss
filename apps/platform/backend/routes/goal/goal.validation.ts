@@ -1,12 +1,14 @@
 import { z } from "@hono/zod-openapi";
 
+export const goalStateEnum = z.enum(["active", "archived"]);
+
 export const getGoalsQuery = z.object({
 	limit: z.string().optional().default("50").openapi({
 		example: "50",
 		description:
 			"The number of goals to return — A numerical string since this is a GET route",
 	}),
-	state: z.enum(["active", "archived"]).optional().default("active").openapi({
+	state: goalStateEnum.optional().default("active").openapi({
 		example: "active",
 		description: "Filter goals by state (active, archived)",
 	}),
@@ -86,7 +88,7 @@ export const updateGoalBody = z.object({
 		example: false,
 		description: "Whether the goal should be pinned to the sidebar",
 	}),
-	state: z.enum(["active", "archived"]).optional().openapi({
+	state: goalStateEnum.optional().openapi({
 		example: "active",
 		description: "The state of the goal",
 	}),
@@ -113,7 +115,7 @@ export const goalResponse = z.object({
 	created_at: z.string(),
 	updated_at: z.string(),
 	end_date: z.string(),
-	state: z.string(),
+	state: goalStateEnum,
 	icon: z.string().nullable(),
 	tags: z.array(z.string()),
 	pinned: z.boolean(),

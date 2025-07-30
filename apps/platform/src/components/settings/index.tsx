@@ -135,7 +135,7 @@ export function SettingsPanelSection({
 		// biome-ignore lint/a11y/noLabelWithoutControl: the input is in the children prop
 		<label className="flex gap-x-5 md:gap-x-10 py-4 justify-between items-center">
 			<div>
-				<div className="text-sm font-semibold flex items-center gap-1 whitespace-nowrap">
+				<div className="text-sm font-semibold flex items-center gap-1 line-clamp-1">
 					{title}
 				</div>
 				{description && (
@@ -143,7 +143,7 @@ export function SettingsPanelSection({
 				)}
 			</div>
 
-			{children}
+			<div className="shrink-0">{children}</div>
 		</label>
 	);
 }

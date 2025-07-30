@@ -6,6 +6,7 @@ import type {
 	createGoalResponse,
 	goalResponse,
 	goalsResponse,
+	goalStateEnum,
 } from "./goal.validation";
 import type {
 	CreateGoalRoute,
@@ -40,7 +41,10 @@ export const getGoals: AppRouteHandler<GetGoalsRoute> = async (c) => {
 			return c.json([], HttpStatusCodes.OK);
 		}
 
-		const response: z.infer<typeof goalsResponse> = data;
+		const response: z.infer<typeof goalsResponse> = data.map((goal) => ({
+			...goal,
+			state: goal.state as z.infer<typeof goalStateEnum>,
+		}));
 
 		return c.json(response, HttpStatusCodes.OK);
 	} catch (error) {
@@ -81,7 +85,10 @@ export const getGoal: AppRouteHandler<GetGoalRoute> = async (c) => {
 			);
 		}
 
-		const response: z.infer<typeof goalResponse> = data;
+		const response: z.infer<typeof goalResponse> = {
+			...data,
+			state: data.state as z.infer<typeof goalStateEnum>,
+		};
 
 		return c.json(response, HttpStatusCodes.OK);
 	} catch (error) {
