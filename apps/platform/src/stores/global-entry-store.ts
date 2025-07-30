@@ -21,7 +21,7 @@ export type GlobalEntryState = GetApiEntriesId200 & {
 	updateUpdatedAt: (updatedAt: string) => void;
 	updateEntryDate: (entryDate: string) => void;
 	updateCover: (cover: string | null) => void;
-	updateTags: (tags: string[] | null) => void;
+	updateTags: (tags: string[]) => void;
 	updateContent: (content: string | null) => void;
 	updateCharacterCount: (characterCount: number) => void;
 	updateExcerpt: (excerpt: string | null) => void;
@@ -38,7 +38,7 @@ export const useGlobalEntryStore = create<GlobalEntryState>((set) => ({
 	updated_at: new Date().toISOString(),
 	entry_date: new Date().toISOString(),
 	cover: null,
-	tags: null,
+	tags: [],
 	content: null,
 	character_count: 0,
 	excerpt: null,

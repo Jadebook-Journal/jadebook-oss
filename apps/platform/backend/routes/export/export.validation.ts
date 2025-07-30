@@ -42,6 +42,12 @@ export const getUserExportQuery = z.object({
 });
 
 export const selectExportResponse = z.object({
+	generated_at: z.string().openapi({
+		description: "The date and time the export was generated",
+	}),
+	platform: z.string().openapi({
+		description: "The platform that generated the export",
+	}),
 	type: z.enum(["entries", "goals"]).openapi({
 		description: "The type of resource that was exported",
 	}),

@@ -63,7 +63,7 @@ export function useEntryMutations() {
 				created_at: new Date().toISOString(),
 				updated_at: new Date().toISOString(),
 				entry_date: new Date().toISOString(),
-				tags: null,
+				tags: [],
 				excerpt: null,
 				content: null,
 				character_count: 0,

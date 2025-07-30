@@ -1,7 +1,6 @@
 "use client";
 
 import { type Editor, EditorContent } from "@tiptap/react";
-import React from "react";
 import { LinkMenu, TextMenu } from "./editor-bubble-menu";
 import { ContentItemMenu } from "./editor-drag-handle";
 
@@ -16,17 +15,15 @@ export function BlockEditor({
 	mini?: boolean;
 	contentSize?: "default" | "large" | "wide";
 }) {
-	const menuContainerRef = React.useRef<HTMLDivElement>(null);
-
 	return (
-		<div ref={menuContainerRef} className="w-full">
+		<div className="w-full">
 			<EditorContent
 				editor={editor}
 				className="cursor-auto max-w-3xl w-full mx-auto"
 			/>
 
 			{contentMenu && <ContentItemMenu editor={editor} />}
-			<LinkMenu editor={editor} appendTo={menuContainerRef} />
+			<LinkMenu editor={editor} />
 			<TextMenu editor={editor} mini={mini} />
 		</div>
 	);
@@ -39,10 +36,8 @@ export function MiniBlockEditor({
 	editor: Editor;
 	placeholder?: string;
 }) {
-	const menuContainerRef = React.useRef<HTMLDivElement>(null);
-
 	return (
-		<div ref={menuContainerRef} className="w-full">
+		<div className="w-full">
 			<EditorContent
 				editor={editor}
 				className="cursor-auto w-full"
@@ -50,7 +45,7 @@ export function MiniBlockEditor({
 			/>
 
 			<TextMenu editor={editor} mini />
-			<LinkMenu editor={editor} appendTo={menuContainerRef} />
+			<LinkMenu editor={editor} />
 		</div>
 	);
 }

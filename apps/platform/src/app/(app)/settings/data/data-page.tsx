@@ -111,7 +111,7 @@ function ExportList() {
 								<DropdownMenuItem
 									onClick={() =>
 										copyToClipboard(
-											`${window.location.origin}/export/${exportEvent.id}`,
+											`${window.location.origin}/data-export/${exportEvent.id}`,
 										).then(() => {
 											toast.success("Link copied to clipboard");
 										})
@@ -123,7 +123,7 @@ function ExportList() {
 								<DropdownMenuItem
 									onClick={() => {
 										window.open(
-											`${window.location.origin}/export/${exportEvent.id}?download=true`,
+											`${window.location.origin}/data-export/${exportEvent.id}?download=true`,
 											"_blank",
 										);
 									}}

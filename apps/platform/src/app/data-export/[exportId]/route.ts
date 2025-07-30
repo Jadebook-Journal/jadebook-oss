@@ -135,6 +135,8 @@ export async function GET(
 	}
 
 	const responseData = {
+		generated_at: new Date().toISOString(),
+		platform: "jadebook-oss",
 		type: exportData.type as "entries" | "goals",
 		entries,
 		goals,

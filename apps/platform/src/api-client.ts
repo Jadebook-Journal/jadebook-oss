@@ -510,8 +510,7 @@ export type GetApiEntriesId200 = {
 	entry_date: string;
 	/** @nullable */
 	cover: string | null;
-	/** @nullable */
-	tags: string[] | null;
+	tags: string[];
 	/** @nullable */
 	content: string | null;
 	character_count: number;
@@ -558,8 +557,7 @@ export type PutApiEntriesIdBody = {
 	/** @nullable */
 	excerpt?: string | null;
 	pinned?: boolean;
-	/** @nullable */
-	tags?: string[] | null;
+	tags?: string[];
 	title?: string;
 	/** @nullable */
 	icon?: string | null;
@@ -638,8 +636,7 @@ export type GetApiGoals200Item = {
 	state: string;
 	/** @nullable */
 	icon: string | null;
-	/** @nullable */
-	tags: string[] | null;
+	tags: string[];
 	pinned: boolean;
 	/** @nullable */
 	cover: string | null;
@@ -676,11 +673,8 @@ export type PostApiGoalsBody = {
 	icon?: string | null;
 	/** The target end date for the goal (must be at least 1 day in the future) */
 	end_date: string;
-	/**
-	 * Array of tag IDs associated with the goal
-	 * @nullable
-	 */
-	tags?: string[] | null;
+	/** Array of tag IDs associated with the goal */
+	tags?: string[];
 	/** Whether the goal should be pinned */
 	pinned?: boolean;
 };
@@ -713,8 +707,7 @@ export type GetApiGoalsId200 = {
 	state: string;
 	/** @nullable */
 	icon: string | null;
-	/** @nullable */
-	tags: string[] | null;
+	tags: string[];
 	pinned: boolean;
 	/** @nullable */
 	cover: string | null;
@@ -767,11 +760,8 @@ export type PutApiGoalsIdBody = {
 	icon?: string | null;
 	/** The updated target end date for the goal */
 	end_date?: string;
-	/**
-	 * Updated array of tag IDs associated with the goal
-	 * @nullable
-	 */
-	tags?: string[] | null;
+	/** Updated array of tag IDs associated with the goal */
+	tags?: string[];
 	/** Whether the goal should be pinned to the sidebar */
 	pinned?: boolean;
 	/** The state of the goal */
@@ -1405,6 +1395,117 @@ export type PostApiExport401 = {
 };
 
 export type PostApiExport500 = {
+	message: string;
+};
+
+export type GetDataExportIdParams = {
+	/**
+	 * Set to 'true' to trigger file download
+	 */
+	download?: GetDataExportIdDownload;
+};
+
+export type GetDataExportIdDownload =
+	(typeof GetDataExportIdDownload)[keyof typeof GetDataExportIdDownload];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetDataExportIdDownload = {
+	true: "true",
+} as const;
+
+/**
+ * The type of resource that was exported
+ */
+export type GetDataExportId200Type =
+	(typeof GetDataExportId200Type)[keyof typeof GetDataExportId200Type];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetDataExportId200Type = {
+	entries: "entries",
+	goals: "goals",
+} as const;
+
+/**
+ * The type of entry
+ */
+export type GetDataExportId200EntriesItemType =
+	(typeof GetDataExportId200EntriesItemType)[keyof typeof GetDataExportId200EntriesItemType];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetDataExportId200EntriesItemType = {
+	entry: "entry",
+	prompted: "prompted",
+} as const;
+
+export type GetDataExportId200EntriesItem = {
+	id: string;
+	title: string;
+	/** @nullable */
+	content: string | null;
+	created_at: string;
+	updated_at: string;
+	entry_date: string;
+	/** @nullable */
+	icon: string | null;
+	/** @nullable */
+	cover: string | null;
+	/** The type of entry */
+	type: GetDataExportId200EntriesItemType;
+};
+
+/**
+ * The type of log
+ */
+export type GetDataExportId200GoalsItemLogsItemType =
+	(typeof GetDataExportId200GoalsItemLogsItemType)[keyof typeof GetDataExportId200GoalsItemLogsItemType];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const GetDataExportId200GoalsItemLogsItemType = {
+	neutral: "neutral",
+	good: "good",
+	bad: "bad",
+} as const;
+
+export type GetDataExportId200GoalsItemLogsItem = {
+	created_at: string;
+	/** The type of log */
+	type: GetDataExportId200GoalsItemLogsItemType;
+	/** @nullable */
+	content: string | null;
+};
+
+export type GetDataExportId200GoalsItem = {
+	id: string;
+	title: string;
+	/** @nullable */
+	description: string | null;
+	created_at: string;
+	updated_at: string;
+	/** @nullable */
+	icon: string | null;
+	/** @nullable */
+	cover: string | null;
+	logs: GetDataExportId200GoalsItemLogsItem[];
+};
+
+export type GetDataExportId200 = {
+	/** The date and time the export was generated */
+	generated_at: string;
+	/** The platform that generated the export */
+	platform: string;
+	/** The type of resource that was exported */
+	type: GetDataExportId200Type;
+	/** @nullable */
+	entries: GetDataExportId200EntriesItem[] | null;
+	/** @nullable */
+	goals: GetDataExportId200GoalsItem[] | null;
+};
+
+export type GetDataExportId401 = {
+	message: string;
+};
+
+export type GetDataExportId500 = {
 	message: string;
 };
 
@@ -9548,7 +9649,7 @@ export function useGetApiSearch<
 }
 
 /**
- * Gets the user's exports
+ * Gets the user's exports. Only the latest 10 exports are returned.
  * @summary Get exports
  */
 export type getApiExportResponse200 = {
@@ -9990,3 +10091,395 @@ export const usePostApiExport = <
 
 	return useMutation(mutationOptions, queryClient);
 };
+
+/**
+ * Gets a specific export. This will be in a JSON format. Add download=true query parameter to trigger file download. Note that this is not in the backend, it needs to be accessible to the public and thus, is a separate route.
+ * @summary Get export
+ */
+export type getDataExportIdResponse200 = {
+	data: GetDataExportId200;
+	status: 200;
+};
+
+export type getDataExportIdResponse401 = {
+	data: GetDataExportId401;
+	status: 401;
+};
+
+export type getDataExportIdResponse500 = {
+	data: GetDataExportId500;
+	status: 500;
+};
+
+export type getDataExportIdResponseComposite =
+	| getDataExportIdResponse200
+	| getDataExportIdResponse401
+	| getDataExportIdResponse500;
+
+export type getDataExportIdResponse = getDataExportIdResponseComposite & {
+	headers: Headers;
+};
+
+export const getGetDataExportIdUrl = (
+	id: string,
+	params?: GetDataExportIdParams,
+) => {
+	const normalizedParams = new URLSearchParams();
+
+	Object.entries(params || {}).forEach(([key, value]) => {
+		if (value !== undefined) {
+			normalizedParams.append(key, value === null ? "null" : value.toString());
+		}
+	});
+
+	const stringifiedParams = normalizedParams.toString();
+
+	return stringifiedParams.length > 0
+		? `/data-export/${id}?${stringifiedParams}`
+		: `/data-export/${id}`;
+};
+
+export const getDataExportId = async (
+	id: string,
+	params?: GetDataExportIdParams,
+	options?: RequestInit,
+): Promise<getDataExportIdResponse> => {
+	const res = await fetch(getGetDataExportIdUrl(id, params), {
+		...options,
+		method: "GET",
+	});
+
+	const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+	const data: getDataExportIdResponse["data"] = body ? JSON.parse(body) : {};
+
+	return {
+		data,
+		status: res.status,
+		headers: res.headers,
+	} as getDataExportIdResponse;
+};
+
+export const getGetDataExportIdQueryKey = (
+	id: string,
+	params?: GetDataExportIdParams,
+) => {
+	return [`/data-export/${id}`, ...(params ? [params] : [])] as const;
+};
+
+export const getGetDataExportIdInfiniteQueryOptions = <
+	TData = InfiniteData<Awaited<ReturnType<typeof getDataExportId>>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params?: GetDataExportIdParams,
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+) => {
+	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
+
+	const queryKey =
+		queryOptions?.queryKey ?? getGetDataExportIdQueryKey(id, params);
+
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getDataExportId>>> = ({
+		signal,
+	}) => getDataExportId(id, params, { signal, ...fetchOptions });
+
+	return {
+		queryKey,
+		queryFn,
+		enabled: !!id,
+		...queryOptions,
+	} as UseInfiniteQueryOptions<
+		Awaited<ReturnType<typeof getDataExportId>>,
+		TError,
+		TData
+	> & { queryKey: DataTag<QueryKey, TData, TError> };
+};
+
+export type GetDataExportIdInfiniteQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getDataExportId>>
+>;
+export type GetDataExportIdInfiniteQueryError =
+	| GetDataExportId401
+	| GetDataExportId500;
+
+export function useGetDataExportIdInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getDataExportId>>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params: undefined | GetDataExportIdParams,
+	options: {
+		query: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		> &
+			Pick<
+				DefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getDataExportId>>,
+					TError,
+					Awaited<ReturnType<typeof getDataExportId>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): DefinedUseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetDataExportIdInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getDataExportId>>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params?: GetDataExportIdParams,
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		> &
+			Pick<
+				UndefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getDataExportId>>,
+					TError,
+					Awaited<ReturnType<typeof getDataExportId>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetDataExportIdInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getDataExportId>>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params?: GetDataExportIdParams,
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+/**
+ * @summary Get export
+ */
+
+export function useGetDataExportIdInfinite<
+	TData = InfiniteData<Awaited<ReturnType<typeof getDataExportId>>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params?: GetDataExportIdParams,
+	options?: {
+		query?: Partial<
+			UseInfiniteQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseInfiniteQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+} {
+	const queryOptions = getGetDataExportIdInfiniteQueryOptions(
+		id,
+		params,
+		options,
+	);
+
+	const query = useInfiniteQuery(
+		queryOptions,
+		queryClient,
+	) as UseInfiniteQueryResult<TData, TError> & {
+		queryKey: DataTag<QueryKey, TData, TError>;
+	};
+
+	query.queryKey = queryOptions.queryKey;
+
+	return query;
+}
+
+export const getGetDataExportIdQueryOptions = <
+	TData = Awaited<ReturnType<typeof getDataExportId>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params?: GetDataExportIdParams,
+	options?: {
+		query?: Partial<
+			UseQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+) => {
+	const { query: queryOptions, fetch: fetchOptions } = options ?? {};
+
+	const queryKey =
+		queryOptions?.queryKey ?? getGetDataExportIdQueryKey(id, params);
+
+	const queryFn: QueryFunction<Awaited<ReturnType<typeof getDataExportId>>> = ({
+		signal,
+	}) => getDataExportId(id, params, { signal, ...fetchOptions });
+
+	return {
+		queryKey,
+		queryFn,
+		enabled: !!id,
+		...queryOptions,
+	} as UseQueryOptions<
+		Awaited<ReturnType<typeof getDataExportId>>,
+		TError,
+		TData
+	> & { queryKey: DataTag<QueryKey, TData, TError> };
+};
+
+export type GetDataExportIdQueryResult = NonNullable<
+	Awaited<ReturnType<typeof getDataExportId>>
+>;
+export type GetDataExportIdQueryError = GetDataExportId401 | GetDataExportId500;
+
+export function useGetDataExportId<
+	TData = Awaited<ReturnType<typeof getDataExportId>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params: undefined | GetDataExportIdParams,
+	options: {
+		query: Partial<
+			UseQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		> &
+			Pick<
+				DefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getDataExportId>>,
+					TError,
+					Awaited<ReturnType<typeof getDataExportId>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): DefinedUseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetDataExportId<
+	TData = Awaited<ReturnType<typeof getDataExportId>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params?: GetDataExportIdParams,
+	options?: {
+		query?: Partial<
+			UseQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		> &
+			Pick<
+				UndefinedInitialDataOptions<
+					Awaited<ReturnType<typeof getDataExportId>>,
+					TError,
+					Awaited<ReturnType<typeof getDataExportId>>
+				>,
+				"initialData"
+			>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+export function useGetDataExportId<
+	TData = Awaited<ReturnType<typeof getDataExportId>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params?: GetDataExportIdParams,
+	options?: {
+		query?: Partial<
+			UseQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+};
+/**
+ * @summary Get export
+ */
+
+export function useGetDataExportId<
+	TData = Awaited<ReturnType<typeof getDataExportId>>,
+	TError = GetDataExportId401 | GetDataExportId500,
+>(
+	id: string,
+	params?: GetDataExportIdParams,
+	options?: {
+		query?: Partial<
+			UseQueryOptions<
+				Awaited<ReturnType<typeof getDataExportId>>,
+				TError,
+				TData
+			>
+		>;
+		fetch?: RequestInit;
+	},
+	queryClient?: QueryClient,
+): UseQueryResult<TData, TError> & {
+	queryKey: DataTag<QueryKey, TData, TError>;
+} {
+	const queryOptions = getGetDataExportIdQueryOptions(id, params, options);
+
+	const query = useQuery(queryOptions, queryClient) as UseQueryResult<
+		TData,
+		TError
+	> & { queryKey: DataTag<QueryKey, TData, TError> };
+
+	query.queryKey = queryOptions.queryKey;
+
+	return query;
+}

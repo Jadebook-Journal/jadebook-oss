@@ -43,7 +43,7 @@ export const getUserExports = createRoute({
 
 // the actual route is in the /export/[exportId]/route.ts file
 export const getUserExport = createRoute({
-	path: "/export/{id}",
+	path: "/data-export/{id}",
 	summary: "Get export",
 	description:
 		"Gets a specific export. This will be in a JSON format. Add download=true query parameter to trigger file download. Note that this is not in the backend, it needs to be accessible to the public and thus, is a separate route.",
@@ -54,20 +54,10 @@ export const getUserExport = createRoute({
 		query: getUserExportQuery,
 	},
 	responses: {
-		[HttpStatusCodes.OK]: {
-			content: {
-				"application/json": {
-					schema: selectExportResponse,
-				},
-				"application/octet-stream": {
-					schema: z.string().openapi({
-						description: "File download when download=true",
-						format: "binary",
-					}),
-				},
-			},
-			description: "The requested export",
-		},
+		[HttpStatusCodes.OK]: jsonContent(
+			selectExportResponse,
+			"The requested export",
+		),
 		[HttpStatusCodes.UNAUTHORIZED]: jsonContent(
 			createMessageObjectSchema("Unauthorized"),
 			"Authentication required",

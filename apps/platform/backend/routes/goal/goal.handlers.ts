@@ -120,7 +120,7 @@ export const createGoal: AppRouteHandler<CreateGoalRoute> = async (c) => {
 				...body,
 				icon: body.icon || null,
 				end_date: body.end_date,
-				tags: body.tags || null,
+				tags: body.tags,
 				pinned: body.pinned ?? false,
 				user_id: userId,
 			})

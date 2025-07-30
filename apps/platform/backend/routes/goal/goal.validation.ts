@@ -39,7 +39,6 @@ export const createGoalBody = z.object({
 	}),
 	tags: z
 		.array(z.string())
-		.nullable()
 		.optional()
 		.openapi({
 			example: ["550e8400-e29b-41d4-a716-446655440001"],
@@ -78,7 +77,6 @@ export const updateGoalBody = z.object({
 	}),
 	tags: z
 		.array(z.string())
-		.nullable()
 		.optional()
 		.openapi({
 			example: ["550e8400-e29b-41d4-a716-446655440001"],
@@ -117,7 +115,7 @@ export const goalResponse = z.object({
 	end_date: z.string(),
 	state: z.string(),
 	icon: z.string().nullable(),
-	tags: z.array(z.string()).nullable(),
+	tags: z.array(z.string()),
 	pinned: z.boolean(),
 	cover: z.string().nullable(),
 });
