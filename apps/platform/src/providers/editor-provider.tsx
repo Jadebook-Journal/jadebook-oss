@@ -4,9 +4,9 @@ import { type Editor, useEditor as useTipTap } from "@tiptap/react";
 import { handleEditorContent } from "jadebook";
 import React from "react";
 import { editor_extensions } from "@/components/editor/extensions";
+import { PageLoading } from "@/components/routes/loading";
 import { cn } from "@/lib/utils";
 import { useGlobalEntryStore } from "@/stores/global-entry-store";
-import { PageLoading } from "@/components/routes/loading";
 
 export const EntryEditorContext = React.createContext<
 	| {

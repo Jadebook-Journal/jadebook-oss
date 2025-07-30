@@ -4,15 +4,15 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { toast } from "sonner";
+import {
+	getGetApiEntriesIdQueryKey,
+	getPutApiEntriesIdMutationOptions,
+} from "@/api-client";
 import { useAppStore } from "@/providers/app-store-provider";
 import {
 	type GlobalEntryState,
 	useGlobalEntryStore,
 } from "@/stores/global-entry-store";
-import {
-	getGetApiEntriesIdQueryKey,
-	getPutApiEntriesIdMutationOptions,
-} from "@/api-client";
 
 // Handles the syncing of the journal document
 export function SaveLayer() {

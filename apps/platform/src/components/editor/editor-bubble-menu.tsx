@@ -190,15 +190,7 @@ export const EditLinkPopover = ({ onSetLink }: EditLinkPopoverProps) => {
 };
 
 // Link menu
-export const LinkMenu = ({
-	editor,
-	appendTo,
-}: {
-	editor: Editor;
-	// biome-ignore lint/suspicious/noExplicitAny: the ref object can pretty much be anything — pretty sure
-	appendTo?: React.RefObject<any>;
-	shouldHide?: boolean;
-}): React.JSX.Element => {
+export const LinkMenu = ({ editor }: { editor: Editor }): React.JSX.Element => {
 	const [showEdit, setShowEdit] = React.useState(false);
 
 	const { link, target } = useEditorState({

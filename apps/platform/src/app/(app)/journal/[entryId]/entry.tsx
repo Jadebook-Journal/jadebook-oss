@@ -6,37 +6,33 @@ import {
 	TagIcon,
 	UploadSimpleIcon,
 } from "@phosphor-icons/react";
+import { useQuery } from "@tanstack/react-query";
 import { ICON_TEXT_COLOR_CLASSNAMES } from "jadebook/react";
 import React from "react";
 import { toast } from "sonner";
-import {
-	getGetApiEntriesIdQueryOptions,
-	useGetApiEntriesId,
-	type GetApiEntriesId200,
-} from "@/api-client";
+import { getGetApiEntriesIdQueryOptions } from "@/api-client";
 import { PageContainer } from "@/components/app/page-container";
 import { BlockEditor } from "@/components/editor/block-editor";
 import { OptionsMenu } from "@/components/journal/options-menu";
+import { ErrorRoute } from "@/components/routes/error";
+import { FullPageLoading } from "@/components/routes/loading";
 import { Button } from "@/components/ui/button";
 import { actionDatePickerStyle, DatePicker } from "@/components/ui/date-picker";
-import { IconSelector } from "@/features/icon/icon-selector";
+import { transparentInputStyle } from "@/components/ui/input";
 import { AssetsList } from "@/features/assets/assets-list";
 import { UploadAssetDialog } from "@/features/assets/upload-asset-dialog";
 import { CoverDisplay } from "@/features/cover/cover-display";
 import { CoverPicker } from "@/features/cover/cover-picker";
+import { IconSelector } from "@/features/icon/icon-selector";
 import {
 	TagSelector,
 	TagSelectorCommandMenu,
 } from "@/features/tag/tag-selector";
 import { cn } from "@/lib/utils";
+import { useAppStore } from "@/providers/app-store-provider";
 import { AssetStoreProvider, useAssetStore } from "@/providers/assets-provider";
 import { EntryEditorProvider, useEditor } from "@/providers/editor-provider";
 import { useGlobalEntryStore } from "@/stores/global-entry-store";
-import { transparentInputStyle } from "@/components/ui/input";
-import { useQuery } from "@tanstack/react-query";
-import { useAppStore } from "@/providers/app-store-provider";
-import { FullPageLoading } from "@/components/routes/loading";
-import { ErrorRoute } from "@/components/routes/error";
 
 export function EntryPage({ entryId }: { entryId: string }) {
 	const { session } = useAppStore((store) => ({
@@ -104,7 +100,6 @@ function InternalPage() {
 	const { editor } = useEditor();
 
 	const entryId = useGlobalEntryStore((store) => store.id);
-	const type = useGlobalEntryStore((store) => store.type);
 
 	return (
 		<>

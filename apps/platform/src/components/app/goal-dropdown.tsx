@@ -4,6 +4,7 @@ import { PencilIcon, StarIcon, TrashIcon } from "@phosphor-icons/react";
 import type { DropdownMenuContent as DropdownMenuContentPrimitive } from "@radix-ui/react-dropdown-menu";
 import React from "react";
 import { toast } from "sonner";
+import type { GetApiMiscPinned200GoalsItem } from "@/api-client";
 import { useGoalMutations } from "@/mutations/use-goal-mutations";
 import { Button } from "../ui/button";
 import { ConfirmDialog } from "../ui/confirm-dialog";
@@ -22,7 +23,6 @@ import {
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Input } from "../ui/input";
-import type { GetApiMiscPinned200GoalsItem } from "@/api-client";
 
 export function GoalActionDropdown(props: {
 	goal: GetApiMiscPinned200GoalsItem;

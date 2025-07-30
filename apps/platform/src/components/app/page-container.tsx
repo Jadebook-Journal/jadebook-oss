@@ -60,7 +60,6 @@ export function PageContainer(props: {
 				{props.actions}
 			</div>
 
-			{/** biome-ignore lint/nursery/useUniqueElementIds: ignored using `--suppress` */}
 			<div
 				id="scrollable-body"
 				className={cn("overflow-scroll flex-1", props.containerClassName)}

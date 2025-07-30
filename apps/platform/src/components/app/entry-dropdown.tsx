@@ -13,8 +13,6 @@ import {
 	getGetApiMiscPinnedQueryKey,
 	getPutApiEntriesIdMutationOptions,
 } from "@/api-client";
-import { useAppStore } from "@/providers/app-store-provider";
-import { useJournalStore } from "@/stores/journal-store";
 import { Button } from "@/components/ui/button";
 import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import {
@@ -32,6 +30,8 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { useAppStore } from "@/providers/app-store-provider";
+import { useJournalStore } from "@/stores/journal-store";
 
 export function EntryActionDropdown(props: {
 	entry: Pick<GetApiEntriesId200, "id" | "pinned" | "title" | "type" | "icon">;

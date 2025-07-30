@@ -6,19 +6,19 @@ import {
 } from "@phosphor-icons/react";
 import React from "react";
 import { toast } from "sonner";
+import type {
+	GetApiAssets200DataItem,
+	PostApiAssetsBodyEntityType,
+} from "@/api-client";
 import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useAssetMutations } from "@/mutations/use-assets-mutations";
 import { useAssetStore } from "@/providers/assets-provider";
 import { UploadAssetDialog } from "./upload-asset-dialog";
-import type {
-	GetApiAssets200DataItem,
-	PostApiAssetsBodyEntityType,
-} from "@/api-client";
-import { useAssetMutations } from "@/mutations/use-assets-mutations";
 
 /**
  * Will interact with the asset store and show them. plus have a "add asset" button.
@@ -103,6 +103,7 @@ function AssetItem({
 							}}
 						>
 							{asset.mime_type.startsWith("image") ? (
+								// biome-ignore lint/performance/noImgElement: These are dynamic and shouldn't be cached
 								<img
 									src={asset.signed_url}
 									alt={asset.file_name}

@@ -1,8 +1,8 @@
-import type {
-	GetApiGoals200Item,
-	GetApiGoalGoalIdLogs200DataItem,
-} from "@/api-client";
 import { create } from "zustand";
+import type {
+	GetApiGoalGoalIdLogs200DataItem,
+	GetApiGoals200Item,
+} from "@/api-client";
 
 export interface GoalsState {
 	goals: GetApiGoals200Item[];

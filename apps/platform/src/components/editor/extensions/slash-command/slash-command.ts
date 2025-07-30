@@ -56,6 +56,7 @@ export const SlashCommand = Extension.create({
 						isRootDepth && isParagraph && isStartOfNode && isValidAfterContent
 					);
 				},
+				// biome-ignore lint/suspicious/noExplicitAny: no clue what props is — TipTap doesn't know either
 				command: ({ editor, props }: { editor: Editor; props: any }) => {
 					const { view, state } = editor;
 					const { $head, $from } = view.state.selection;
@@ -121,7 +122,9 @@ export const SlashCommand = Extension.create({
 					return withEnabledSettings;
 				},
 				render: () => {
+					// biome-ignore lint/suspicious/noExplicitAny: no clue what component is — TipTap doesn't know either
 					let component: any;
+
 					let scrollHandler: (() => void) | null = null;
 					const editor = this.editor; // Capture editor reference
 

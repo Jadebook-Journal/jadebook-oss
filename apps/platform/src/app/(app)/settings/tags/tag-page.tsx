@@ -66,12 +66,12 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { IconSelector } from "@/features/icon/icon-selector";
 import { tagColors, tagVariants } from "@/features/tag";
 import { RenderTag } from "@/features/tag/tag";
 import { cn } from "@/lib/utils";
 import { useTagMutations } from "@/mutations/use-tag-mutations";
 import { useAppStore } from "@/providers/app-store-provider";
-import { IconSelector } from "@/features/icon/icon-selector";
 
 export function TagsPage() {
 	return (

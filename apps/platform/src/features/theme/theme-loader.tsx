@@ -1,21 +1,19 @@
 "use client";
 
+import { PenNibStraightIcon } from "@phosphor-icons/react";
+import { motion } from "motion/react";
+import type { ReactNode } from "react";
 // React Imports
 import { useEffect, useState } from "react";
-import type { ReactNode } from "react";
-
-// React Imports
-import type { ThemeStyleProps, ThemeStyles } from "@/types/theme";
-
 // Utils Imports
 import { colorFormatter } from "@/features/theme/color-converter";
-import { setShadowVariables } from "@/features/theme/shadows.theme";
 
 // Config Imports
 import { COMMON_STYLES } from "@/features/theme/config.theme";
+import { setShadowVariables } from "@/features/theme/shadows.theme";
 import { useAppStore } from "@/providers/app-store-provider";
-import { PenNibStraightIcon } from "@phosphor-icons/react";
-import { motion } from "motion/react";
+// React Imports
+import type { ThemeStyleProps, ThemeStyles } from "@/types/theme";
 
 type Theme = "dark" | "light";
 

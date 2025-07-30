@@ -26,15 +26,15 @@ import { EmptyContent } from "@/components/app/empty-content";
 import { JournalView } from "@/components/app/journal-view";
 import { PageHeading, PageSection } from "@/components/app/page";
 import { PageContainer } from "@/components/app/page-container";
+import { PageLoading } from "@/components/routes/loading";
 import { buttonVariants } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 import { useEntryMutations } from "@/mutations/use-entry-mutations";
 import { useAppStore } from "@/providers/app-store-provider";
-import { PageLoading } from "@/components/routes/loading";
 import { useJournalStore } from "@/stores/journal-store";
-import { cn } from "@/lib/utils";
 
 export function HomePage() {
 	const { session, config, profile } = useAppStore((store) => ({

@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -399,10 +398,6 @@ function PasswordSection() {
 }
 
 function DeleteSection() {
-	const { profile } = useAppStore((store) => ({
-		profile: store.profile,
-	}));
-
 	const [openDeleteDialog, setOpenDeleteDialog] = React.useState(false);
 
 	const { deleteProfileMutation } = useProfileMutations();

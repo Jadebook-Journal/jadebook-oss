@@ -6,12 +6,12 @@ import { SettingsPanel, SettingsPanelSection } from "@/components/settings";
 import { ConfigSaveButton } from "@/components/settings/settings-save-button";
 import {
 	Select,
+	SelectContent,
+	SelectGroup,
 	SelectItem,
 	SelectLabel,
-	SelectContent,
-	SelectValue,
 	SelectTrigger,
-	SelectGroup,
+	SelectValue,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { useAppStore } from "@/providers/app-store-provider";

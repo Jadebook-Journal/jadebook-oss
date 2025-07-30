@@ -55,8 +55,7 @@ export const getShadowMap = (
 		const blur2 = fixedBlur;
 
 		// Calculate spread relative to the first layer's spread variable
-		const spread2 =
-			(parseFloat(spread?.replace("px", "") ?? "0") - 1).toString() + "px";
+		const spread2 = `${(parseFloat(spread?.replace("px", "") ?? "0") - 1).toString()}px`;
 
 		// Use the same color function with appropriate opacity
 		const color2 = createColorWithOpacity(1.0);

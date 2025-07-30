@@ -2,22 +2,17 @@
 
 import {
 	ArrowLeftIcon,
-	ArrowUpRightIcon,
 	CaretUpDownIcon,
 	CircleIcon,
-	ClockCounterClockwiseIcon,
 	CommandIcon,
 	DotsThreeVerticalIcon,
-	EyeIcon,
 	FileIcon,
 	GearIcon,
 	HouseIcon,
 	MagnifyingGlassIcon,
 	PenNibStraightIcon,
-	SealQuestionIcon,
 	SidebarSimpleIcon,
 	SignOutIcon,
-	SparkleIcon,
 	TargetIcon,
 } from "@phosphor-icons/react";
 import { getParsedIcon, ICON_TEXT_COLOR_CLASSNAMES } from "jadebook/react";
@@ -25,6 +20,7 @@ import Link from "next/link";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { signOutAction } from "@/actions/auth";
+import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -34,6 +30,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Shortcut } from "@/components/ui/shortcut-key";
 import {
 	Sidebar,
 	SidebarContent,
@@ -53,8 +50,6 @@ import { cn } from "@/lib/utils";
 import { useAppStore } from "@/providers/app-store-provider";
 import { settingsNavigation } from "../settings/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Shortcut } from "@/components/ui/shortcut-key";
 import { EntryActionDropdown } from "./entry-dropdown";
 import { GoalActionDropdown } from "./goal-dropdown";
 // import { EntryActionDropdown } from "./entry-dropdown";

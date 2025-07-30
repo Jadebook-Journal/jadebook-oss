@@ -2,13 +2,21 @@
 
 import { CircleNotchIcon } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
+import { generateText } from "@tiptap/react";
 import { Coolshape } from "coolshapes-react";
 import { format } from "date-fns";
+import { handleEditorContent } from "jadebook";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import {
+	type GetApiSearch200,
+	type GetApiSearchParams,
+	getGetApiSearchQueryOptions,
+} from "@/api-client";
 import { EmptyContent } from "@/components/app/empty-content";
 import { PageContainer } from "@/components/app/page-container";
+import { editor_extensions } from "@/components/editor/extensions";
 import {
 	Form,
 	FormControl,
@@ -19,14 +27,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAppStore } from "@/providers/app-store-provider";
-import {
-	GetApiSearch200,
-	GetApiSearchParams,
-	getGetApiSearchQueryOptions,
-} from "@/api-client";
-import { editor_extensions } from "@/components/editor/extensions";
-import { generateText } from "@tiptap/react";
-import { handleEditorContent } from "jadebook";
 
 export function SearchPage() {
 	const { session } = useAppStore((store) => ({

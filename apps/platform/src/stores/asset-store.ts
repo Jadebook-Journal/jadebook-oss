@@ -1,5 +1,5 @@
-import type { GetApiAssets200DataItem } from "@/api-client";
 import { create } from "zustand";
+import type { GetApiAssets200DataItem } from "@/api-client";
 
 export type AssetState = {
 	assets: GetApiAssets200DataItem[];

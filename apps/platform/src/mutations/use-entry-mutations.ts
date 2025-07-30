@@ -11,8 +11,8 @@ import {
 	getPutApiEntriesIdMutationOptions,
 } from "@/api-client";
 import { useAppStore } from "@/providers/app-store-provider";
-import { useJournalStore } from "@/stores/journal-store";
 import { useGlobalEntryStore } from "@/stores/global-entry-store";
+import { useJournalStore } from "@/stores/journal-store";
 
 /**
  * handles entry mutations and there optimistic updates + side effects

@@ -1,5 +1,8 @@
 "use client";
 
+import type { InputHTMLAttributes } from "react";
+import React from "react";
+import { toast } from "sonner";
 import { PageSection } from "@/components/app/page";
 import { PageContainer } from "@/components/app/page-container";
 import { SettingsPanel, SettingsPanelSection } from "@/components/settings";
@@ -7,27 +10,24 @@ import {
 	ThemeExportButton,
 	ThemeSaveButton,
 } from "@/components/settings/settings-save-button";
+import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { colorFormatter } from "@/features/theme/color-converter";
 import { DEFAULT_FONT_SANS } from "@/features/theme/config.theme";
 import CssImportDialog from "@/features/theme/css-import-dialog";
 import ThemeFontSelect from "@/features/theme/font-selector.theme";
 import { allFonts, getAppliedThemeFont } from "@/features/theme/fonts.theme";
+import {
+	parseCssInput,
+	parseLetterSpacing,
+	parseShadowVariables,
+} from "@/features/theme/parse-css-input";
 import ThemePresetSelect from "@/features/theme/preset-selector.theme";
 import { getPresetThemeStyles, presets } from "@/features/theme/presets.theme";
 import { RandomizerButton } from "@/features/theme/randomizer-button";
 import { useThemeHelpers } from "@/features/theme/use-theme-helpers";
 import { useAppStore } from "@/providers/app-store-provider";
 import type { SavedThemeSettings, ThemeStyleProps } from "@/types/theme";
-import React from "react";
-import type { InputHTMLAttributes } from "react";
-import { Slider } from "@/components/ui/slider";
-import {
-	parseCssInput,
-	parseLetterSpacing,
-	parseShadowVariables,
-} from "@/features/theme/parse-css-input";
-import { toast } from "sonner";
 
 export function ThemePage() {
 	return (
@@ -534,12 +534,12 @@ function SettingsTheme() {
 				<SettingsPanel>
 					<SettingsPanelSection
 						title="Radius"
-						description={currentTheme["radius"] || "0rem"}
+						description={currentTheme.radius || "0rem"}
 					>
 						<Slider
 							className="max-w-1/2"
 							defaultValue={[
-								currentTheme["radius"] ? parseFloat(currentTheme["radius"]) : 0,
+								currentTheme.radius ? parseFloat(currentTheme.radius) : 0,
 							]}
 							min={0}
 							max={2.5}
@@ -552,14 +552,12 @@ function SettingsTheme() {
 
 					<SettingsPanelSection
 						title="Spacing"
-						description={currentTheme["spacing"] || "0rem"}
+						description={currentTheme.spacing || "0rem"}
 					>
 						<Slider
 							className="max-w-1/2"
 							defaultValue={[
-								currentTheme["spacing"]
-									? parseFloat(currentTheme["spacing"])
-									: 0,
+								currentTheme.spacing ? parseFloat(currentTheme.spacing) : 0,
 							]}
 							min={0.2}
 							max={0.35}

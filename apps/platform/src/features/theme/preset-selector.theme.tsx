@@ -1,4 +1,3 @@
-import type { ThemePreset } from "@/types/theme";
 import {
 	Select,
 	SelectContent,
@@ -8,6 +7,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import type { ThemePreset } from "@/types/theme";
 import { useThemeHelpers } from "./use-theme-helpers";
 
 type ThemePresetSelectProps = {

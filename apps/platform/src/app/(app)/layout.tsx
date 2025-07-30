@@ -1,16 +1,16 @@
+import Head from "next/head";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
 import { Suspense } from "react";
-import { QueryProvider } from "@/providers/query-provider";
-import { AppStoreProvider } from "@/providers/app-store-provider";
-import { ThemeLoader } from "@/features/theme/theme-loader";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app/sidebar";
 import { MainContainer } from "@/components/app/main-container";
-import { SaveLayer } from "@/components/journal/save-layer";
+import { AppSidebar } from "@/components/app/sidebar";
 import { GlobalCommandCenter } from "@/components/command/command-center";
-import Head from "next/head";
+import { SaveLayer } from "@/components/journal/save-layer";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { ThemeLoader } from "@/features/theme/theme-loader";
+import { createClient } from "@/lib/supabase/server";
+import { AppStoreProvider } from "@/providers/app-store-provider";
+import { QueryProvider } from "@/providers/query-provider";
 
 export default async function ProtectedLayout({
 	children,

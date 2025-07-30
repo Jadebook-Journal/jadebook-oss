@@ -1,13 +1,8 @@
-// Type Imports
 import type { ThemeStyleProps, ThemeStyles } from "@/types/theme";
-
-// Component Imports
-import { colorFormatter } from "./color-converter";
 import type { ColorFormat } from "./color-converter";
-import { getShadowMap } from "./shadows.theme";
-
-// Config Imports
+import { colorFormatter } from "./color-converter";
 import { defaultLightThemeStyles } from "./config.theme";
+import { getShadowMap } from "./shadows.theme";
 
 type ThemeType = {
 	light: ThemeStyleProps;
@@ -19,7 +14,7 @@ const generateShadowVariables = (shadowMap: Record<string, string>): string => {
   --shadow-2xs: ${shadowMap["shadow-2xs"]};
   --shadow-xs: ${shadowMap["shadow-xs"]};
   --shadow-sm: ${shadowMap["shadow-sm"]};
-  --shadow: ${shadowMap["shadow"]};
+  --shadow: ${shadowMap.shadow};
   --shadow-md: ${shadowMap["shadow-md"]};
   --shadow-lg: ${shadowMap["shadow-lg"]};
   --shadow-xl: ${shadowMap["shadow-xl"]};
@@ -27,7 +22,7 @@ const generateShadowVariables = (shadowMap: Record<string, string>): string => {
 };
 
 const generateTrackingVariables = (themeStyles: ThemeStyles): string => {
-	const styles = themeStyles["light"];
+	const styles = themeStyles.light;
 
 	if (styles["letter-spacing"] === "0em") {
 		return "";
@@ -189,5 +184,5 @@ export const generateThemeCode = (
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);${generateTrackingVariables(themeStyles)}
-}${themeStyles["light"]["letter-spacing"] !== "0em" ? "\n\nbody {\n  letter-spacing: var(--tracking-normal);\n}" : ""}`;
+}${themeStyles.light["letter-spacing"] !== "0em" ? "\n\nbody {\n  letter-spacing: var(--tracking-normal);\n}" : ""}`;
 };

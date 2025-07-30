@@ -31,6 +31,8 @@ import { EmptyContent } from "@/components/app/empty-content";
 import { JournalView } from "@/components/app/journal-view";
 import { PageSection } from "@/components/app/page";
 import { PageContainer } from "@/components/app/page-container";
+import { ErrorRoute } from "@/components/routes/error";
+import { PageLoading } from "@/components/routes/loading";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
 	DropdownMenu,
@@ -46,8 +48,6 @@ import { RenderTag } from "@/features/tag/tag";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/providers/app-store-provider";
 import { useJournalStore } from "@/stores/journal-store";
-import { ErrorRoute } from "@/components/routes/error";
-import { PageLoading } from "@/components/routes/loading";
 
 export function TagPage({ tagId }: { tagId: string }) {
 	const { tags } = useAppStore((store) => ({

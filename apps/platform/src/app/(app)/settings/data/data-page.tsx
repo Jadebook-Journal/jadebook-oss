@@ -1,31 +1,30 @@
 "use client";
 
+import {
+	ArrowSquareOutIcon,
+	CopyIcon,
+	DotsThreeVerticalIcon,
+} from "@phosphor-icons/react";
+import { useQuery } from "@tanstack/react-query";
 import { Coolshape } from "coolshapes-react";
-import React from "react";
+import { format } from "date-fns";
+import { toast } from "sonner";
+import { useCopyToClipboard } from "usehooks-ts";
+import { getGetApiExportQueryOptions } from "@/api-client";
 import { EmptyContent } from "@/components/app/empty-content";
 import { PageSection } from "@/components/app/page";
 import { PageContainer } from "@/components/app/page-container";
-import { ExportDialog } from "@/features/data/export-dialog";
-import { useQuery } from "@tanstack/react-query";
-import { getGetApiExportQueryOptions } from "@/api-client";
 import { PageLoading } from "@/components/routes/loading";
 import { SettingsPanel, SettingsPanelSection } from "@/components/settings";
-import { format } from "date-fns";
+import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-	ArrowSquareOutIcon,
-	CopyIcon,
-	DotsThreeVerticalIcon,
-} from "@phosphor-icons/react";
-import { Button } from "@/components/ui/button";
+import { ExportDialog } from "@/features/data/export-dialog";
 import { useAppStore } from "@/providers/app-store-provider";
-import { useCopyToClipboard } from "usehooks-ts";
-import { toast } from "sonner";
 
 export function DataPage() {
 	return (

@@ -1,7 +1,7 @@
-import { createClient } from "@/lib/supabase/server";
-import { selectExportResponse } from "@backend/routes/export/export.validation";
+import type { selectExportResponse } from "@backend/routes/export/export.validation";
 import type { NextRequest } from "next/server";
-import z from "zod";
+import type z from "zod";
+import { createClient } from "@/lib/supabase/server";
 
 // this is a separate route from the backend since we don't want to run the auth middleware
 export async function GET(

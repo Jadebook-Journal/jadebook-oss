@@ -9,8 +9,17 @@ import { getParsedIcon } from "jadebook/react";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
+import {
+	type GetApiGoals200Item,
+	getGetApiGoalsQueryKey,
+	getPostApiGoalsMutationOptions,
+	type PostApiGoalsBody,
+	useGetApiGoals,
+} from "@/api-client";
 import { EmptyContent } from "@/components/app/empty-content";
 import { PageContainer } from "@/components/app/page-container";
+import { ErrorRoute } from "@/components/routes/error";
+import { PageLoading } from "@/components/routes/loading";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { DatePicker } from "@/components/ui/date-picker";
 import {
@@ -34,20 +43,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Textarea } from "@/components/ui/textarea";
+import { IconSelector } from "@/features/icon/icon-selector";
 import { RenderTag } from "@/features/tag/tag";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/providers/app-store-provider";
-import {
-	type GetApiGoals200Item,
-	getGetApiGoalsQueryKey,
-	getPostApiGoalsMutationOptions,
-	type PostApiGoalsBody,
-	useGetApiGoals,
-} from "@/api-client";
 import { useGoalsStore } from "@/stores/goal-store";
-import { PageLoading } from "@/components/routes/loading";
-import { ErrorRoute } from "@/components/routes/error";
-import { IconSelector } from "@/features/icon/icon-selector";
 
 export function GoalsPage() {
 	const { session } = useAppStore((store) => ({

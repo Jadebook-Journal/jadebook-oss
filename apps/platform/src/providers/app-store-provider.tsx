@@ -1,26 +1,25 @@
 "use client";
 
+import type { Session } from "@supabase/supabase-js";
 import equal from "fast-deep-equal";
+import { mergeWithDefault } from "jadebook";
 import React, { createContext, type ReactNode, useContext } from "react";
 import { useStore as useZustandStore } from "zustand";
 import { useShallow } from "zustand/react/shallow";
-import { BASE_CONFIG } from "@/features/config/base.config";
-import { type AppState, createAppStore } from "@/stores/app-store";
 import {
+	type GetApiMiscPinned200,
+	type GetApiProfile200,
+	type GetApiTags200Item,
 	useGetApiMiscPinned,
 	useGetApiProfile,
 	useGetApiTags,
-	type GetApiProfile200,
-	type GetApiTags200Item,
-	type GetApiMiscPinned200,
 } from "@/api-client";
-
-import { mergeWithDefault } from "jadebook";
-import { defaultThemeState } from "@/features/theme/config.theme";
-import type { SavedThemeSettings } from "@/types/theme";
-import type { AppConfig } from "@/types/config";
 import { PageLoading } from "@/components/routes/loading";
-import type { Session } from "@supabase/supabase-js";
+import { BASE_CONFIG } from "@/features/config/base.config";
+import { defaultThemeState } from "@/features/theme/config.theme";
+import { type AppState, createAppStore } from "@/stores/app-store";
+import type { AppConfig } from "@/types/config";
+import type { SavedThemeSettings } from "@/types/theme";
 
 type AppStore = ReturnType<typeof createAppStore>;
 

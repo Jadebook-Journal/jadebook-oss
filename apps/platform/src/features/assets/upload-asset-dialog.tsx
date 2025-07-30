@@ -8,6 +8,7 @@ import {
 	getGetApiAssetsQueryKey,
 	getPostApiAssetsUploadMutationOptions,
 } from "@/api-client";
+import { PageLoading } from "@/components/routes/loading";
 import { useAppStore } from "@/providers/app-store-provider";
 import {
 	Dialog,
@@ -16,7 +17,6 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from "../../components/ui/dialog";
-import { PageLoading } from "@/components/routes/loading";
 
 export function UploadAssetDialog({
 	open,

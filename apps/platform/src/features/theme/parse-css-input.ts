@@ -1,9 +1,8 @@
-/** biome-ignore-all lint/suspicious/noAssignInExpressions: <explanation> */
-import type { ThemeStyleProps } from "@/types/theme";
 import {
 	COMMON_STYLES,
 	defaultThemeState,
 } from "@/features/theme/config.theme";
+import type { ThemeStyleProps } from "@/types/theme";
 export const variableNames = Object.keys(defaultThemeState.light);
 const nonColorVariables = COMMON_STYLES;
 const VARIABLE_PREFIX = "--";
@@ -149,6 +148,7 @@ const extractBasicShadowProperties = (
 	let foundDirectProperties = false;
 
 	// Using a single regex with capture groups is more efficient than multiple regex executions
+	// biome-ignore lint/suspicious/noAssignInExpressions: this is from the implementation from themeselection
 	while ((match = directPropertiesRegex.exec(cssContent)) !== null) {
 		const property = `shadow-${match[1]}`; // e.g., "shadow-color"
 		const value = match[2].trim();
@@ -170,6 +170,7 @@ const extractBasicShadowProperties = (
 	const shadowValues = [];
 
 	// Collect all shadow values
+	// biome-ignore lint/suspicious/noAssignInExpressions: this is from the implementation from themeselection
 	while ((match = shadowRegex.exec(cssContent)) !== null) {
 		shadowValues.push({
 			value: match[1],
@@ -265,7 +266,7 @@ const formatOpacity = (opacityStr: string): string => {
 	}
 
 	// If opacity is in percentage format (e.g., 50%)
-	else if (!isNaN(parseInt(cleanOpacity, 10))) {
+	else if (!Number.isNaN(parseInt(cleanOpacity, 10))) {
 		return (parseInt(cleanOpacity, 10) / 100).toString();
 	}
 

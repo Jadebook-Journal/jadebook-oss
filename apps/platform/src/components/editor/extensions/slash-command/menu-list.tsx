@@ -12,6 +12,7 @@ import type { Command, MenuListProps } from "./types";
 // Flatten commands from groups for easier navigation
 type FlatCommand = Command & { groupTitle?: string; flatIndex: number };
 
+// biome-ignore lint/suspicious/noExplicitAny: pretty sure the ref is the editor but TipTap has weird types
 export const MenuList = forwardRef<any, MenuListProps>((props, ref) => {
 	const [selectedIndex, setSelectedIndex] = useState(0);
 

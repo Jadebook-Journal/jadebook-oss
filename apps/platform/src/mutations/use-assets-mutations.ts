@@ -1,10 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useAppStore } from "@/providers/app-store-provider";
-import { useAssetStore } from "@/providers/assets-provider";
 import {
 	getDeleteApiAssetsIdMutationOptions,
 	getGetApiAssetsQueryKey,
 } from "@/api-client";
+import { useAppStore } from "@/providers/app-store-provider";
+import { useAssetStore } from "@/providers/assets-provider";
 
 /**
  * handles asset mutations and there optimistic updates + side effects

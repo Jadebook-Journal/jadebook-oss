@@ -1,11 +1,9 @@
 "use client";
 
 import {
-	ArrowsClockwiseIcon,
 	DotsThreeIcon,
 	MinusIcon,
 	PencilLineIcon,
-	SparkleIcon,
 	TrashIcon,
 	TrendDownIcon,
 	TrendUpIcon,
@@ -16,7 +14,11 @@ import { formatDistanceToNow } from "date-fns";
 import { handleEditorContent } from "jadebook";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { toast } from "sonner";
+import {
+	type GetApiGoalGoalIdLogs200DataItem,
+	type PostApiGoalGoalIdLogsBodyType,
+	useGetApiGoalGoalIdLogsInfinite,
+} from "@/api-client";
 import { cn } from "@/lib/utils";
 import { useGoalMutations } from "@/mutations/use-goal-mutations";
 import { useLogMutations } from "@/mutations/use-log-mutations";
@@ -28,6 +30,7 @@ import { EmptyContent } from "../app/empty-content";
 import { PageSection } from "../app/page";
 import { MiniBlockEditor } from "../editor/block-editor";
 import { editor_extensions } from "../editor/extensions";
+import { PageLoading } from "../routes/loading";
 import { Button } from "../ui/button";
 import { ConfirmDialog } from "../ui/confirm-dialog";
 import {
@@ -45,12 +48,6 @@ import {
 	SelectValue,
 } from "../ui/select";
 import { Separator } from "../ui/separator";
-import {
-	type GetApiGoalGoalIdLogs200DataItem,
-	type PostApiGoalGoalIdLogsBodyType,
-	useGetApiGoalGoalIdLogsInfinite,
-} from "@/api-client";
-import { PageLoading } from "../routes/loading";
 
 export function LogSection() {
 	const { goalId, userId, updateLogs, logs } = useGoalStore((store) => ({

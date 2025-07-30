@@ -9,7 +9,6 @@ import {
 } from "jadebook/react";
 import { motion } from "motion/react";
 import React from "react";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
 	Popover,
@@ -17,6 +16,7 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 
 export function IconSelector({
 	value,

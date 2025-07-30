@@ -10,8 +10,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import type { GetApiEntries200DataItem } from "@/api-client";
-import { cn } from "@/lib/utils";
-import { useAppStore } from "@/providers/app-store-provider";
+import { EntryActionDropdown } from "@/components/app/entry-dropdown";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
@@ -27,7 +26,8 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { EntryActionDropdown } from "@/components/app/entry-dropdown";
+import { cn } from "@/lib/utils";
+import { useAppStore } from "@/providers/app-store-provider";
 
 export type JournalViewType = "list" | "grid" | "monthly";
 

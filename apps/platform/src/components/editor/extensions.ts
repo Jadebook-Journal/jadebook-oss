@@ -1,7 +1,7 @@
-import StarterKit from "@tiptap/starter-kit";
 import { TextStyleKit } from "@tiptap/extension-text-style";
-import { Placeholder, CharacterCount } from "@tiptap/extensions";
+import { CharacterCount, Placeholder } from "@tiptap/extensions";
 import type { AnyExtension } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 
 // Custom extension for web platform
 import { SlashCommand } from "./extensions/slash-command";

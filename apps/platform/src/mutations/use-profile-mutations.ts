@@ -1,12 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import {
 	getDeleteApiProfileMutationOptions,
 	getGetApiProfileQueryKey,
 	getPutApiProfileMutationOptions,
 } from "@/api-client";
 import { useAppStore } from "@/providers/app-store-provider";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 
 /**
  * Handles profile mutations and there optimistic updates + side effects

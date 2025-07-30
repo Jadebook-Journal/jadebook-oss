@@ -8,6 +8,7 @@ import {
 	TrashIcon,
 } from "@phosphor-icons/react";
 import React from "react";
+import { useEntryMutations } from "@/mutations/use-entry-mutations";
 import { useGlobalEntryStore } from "@/stores/global-entry-store";
 import { Button } from "../ui/button";
 import { ConfirmDialog } from "../ui/confirm-dialog";
@@ -20,7 +21,6 @@ import {
 } from "../ui/dropdown-menu";
 import { BrowserTranscriptionDialog } from "./browser-transcription-dialog";
 import { EntryInformationDialog } from "./information-dialog";
-import { useEntryMutations } from "@/mutations/use-entry-mutations";
 
 export function OptionsMenu() {
 	const entryId = useGlobalEntryStore((store) => store.id);

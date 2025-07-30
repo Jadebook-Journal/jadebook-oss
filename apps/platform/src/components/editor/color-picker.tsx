@@ -2,7 +2,6 @@ import { ArrowArcLeftIcon } from "@phosphor-icons/react";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Input } from "../ui/input";
 
 export type ColorButtonProps = {
 	color?: string;
@@ -58,31 +57,6 @@ export type ColorPickerProps = {
 };
 
 export const ColorPicker = ({ color, onChange, onClear }: ColorPickerProps) => {
-	const [colorInputValue, setColorInputValue] = React.useState(color || "");
-
-	const handleColorUpdate = React.useCallback(
-		(event: React.ChangeEvent<HTMLInputElement>) => {
-			setColorInputValue(event.target.value);
-		},
-		[],
-	);
-
-	const handleColorChange = React.useCallback(() => {
-		const isCorrectColor = /^#([0-9A-F]{3}){1,2}$/i.test(colorInputValue);
-
-		if (!isCorrectColor) {
-			if (onChange) {
-				onChange("");
-			}
-
-			return;
-		}
-
-		if (onChange) {
-			onChange(colorInputValue);
-		}
-	}, [colorInputValue, onChange]);
-
 	return (
 		<div className="flex flex-col items-center gap-2 p-1 w-full">
 			<div className="flex flex-wrap items-center gap-0.5 w-full">
@@ -95,8 +69,6 @@ export const ColorPicker = ({ color, onChange, onClear }: ColorPickerProps) => {
 							if (onChange) {
 								onChange(color);
 							}
-
-							setColorInputValue(color);
 						}}
 					/>
 				))}

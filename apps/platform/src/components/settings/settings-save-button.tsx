@@ -1,15 +1,15 @@
 "use client";
 
 import equal from "fast-deep-equal";
+import { generateThemeCode } from "@/features/theme/style-generator";
 import { useProfileMutations } from "@/mutations/use-profile-mutations";
 import {
 	parseConfig,
 	parseTheme,
 	useAppStore,
 } from "@/providers/app-store-provider";
-import { Button } from "../ui/button";
-import { generateThemeCode } from "@/features/theme/style-generator";
 import type { ThemeStyleProps } from "@/types/theme";
+import { Button } from "../ui/button";
 
 export function ThemeExportButton() {
 	const { theme } = useAppStore((store) => ({

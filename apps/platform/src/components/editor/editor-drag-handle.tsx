@@ -6,6 +6,7 @@ import {
 	TextTSlashIcon,
 	TrashIcon,
 } from "@phosphor-icons/react";
+import DragHandle from "@tiptap/extension-drag-handle-react";
 import type { Node } from "@tiptap/pm/model";
 import type { NodeSelection } from "@tiptap/pm/state";
 import type { Editor } from "@tiptap/react";
@@ -20,7 +21,6 @@ import {
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import DragHandle from "@tiptap/extension-drag-handle-react";
 
 export type ContentItemMenuProps = {
 	editor: Editor;

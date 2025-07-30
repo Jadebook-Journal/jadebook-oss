@@ -139,7 +139,7 @@ export function useGoalMutations({ goalId }: { goalId: string }) {
 				},
 			},
 		}),
-		onMutate: (data) => {
+		onMutate: () => {
 			updatePinnedResources({
 				...pinnedResources,
 				goals: pinnedResources.goals.filter((goal) => goal.id !== goalId),

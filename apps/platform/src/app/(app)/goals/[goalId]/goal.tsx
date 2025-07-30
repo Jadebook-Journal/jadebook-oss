@@ -4,7 +4,6 @@ import {
 	ArchiveIcon,
 	DotsThreeIcon,
 	ImageIcon,
-	SparkleIcon,
 	StarIcon,
 	TagIcon,
 	TargetIcon,
@@ -16,8 +15,11 @@ import { getGoalProgress } from "jadebook";
 import { ICON_TEXT_COLOR_CLASSNAMES } from "jadebook/react";
 import React, { useState } from "react";
 import { toast } from "sonner";
+import { useGetApiGoalsId } from "@/api-client";
 import { PageContainer } from "@/components/app/page-container";
 import { LogSection } from "@/components/logs/log-components";
+import { ErrorRoute } from "@/components/routes/error";
+import { PageLoading } from "@/components/routes/loading";
 import { Button } from "@/components/ui/button";
 import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import { actionDatePickerStyle, DatePicker } from "@/components/ui/date-picker";
@@ -35,20 +37,17 @@ import { AssetsList } from "@/features/assets/assets-list";
 import { UploadAssetDialog } from "@/features/assets/upload-asset-dialog";
 import { CoverDisplay } from "@/features/cover/cover-display";
 import { CoverPicker } from "@/features/cover/cover-picker";
+import { IconSelector } from "@/features/icon/icon-selector";
+import {
+	TagSelector,
+	TagSelectorCommandMenu,
+} from "@/features/tag/tag-selector";
 import { cn } from "@/lib/utils";
 import { useGoalMutations } from "@/mutations/use-goal-mutations";
 import { useAppStore } from "@/providers/app-store-provider";
 import { useAssetStore } from "@/providers/assets-provider";
 import { GoalStoreProvider, useGoalStore } from "@/providers/goal-provider";
 import { useGoalsStore } from "@/stores/goal-store";
-import { useGetApiGoalsId } from "@/api-client";
-import { PageLoading } from "@/components/routes/loading";
-import { ErrorRoute } from "@/components/routes/error";
-import {
-	TagSelector,
-	TagSelectorCommandMenu,
-} from "@/features/tag/tag-selector";
-import { IconSelector } from "@/features/icon/icon-selector";
 
 export function GoalPage({ goalId }: { goalId: string }) {
 	const goals = useGoalsStore((store) => store.goals);
