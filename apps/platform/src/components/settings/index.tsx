@@ -143,7 +143,7 @@ export function SettingsPanelSection({
 				)}
 			</div>
 
-			<div className="shrink-0">{children}</div>
+			{children}
 		</label>
 	);
 }
