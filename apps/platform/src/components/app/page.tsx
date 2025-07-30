@@ -23,7 +23,7 @@ export function PageSection(props: {
 }) {
 	return (
 		<div className="space-y-3">
-			<div className="flex flex-col @md:flex-row items-center justify-between md:gap-6 gap-3">
+			<div className="flex flex-col @md:flex-row sm:items-center justify-start sm:justify-between md:gap-6 gap-3">
 				<div className="space-y-0.5">
 					<h2 className="font-semibold">{props.title}</h2>
 					{props.description && (
