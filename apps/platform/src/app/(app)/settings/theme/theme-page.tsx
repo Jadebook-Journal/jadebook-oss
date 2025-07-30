@@ -52,8 +52,6 @@ const ThemePresets = () => {
 		updateTheme: state.updateTheme,
 	}));
 
-	console.log("actual theme", theme);
-
 	const [importDialogOpen, setImportDialogOpen] = React.useState(false);
 
 	const { randomize } = useThemeHelpers({
@@ -244,6 +242,30 @@ function SettingsTheme() {
 
 	return (
 		<>
+			<PageSection title="Color Theme">
+				<SettingsPanel>
+					<SettingsPanelSection
+						title="Base Mode"
+						description="Themes have 2 modes: light and dark, each with their own set of colors and styles."
+					>
+						<Tabs
+							value={theme.mode}
+							onValueChange={(value) => {
+								updateTheme({
+									...theme,
+									mode: value as "light" | "dark",
+								});
+							}}
+						>
+							<TabsList>
+								<TabsTrigger value="light">Light</TabsTrigger>
+								<TabsTrigger value="dark">Dark</TabsTrigger>
+							</TabsList>
+						</Tabs>
+					</SettingsPanelSection>
+				</SettingsPanel>
+			</PageSection>
+
 			<PageSection title="Typography">
 				<SettingsPanel>
 					<SettingsPanelSection title="Main font">
@@ -293,27 +315,6 @@ function SettingsTheme() {
 								updateStyle("letter-spacing", `${value[0]}em`);
 							}}
 						/>
-					</SettingsPanelSection>
-				</SettingsPanel>
-			</PageSection>
-
-			<PageSection title="Color Theme">
-				<SettingsPanel>
-					<SettingsPanelSection title="Base Mode">
-						<Tabs
-							value={theme.mode}
-							onValueChange={(value) => {
-								updateTheme({
-									...theme,
-									mode: value as "light" | "dark",
-								});
-							}}
-						>
-							<TabsList>
-								<TabsTrigger value="light">Light</TabsTrigger>
-								<TabsTrigger value="dark">Dark</TabsTrigger>
-							</TabsList>
-						</Tabs>
 					</SettingsPanelSection>
 				</SettingsPanel>
 			</PageSection>

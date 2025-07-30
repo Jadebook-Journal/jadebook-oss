@@ -38,10 +38,10 @@ import { RenderTag } from "@/features/tag/tag";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/providers/app-store-provider";
 import {
-	GetApiGoals200Item,
+	type GetApiGoals200Item,
 	getGetApiGoalsQueryKey,
 	getPostApiGoalsMutationOptions,
-	PostApiGoalsBody,
+	type PostApiGoalsBody,
 	useGetApiGoals,
 } from "@/api-client";
 import { useGoalsStore } from "@/stores/goal-store";

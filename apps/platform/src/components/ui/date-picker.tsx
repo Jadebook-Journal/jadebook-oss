@@ -52,7 +52,11 @@ export function DatePicker({
 					{date ? format(date, "PPP") : <span>Pick a date</span>}
 				</Button>
 			</PopoverTrigger>
-			<PopoverContent side={side} align={align} className="w-auto p-0">
+			<PopoverContent
+				side={side}
+				align={align}
+				className="w-auto p-0 overflow-hidden"
+			>
 				{label && (
 					<div className="p-3 border-b bg-muted flex items-center justify-between shrink-0">
 						<Label asChild>

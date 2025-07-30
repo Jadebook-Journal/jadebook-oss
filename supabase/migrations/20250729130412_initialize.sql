@@ -166,9 +166,33 @@ CREATE INDEX idx_log_goal_id ON public.log(goal_id);
 CREATE POLICY "Allow Authenticated Users" ON "public"."log" AS PERMISSIVE
 FOR ALL TO anon, authenticated USING (true);
 
+-- Export Table 
+
+-- Create the export table in the public schema
+CREATE TABLE public.export (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL DEFAULT auth.uid(),
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  expire_at timestamp with time zone NOT NULL,
+  type text NOT NULL,
+  start_date timestamp with time zone NOT NULL,
+  end_date timestamp with time zone NOT NULL,
+  CONSTRAINT export_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.user(id)
+);
+
+-- Enable Row Level Security
+ALTER TABLE public.export ENABLE ROW LEVEL SECURITY;
+
+-- Create an index on the foreign key for performance
+CREATE INDEX idx_export_user_id ON public.export(user_id);
+
+-- Setup RLS policies for the export table
+CREATE POLICY "Allow Authenticated Users" ON "public"."export" AS PERMISSIVE
+FOR ALL TO anon, authenticated USING (true);
+
 -- Create storage bucket for user assets
-INSERT INTO storage.buckets (id, name, public)
-VALUES ('user-assets', 'user-assets', false);
+INSERT INTO storage.buckets (id, name)
+VALUES ('user-assets', 'user-assets');
 
 -- Create storage policy for user-assets bucket
 CREATE POLICY "Allow Authenticated Users" 

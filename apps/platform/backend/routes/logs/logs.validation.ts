@@ -1,5 +1,7 @@
 import { z } from "@hono/zod-openapi";
 
+export const logTypeEnum = ["neutral", "good", "bad"] as const;
+
 // Query parameters for getting logs
 export const getLogsQuery = z.object({
 	page: z.string().default("0").openapi({
@@ -34,7 +36,7 @@ export const createLogBody = z.object({
 			"Today I practiced Spanish vocabulary for 30 minutes. I learned 10 new words and reviewed 20 old ones.",
 		description: "The content of the log entry",
 	}),
-	type: z.enum(["neutral", "good", "bad"]).optional().openapi({
+	type: z.enum(logTypeEnum).optional().openapi({
 		example: "good",
 		description: "Type for the log entry (neutral, good, bad)",
 	}),
@@ -47,7 +49,7 @@ export const updateLogBody = z.object({
 			"Today I practiced Spanish vocabulary for 45 minutes. Made great progress!",
 		description: "The updated content of the log entry",
 	}),
-	type: z.enum(["neutral", "good", "bad"]).optional().openapi({
+	type: z.enum(logTypeEnum).optional().openapi({
 		example: "good",
 		description: "Updated type for the log entry (neutral, good, bad)",
 	}),

@@ -875,7 +875,7 @@ export const presets: Record<string, ThemeStyles> = {
 			"primary-foreground": "oklch(0.22 0.05 145.73)",
 			secondary: "oklch(0.39 0.03 142.99)",
 			"secondary-foreground": "oklch(0.90 0.02 142.55)",
-			muted: "oklch(0.33 0.03 146.99)",
+			muted: "oklch(0.26 0.03 150.77)",
 			"muted-foreground": "oklch(0.86 0.02 76.10)",
 			accent: "oklch(0.58 0.14 144.18)",
 			"accent-foreground": "oklch(0.94 0.01 72.66)",

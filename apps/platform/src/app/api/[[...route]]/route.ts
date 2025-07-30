@@ -14,6 +14,7 @@ import tag from "@backend/routes/tag/tag.index";
 import misc from "@backend/routes/misc/misc.index";
 import prompts from "@backend/routes/prompts/prompts.index";
 import search from "@backend/routes/search/search.index";
+import exports from "@backend/routes/export/export.index";
 
 export const runtime = "edge";
 
@@ -36,6 +37,7 @@ const routes = [
 	misc,
 	prompts,
 	search,
+	exports,
 ] as const;
 
 routes.forEach((route) => {

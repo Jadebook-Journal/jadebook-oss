@@ -64,7 +64,7 @@ export type Database = {
           icon: string | null
           id: string
           pinned: boolean
-          tags: string[] | null
+          tags: string[]
           title: string
           type: string
           updated_at: string
@@ -80,7 +80,7 @@ export type Database = {
           icon?: string | null
           id?: string
           pinned?: boolean
-          tags?: string[] | null
+          tags?: string[]
           title?: string
           type?: string
           updated_at?: string
@@ -96,7 +96,7 @@ export type Database = {
           icon?: string | null
           id?: string
           pinned?: boolean
-          tags?: string[] | null
+          tags?: string[]
           title?: string
           type?: string
           updated_at?: string
@@ -105,6 +105,44 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "entry_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "user"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      export: {
+        Row: {
+          created_at: string
+          end_date: string
+          expire_at: string
+          id: string
+          start_date: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          end_date: string
+          expire_at: string
+          id?: string
+          start_date: string
+          type?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          end_date?: string
+          expire_at?: string
+          id?: string
+          start_date?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "export_user_id_fkey"
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "user"
@@ -122,7 +160,7 @@ export type Database = {
           id: string
           pinned: boolean
           state: string
-          tags: string[] | null
+          tags: string[]
           title: string
           updated_at: string
           user_id: string
@@ -136,7 +174,7 @@ export type Database = {
           id?: string
           pinned?: boolean
           state?: string
-          tags?: string[] | null
+          tags?: string[]
           title: string
           updated_at?: string
           user_id?: string
@@ -150,7 +188,7 @@ export type Database = {
           id?: string
           pinned?: boolean
           state?: string
-          tags?: string[] | null
+          tags?: string[]
           title?: string
           updated_at?: string
           user_id?: string
@@ -178,10 +216,10 @@ export type Database = {
         Insert: {
           content?: string | null
           created_at?: string
-          goal_id?: string
+          goal_id: string
           id?: string
           type?: string | null
-          updated_at: string
+          updated_at?: string
           user_id?: string
         }
         Update: {
