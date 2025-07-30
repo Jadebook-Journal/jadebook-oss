@@ -9,6 +9,19 @@ const nextConfig: NextConfig = {
 	experimental: {
 		reactCompiler: true,
 	},
+	headers: async () => {
+		return [
+			{
+				source: "/(.*)",
+				headers: [
+					{
+						key: "X-Frame-Options",
+						value: "SAMEORIGIN",
+					},
+				],
+			},
+		];
+	},
 };
 
 export default nextConfig;
