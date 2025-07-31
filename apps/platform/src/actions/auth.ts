@@ -24,6 +24,20 @@ export const signUpAction = async (
 		return { success: false, reason: typedParams.error.message };
 	}
 
+	const userEmail = process.env.USER_EMAIL;
+
+	if (!userEmail) {
+		throw new Error("USER_EMAIL is not set");
+	}
+
+	if (userEmail !== typedParams.data.email) {
+		console.error(
+			`User ${typedParams.data.email} tried to sign up, but only ${userEmail} is allowed`,
+		);
+
+		return { success: false, reason: "You are not authorized to sign up" };
+	}
+
 	const { error } = await supabase.auth.signUp(typedParams.data);
 
 	if (error) {
