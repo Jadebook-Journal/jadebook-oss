@@ -6,6 +6,7 @@ import React from "react";
 import { toast } from "sonner";
 import {
 	getGetApiEntriesIdQueryKey,
+	getGetApiEntriesQueryKey,
 	getPutApiEntriesIdMutationOptions,
 } from "@/api-client";
 import { useAppStore } from "@/providers/app-store-provider";
@@ -92,7 +93,7 @@ export function SaveLayer() {
 			});
 
 			queryClient.invalidateQueries({
-				queryKey: getGetApiEntriesIdQueryKey(entryId),
+				queryKey: getGetApiEntriesQueryKey(),
 			});
 		},
 		onError: (error) => {
@@ -169,6 +170,7 @@ export function SaveLayer() {
 				saveEntry();
 
 				event.preventDefault();
+
 				event.returnValue = true;
 			}
 		};
@@ -180,12 +182,20 @@ export function SaveLayer() {
 	// Track pathname changes for client-side navigation saves
 	const previousPathnameRef = React.useRef(pathname);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: don't want to re-run this effect on queryClient.invalidateQueries
 	React.useEffect(() => {
 		if (!entryId) return;
+
+		console.log("pathname changed — saving entry", pathname);
 
 		// Save when pathname changes (client-side navigation)
 		if (previousPathnameRef.current !== pathname) {
 			saveEntry();
+
+			queryClient.invalidateQueries({
+				queryKey: getGetApiEntriesIdQueryKey(entryId),
+			});
+
 			previousPathnameRef.current = pathname;
 		}
 	}, [pathname, entryId, saveEntry]);

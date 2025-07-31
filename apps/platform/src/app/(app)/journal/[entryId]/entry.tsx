@@ -51,6 +51,9 @@ export function EntryPage({ entryId }: { entryId: string }) {
 					Authorization: `Bearer ${session.access_token}`,
 				},
 			},
+			query: {
+				refetchOnMount: "always",
+			},
 		}),
 	});
 
@@ -170,13 +173,37 @@ function DocumentHeader() {
 
 function IconSelectorButton() {
 	const icon = useGlobalEntryStore((store) => store.icon);
+	const entryId = useGlobalEntryStore((store) => store.id);
 	const updateIcon = useGlobalEntryStore((store) => store.updateIcon);
+	const pinned = useGlobalEntryStore((store) => store.pinned);
+	const { pinnedResources, updatePinnedResources } = useAppStore((store) => ({
+		pinnedResources: store.pinnedResources,
+		updatePinnedResources: store.updatePinnedResources,
+	}));
 
 	return (
 		<IconSelector
+			key={entryId}
 			includeColor
 			value={icon}
-			onChange={updateIcon}
+			onChange={(icon) => {
+				updateIcon(icon);
+
+				if (pinned) {
+					const newPinnedResources = pinnedResources.entries.map((resource) => {
+						if (resource.id === entryId) {
+							return { ...resource, icon };
+						}
+
+						return resource;
+					});
+
+					updatePinnedResources({
+						...pinnedResources,
+						entries: newPinnedResources,
+					});
+				}
+			}}
 			emptyState={
 				<Button
 					variant="outline"
@@ -235,8 +262,14 @@ function AddTagButton() {
 }
 
 function TitleInput() {
+	const entryId = useGlobalEntryStore((store) => store.id);
 	const title = useGlobalEntryStore((store) => store.title);
 	const updateTitle = useGlobalEntryStore((store) => store.updateTitle);
+	const pinned = useGlobalEntryStore((store) => store.pinned);
+	const { pinnedResources, updatePinnedResources } = useAppStore((store) => ({
+		pinnedResources: store.pinnedResources,
+		updatePinnedResources: store.updatePinnedResources,
+	}));
 
 	const textareaRef = React.useRef<HTMLTextAreaElement | null>(null);
 
@@ -263,6 +296,21 @@ function TitleInput() {
 			onChange={(e) => {
 				if (e.target.value !== title) {
 					updateTitle(e.target.value);
+				}
+
+				if (pinned) {
+					const newPinnedResources = pinnedResources.entries.map((resource) => {
+						if (resource.id === entryId) {
+							return { ...resource, title: e.target.value };
+						}
+
+						return resource;
+					});
+
+					updatePinnedResources({
+						...pinnedResources,
+						entries: newPinnedResources,
+					});
 				}
 			}}
 		/>

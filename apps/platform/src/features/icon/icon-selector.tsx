@@ -57,6 +57,12 @@ export function IconSelector({
 		keyof typeof ICON_TEXT_COLOR_CLASSNAMES
 	>(parsedIcon.color ?? "primary");
 
+	React.useEffect(() => {
+		setKey(parsedIcon?.key ?? "null");
+		setWeight(parsedIcon?.weight ?? "regular");
+		setColor(parsedIcon.color ?? "primary");
+	}, [parsedIcon]);
+
 	return (
 		<Popover modal>
 			<PopoverTrigger disabled={disabled} asChild>
