@@ -64,6 +64,7 @@ By default, we have included the following precautions:
 - We only allow 1 email to sign-up to stop abuse from random people
 - The Vercel Firewall (if hosting on Vercel) should also handle malicious traffic and DDOS protection
 - We gather absolutely no telemetry
+- NextJS security headers are also setup
 
 However, there are still some things to understand:
 
@@ -78,6 +79,7 @@ However, there are still some things to understand:
 - Unlimited character count (although you should try not to beyond 20K)
 - You can extend the TipTap v3 editor if you wish (however this might cause compatibility issues)
 - Streak tracking
+- We're also using the React Compiler for maximum performance
 
 ## Roadmap
 
