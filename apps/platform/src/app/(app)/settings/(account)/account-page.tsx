@@ -38,11 +38,22 @@ import {
 import { Input } from "@/components/ui/input";
 import { useProfileMutations } from "@/mutations/use-profile-mutations";
 import { useAppStore } from "@/providers/app-store-provider";
+import { CoverPicker } from "@/features/cover/cover-picker";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { DEFAULT_PROFILE_IMAGE } from "@/constants";
+import { getCoverProps } from "jadebook";
 
 export function AccountPage() {
 	return (
 		<PageContainer title="Account">
 			<SettingsPanel>
+				<SettingsPanelSection
+					title="Profile Image"
+					description="Your profile image. Mainly used in the app sidebar."
+				>
+					<ProfileImageSection />
+				</SettingsPanelSection>
+
 				<SettingsPanelSection
 					title="Username"
 					description="Whatever you'd like us to refer to you as."
@@ -94,6 +105,61 @@ export function AccountPage() {
 				</SettingsPanel>
 			</PageSection>
 		</PageContainer>
+	);
+}
+
+function ProfileImageSection() {
+	const { profile, session } = useAppStore((store) => ({
+		profile: store.profile,
+		session: store.session,
+	}));
+
+	const { updateProfileMutation } = useProfileMutations();
+
+	return (
+		<CoverPicker
+			options={{
+				disableGallery: true,
+			}}
+			cover={profile.profile_image}
+			onValueChange={(value) => {
+				if (!value) {
+					updateProfileMutation.mutate({
+						data: {
+							profile_image: null,
+						},
+					});
+
+					return;
+				}
+
+				const cover = getCoverProps(value);
+
+				if (!cover) {
+					toast.error("Invalid cover");
+
+					return;
+				}
+
+				updateProfileMutation.mutate({
+					data: {
+						profile_image: cover.value,
+					},
+				});
+			}}
+		>
+			<button type="button">
+				<Avatar className="h-8 w-8 rounded-lg">
+					<AvatarImage
+						src={profile.profile_image || DEFAULT_PROFILE_IMAGE}
+						alt="profile image"
+					/>
+					<AvatarFallback className="rounded-lg">
+						{profile.username || session.user.email?.split("@")[0] || "User"}
+					</AvatarFallback>
+				</Avatar>
+			</button>
+		</CoverPicker>
 	);
 }
 

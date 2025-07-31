@@ -18,14 +18,19 @@ export function CoverPicker({
 	title,
 	cover,
 	onValueChange,
+	options,
 }: {
 	children?: React.ReactNode;
 	title?: string;
 	cover: string | null;
 	onValueChange: (value: string | null) => void;
+	options?: {
+		disableGallery?: boolean;
+		disableLink?: boolean;
+	};
 }) {
-	const [tab, setTab] = React.useState<"gallery" | "link" | "unsplash">(
-		"gallery",
+	const [tab, setTab] = React.useState<"gallery" | "link">(
+		options?.disableGallery ? "link" : "gallery",
 	);
 
 	return (
@@ -48,14 +53,16 @@ export function CoverPicker({
 				<Tabs
 					className="h-full flex flex-col w-full"
 					value={tab}
-					onValueChange={(value) =>
-						setTab(value as "gallery" | "link" | "unsplash")
-					}
+					onValueChange={(value) => setTab(value as "gallery" | "link")}
 				>
 					<div className="p-1 border-b bg-muted flex items-center justify-between shrink-0">
 						<TabsList>
-							<TabsTrigger value="gallery">Gallery</TabsTrigger>
-							<TabsTrigger value="link">Link</TabsTrigger>
+							{!options?.disableGallery && (
+								<TabsTrigger value="gallery">Gallery</TabsTrigger>
+							)}
+							{!options?.disableLink && (
+								<TabsTrigger value="link">Link</TabsTrigger>
+							)}
 						</TabsList>
 
 						{cover && (

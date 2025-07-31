@@ -52,8 +52,7 @@ import { settingsNavigation } from "../settings/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { EntryActionDropdown } from "./entry-dropdown";
 import { GoalActionDropdown } from "./goal-dropdown";
-// import { EntryActionDropdown } from "./entry-dropdown";
-// import { GoalActionDropdown } from "./goal-dropdown";
+import { DEFAULT_PROFILE_IMAGE } from "@/constants";
 
 export function AppSidebar() {
 	const router = useRouter();
@@ -196,11 +195,7 @@ export function AppSidebar() {
 								>
 									<Avatar className="h-8 w-8 rounded-lg">
 										<AvatarImage
-											src={
-												profile.profile_image ||
-												session.user.user_metadata.avatar_url ||
-												"https://images.unsplash.com/photo-1690321607822-669326f4e3cc?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-											}
+											src={profile.profile_image || DEFAULT_PROFILE_IMAGE}
 											alt="profile image"
 										/>
 										<AvatarFallback className="rounded-lg">
