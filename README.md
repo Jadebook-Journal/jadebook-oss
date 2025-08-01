@@ -2,10 +2,10 @@
 <br />
 <br />
 
-Jadebook is a journal platform, while we do have a proper SaaS platform, we wanted to commit to our mission about making mental health more accessible and private. That why we created an open-source version that lets you bring your own database and hosted the journal platform itself. 
+Jadebook is a journal platform, while we do have a proper SaaS platform, we wanted to commit to our mission about making mental health more accessible and private. That's why we created an open-source version that lets you bring your own database and host the journal platform yourself. 
 
 > [!IMPORTANT]
-> This is currently in `Beta` and may have bugs (although this should be rare). There also some features in the process of being developed.
+> This is currently in `Beta` and may have bugs (although this should be rare). There are also some features in the process of being developed.
 
 <h3>Benefits</h3>
 <ul>
@@ -26,7 +26,7 @@ You can click the button below. It'll take you through the steps to setting up J
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJadebook-Journal%2Fjadebook-oss&env=NEXT_PUBLIC_AUTH_IMAGE_URL,USER_EMAIL&envDescription=Auth%20image%20cannot%20be%20changed%20in%20app%2C%20this%20is%20where%20you%20can%20choose%20what%20to%20show%20for%20the%20auth%20layout.%20User%20email%20is%20the%20email%20you%20plan%20to%20use%20for%20your%20account%2C%20it%20prevents%20abuse%20from%20random%20people%20signing%20up.&project-name=jadebook-oss&repository-name=jadebook-oss&integration-ids=oac_VqOgBHqhEoFTPzGkPd7L0iH6&external-id=https%3A%2F%2Fgithub.com%2FJadebook-Journal%2Fjadebook-oss%2Ftree%2Fmain&root-directory=apps/platform)
 
 > [!NOTE]
-> Do not turn off the option to seed the database when setting up Supabase. This is required to step up the correct tables and RLS policies within Supabase.
+> Do not turn off the option to seed the database when setting up Supabase. This is required to set up the correct tables and RLS policies within Supabase.
 
 You'll notice that you need to enter the email you'll be using for your account. Jadebook OSS is not intended or setup to be used for multiple people, thus to stop random people from signing up and using your resources, we only allow 1 email to create the account. You can change the email later.
 
@@ -56,11 +56,11 @@ This is mainly for long-term (3 months plus) goals that are difficult quantify.
 
 By default, we have included the following precautions:
 
-- Supabase (DB) is never accessed on the client and is only accessible throught the API
+- Supabase (DB) is never accessed on the client and is only accessible through the API
 - The API requires an user's session token which is periodically refreshed
 - The API also handles CORS to deny unknown hosts
 - Tables have an RLS policy to only allow Anon and Authenticated roles to access data
-- Assests are loaded using signed-URLS and expire after a given time
+- Assets are loaded using signed-URLS and expire after a given time
 - We only allow 1 email to sign-up to stop abuse from random people
 - The Vercel Firewall (if hosting on Vercel) should also handle malicious traffic and DDOS protection
 - We gather absolutely no telemetry
@@ -77,7 +77,7 @@ However, there are still some things to understand:
 
 - Auth is setup by default, including password reset and email verification
 - You can export or import all your content in JSON format
-- Unlimited character count (although you should try not to beyond 20K)
+- Unlimited character count (although you should try not to go beyond 20K)
 - You can extend the TipTap v3 editor if you wish (however this might cause compatibility issues)
 - Streak tracking
 - We're also using the React Compiler for maximum performance
@@ -96,8 +96,8 @@ These are features that we definitely want in the open-source version but are mi
 We'd like to thank the following because they have helped make Jadebook really good:
 
 - [shadcn/studio](https://github.com/themeselection/shadcn-studio) -> Our theming is mostly based on the implementation in shadcn/studio
-- [Supabase](https://supabase.com/) - Supaase allows Jadebook to be possible and so easy to setup. Big thumbs up to them
-- [Coolshapes](https://coolshap.es/) - These are the nice abstract shapes you see in Jadebook. Absolute amazing and adds so much life to the app
+- [Supabase](https://supabase.com/) - Supabase allows Jadebook to be possible and so easy to setup. Big thumbs up to them
+- [Coolshapes](https://coolshap.es/) - These are the nice abstract shapes you see in Jadebook. Absolutely amazing and adds so much life to the app
 - [Hono Open API Starter](https://github.com/w3cj/hono-open-api-starter) - The way we setup our backend to use Hono and OpenAPI is heavily inspired by this starter app. Great resource.
-- [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski) - We use his image from Unsplash for alot of Jadebook stuff. We love his images btw.
+- [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski) - We use his image from Unsplash for a lot of Jadebook stuff. We love his images btw.
 
