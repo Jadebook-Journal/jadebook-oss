@@ -65,6 +65,7 @@ By default, we have included the following precautions:
 - The Vercel Firewall (if hosting on Vercel) should also handle malicious traffic and DDOS protection
 - We gather absolutely no telemetry
 - NextJS security headers are also setup
+- We've disabled search indexing so the platform won't be visible on search
 
 However, there are still some things to understand:
 

@@ -33,6 +33,7 @@ import { useAppStore } from "@/providers/app-store-provider";
 import { AssetStoreProvider, useAssetStore } from "@/providers/assets-provider";
 import { EntryEditorProvider, useEditor } from "@/providers/editor-provider";
 import { useGlobalEntryStore } from "@/stores/global-entry-store";
+import { useDocumentTitle } from "usehooks-ts";
 
 export function EntryPage({ entryId }: { entryId: string }) {
 	const { session } = useAppStore((store) => ({
@@ -285,6 +286,9 @@ function TitleInput() {
 	React.useEffect(() => {
 		resizeTextarea();
 	}, [title]);
+
+	// we need to update the document title when the title changes
+	useDocumentTitle(title || "Untitled document");
 
 	return (
 		<textarea

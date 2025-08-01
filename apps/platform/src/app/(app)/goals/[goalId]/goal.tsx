@@ -48,6 +48,7 @@ import { useAppStore } from "@/providers/app-store-provider";
 import { useAssetStore } from "@/providers/assets-provider";
 import { GoalStoreProvider, useGoalStore } from "@/providers/goal-provider";
 import { useGoalsStore } from "@/stores/goal-store";
+import { useDocumentTitle } from "usehooks-ts";
 
 export function GoalPage({ goalId }: { goalId: string }) {
 	const goals = useGoalsStore((store) => store.goals);
@@ -114,6 +115,9 @@ function InternalGoalPage() {
 	const { updateGoalMutation } = useGoalMutations({
 		goalId,
 	});
+
+	// we need to update the document title when the title changes
+	useDocumentTitle(title || "Untitled goal");
 
 	return (
 		<PageContainer

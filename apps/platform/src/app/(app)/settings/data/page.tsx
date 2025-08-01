@@ -3,10 +3,6 @@ import { DataPage } from "./data-page";
 
 export const metadata: Metadata = {
 	title: "Data",
-	robots: {
-		follow: false,
-		index: false,
-	},
 };
 
 export default function Page() {

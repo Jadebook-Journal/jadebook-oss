@@ -48,6 +48,7 @@ import { RenderTag } from "@/features/tag/tag";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/providers/app-store-provider";
 import { useJournalStore } from "@/stores/journal-store";
+import { useDocumentTitle } from "usehooks-ts";
 
 export function TagPage({ tagId }: { tagId: string }) {
 	const { tags } = useAppStore((store) => ({
@@ -65,6 +66,9 @@ export function TagPage({ tagId }: { tagId: string }) {
 }
 
 function InternalTagPage({ tag }: { tag: GetApiTags200Item }) {
+	// we need to update the document title when the title changes
+	useDocumentTitle(tag.label || "Untitled tag");
+
 	return (
 		<PageContainer
 			title={tag.label}

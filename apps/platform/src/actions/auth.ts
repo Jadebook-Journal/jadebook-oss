@@ -47,7 +47,7 @@ export const signUpAction = async (
 	}
 
 	revalidatePath("/", "layout");
-	redirect("/");
+	redirect("/sign-up-success");
 };
 
 export const signInAction = async (
