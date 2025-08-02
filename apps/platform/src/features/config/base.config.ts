@@ -11,6 +11,8 @@ export const BASE_CONFIG: AppConfig = {
 	},
 	behavior: null,
 	layout: {
+		hidePrompts: false,
+		hideGoals: false,
 		sidebarVariant: "default",
 		sidebarHiddenState: "icon",
 		monochromeIcons: false,

@@ -161,6 +161,36 @@ function SettingsGeneral() {
 						</SelectContent>
 					</Select>
 				</SettingsPanelSection>
+
+				<SettingsPanelSection
+					title="Hide Prompts"
+					description="Will hide the prompts from the home page."
+				>
+					<Switch
+						checked={config.layout.hidePrompts}
+						onCheckedChange={(checked) => {
+							updateConfig({
+								...config,
+								layout: { ...config.layout, hidePrompts: checked },
+							});
+						}}
+					/>
+				</SettingsPanelSection>
+
+				<SettingsPanelSection
+					title="Hide Goals"
+					description="Will hide the goals from the home page."
+				>
+					<Switch
+						checked={config.layout.hideGoals}
+						onCheckedChange={(checked) => {
+							updateConfig({
+								...config,
+								layout: { ...config.layout, hideGoals: checked },
+							});
+						}}
+					/>
+				</SettingsPanelSection>
 			</SettingsPanel>
 		</PageSection>
 	);

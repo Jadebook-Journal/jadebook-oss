@@ -6,6 +6,8 @@ export type AppConfig = {
 	};
 	behavior: null;
 	layout: {
+		hidePrompts: boolean;
+		hideGoals: boolean;
 		sidebarVariant: "default" | "floating" | "inset";
 		sidebarHiddenState: "offcanvas" | "icon" | "none";
 		monochromeIcons: boolean;

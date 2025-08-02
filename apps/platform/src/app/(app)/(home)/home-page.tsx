@@ -125,14 +125,16 @@ export function HomePage() {
 
 			<QuickActions />
 
-			<PageSection
-				title="Prompts"
-				description="Some recommended prompts for you to start thinking"
-			>
-				<Prompts />
-			</PageSection>
+			{!config.layout.hidePrompts && (
+				<PageSection
+					title="Prompts"
+					description="Some recommended prompts for you to start thinking"
+				>
+					<Prompts />
+				</PageSection>
+			)}
 
-			<Goals />
+			{!config.layout.hideGoals && <Goals />}
 
 			<PageSection
 				title="Journal"

@@ -1,23 +1,21 @@
 <a href="https://jadebook.app"><img width="100%" src="https://9vszty501l7eweyc.public.blob.vercel-storage.com/github-cover-O31pMgYTFSd171nxNjsyEFylQdrKTR.png" alt="Jadebook - Journal Platform" /></a>
-<br />
-<br />
 
 Jadebook is a journal platform, while we do have a proper SaaS platform, we wanted to commit to our mission about making mental health more accessible and private. That's why we created an open-source version that lets you bring your own database and host the journal platform yourself. 
 
 > [!IMPORTANT]
 > This is currently in `Beta` and may have bugs (although this should be rare). There are also some features in the process of being developed.
 
-<h3>Benefits</h3>
-<ul>
-  <li>Everything is held in Supabase, including auth, db and storage</li>
-  <li>Get search, tags, covers, icons, transciption and uploading assets</li>
-  <li>Mobile-responsive and available as a Progressive Web App (PWA)</li>
-  <li>Comes with OpenAPI spec in-case you want to build something on top</li>
-  <li>Uses NextJS so the code is fairly accessible and easy to work with</li>
-  <li>Export/Import to and from the SaaS Jadebook platform</li>
-  <li>You can one-click deploy it on Vercel for free</li>
-  <li>Rich-text editor for entries</li>
-</ul>
+## Benefits
+
+- Everything is held in Supabase, including auth, db and storage
+- Get search, tags, covers, icons, transcription and uploading assets
+- Mobile-responsive and available as a Progressive Web App (PWA)
+- Comes with OpenAPI spec in-case you want to build something on top
+- Uses NextJS so the code is fairly accessible and easy to work with
+- Export/Import to and from the SaaS Jadebook platform
+- You can one-click deploy it on Vercel for free
+- Rich-text editor for entries
+- Everything is synced across devices and platforms
 
 ## Quickstart
 

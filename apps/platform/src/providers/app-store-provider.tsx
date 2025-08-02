@@ -197,7 +197,7 @@ export function parseConfig(config: string | null | undefined): AppConfig {
 	try {
 		const parsedConfig = JSON.parse(config);
 
-		return mergeWithDefault(parsedConfig, BASE_CONFIG);
+		return mergeWithDefault(parsedConfig, BASE_CONFIG) as AppConfig;
 	} catch (error) {
 		console.error(error);
 
@@ -220,7 +220,10 @@ export function parseTheme(
 	try {
 		const parsedTheme = JSON.parse(theme);
 
-		return parsedTheme as SavedThemeSettings;
+		return mergeWithDefault(
+			parsedTheme,
+			defaultThemeState,
+		) as SavedThemeSettings;
 	} catch (error) {
 		console.error(error);
 
