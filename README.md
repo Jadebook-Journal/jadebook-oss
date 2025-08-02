@@ -2,6 +2,8 @@
 
 Jadebook is a journal platform, while we do have a proper SaaS platform, we wanted to commit to our mission about making mental health more accessible and private. That's why we created an open-source version that lets you bring your own database and host the journal platform yourself. 
 
+Check out the [Help Center](https://jadebook.featurebase.app/help) for more information.
+
 > [!IMPORTANT]
 > This is currently in `Beta` and may have bugs (although this should be rare). There are also some features in the process of being developed.
 
