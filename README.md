@@ -69,9 +69,8 @@ By default, we have included the following precautions:
 
 However, there are still some things to understand:
 
-- We do not encrypt the journal entries. The main reason to allow full-text search to work.
-- We do not handle rate-limiting
-- We are not responsible for anything that happens (since the whole point of this is that you handle everything)
+- We do not encrypt the journal entries. (Unencrypted data allows full-text search to work)
+- We do not handle rate-limiting (Although Vercel Firewall should mitigate this)
 
 ## Other Features
 
@@ -82,14 +81,9 @@ However, there are still some things to understand:
 - Streak tracking
 - We're also using the React Compiler for maximum performance
 
-## Roadmap
+## Local Development
 
-These are features that we definitely want in the open-source version but are missing:
-
-1. Upload images for covers and profile
-2. Extending Prompts
-3. Export individual entries and goals
-4. Basic statistics
+If you plan on extending the app, we recommend using Supabase locally on a docker instance (initializing Supabase from the root will run the migrations as well). You can learn more through the help center.
 
 ## Thanks and Attributions
 
