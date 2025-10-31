@@ -317,7 +317,7 @@ function PinnedEntries() {
 							return (
 								<SidebarMenuItem
 									key={entry.id}
-									className="group/item animate-in fade-in-0 slide-in-from-left-0"
+									className="group/item"
 								>
 									<SidebarMenuButton
 										isActive={entry.id === params.entryId}
@@ -382,7 +382,7 @@ function PinnedGoals() {
 							return (
 								<SidebarMenuItem
 									key={goal.id}
-									className="group/item animate-in fade-in-0 slide-in-from-left-0"
+									className="group/item"
 								>
 									<SidebarMenuButton
 										isActive={goal.id === params.goalId}
@@ -461,8 +461,8 @@ function TagsGroup() {
 														config.layout.monochromeIcons || !tag.color
 															? undefined
 															: ICON_TEXT_COLOR_CLASSNAMES[
-																	tag.color as keyof typeof ICON_TEXT_COLOR_CLASSNAMES
-																],
+															tag.color as keyof typeof ICON_TEXT_COLOR_CLASSNAMES
+															],
 														"bg-transparent",
 													)}
 												/>

@@ -1,16 +1,18 @@
-<a href="https://jadebook.app"><img width="100%" src="https://9vszty501l7eweyc.public.blob.vercel-storage.com/github-cover-O31pMgYTFSd171nxNjsyEFylQdrKTR.png" alt="Jadebook - Journal Platform" /></a>
+<a href="https://jadebook.app"><img width="100%" src="https://9vszty501l7eweyc.public.blob.vercel-storage.com/jadebook-github-cover.png" alt="Jadebook - Journal Platform" /></a>
 
-Jadebook is a journal platform, while we do have a proper SaaS platform, we wanted to commit to our mission about making mental health more accessible and private. That's why we created an open-source version that lets you bring your own database and host the journal platform yourself. 
+Jadebook is an opinionated framework for personal growth.
 
-Check out the [Help Center](https://jadebook.featurebase.app/help) for more information.
+It's a solo-dev project aimed at making journaling more accessible and experimenting with the benefits of AI in personal growth.
+
+However, journaling should be private and there aren't many open-source alternatives for a good journaling platform. Thus, we made a special version of Jadebook, one that can be easily hosted and updated.
 
 > [!IMPORTANT]
-> This is currently in `Beta` and may have bugs (although this should be rare). There are also some features in the process of being developed.
+> This is a port of the actual Jadebook project. Therefore there are feature and infrastructure differences. This version focuses primarily on the open-source journaling experience. We didn't include the AI stuff or any features added after September 2025
 
 ## Benefits
 
 - Everything is held in Supabase, including auth, db and storage
-- Get search, tags, covers, icons, transcription and uploading assets
+- Search, tags, covers, icons, transcription and uploading assets
 - Mobile-responsive and available as a Progressive Web App (PWA)
 - Comes with OpenAPI spec in-case you want to build something on top
 - Uses NextJS so the code is fairly accessible and easy to work with
@@ -83,7 +85,7 @@ However, there are still some things to understand:
 
 ## Local Development
 
-If you plan on extending the app, we recommend using Supabase locally on a docker instance (initializing Supabase from the root will run the migrations as well). You can learn more through the help center.
+If you plan on extending the app, we recommend using Supabase locally on a docker instance (initializing Supabase from the root will run the migrations as well). You'll have to add the environment variables for Supabase, and then you can do pretty much anything you want.
 
 ## Thanks and Attributions
 
