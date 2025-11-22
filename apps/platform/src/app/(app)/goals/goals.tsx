@@ -108,7 +108,9 @@ function InternalGoalsPage() {
 			}
 		>
 			{goals.length > 0 ? (
-				goals.map((goal) => <Goal key={goal.id} goal={goal} />)
+				<div className="border rounded-lg divide-y overflow-hidden">
+					{goals.map((goal) => <Goal key={goal.id} goal={goal} />)}
+				</div>
 			) : (
 				<EmptyContent
 					title="Goals"
@@ -130,39 +132,11 @@ function Goal({ goal }: { goal: GetApiGoals200Item }) {
 	const progress = getGoalProgress(goal.created_at, goal.end_date);
 
 	return (
-		<Link href={`/goals/${goal.id}`}>
-			<div className="bg-card rounded-lg border hover:border-primary p-5 flex flex-col gap-4 transition-colors ease-in-out">
-				<div className="flex items-center justify-between">
-					<div className="flex items-center gap-4 shrink-0">
-						{(() => {
-							if (!goal.icon) {
-								return (
-									<div
-										className={cn(
-											"shrink-0",
-											buttonVariants({ variant: "logo", size: "logo" }),
-										)}
-									>
-										<TargetIcon size={12} weight="duotone" />
-									</div>
-								);
-							}
-
-							const parsedIcon = getParsedIcon(goal.icon);
-
-							if (!parsedIcon || !parsedIcon.Icon) {
-								return (
-									<div
-										className={cn(
-											"shrink-0",
-											buttonVariants({ variant: "logo", size: "logo" }),
-										)}
-									>
-										<TargetIcon size={12} weight="duotone" />
-									</div>
-								);
-							}
-
+		<Link href={`/goals/${goal.id}`} className="bg-card border-b last:border-b-0 hover:bg-accent hover:text-accent-foreground p-5 flex flex-col gap-4 transition-colors ease-in-out">
+			<div className="flex items-center justify-between">
+				<div className="flex items-center gap-4 shrink-0">
+					{(() => {
+						if (!goal.icon) {
 							return (
 								<div
 									className={cn(
@@ -170,59 +144,85 @@ function Goal({ goal }: { goal: GetApiGoals200Item }) {
 										buttonVariants({ variant: "logo", size: "logo" }),
 									)}
 								>
-									<parsedIcon.Icon size={12} weight="duotone" />
+									<TargetIcon size={12} weight="duotone" />
 								</div>
 							);
-						})()}
+						}
 
-						<div className="grow">
-							<p className="text-xs italic text-muted-foreground">
-								{goal.state}
-							</p>
-							<p className="text-lg font-medium">{goal.title}</p>
-						</div>
-					</div>
+						const parsedIcon = getParsedIcon(goal.icon);
 
-					<div className="hidden @sm:block">
-						<div className="flex items-center gap-1">
-							<p className="text-xs text-muted-foreground">{progress}%</p>
-							<div className="w-24">
-								<Progress value={progress} />
+						if (!parsedIcon || !parsedIcon.Icon) {
+							return (
+								<div
+									className={cn(
+										"shrink-0",
+										buttonVariants({ variant: "logo", size: "logo" }),
+									)}
+								>
+									<TargetIcon size={12} weight="duotone" />
+								</div>
+							);
+						}
+
+						return (
+							<div
+								className={cn(
+									"shrink-0",
+									buttonVariants({ variant: "logo", size: "logo" }),
+								)}
+							>
+								<parsedIcon.Icon size={12} weight="duotone" />
 							</div>
-						</div>
+						);
+					})()}
+
+					<div className="grow">
+						<p className="text-xs italic text-muted-foreground">
+							{goal.state}
+						</p>
+						<p className="text-lg font-medium">{goal.title}</p>
 					</div>
 				</div>
 
-				{goal.description && (
-					<div>
-						<p className="text-sm text-muted-foreground">{goal.description}</p>
+				<div className="hidden @sm:block">
+					<div className="flex items-center gap-1">
+						<p className="text-xs text-muted-foreground">{progress}%</p>
+						<div className="w-24">
+							<Progress value={progress} />
+						</div>
 					</div>
-				)}
-
-				{goal.tags && goal.tags.length > 0 && (
-					<div className="flex flex-wrap gap-2">
-						{goal.tags.map((tag) => {
-							const parsedTag = tags.find((t) => t.id === tag);
-
-							if (!parsedTag) {
-								return (
-									<RenderTag
-										key={tag}
-										tag={{
-											label: "Unknown tag",
-											color: "amber",
-											icon: "tag",
-											variant: null,
-										}}
-									/>
-								);
-							}
-
-							return <RenderTag key={parsedTag.id} tag={parsedTag} />;
-						})}
-					</div>
-				)}
+				</div>
 			</div>
+
+			{goal.description && (
+				<div>
+					<p className="text-sm text-muted-foreground">{goal.description}</p>
+				</div>
+			)}
+
+			{goal.tags && goal.tags.length > 0 && (
+				<div className="flex flex-wrap gap-2">
+					{goal.tags.map((tag) => {
+						const parsedTag = tags.find((t) => t.id === tag);
+
+						if (!parsedTag) {
+							return (
+								<RenderTag
+									key={tag}
+									tag={{
+										label: "Unknown tag",
+										color: "amber",
+										icon: "tag",
+										variant: null,
+									}}
+								/>
+							);
+						}
+
+						return <RenderTag key={parsedTag.id} tag={parsedTag} />;
+					})}
+				</div>
+			)}
 		</Link>
 	);
 }
