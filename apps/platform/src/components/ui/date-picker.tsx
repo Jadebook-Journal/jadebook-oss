@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { Label } from "./label";
 
 export const actionDatePickerStyle =
-	"transition-all ease-in-out w-fit text-xs [&_svg]:size-3 [&_svg:not([class*='size-'])]:size-3 h-7 opacity-50 hover:opacity-100 border-input";
+	"transition-all ease-in-out w-fit text-xs [&_svg]:size-3 [&_svg:not([class*='size-'])]:size-3 h-8 border";
 
 export function DatePicker({
 	date,

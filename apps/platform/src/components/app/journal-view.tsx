@@ -85,7 +85,7 @@ function JournalViewList(props: { entries: GetApiEntries200DataItem[] }) {
 							>
 								<div className="flex items-center gap-2">
 									{config.layout.showItemIcon && (
-										<div className="flex items-center shrink-0 justify-center gap-1 bg-secondary text-muted-foreground size-8 rounded-lg">
+										<div className="flex items-center shrink-0 justify-center gap-1 bg-accent text-accent-foreground size-8 rounded-lg">
 											{Icon ? (
 												<Icon
 													size={16}
@@ -132,7 +132,7 @@ function JournalViewList(props: { entries: GetApiEntries200DataItem[] }) {
 							</TableCell>
 							<TableCell className="text-right">
 								<EntryActionDropdown entry={entry}>
-									<Button variant="ghost" size="iconSm">
+									<Button variant="ghost" size="icon-sm">
 										<DotsThreeIcon size={16} weight="bold" />
 									</Button>
 								</EntryActionDropdown>
@@ -273,7 +273,7 @@ function GridItem({
 								className={cn(
 									buttonVariants({
 										variant: "outline",
-										size: "iconSm",
+										size: "icon-sm",
 									}),
 									"pointer-events-none",
 								)}
@@ -352,7 +352,7 @@ function GridItem({
 
 			<div className="absolute top-4 right-4">
 				<EntryActionDropdown entry={entry}>
-					<Button variant="ghost" size="iconSm">
+					<Button variant="ghost" size="icon-sm">
 						<DotsThreeIcon size={16} weight="bold" />
 					</Button>
 				</EntryActionDropdown>

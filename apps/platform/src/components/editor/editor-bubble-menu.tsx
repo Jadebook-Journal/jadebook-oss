@@ -361,10 +361,10 @@ const LinkPreviewPanel = ({ onClear, onEdit, url }: LinkPreviewPanelProps) => {
 			<div>
 				<Separator orientation="vertical" />
 			</div>
-			<Button variant="ghost" size="icon" onClick={onEdit}>
+			<Button variant="ghost" size="icon-sm" onClick={onEdit}>
 				<PencilSimpleLineIcon size={16} weight="bold" />
 			</Button>
-			<Button variant="ghostDestructive" size="icon" onClick={onClear}>
+			<Button variant="ghost" size="icon-sm" onClick={onClear} className="hover:bg-destructive/10 hover:text-destructive">
 				<TrashIcon size={16} weight="bold" />
 			</Button>
 		</div>

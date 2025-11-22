@@ -216,7 +216,7 @@ function TagOptionsMenu({ tag }: { tag: GetApiTags200Item }) {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="action" size="iconAction">
+				<Button variant="outline" size="icon-sm">
 					<DotsThreeIcon size={16} weight="bold" />
 				</Button>
 			</DropdownMenuTrigger>
@@ -303,8 +303,8 @@ function CreateEntryButton({ tag }: { tag: GetApiTags200Item }) {
 
 	return (
 		<Button
-			variant="action"
-			size="action"
+			variant="outline"
+			size="sm"
 			onClick={() => {
 				createDocument.mutate({
 					data: {
@@ -397,7 +397,7 @@ function Goals({ tag }: { tag: GetApiTags200Item }) {
 									return (
 										<div
 											className={cn(
-												buttonVariants({ variant: "logo", size: "icon" }),
+												buttonVariants({ variant: "outline", size: "icon-sm" }),
 											)}
 										>
 											<TargetIcon size={12} weight="duotone" />
@@ -411,7 +411,7 @@ function Goals({ tag }: { tag: GetApiTags200Item }) {
 									return (
 										<div
 											className={cn(
-												buttonVariants({ variant: "logo", size: "icon" }),
+												buttonVariants({ variant: "outline", size: "icon-sm" }),
 											)}
 										>
 											<TargetIcon size={12} weight="duotone" />
@@ -422,7 +422,7 @@ function Goals({ tag }: { tag: GetApiTags200Item }) {
 								return (
 									<div
 										className={cn(
-											buttonVariants({ variant: "logo", size: "icon" }),
+											buttonVariants({ variant: "outline", size: "icon-sm" }),
 										)}
 									>
 										<parsedIcon.Icon size={12} weight="duotone" />

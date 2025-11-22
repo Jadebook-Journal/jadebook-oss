@@ -38,7 +38,7 @@ export function OptionsMenu() {
 		<>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant="action" size="iconAction">
+					<Button variant="outline" size="icon-sm">
 						<DotsThreeIcon size={16} weight="bold" />
 					</Button>
 				</DropdownMenuTrigger>

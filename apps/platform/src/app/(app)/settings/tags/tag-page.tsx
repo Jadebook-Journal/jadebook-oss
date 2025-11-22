@@ -177,7 +177,7 @@ export function SettingsTagCreate() {
 	return (
 		<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
 			<DialogTrigger asChild>
-				<Button size="action">Create tag</Button>
+				<Button variant="outline" size="sm">Create tag</Button>
 			</DialogTrigger>
 
 			<DialogContent>
@@ -306,7 +306,7 @@ export function SettingsTagCreate() {
 												}
 												// we don't use color for tag icons since the color is tracked by the tag color
 												valueState={({ Icon, weight, key }) => (
-													<Button variant="select">
+													<Button variant="outline" className="border-input">
 														<Icon size={12} weight={weight} />
 														<span className="capitalize">
 															{key.replaceAll("_", " ")}
@@ -633,7 +633,7 @@ export function SettingsTagEdit({
 												}
 												// we don't use color for tag icons since the color is tracked by the tag color
 												valueState={({ Icon, weight, key }) => (
-													<Button variant="select">
+													<Button variant="outline" className="border-input">
 														<Icon size={12} weight={weight} />
 														<span className="capitalize">
 															{key.replaceAll("_", " ")}

@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 export function RandomizerButton({ randomize }: { randomize: () => void }) {
 	return (
 		<Button
-			size="action"
-			variant="default"
+			size="sm"
+			variant="outline"
 			onClick={randomize}
 			className="cursor-pointer"
 		>

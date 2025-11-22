@@ -49,6 +49,8 @@ import { useAssetStore } from "@/providers/assets-provider";
 import { GoalStoreProvider, useGoalStore } from "@/providers/goal-provider";
 import { useGoalsStore } from "@/stores/goal-store";
 import { useDocumentTitle } from "usehooks-ts";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { ButtonGroup } from "@/components/ui/button-group";
 
 export function GoalPage({ goalId }: { goalId: string }) {
 	const goals = useGoalsStore((store) => store.goals);
@@ -56,12 +58,8 @@ export function GoalPage({ goalId }: { goalId: string }) {
 	const goal = goals.find((goal) => goal.id === goalId);
 
 	if (!goal) {
-		console.log("Goal not found in store, loading from API");
-
 		return <LoadGoalPage goalId={goalId} />;
 	}
-
-	console.log("Goal found in store, loading from store", goals);
 
 	return (
 		<GoalStoreProvider initialState={{ ...goal }}>
@@ -124,10 +122,13 @@ function InternalGoalPage() {
 			title={title}
 			actions={
 				<div className="flex items-center gap-2">
-					<AddAssetButton />
-					<AddGoalTag />
 					<GoalEndDate />
-					<GoalOptionsMenu />
+
+					<ButtonGroup>
+						<AddAssetButton />
+						<AddGoalTag />
+						<GoalOptionsMenu />
+					</ButtonGroup>
 				</div>
 			}
 			externalContent={
@@ -135,14 +136,20 @@ function InternalGoalPage() {
 			}
 		>
 			<div className="flex items-center justify-between">
+				{state === "archived" &&
+					<Alert>
+						<AlertTitle>Archived</AlertTitle>
+						<AlertDescription>
+							This goal is archived. You can still view it, but you cannot edit
+							it.
+						</AlertDescription>
+					</Alert>
+				}
+
 				<div className="flex items-center gap-4 shrink-0">
 					<IconSelectorButton />
 
-					<div className="grow space-y-0.5">
-						<p className="text-xs italic text-muted-foreground">{state}</p>
-
-						<GoalTitle />
-					</div>
+					<GoalTitle />
 				</div>
 
 				<div className="hidden @sm:block">
@@ -228,7 +235,7 @@ function IconSelectorButton() {
 				});
 			}}
 			emptyState={
-				<Button variant="logo" size="logo" className="hover:border-primary">
+				<Button variant="outline" size="icon-lg" className="hover:border-primary">
 					<TargetIcon
 						size={24}
 						weight="bold"
@@ -237,7 +244,7 @@ function IconSelectorButton() {
 				</Button>
 			}
 			valueState={({ Icon, color, weight }) => (
-				<Button variant="logo" size="logo" className="hover:border-primary">
+				<Button variant="outline" size="icon-lg" className="hover:border-primary">
 					<Icon
 						size={24}
 						weight={weight}
@@ -351,13 +358,13 @@ function AddGoalTag() {
 	return (
 		<>
 			<Button
-				variant="action"
-				size="action"
+				variant="outline"
+				size="icon-sm"
 				onClick={() => {
 					setOpen(true);
 				}}
 			>
-				<TagIcon /> Add Tag
+				<TagIcon />
 			</Button>
 
 			<TagSelectorCommandMenu
@@ -395,7 +402,7 @@ function GoalOptionsMenu() {
 		<>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant="action" size="iconAction">
+					<Button variant="outline" size="icon-sm">
 						<DotsThreeIcon size={16} weight="bold" />
 					</Button>
 				</DropdownMenuTrigger>
@@ -502,13 +509,13 @@ function AddAssetButton() {
 	return (
 		<>
 			<Button
-				variant="action"
-				size="action"
+				variant="outline"
+				size="icon-sm"
 				onClick={() => {
 					setOpen(true);
 				}}
 			>
-				<UploadSimpleIcon /> Add Asset
+				<UploadSimpleIcon />
 			</Button>
 
 			<UploadAssetDialog

@@ -73,7 +73,7 @@ export function ExportDialog() {
 	return (
 		<Dialog open={open} onOpenChange={setOpen}>
 			<DialogTrigger asChild>
-				<Button size="action">Export</Button>
+				<Button variant="outline" size="sm">Export</Button>
 			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>

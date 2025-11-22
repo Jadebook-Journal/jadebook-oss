@@ -28,6 +28,7 @@ import { RandomizerButton } from "@/features/theme/randomizer-button";
 import { useThemeHelpers } from "@/features/theme/use-theme-helpers";
 import { useAppStore } from "@/providers/app-store-provider";
 import type { SavedThemeSettings, ThemeStyleProps } from "@/types/theme";
+import { ButtonGroup } from "@/components/ui/button-group";
 
 export function ThemePage() {
 	return (
@@ -106,7 +107,7 @@ const ThemePresets = () => {
 		<PageSection
 			title="Theme Presets"
 			actions={
-				<>
+				<ButtonGroup>
 					<CssImportDialog
 						open={importDialogOpen}
 						onOpenChange={setImportDialogOpen}
@@ -115,7 +116,7 @@ const ThemePresets = () => {
 						}}
 					/>
 					<RandomizerButton randomize={randomize} />
-				</>
+				</ButtonGroup>
 			}
 		>
 			<SettingsPanel>

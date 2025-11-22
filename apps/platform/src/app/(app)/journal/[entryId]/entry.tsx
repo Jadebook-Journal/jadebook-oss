@@ -215,7 +215,7 @@ function IconSelectorButton() {
 				</Button>
 			}
 			valueState={({ Icon, color, weight }) => (
-				<Button variant="logo" size="logo">
+				<Button variant="outline" size="icon-lg">
 					<Icon
 						size={24}
 						weight={weight}

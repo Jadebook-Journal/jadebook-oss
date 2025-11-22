@@ -10,9 +10,9 @@ import { useGlobalEntryStore } from "@/stores/global-entry-store";
 
 export const EntryEditorContext = React.createContext<
 	| {
-			editor: Editor;
-			disabled: boolean;
-	  }
+		editor: Editor;
+		disabled: boolean;
+	}
 	| undefined
 >(undefined);
 

@@ -4,6 +4,7 @@ import {
 	DotsThreeIcon,
 	MinusIcon,
 	PencilLineIcon,
+	PlusIcon,
 	TrashIcon,
 	TrendDownIcon,
 	TrendUpIcon,
@@ -120,7 +121,7 @@ export function LogSection() {
 				<Button
 					disabled={logsQuery.isFetching}
 					variant="outline"
-					size="action"
+					size="icon-sm"
 					onClick={() => {
 						// we create a transient log to be used for the editor
 						// but then we handle the actual creation later
@@ -138,7 +139,7 @@ export function LogSection() {
 						setActiveLogId(newLog.id);
 					}}
 				>
-					Add log
+					<PlusIcon />
 				</Button>
 			}
 		>
@@ -212,10 +213,10 @@ const statusOptions: {
 	label: string;
 	Icon: React.ElementType;
 }[] = [
-	{ value: "neutral", label: "Neutral", Icon: MinusIcon },
-	{ value: "good", label: "On Track", Icon: TrendUpIcon },
-	{ value: "bad", label: "Off Track", Icon: TrendDownIcon },
-];
+		{ value: "neutral", label: "Neutral", Icon: MinusIcon },
+		{ value: "good", label: "On Track", Icon: TrendUpIcon },
+		{ value: "bad", label: "Off Track", Icon: TrendDownIcon },
+	];
 
 export function RatingSelector({
 	log,
@@ -382,7 +383,7 @@ function LogEditor({ log }: { log: GetApiGoalGoalIdLogs200DataItem }) {
 			>
 				<Button
 					variant="outline"
-					size="action"
+					size="sm"
 					onClick={() => {
 						const parsedContent = handleEditorContent(content);
 
@@ -402,7 +403,7 @@ function LogEditor({ log }: { log: GetApiGoalGoalIdLogs200DataItem }) {
 				</Button>
 
 				<Button
-					size="action"
+					size="sm"
 					variant="default"
 					onClick={() => {
 						if (internalContent) {
@@ -453,7 +454,7 @@ function LogOptionsMenu({ log }: { log: GetApiGoalGoalIdLogs200DataItem }) {
 		<>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant="action" size="iconAction">
+					<Button variant="outline" size="icon-sm">
 						<DotsThreeIcon size={16} weight="bold" />
 					</Button>
 				</DropdownMenuTrigger>

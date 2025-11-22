@@ -120,6 +120,7 @@ function ProfileImageSection() {
 		<CoverPicker
 			options={{
 				disableGallery: true,
+				removeLabel: "Remove link",
 			}}
 			cover={profile.profile_image}
 			onValueChange={(value) => {

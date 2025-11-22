@@ -105,7 +105,7 @@ export function Dropzone({
 						<h4 className="text-sm font-medium">
 							Uploaded Files ({value.length})
 						</h4>
-						<Button variant="outline" size="action" onClick={clearFiles}>
+						<Button variant="outline" size="sm" onClick={clearFiles}>
 							Clear All
 						</Button>
 					</div>

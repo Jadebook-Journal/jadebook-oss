@@ -75,7 +75,7 @@ export const ColorPicker = ({ color, onChange, onClear }: ColorPickerProps) => {
 				<Button
 					tooltip="Reset color to default"
 					onClick={onClear}
-					size="iconSm"
+					size="icon-sm"
 					variant="ghost"
 				>
 					<ArrowArcLeftIcon size={12} weight="bold" />

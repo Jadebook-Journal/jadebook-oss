@@ -27,6 +27,7 @@ export function CoverPicker({
 	options?: {
 		disableGallery?: boolean;
 		disableLink?: boolean;
+		removeLabel?: string;
 	};
 }) {
 	const [tab, setTab] = React.useState<"gallery" | "link">(
@@ -39,7 +40,7 @@ export function CoverPicker({
 				{children ? (
 					children
 				) : (
-					<Button variant="secondary" size="action">
+					<Button variant="default" size="sm">
 						{title || "Edit cover"}
 					</Button>
 				)}
@@ -68,10 +69,10 @@ export function CoverPicker({
 						{cover && (
 							<Button
 								variant="link"
-								size="action"
+								size="sm"
 								onClick={() => onValueChange(null)}
 							>
-								Remove cover
+								{options?.removeLabel || "Remove cover"}
 							</Button>
 						)}
 					</div>

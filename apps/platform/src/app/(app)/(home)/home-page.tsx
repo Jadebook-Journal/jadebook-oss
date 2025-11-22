@@ -392,16 +392,9 @@ function Goals() {
 						>
 							<div className="flex items-center justify-between">
 								{(() => {
-									// TODO: remove this once we have a proper icon management
 									if (!goal.icon || goal.icon.length < 3) {
 										return (
-											<div
-												className={cn(
-													buttonVariants({ variant: "logo", size: "icon" }),
-												)}
-											>
-												<TargetIcon size={12} weight="duotone" />
-											</div>
+											<TargetIcon size={16} weight="duotone" />
 										);
 									}
 
@@ -409,24 +402,12 @@ function Goals() {
 
 									if (!parsedIcon || !parsedIcon.Icon) {
 										return (
-											<div
-												className={cn(
-													buttonVariants({ variant: "logo", size: "icon" }),
-												)}
-											>
-												<TargetIcon size={12} weight="duotone" />
-											</div>
+											<TargetIcon size={16} weight="duotone" />
 										);
 									}
 
 									return (
-										<div
-											className={cn(
-												buttonVariants({ variant: "logo", size: "icon" }),
-											)}
-										>
-											<parsedIcon.Icon size={12} weight="duotone" />
-										</div>
+										<parsedIcon.Icon size={16} weight="duotone" />
 									);
 								})()}
 

@@ -18,9 +18,8 @@ export function ThemeExportButton() {
 
 	return (
 		<Button
-			variant="secondary"
-			value="action"
-			size="action"
+			variant="outline"
+			size="sm"
 			onClick={() => {
 				navigator.clipboard.writeText(
 					generateThemeCode({
@@ -58,8 +57,8 @@ export function ThemeSaveButton() {
 
 	return (
 		<Button
-			value="action"
-			size="action"
+			variant="outline"
+			size="sm"
 			disabled={isDisabled}
 			onClick={handleSave}
 		>
@@ -91,8 +90,8 @@ export function ConfigSaveButton() {
 
 	return (
 		<Button
-			value="action"
-			size="action"
+			variant="outline"
+			size="sm"
 			disabled={isDisabled}
 			onClick={handleSave}
 		>

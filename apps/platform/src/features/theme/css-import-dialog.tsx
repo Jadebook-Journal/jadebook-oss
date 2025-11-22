@@ -69,7 +69,7 @@ const CssImportDialog = ({
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogTrigger asChild>
-				<Button size="action" variant="secondary">
+				<Button variant="outline" size="sm">
 					<FileCodeIcon />
 					Import
 				</Button>

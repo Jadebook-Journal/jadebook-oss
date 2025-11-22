@@ -141,7 +141,7 @@ function Goal({ goal }: { goal: GetApiGoals200Item }) {
 								<div
 									className={cn(
 										"shrink-0",
-										buttonVariants({ variant: "logo", size: "logo" }),
+										buttonVariants({ variant: 'outline', size: "icon-lg" }),
 									)}
 								>
 									<TargetIcon size={12} weight="duotone" />
@@ -156,7 +156,7 @@ function Goal({ goal }: { goal: GetApiGoals200Item }) {
 								<div
 									className={cn(
 										"shrink-0",
-										buttonVariants({ variant: "logo", size: "logo" }),
+										buttonVariants({ variant: 'outline', size: "icon-lg" }),
 									)}
 								>
 									<TargetIcon size={12} weight="duotone" />
@@ -168,7 +168,7 @@ function Goal({ goal }: { goal: GetApiGoals200Item }) {
 							<div
 								className={cn(
 									"shrink-0",
-									buttonVariants({ variant: "logo", size: "logo" }),
+									buttonVariants({ variant: 'outline', size: "icon-lg" }),
 								)}
 							>
 								<parsedIcon.Icon size={12} weight="duotone" />
@@ -287,7 +287,7 @@ function CreateGoalButton() {
 	return (
 		<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
 			<DialogTrigger asChild>
-				<Button size="action">Create goal</Button>
+				<Button size="sm">Create goal</Button>
 			</DialogTrigger>
 
 			<DialogContent>
@@ -312,12 +312,12 @@ function CreateGoalButton() {
 											value={field.value || null}
 											onChange={field.onChange}
 											emptyState={
-												<Button variant="logo" size="logo">
+												<Button variant="outline" size="icon-lg">
 													<TargetIcon size={12} weight="duotone" />
 												</Button>
 											}
 											valueState={({ Icon, weight, color }) => (
-												<Button variant="logo" size="logo">
+												<Button variant="outline" size="icon-lg">
 													<Icon size={12} weight={weight} color={color} />
 												</Button>
 											)}

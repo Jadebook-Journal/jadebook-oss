@@ -284,7 +284,7 @@ export function SidebarToggle() {
 		<Button
 			tooltip="Toggle Sidebar"
 			variant="ghost"
-			size="iconSm"
+			size="icon-sm"
 			onClick={toggleSidebar}
 		>
 			<SidebarSimpleIcon size={16} weight="bold" />
