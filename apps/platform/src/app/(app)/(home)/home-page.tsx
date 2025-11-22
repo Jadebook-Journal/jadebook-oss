@@ -235,7 +235,7 @@ function QuickActions() {
 			{actions.map((action) => (
 				<button
 					key={action.title}
-					className="bg-card border rounded-lg p-4 flex flex-col justify-between gap-4 h-full group"
+					className="bg-card hover:bg-accent hover:text-accent-foreground border rounded-lg p-4 flex flex-col justify-between gap-4 h-full group transition-colors ease-in-out"
 					type="button"
 					onClick={action.onClick}
 				>
@@ -308,7 +308,7 @@ function Prompts() {
 					<button
 						// biome-ignore lint/suspicious/noArrayIndexKey: prompts are a string[] and thus, do not have unique keys attached to them
 						key={`prompt-${index}`}
-						className="bg-card border rounded-lg p-4 flex flex-col justify-between gap-4 h-full group text-start"
+						className="bg-card hover:bg-accent hover:text-accent-foreground border rounded-lg p-4 flex flex-col justify-between gap-4 h-full group text-start transition-colors ease-in-out"
 						type="button"
 						onClick={() => {
 							createEntryMutation.mutate({
@@ -319,17 +319,6 @@ function Prompts() {
 							});
 						}}
 					>
-						<div className="flex items-center justify-between">
-							<p className="text-xs font-medium flex items-center gap-1 text-muted-foreground">
-								<QuestionIcon size={12} weight="duotone" /> Static
-							</p>
-
-							<ArrowRightIcon
-								size={12}
-								weight="bold"
-								className="text-primary @md:opacity-0 group-hover:opacity-100 transition-opacity ease-in-out"
-							/>
-						</div>
 						<p className="text-xs font-medium">{prompt}</p>
 					</button>
 				));
@@ -397,7 +386,7 @@ function Goals() {
 					return goalsQuery.data.data.map((goal) => (
 						<Link
 							key={goal.id}
-							className="bg-card border rounded-lg p-4 flex flex-col justify-between gap-4 h-full group text-start"
+							className="bg-card hover:bg-accent hover:text-accent-foreground border rounded-lg p-4 flex flex-col justify-between gap-4 h-full group text-start transition-colors ease-in-out"
 							type="button"
 							href={`/goals/${goal.id}`}
 						>
