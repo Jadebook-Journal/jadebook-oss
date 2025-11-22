@@ -217,7 +217,9 @@ function SettingsTheme() {
 				key === "font-sans" ||
 				key === "font-serif" ||
 				key === "font-mono" ||
-				key === "radius"
+				key === "radius" ||
+				key === "spacing" ||
+				key === "letter-spacing"
 			) {
 				updateBothThemes({ [key]: value });
 
@@ -299,8 +301,8 @@ function SettingsTheme() {
 					*/}
 
 					<SettingsPanelSection
-						title="Letter Spacing"
 						description={currentTheme["letter-spacing"] || "0em"}
+						title="Letter Spacing"
 					>
 						<Slider
 							className="max-w-1/2"
@@ -309,12 +311,12 @@ function SettingsTheme() {
 									? parseFloat(currentTheme["letter-spacing"])
 									: 0,
 							]}
-							min={-0.25}
-							max={0.25}
-							step={0.025}
+							max={0.1}
+							min={-0.1}
 							onValueChange={(value) => {
 								updateStyle("letter-spacing", `${value[0]}em`);
 							}}
+							step={0.025}
 						/>
 					</SettingsPanelSection>
 				</SettingsPanel>

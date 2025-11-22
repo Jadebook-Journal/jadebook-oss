@@ -16,6 +16,7 @@ import { getParsedIcon } from "jadebook/react";
 import React from "react";
 import { useEntryMutations } from "@/mutations/use-entry-mutations";
 import { useAppStore } from "@/providers/app-store-provider";
+import { format } from "date-fns";
 
 export const commandGroups = [
 	"App",
@@ -65,6 +66,21 @@ export const useBaseCommands = () => {
 					createEntryMutation.mutate({
 						data: {
 							title: "",
+							type: "entry",
+						},
+					});
+				},
+			},
+			{
+				id: "create-daily-entry",
+				title: "Create daily journal entry",
+				Icon: PlusIcon,
+				type: "action",
+				group: "Actions",
+				onClick: () => {
+					createEntryMutation.mutate({
+						data: {
+							title: format(new Date(), "dd MMMM, yyyy"),
 							type: "entry",
 						},
 					});

@@ -29,7 +29,7 @@ const generateTrackingVariables = (themeStyles: ThemeStyles): string => {
 	}
 
 	return `
-
+  
   --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
   --tracking-tight: calc(var(--tracking-normal) - 0.025em);
   --tracking-normal: var(--tracking-normal);
