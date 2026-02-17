@@ -1,4 +1,4 @@
-<a href="https://jadebook.app"><img width="100%" src="https://9vszty501l7eweyc.public.blob.vercel-storage.com/jadebook-github-cover.png" alt="Jadebook - Journal Platform" /></a>
+<a href="https://jadebook.app"><img width="100%" src="https://9vszty501l7eweyc.public.blob.vercel-storage.com/oss-github-cover.png" alt="Jadebook - Journal Platform" /></a>
 
 Jadebook is an opinionated framework for personal growth.
 
@@ -7,7 +7,7 @@ It's a solo-dev project aimed at making journaling more accessible and experimen
 However, journaling should be private and there aren't many open-source alternatives for a good journaling platform. Thus, we made a special version of Jadebook, one that can be easily hosted and updated.
 
 > [!IMPORTANT]
-> This is a port of the actual Jadebook project. Therefore there are feature and infrastructure differences. This version focuses primarily on the open-source journaling experience. We didn't include the AI stuff or any features added after September 2025
+> This is a separate open-source version of the actual Jadebook project. Therefore there are feature and infrastructure differences. This version focuses primarily on the open-source journaling experience. We didn't include the AI stuff or any features added after September 2025. We do however, aim to retain compatibility with the imports/exports for content.
 
 ## Benefits
 
